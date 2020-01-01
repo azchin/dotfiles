@@ -1,0 +1,10 @@
+ws-icon-0 = 10;%{T2}%{F#6cac4d}%{F-}%{T-}
+ws-icon-1 = 1;%{T2}%{F#fba922}%{F-}%{T-}
+ws-icon-2 = 2;%{T2}%{F#fe5332}%{F-}%{T-}
+ws-icon-3 = 3;%{T3}3%{T-}
+ws-icon-4 = 4;%{T3}4%{T-}
+ws-icon-5 = 5;%{T3}5%{T-}
+ws-icon-6 = 6;%{T3}6%{T-}
+ws-icon-7 = 7;%{T3}7%{T-}
+ws-icon-8 = 8;%{T3}8%{T-}
+ws-icon-9 = 9;%{T2}%{F#ff0000}%{F-}%{T-}

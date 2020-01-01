@@ -1,0 +1,20 @@
+# configuration file for betterlockscreen
+
+insidecolor=00000000
+ringcolor=eddaecff
+#keyhlcolor=d23c3dff
+#bshlcolor=d23c3dff
+keyhlcolor=ff00ffff
+bshlcolor=ff00ffff
+separatorcolor=00000000
+insidevercolor=00000000
+#insidewrongcolor=d23c3dff
+insidewrongcolor=ff00ffff
+ringvercolor=eddaecff
+ringwrongcolor=eddaecff
+verifcolor=eddaecff
+timecolor=eddaecff
+datecolor=eddaecff
+loginbox=00000066
+#font='monospace'
+locktext='Andrew Chin'

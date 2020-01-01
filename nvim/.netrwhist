@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/andrew/.config/polybar'
+let g:netrw_dirhist_2='/home/andrew/scripts/configs'
+let g:netrw_dirhist_1='/home/andrew/.w3m'
+let g:netrw_dirhist_0='/home/andrew/Desktop/man'
+let g:netrw_dirhist_9='/home/andrew/.oh-my-zsh/plugins'
+let g:netrw_dirhist_8='/home/andrew/.oh-my-zsh'
+let g:netrw_dirhist_7='/home/andrew/.config/.mono/keypairs'
+let g:netrw_dirhist_6='/home/andrew/.config/.mono'
+let g:netrw_dirhist_5='/home/andrew/.config/xfce4/xfconf/xfce-perchannel-xml'
+let g:netrw_dirhist_4='/home/andrew/.config/xfce4/xfconf'
