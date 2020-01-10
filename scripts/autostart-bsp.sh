@@ -19,7 +19,8 @@ xsetroot -cursor_name left_ptr
 setxkbmap -option caps:escape_shifted_capslock
 ~/scripts/setbg.sh
 picom -b
-xss-lock --transfer-sleep-lock -- ~/scripts/lock.sh & 
+xss-lock --transfer-sleep-lock ~/scripts/lock.sh & 
+#xss-lock --transfer-sleep-lock slock &
 tmux new -s andrew -d 
 
 # polybar

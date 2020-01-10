@@ -35,4 +35,3 @@ alias rez='systemctl reboot'
 alias hib='systemctl hibernate'
 
 alias g++14="g++ -std=c++14 -Wall -g"
-alias uwssh="ssh -Y a29chin@linux.student.cs.uwaterloo.ca"

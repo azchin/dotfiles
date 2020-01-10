@@ -21,10 +21,10 @@ bspc config borderless_monocle   true
 #bspc config gapless_monocle      true
 bspc config single_monocle       true
 bspc config focus_follows_pointer true
-bspc config pointer_follows_focus true
-bspc config pointer_action_1 "focus"
-bspc config pointer_action_2 "resize_corner"
-bspc config pointer_action_3 "resize_side"
+#bspc config pointer_follows_focus true
+bspc config pointer_action1 "move"
+bspc config pointer_action2 "none"
+bspc config pointer_action3 "resize_corner"
 bspc config click_to_focus       any
 bspc config automatic_scheme     "longest_side"
 

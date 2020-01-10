@@ -513,3 +513,224 @@ Jan 01 02:24 : exception: OutputThread could not get realtime scheduling, contin
 Jan 01 02:24 : client: [2] opened from 127.0.0.1:49872
 Jan 01 02:24 : player: played "Osu/Camellia - EXiT this Earth's Atomosphere.mp3"
 Jan 01 02:24 : client: [2] closed
+Jan 01 03:21 : client: [0] closed
+Jan 01 03:21 : client: [3] opened from 127.0.0.1:50430
+Jan 01 03:50 : client: [4] opened from 127.0.0.1:50956
+Jan 01 03:50 : client: [4] closed
+Jan 01 03:56 : player: played "Osu/Camellia - EXiT this Earth's Atomosphere.mp3"
+Jan 01 03:56 : client: [3] closed
+Jan 01 14:50 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 01 14:50 : client: [0] opened from 127.0.0.1:33702
+Jan 01 15:47 : client: [0] closed
+Jan 01 15:47 : client: [1] opened from 127.0.0.1:34484
+Jan 01 16:07 : client: [1] closed
+Jan 01 16:07 : client: [2] opened from 127.0.0.1:34568
+Jan 01 17:54 : client: [2] closed
+Jan 02 01:45 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 02 01:45 : client: [0] opened from 127.0.0.1:35856
+Jan 02 01:48 : client: [0] closed
+Jan 02 01:48 : client: [1] opened from 127.0.0.1:35940
+Jan 02 01:49 : client: [1] closed
+Jan 02 01:49 : client: [2] opened from 127.0.0.1:35960
+Jan 02 01:50 : client: [2] closed
+Jan 02 01:50 : client: [3] opened from 127.0.0.1:35962
+Jan 02 01:51 : client: [3] closed
+Jan 02 01:51 : client: [4] opened from 127.0.0.1:35976
+Jan 02 01:51 : client: [4] closed
+Jan 02 01:51 : client: [5] opened from 127.0.0.1:35978
+Jan 02 01:52 : client: [5] closed
+Jan 02 01:52 : client: [6] opened from 127.0.0.1:35980
+Jan 02 01:52 : client: [6] closed
+Jan 02 01:52 : client: [7] opened from 127.0.0.1:35982
+Jan 02 01:53 : client: [7] closed
+Jan 02 01:53 : client: [8] opened from 127.0.0.1:35984
+Jan 02 01:53 : client: [8] closed
+Jan 02 01:53 : client: [9] opened from 127.0.0.1:35986
+Jan 02 04:54 : client: [9] closed
+Jan 02 15:05 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 02 15:05 : client: [0] opened from 127.0.0.1:50786
+Jan 02 19:35 : client: [1] opened from 127.0.0.1:52132
+Jan 02 19:35 : exception: Failed to decode /home/andrew/music/Camellia feat. Yukacco - Be Wild Trap.mp3
+Jan 02 19:35 : exception: nested: Failed to open '/home/andrew/music/Camellia feat. Yukacco - Be Wild Trap.mp3': No such file or directory
+Jan 02 19:35 : client: [1] closed
+Jan 02 19:35 : player: played "Camellia feat. Yukacco - Be Wild Trap.mp3"
+Jan 02 19:35 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 02 19:35 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 02 19:38 : player: played "2018/bass slut.mp3"
+Jan 02 19:41 : client: [2] opened from 127.0.0.1:52302
+Jan 02 19:41 : player: played "Osu/Camellia - EXiT this Earth's Atomosphere.mp3"
+Jan 02 19:41 : client: [2] closed
+Jan 02 20:13 : client: [0] closed
+Jan 02 20:13 : client: [3] opened from 127.0.0.1:52488
+Jan 02 20:15 : client: [3] closed
+Jan 02 20:15 : client: [4] opened from 127.0.0.1:52492
+Jan 02 20:47 : client: [4] closed
+Jan 04 12:31 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 04 12:32 : client: [0] opened from 127.0.0.1:46690
+Jan 04 12:38 : client: [0] closed
+Jan 04 12:46 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 04 12:46 : client: [0] opened from 127.0.0.1:54054
+Jan 04 12:55 : client: [0] closed
+Jan 04 16:42 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 04 16:42 : client: [0] opened from 127.0.0.1:36782
+Jan 04 17:45 : client: [0] closed
+Jan 04 17:45 : client: [1] opened from 127.0.0.1:38896
+Jan 04 17:45 : client: [1] closed
+Jan 04 17:45 : client: [2] opened from 127.0.0.1:38900
+Jan 04 17:47 : client: [2] closed
+Jan 04 17:47 : client: [3] opened from 127.0.0.1:38912
+Jan 04 17:49 : client: [3] closed
+Jan 04 17:49 : client: [4] opened from 127.0.0.1:38918
+Jan 04 17:50 : client: [4] closed
+Jan 04 17:50 : client: [5] opened from 127.0.0.1:38920
+Jan 04 23:47 : client: [5] closed
+Jan 04 23:47 : client: [6] opened from 127.0.0.1:41194
+Jan 05 00:00 : client: [6] closed
+Jan 05 00:00 : client: [7] opened from 127.0.0.1:41232
+Jan 05 00:33 : client: [7] closed
+Jan 05 00:36 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 05 00:36 : client: [0] opened from 127.0.0.1:34434
+Jan 05 00:47 : client: [0] closed
+Jan 05 13:47 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 05 13:47 : client: [0] opened from 127.0.0.1:60994
+Jan 05 17:29 : client: [0] closed
+Jan 05 20:08 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 05 20:08 : client: [0] opened from 127.0.0.1:55544
+Jan 05 21:41 : client: [0] closed
+Jan 05 22:09 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 05 22:09 : client: [0] opened from 127.0.0.1:52490
+Jan 05 23:05 : client: [0] closed
+Jan 06 13:01 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 06 13:01 : client: [0] opened from 127.0.0.1:48728
+Jan 06 17:55 : client: [0] closed
+Jan 06 17:55 : client: [1] opened from 127.0.0.1:49060
+Jan 06 18:03 : client: [1] closed
+Jan 06 18:03 : client: [2] opened from 127.0.0.1:49212
+Jan 06 21:27 : client: [2] closed
+Jan 06 21:27 : client: [3] opened from 127.0.0.1:50828
+Jan 06 22:50 : client: [3] closed
+Jan 06 22:51 : client: [4] opened from 127.0.0.1:53758
+Jan 06 23:07 : client: [4] closed
+Jan 07 14:56 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 07 14:56 : client: [0] opened from 127.0.0.1:55630
+Jan 07 18:51 : client: [0] closed
+Jan 07 18:51 : client: [1] opened from 127.0.0.1:57854
+Jan 07 19:58 : client: [1] closed
+Jan 07 19:58 : client: [2] opened from 127.0.0.1:58556
+Jan 07 21:56 : client: [2] closed
+Jan 07 21:56 : client: [3] opened from 127.0.0.1:59896
+Jan 07 21:56 : client: [3] closed
+Jan 07 21:56 : client: [4] opened from 127.0.0.1:59902
+Jan 07 23:07 : client: [4] closed
+Jan 07 23:07 : client: [5] opened from 127.0.0.1:60220
+Jan 07 23:08 : client: [5] closed
+Jan 07 23:08 : client: [6] opened from 127.0.0.1:60230
+Jan 07 23:10 : client: [6] closed
+Jan 07 23:10 : client: [7] opened from 127.0.0.1:60250
+Jan 07 23:11 : client: [7] closed
+Jan 07 23:11 : client: [8] opened from 127.0.0.1:60282
+Jan 07 23:12 : client: [8] closed
+Jan 07 23:12 : client: [9] opened from 127.0.0.1:60286
+Jan 07 23:13 : client: [9] closed
+Jan 07 23:14 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 07 23:14 : client: [0] opened from 127.0.0.1:53678
+Jan 07 23:58 : client: [0] closed
+Jan 07 23:58 : client: [1] opened from 127.0.0.1:54266
+Jan 08 00:32 : client: [1] closed
+Jan 08 00:32 : client: [2] opened from 127.0.0.1:55558
+Jan 08 02:08 : client: [2] closed
+Jan 08 10:15 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 08 10:15 : client: [0] opened from 127.0.0.1:34876
+Jan 08 12:05 : client: [0] closed
+Jan 08 12:05 : client: [1] opened from 127.0.0.1:36426
+Jan 08 12:05 : client: [1] closed
+Jan 08 12:05 : client: [2] opened from 127.0.0.1:36428
+Jan 08 15:20 : client: [2] closed
+Jan 08 15:20 : client: [3] opened from 127.0.0.1:36906
+Jan 08 15:26 : client: [3] closed
+Jan 08 15:26 : client: [4] opened from 127.0.0.1:37182
+Jan 08 15:27 : client: [4] closed
+Jan 08 15:27 : client: [5] opened from 127.0.0.1:37242
+Jan 08 15:27 : client: [5] closed
+Jan 08 15:27 : client: [6] opened from 127.0.0.1:37244
+Jan 08 15:51 : client: [6] closed
+Jan 08 15:51 : client: [7] opened from 127.0.0.1:37540
+Jan 08 15:51 : client: [7] closed
+Jan 08 15:51 : client: [8] opened from 127.0.0.1:37542
+Jan 08 18:29 : client: [8] closed
+Jan 08 18:29 : client: [9] opened from 127.0.0.1:38064
+Jan 08 18:29 : client: [9] closed
+Jan 08 18:29 : client: [10] opened from 127.0.0.1:38066
+Jan 08 21:26 : client: [10] closed
+Jan 08 22:07 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 08 22:07 : client: [0] opened from 127.0.0.1:52146
+Jan 08 23:58 : client: [0] closed
+Jan 08 23:58 : client: [1] opened from 127.0.0.1:53730
+Jan 08 23:58 : client: [1] closed
+Jan 08 23:58 : client: [2] opened from 127.0.0.1:53732
+Jan 09 00:06 : client: [2] closed
+Jan 09 08:09 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 09 08:09 : client: [0] opened from 127.0.0.1:53178
+Jan 09 08:19 : client: [0] closed
+Jan 09 08:19 : client: [1] opened from 127.0.0.1:53310
+Jan 09 08:19 : client: [1] closed
+Jan 09 08:19 : client: [2] opened from 127.0.0.1:53312
+Jan 09 15:22 : client: [2] closed
+Jan 09 15:22 : client: [3] opened from 127.0.0.1:55286
+Jan 09 15:47 : client: [3] closed
+Jan 09 15:47 : client: [4] opened from 127.0.0.1:55452
+Jan 09 15:48 : client: [4] closed
+Jan 09 15:48 : client: [5] opened from 127.0.0.1:55456
+Jan 09 15:49 : client: [5] closed
+Jan 09 15:49 : client: [6] opened from 127.0.0.1:55462
+Jan 09 15:49 : client: [6] closed
+Jan 09 15:49 : client: [7] opened from 127.0.0.1:55464
+Jan 09 15:49 : client: [7] closed
+Jan 09 15:49 : client: [8] opened from 127.0.0.1:55468
+Jan 09 16:51 : client: [8] closed
+Jan 09 16:51 : client: [9] opened from 127.0.0.1:56270
+Jan 09 16:51 : client: [9] closed
+Jan 09 16:51 : client: [10] opened from 127.0.0.1:56272
+Jan 09 16:51 : client: [10] closed
+Jan 09 16:51 : client: [11] opened from 127.0.0.1:56278
+Jan 09 18:03 : client: [11] closed
+Jan 09 18:03 : client: [12] opened from 127.0.0.1:57148
+Jan 09 18:03 : client: [12] closed
+Jan 09 18:03 : client: [13] opened from 127.0.0.1:57150
+Jan 09 19:20 : client: [13] closed
+Jan 09 20:59 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 09 20:59 : client: [0] opened from 127.0.0.1:48538
+Jan 09 22:46 : client: [0] closed
+Jan 09 22:46 : client: [1] opened from 127.0.0.1:49620
+Jan 09 22:46 : client: [1] closed
+Jan 09 22:47 : client: [2] opened from 127.0.0.1:49636
+Jan 10 00:22 : client: [2] closed
+Jan 10 00:22 : client: [3] opened from 127.0.0.1:51094
+Jan 10 00:31 : client: [3] closed
+Jan 10 00:31 : client: [4] opened from 127.0.0.1:51446
+Jan 10 00:44 : client: [4] closed
+Jan 10 00:44 : client: [5] opened from 127.0.0.1:51718
+Jan 10 00:44 : client: [5] closed
+Jan 10 00:44 : client: [6] opened from 127.0.0.1:51720
+Jan 10 00:48 : client: [6] closed
+Jan 10 00:48 : client: [7] opened from 127.0.0.1:51750
+Jan 10 00:48 : client: [7] closed
+Jan 10 00:49 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 10 00:49 : client: [0] opened from 127.0.0.1:48924
+Jan 10 00:51 : client: [0] closed
+Jan 10 00:51 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 10 00:51 : client: [0] opened from 127.0.0.1:39550
+Jan 10 00:52 : client: [0] closed
+Jan 10 00:53 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 10 00:53 : client: [0] opened from 127.0.0.1:60698
+Jan 10 01:28 : client: [0] closed
+Jan 10 11:17 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 10 11:17 : client: [0] opened from 127.0.0.1:48564
+Jan 10 12:56 : client: [0] closed
+Jan 10 12:56 : client: [1] opened from 127.0.0.1:50168
+Jan 10 12:56 : client: [1] closed
+Jan 10 12:56 : client: [2] opened from 127.0.0.1:50170
+Jan 10 15:30 : client: [2] closed
+Jan 10 15:30 : client: [3] opened from 127.0.0.1:50436
+Jan 10 17:01 : client: [3] closed
+Jan 10 17:01 : client: [4] opened from 127.0.0.1:51286

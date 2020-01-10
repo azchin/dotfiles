@@ -2,7 +2,7 @@
 
 config=~/.config/polybar/config
 #config=~/.config/polybar/config
-dump=~/scripts/temp/polybar-bsp.txt
+dump=~/scripts/configs/polybar-bsp.ini
 
 restart=0
 [ "$1" = "-r" ] && restart=1

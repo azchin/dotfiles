@@ -6,8 +6,18 @@ autoload -U compaudit compinit
 compinit -u -C -d "~/.zcompdump"
 
 for config_file (~/zsh/*.zsh) ; do source $config_file ; done
-source ~/zsh/bullet-train.zsh-theme
 source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] ; then
+	#PROMPT='%B%{$fg[green]%}%n@%M%{$fg[white]%}:%{$fg[blue]%}%~%{$reset_color%}$%b '	
+	nl='
+'
+	[[ $TERM =~ "256color" ]] && \
+	PROMPT="%F{10}%n@%M%f:%F{12}%~%f%F{10}${nl}$%f " || \
+	PROMPT="%F{green}%n@%M%f:%F{blue}%~%f%F{green}${nl}$%f "
+else
+	source ~/zsh/bullet-train.zsh-theme
+fi
 
 # User configuration
 
