@@ -25,7 +25,7 @@ tmux new -s andrew -d
 
 # polybar
 ~/scripts/polybar-bsp.sh -r
-~/.config/polybar/launch-bsp.sh &
+~/.config/polybar/launch.sh &
 nm-applet &
 flameshot &
 xflux -l 43.7 -g -79.4 -k 4000

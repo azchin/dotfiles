@@ -4,11 +4,11 @@
 
 # Custom dmenu commands
 super + c
-	~/scripts/launch.sh ~/scripts/configs/cmd.ini
+	~/scripts/launch.sh
 
 # terminal emulator
 super + {_,shift +} Return
-	{st,urxvt}
+	{_,sudo }st
 
 # lockscreen
 super + shift + x
@@ -20,8 +20,8 @@ super + {_,shift} + space
 	#{_,sudo} rofi -show run	
 
 # applications
-super + x ; super + {f,p,c,d,q,r,y} 
-	{firefox,firefox -private-window,code,pcmanfm,qutebrowser,st ranger,~/scripts/key-bsp.sh yt}
+super + x ; super + {Caps_Lock,f,p,c,d,q,r,u,y} 
+	{:,firefox,firefox -private-window,code,pcmanfm,qutebrowser,urxvt -e ranger,urxvt,~/scripts/key-bsp.sh yt}
 
 # screenshot
 {_,super} + Print
@@ -43,10 +43,6 @@ super + a
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-
-# useless command to interrupt chained commands
-super + Caps_Lock
-	:
 
 #
 # bspwm hotkeys

@@ -50,4 +50,4 @@ for name in $desktops ; do
 done
 
 killall -q polybar
-~/.config/polybar/launch-bsp.sh &
+~/.config/polybar/launch.sh &

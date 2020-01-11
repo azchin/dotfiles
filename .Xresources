@@ -1,6 +1,8 @@
-URxvt.font: xft:DejaVu Sans Mono for Powerline:size=9
-! SpaceMono NotoSansMono\\-Regular DejaVuSansMono\\-Book
-! URxvt.font : xft:Roboto Mono for Powerline:size=11
+URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book:size=9
+Urxvt.boldFont: xft:DejaVu Sans Mono for Powerline:style=Bold:size=9
+Urxvt.italicFont: xft:DejaVu Sans Mono for Powerline:style=Oblique:size=9
+Urxvt.boldItalicFont: xft:DejaVu Sans Mono for Powerline:style=Bold Oblique:size=9
+
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.cursorBlink: false

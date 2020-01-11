@@ -33,5 +33,6 @@ alias slep='systemctl suspend'
 alias shut='systemctl poweroff'
 alias rez='systemctl reboot'
 alias hib='systemctl hibernate'
+alias dots='cd ~/projects/dotfiles'
 
 alias g++14="g++ -std=c++14 -Wall -g"
