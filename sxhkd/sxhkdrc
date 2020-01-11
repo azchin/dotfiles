@@ -114,7 +114,7 @@ super + {_,shift + }{Left,Down,Up,Right}
 #	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-alt + {_,shift + }grave
+super + {_,shift + }grave
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
@@ -138,7 +138,7 @@ super + Tab
 
 # focus the older or newer node in the focus history
 #super + {o,i}
-super + {_,shift + } grave
+alt + {_,shift + } grave
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
@@ -214,3 +214,6 @@ shift + XF86Audio{Lower,Raise}Volume
 XF86AudioMute
 	~/scripts/volume.sh mute
 	#pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86Audio{Play,Prev,Next}
+	~/scripts/media.sh {play,prev,next}

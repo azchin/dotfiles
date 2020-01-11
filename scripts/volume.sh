@@ -11,9 +11,7 @@ else
 	pulsemixer --change-volume $opt
 	vol=$(pulsemixer --get-volume | cut -d' ' -f1)
 	message="Volume: ${vol}%"	
-	dir=$(echo $opt | grep "+")
 	icon="audio-volume-high"
 fi
 [ -z "$message" ] && exit 1
-echo $message
 ~/scripts/notify.sh "$message" "$icon"
