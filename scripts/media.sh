@@ -15,10 +15,11 @@ play)
 	;;
 next)
 	msg=$(mpc next 2>&1) 
+	icon="media-skip-forward"
 	if [ $(echo $msg | wc -l) -eq 1 ] ; then
 		[ -z $(echo $msg | grep -E "^MPD") ] && msg="End of playlist"
+		icon="media-playback-stop"
 	fi
-	icon="media-skip-forward"
 	;;
 esac
 
