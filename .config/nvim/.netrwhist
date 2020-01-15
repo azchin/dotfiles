@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/andrew/projects/dotfiles/scripts/configs'
+let g:netrw_dirhist_8='/home/andrew/projects/dotfiles/bspwm'
+let g:netrw_dirhist_7='/home/andrew/projects/dotfiles/scripts/configs'
+let g:netrw_dirhist_6='/home/andrew/.config/polybar'
+let g:netrw_dirhist_5='/home/andrew/.config/bspwm'
+let g:netrw_dirhist_4='/home/andrew/projects/slock'
+let g:netrw_dirhist_3='/home/andrew/.config/polybar'
+let g:netrw_dirhist_2='/home/andrew/scripts/configs'
+let g:netrw_dirhist_1='/home/andrew/.w3m'
+let g:netrw_dirhist_0='/home/andrew/Desktop/man'
