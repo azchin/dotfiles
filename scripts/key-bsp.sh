@@ -9,10 +9,10 @@ in=$2
 
 case $op in
 	focusnode)
-		if [ $(bspc query -D -d) = $(bspc query -D -d ^$in) ] ; then
+		if [ $(bspc query -D -d) = $(bspc query -D -d "$in") ] ; then
 			bspc desktop -f last
 		else
-			bspc desktop -f "^$in"
+			bspc desktop -f "$in"
 		fi
 		;;
 	resize)
@@ -53,10 +53,28 @@ case $op in
 		bspc desktop $name -r
 		;;	
 	yt)
-		bspc rule -a firefox desktop=^9
+		bspc rule -a firefox desktop="^9"
 		firefox --new-window youtube.com &
 		sleep 1
 		bspc rule -r firefox
+		;;
+	hide)
+		hidden=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.hidden)
+		marked=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.marked)
+		if [ "$(echo "$hidden" | wc -w)" -eq 0 ] ; then
+			echo "$marked" | xargs -I _id -n 1 bspc node _id -g hidden=on
+			echo "$marked" | xargs -I _id -n 1 bspc node _id -g marked=off
+		else
+			echo "$hidden" | xargs -I _id -n 1 bspc node _id -g hidden=off
+		fi
+		;;
+	rotate)
+		marked=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.marked)
+		if [ "$(echo "$marked" | wc -w)" -eq 0 ] ; then
+			bspc node @/ -R "$in"
+		#else
+		#	echo "$marked" | xargs -I _id bspc node _id -R 
+		fi
 		;;
 esac
 

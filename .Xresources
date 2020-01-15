@@ -38,8 +38,8 @@ URxvt.cursorBlink: false
 *.color12:      #3daee9
 
 ! magenta
-*.color5:       #e44650
-*.color13:      #e44650
+*.color5:       #f5603f
+*.color13:      #f5603f
 
 ! cyan
 *.color6:       #ff00ca

@@ -13,6 +13,13 @@ export TERMINAL="st"
 export BROWSER="firefox"
 #export RANGER_LOAD_DEFAULT_RC=false
 
+# pfetch config
+export PF_INFO="ascii title os kernel pkgs wm shell palette"
+export PF_COL1=4
+export PF_COL2=8
+export PF_COL3=3
+export PF_ASCII="arch"
+
 stty -ixon
 
 #export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
@@ -33,6 +40,7 @@ alias slep='systemctl suspend'
 alias shut='systemctl poweroff'
 alias rez='systemctl reboot'
 alias hib='systemctl hibernate'
-alias dots='cd ~/projects/dotfiles'
+alias open='xdg-open'
+alias dots='git --git-dir=$HOME/projects/dotfiles/ --work-tree=$HOME'
 
 alias g++14="g++ -std=c++14 -Wall -g"
