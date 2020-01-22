@@ -62,8 +62,12 @@ case $op in
 		hidden=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.hidden)
 		marked=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.marked)
 		if [ "$(echo "$hidden" | wc -w)" -eq 0 ] ; then
-			echo "$marked" | xargs -I _id -n 1 bspc node _id -g hidden=on
-			echo "$marked" | xargs -I _id -n 1 bspc node _id -g marked=off
+			if [ -z "$marked" ] ; then
+				bspc node -g hidden=on
+			else
+				echo "$marked" | xargs -I _id -n 1 bspc node _id -g hidden=on
+				echo "$marked" | xargs -I _id -n 1 bspc node _id -g marked=off
+			fi
 		else
 			echo "$hidden" | xargs -I _id -n 1 bspc node _id -g hidden=off
 		fi

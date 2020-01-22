@@ -8,16 +8,17 @@
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/scripts:$PATH
 
 export EDITOR="vi"
-export VISUAL="vi"
+export VISUAL="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 #export RANGER_LOAD_DEFAULT_RC=false
 
 # pfetch config
-export PF_INFO="ascii title os kernel pkgs wm shell palette"
+export PF_INFO="ascii title os kernel pkgs shell editor wm"
 export PF_COL1=4
 export PF_COL2=8
 export PF_COL3=3
+export PF_ALIGN="10"
 export PF_ASCII="arch"
 
 stty -ixon

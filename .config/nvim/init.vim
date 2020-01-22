@@ -1,9 +1,10 @@
 set number relativenumber
 set mouse=a
 set laststatus=2
-set tabstop=4
-set softtabstop=0 noexpandtab
-set shiftwidth=4
+set tabstop=4 softtabstop=0 shiftwidth=4 noexpandtab
+set noshowmode
+set clipboard=unnamedplus
+set smartcase
 syntax on	
 
 " Recompile suckless programs automatically:
@@ -13,34 +14,48 @@ autocmd BufWritePost config.def.h !cp config.def.h config.h && sudo make clean i
 " Plugins using vim-plug
 call plug#begin('~/.vim/plugged')
 
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex'
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+"Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'kovetskiy/sxhkd-vim'
+"Plug 'valloric/youcompleteme' "ycm slows startup
+"Plug 'shougo/deoplete.nvim'
 
 call plug#end()
 
 
 " coc config
-"let g:coc_global_extensions = [
+let g:coc_global_extensions = [
+	\ 'coc-pairs',
+	\ 'coc-eslint',
+	\ 'coc-json',
+	\ 'coc-python',
+	\ 'coc-lists',
+	\ 'coc-texlab'
+	\ ]
 "	\ 'coc-snippets',
-"	\ 'coc-pairs',
-"	\ 'coc-tsserver',
-"	\ 'coc-eslint',
 "	\ 'coc-prettier',
-"	\ 'coc-json',
+"	\ 'coc-tsserver',
 "	\ 'coc-html',
 "	\ 'coc-java',
 "	\ 'coc-yaml',
-"	\ 'coc-python',
-"	\ 'coc-lists',
-"	\ 'coc-tabnine',
-"	\ ]
+"	\ 'coc-tabnine'
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'simple'
-let g:airline_extensions = []
+let g:airline_theme = 'simple' "dark_minimal
+let g:airline_extensions = [
+	\ 'branch', 
+	\ 'keymap', 
+	\ 'wordcount', 
+	\ 'vimtex', 
+	\ 'fugitiveline'
+	\ ]
+" other extensions: 
+" tabline, po, hunks, tmuxline, coc
 "let g:airline_section_error = ''
 "let g:airline_section_warning = ''
 
@@ -48,7 +63,7 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
 
-filetype plugin on
+"filetype plugin on
 "Uncomment to override defaults:
 "let g:instant_markdown_slow = 1
 "let g:instant_markdown_autostart = 0
@@ -60,5 +75,7 @@ filetype plugin on
 "let g:instant_markdown_autoscroll = 0
 "let g:instant_markdown_port = 8888
 "let g:instant_markdown_python = 1
-let g:instant_markdown_browser = "qutebrowser"
+"let g:instant_markdown_browser = "qutebrowser"
+"need to npm -g install instant-markdown-d
 
+map <C-n> :NERDTreeToggle<CR>

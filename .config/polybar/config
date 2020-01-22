@@ -19,19 +19,22 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #cc000000
-background-alt = #cc2F2F2F
-focused = #cc3c3c3c
+background-alt = #cc1d1f21
+focused = #cc333333
 ; focused = #cc016B73
 ;foreground = ${xrdb:color7:#222}
 foreground = #e5e5e5
 ;foreground-alt = #555
 foreground-alt = #666666
+foreground-foc = #fba922
+foreground-unf = #a2a2a2
 ;primary = #ffb52a
 ;primary = #cc00cc
 ;primary = #ff29fb
 primary = #3daee9
 secondary = #e60053
 alert = #bd2c40
+underline = #fba922
 
 [bar/bspwm]
 ;monitor = DisplayPort-0
@@ -59,13 +62,13 @@ module-margin = 1
 
 font-0 = "DejaVu Sans Mono for Powerline:style=Book:size=9;2"
 font-1 = "Material Design Icons:style=Regular:size=14;3"
-font-2 = "DejaVu Sans Mono for Powerline:style=Bold:size=9;2"
+font-2 = "DejaVu Sans Mono:style=Bold:size=9;2"
 
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = Siji:style=Regular:size=11;2
 
 
-modules-left = filesystem memory pulseaudio toolmenu 
+modules-left = filesystem memory temperature tempcpu pulseaudio
 modules-center = bspwm
 modules-right = mpd wlan date time
 
@@ -110,21 +113,24 @@ ws-icon-0 = 0;%{T3}0%{T-}
 ws-icon-1 = 1;%{T2}%{F#fba922}%{F-}%{T-}
 ws-icon-2 = 2;%{T2}%{F#fe5332}%{F-}%{T-}
 ws-icon-3 = 3;%{T2}%{F#0f94d2}%{F-}%{T-}
-ws-icon-4 = 4;%{T2}%{F#6cac4d}%{F-}%{T-}
-ws-icon-5 = 5;%{T3}5%{T-}
+ws-icon-4 = 4;%{T2}%{F#c60078}%{F-}%{T-}
+ws-icon-5 = 5;%{T2}%{F#6cac4d}%{F-}%{T-}
 ws-icon-6 = 6;%{T3}6%{T-}
 ws-icon-7 = 7;%{T3}7%{T-}
 ws-icon-8 = 8;%{T3}8%{T-}
 ws-icon-9 = 9;%{T3}9%{T-}
 
 label-focused = %icon%
+#label-focused = [%icon%%{F#fba922}]
+label-focused-foreground = ${colors.foreground-foc}
 label-focused-background = ${colors.focused}
-label-focused-underline = ${colors.primary}
+label-focused-underline = ${colors.underline}
 label-focused-padding = 1
 
 label-occupied = %icon%
+label-occupied-foreground = ${colors.foreground-unf}
 label-occupied-background = ${colors.background-alt}
-label-occupied-underline = ${colors.background-alt}
+label-occupied-underline = ${colors.primary}
 label-occupied-padding = 1
 
 label-urgent = %icon%!
@@ -132,6 +138,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
 label-empty = %icon%
+label-empty-foreground = ${colors.foreground-unf}
 ;label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
 
@@ -178,7 +185,7 @@ label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
-interval = 2
+;interval = 1
 format-prefix = " "
 format-prefix-font = 2
 ;format-prefix = " "
@@ -201,10 +208,9 @@ label-connected-maxlen = 25
 label-connected-ellipsis = true
 
 format-disconnected = <label-disconnected>
-label-disconnected = %ifname%
-format-disconnected-prefix = "郎 "
-format-disconnected-prefix-font = 2
-format-disconnected-prefix-foreground = ${colors.primary}
+label-disconnected = "郎"
+label-disconnected-font = 2
+label-disconnected-foreground = ${colors.primary}
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
@@ -288,43 +294,69 @@ ramp-volume-foreground = ${colors.primary}
 label-muted = 
 label-muted-foreground = ${colors.primary}
 
-#bar-volume-width = 10
-#bar-volume-foreground-0 = #ff00fb
-#bar-volume-foreground-1 = #ff00fb
-#bar-volume-foreground-2 = #ff00fb
-#bar-volume-foreground-3 = #ff00fb
-#bar-volume-foreground-4 = #ff00fb
-#bar-volume-foreground-5 = #f5a70a
-#bar-volume-foreground-6 = #ff5555
-#bar-volume-gradient = false
-#bar-volume-indicator = |
-#bar-volume-indicator-font = 2
-#bar-volume-fill = ─
-#bar-volume-fill-font = 2
-#bar-volume-empty = ─
-#bar-volume-empty-font = 2 
-#bar-volume-empty-foreground = ${colors.foreground-alt}
+;bar-volume-width = 10
+;bar-volume-foreground-0 = #ff00fb
+;bar-volume-foreground-1 = #ff00fb
+;bar-volume-foreground-2 = #ff00fb
+;bar-volume-foreground-3 = #ff00fb
+;bar-volume-foreground-4 = #ff00fb
+;bar-volume-foreground-5 = #f5a70a
+;bar-volume-foreground-6 = #ff5555
+;bar-volume-gradient = false
+;bar-volume-indicator = |
+;bar-volume-indicator-font = 2
+;bar-volume-fill = ─
+;bar-volume-fill-font = 2
+;bar-volume-empty = ─
+;bar-volume-empty-font = 2 
+;bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
+;interval = 0.5
 warn-temperature = 60
 
-hwmon-path = /sys/devices/platform/it87.2656/hwmon/hwmon2/temp1_input
+;hwmon-path = /sys/devices/platform/it87.2624/hwmon/hwmon1/temp3_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+;hwmon-path = /sys/devices/platform/it87.2656/hwmon/hwmon2/temp1_input
 
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format = <label>
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-foreground = ${colors.primary}
+;format-underline = #f50a4d
+format-warn = <label-warn>
+format-warn-prefix = " "
+format-warn-prefix-font = 2
+format-warn-prefix-foreground = ${colors.primary}
+;format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+;ramp-0 = 
+;ramp-1 = 
+;ramp-2 = 
+;ramp-foreground = ${colors.foreground-alt}
+
+[module/tempcpu]
+type = internal/temperature
+thermal-zone = 0
+;interval = 0.5
+warn-temperature = 60
+
+hwmon-path = /sys/devices/platform/it87.2624/hwmon/hwmon1/temp3_input
+;hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+;hwmon-path = /sys/devices/platform/it87.2656/hwmon/hwmon2/temp1_input
+
+format = <label>
+format-warn = <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
 
 [module/toolmenu]
 type = custom/menu

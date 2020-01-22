@@ -20,12 +20,16 @@ super + {_,shift} + space
 	#{_,sudo} rofi -show run	
 
 # applications
-super + x ; super + {Caps_Lock,f,p,c,d,q,r,u,y} 
-	{:,firefox,firefox -private-window,code,pcmanfm,qutebrowser,urxvt -e ranger,urxvt,~/scripts/key-bsp.sh yt}
+super + x ; super + {Caps_Lock,f,p,c,d,q,r,u,z} 
+	{:,firefox,firefox -private-window,code,pcmanfm,qutebrowser,urxvt -e ranger,urxvt,tabbed -c zathura -e}
 
 # screenshot
-{_,super} + Print
-	flameshot {gui,full -c} -p ~/screenshots
+Print
+	maim -s | xclip -sel clip -t image/png
+	#flameshot {gui,full -c} -p ~/screenshots
+
+{super,shift} + Print
+	maim {_,-s} ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
 
 # compositor
 super + Insert
@@ -137,6 +141,7 @@ alt + Tab
 
 super + Tab
 	bspc desktop -f last
+	#bspc node -f last.local
 
 # focus the older or newer node in the focus history
 #super + {o,i}

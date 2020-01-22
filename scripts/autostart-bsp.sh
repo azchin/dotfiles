@@ -4,10 +4,13 @@ currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || 
 
 # kill services
 pkill sxhkd
+pkill dunst 
 pkill picom
 pkill xflux
-pkill flameshot
 pkill keepassxc
+pkill onedrive
+pkill xss-lock
+#pkill light-locker
 tmux kill-server
 killall -q polybar
 setxkbmap -option
@@ -15,6 +18,7 @@ setxkbmap -option
 # services
 #xset m 4/5 1
 sxhkd &
+dunst &
 #[ -n "$(xrandr -q | grep "60.00\*")" ] && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
@@ -22,19 +26,21 @@ setxkbmap -option caps:escape_shifted_capslock
 ~/scripts/setbg.sh
 picom -b
 xss-lock --transfer-sleep-lock ~/scripts/lock.sh & 
+#xss-lock --transfer-sleep-lock -- light-locker-command -l &
 tmux new -s andrew -d 
+onedrive -m &
+#light-locker --late-locking --lock-on-suspend &
 
 # polybar
 ~/scripts/polybar-bsp.sh -r
 ~/.config/polybar/launch.sh &
 nm-applet &
-flameshot &
 xflux -l 43.7 -g -79.4 -k 4000
 
 # startup
 
-if [ $(bspc query -N -d "^2" | wc -l) -eq 0 ] ; then
-	bspc rule -a firefox desktop="^2"
+if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
+	bspc rule -a firefox desktop="2"
 	firefox &
 fi
 
@@ -46,18 +52,19 @@ fi
 #	firefox --new-window youtube.com &
 #fi
 
-if [ $(bspc query -N -d "^4" | wc -l) -eq 0 ] ; then
-	bspc rule -a KeePassXC desktop="^4"
+if [ $(bspc query -N -d "5" | wc -l) -eq 0 ] ; then
+	bspc rule -a KeePassXC desktop="5"
 	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
 fi
 
-if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
-	bspc rule -a st-256color desktop="^1"
+if [ $(bspc query -N -d "1" | wc -l) -eq 0 ] ; then
+	bspc rule -a st-256color desktop="1"
 	st &
 fi
 
 sleep 1
 bspc desktop -f $currentDesktop
+bspc node @5:/ -g hidden=on
 bspc rule -r KeePassXC
 bspc rule -r st-256color
 bspc rule -r firefox

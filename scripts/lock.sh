@@ -3,6 +3,8 @@
 #slock
 #betterlockscreen -l dim && betterlockscreen -u ~/images/lockbg1
 
+#light-locker-command -l 
+
 store=~/scripts/temp/lock.txt
 path=~/images/lockbg2
 files=$(ls $path)
