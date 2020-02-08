@@ -41,7 +41,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 20
+    transparency = 10
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -172,7 +172,7 @@
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
-    sticky_history = yes
+    sticky_history = no
 
     # Maximum amount of notifications kept in history
     history_length = 20
@@ -237,8 +237,8 @@
     # * close_current: Close current notification.
     # * close_all: Close all notifications.
     mouse_left_click = close_current
-    mouse_middle_click = do_action
-    mouse_right_click = close_all
+    mouse_middle_click = close_all
+    mouse_right_click = do_action
 
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
@@ -412,3 +412,7 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+
+[brave]
+    desktop_entry = brave-browser
+    timeout = 10

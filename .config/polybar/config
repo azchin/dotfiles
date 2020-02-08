@@ -18,9 +18,9 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #cc000000
-background-alt = #cc1d1f21
-focused = #cc333333
+background = #e6000000
+background-alt = #e61d1f21
+focused = #e6333333
 ; focused = #cc016B73
 ;foreground = ${xrdb:color7:#222}
 foreground = #e5e5e5
@@ -68,7 +68,7 @@ font-2 = "DejaVu Sans Mono:style=Bold:size=9;2"
 ;font-2 = Siji:style=Regular:size=11;2
 
 
-modules-left = filesystem memory temperature tempcpu pulseaudio
+modules-left = filesystem packages memory cpufreq temperature pulseaudio
 modules-center = bspwm
 modules-right = mpd wlan date time
 
@@ -109,12 +109,12 @@ enable-scroll = false
 ;ws-icon-9 = 9;%{F#ff0000}%{F-}
 ;ws-icon-9 = 9;%{T2}%{F#ff0000}%{F-}%{T-}
 
-ws-icon-0 = 0;%{T3}0%{T-}
+ws-icon-0 = 0;%{T2}%{F#0f94d2}%{F-}%{T-}
 ws-icon-1 = 1;%{T2}%{F#fba922}%{F-}%{T-}
-ws-icon-2 = 2;%{T2}%{F#fe5332}%{F-}%{T-}
-ws-icon-3 = 3;%{T2}%{F#0f94d2}%{F-}%{T-}
-ws-icon-4 = 4;%{T2}%{F#c60078}%{F-}%{T-}
-ws-icon-5 = 5;%{T2}%{F#6cac4d}%{F-}%{T-}
+ws-icon-2 = 2;%{T3}2%{T-}
+ws-icon-3 = 3;%{T3}3%{T-}
+ws-icon-4 = 4;%{T3}4%{T-}
+ws-icon-5 = 5;%{T3}5%{T-}
 ws-icon-6 = 6;%{T3}6%{T-}
 ws-icon-7 = 7;%{T3}7%{T-}
 ws-icon-8 = 8;%{T3}8%{T-}
@@ -317,7 +317,8 @@ thermal-zone = 0
 ;interval = 0.5
 warn-temperature = 60
 
-;hwmon-path = /sys/devices/platform/it87.2624/hwmon/hwmon1/temp3_input
+#for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+;hwmon-path = /sys/devices/platform/it87.2624/hwmon/hwmon1/temp1_input
 hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
 ;hwmon-path = /sys/devices/platform/it87.2656/hwmon/hwmon2/temp1_input
 
@@ -357,6 +358,24 @@ format-warn = <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
+
+[module/cpufreq]
+type = custom/script
+exec = cpupower frequency-info | sed "13q;d" | grep -Eo "[0-9]\.[0-9]+"
+label = %output% GHz
+format-prefix = "﻽ "
+format-prefix-foreground = ${colors.primary}
+
+interval = 1
+
+[module/packages]
+type = custom/script
+exec = pacman -Q | wc -l
+label = %output% pkgs
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+
+interval = 5
 
 [module/toolmenu]
 type = custom/menu

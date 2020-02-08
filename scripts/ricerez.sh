@@ -1,0 +1,15 @@
+#!/bin/sh
+
+pkill sxhkd
+pkill dunst
+pkill picom
+pkill onedrive
+killall -q polybar
+
+sxhkd &
+dunst &
+picom -b
+onedrive -m &
+#onedrive -m --confdir ~/.config/onedrive/config_personal &
+~/scripts/polybar-bsp.sh -r
+~/.config/polybar/launch.sh &

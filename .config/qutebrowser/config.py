@@ -16,4 +16,4 @@ config.set(
     ]
 )
 
-config.bind('<z><l>', 'spawn --userscript qute-keepass -p ~/Desktop/Passwords.kdbx --keyfile-path ~/Desktop/Passwords.key --no-password')
+#config.bind('<z><l>', 'spawn --userscript qute-keepass -p ~/Desktop/Passwords.kdbx --keyfile-path ~/Desktop/Passwords.key --no-password')

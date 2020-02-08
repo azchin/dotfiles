@@ -10,9 +10,13 @@ super + c
 super + {_,shift +} Return
 	{_,sudo }st
 
+super + backslash
+	alacritty
+
 # lockscreen
 super + shift + x
-	~/scripts/lock.sh
+	light-locker-command -l
+	#~/scripts/lock.sh
 
 # launch
 super + {_,shift} + space
@@ -20,8 +24,8 @@ super + {_,shift} + space
 	#{_,sudo} rofi -show run	
 
 # applications
-super + x ; super + {Caps_Lock,f,p,c,d,q,r,u,z} 
-	{:,firefox,firefox -private-window,code,pcmanfm,qutebrowser,urxvt -e ranger,urxvt,tabbed -c zathura -e}
+super + x ; super + {Caps_Lock,a,b,i,f,p,c,d,q,r,s,l,u,z} 
+	{:,alacritty,brave,brave -incognito,firefox,firefox -private,code,pcmanfm,qutebrowser,urxvt -e ranger,steam,lutris,urxvt,tabbed -c zathura -e}
 
 # screenshot
 Print
@@ -105,6 +109,9 @@ super + ctrl + m
 super + ctrl + n
 	~/scripts/key-bsp.sh hide
 
+#super + shift + {c,v}
+#	xclip -{i,o}
+
 #
 # focus/swap
 #
@@ -137,7 +144,7 @@ super + ctrl + {Left,Right}
 #	bspc desktop -f last
 
 alt + Tab
-	bspc node -f last
+	bspc node -f last.local
 
 super + Tab
 	bspc desktop -f last
@@ -203,10 +210,10 @@ super + alt + {Left,Down,Up,Right}
 
 # Increase/decrease window gap on focused desktop
 super + {Page_Down,Page_Up}
-	bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) {-,+} 1 ))
+	bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) {-,+} 3 ))
 
 super + {End,Home}
-	bspc config -d focused window_gap {0,9}
+	bspc config -d focused window_gap {0,18}
 
 # Volume
 

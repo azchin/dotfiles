@@ -1,10 +1,11 @@
 set number relativenumber
 set mouse=a
 set laststatus=2
-set tabstop=4 softtabstop=0 shiftwidth=4 noexpandtab
+set tabstop=2 softtabstop=0 shiftwidth=2 expandtab
 set noshowmode
-set clipboard=unnamedplus
+set clipboard=unnamed
 set smartcase
+set autoindent smartindent cindent
 syntax on	
 
 " Recompile suckless programs automatically:
@@ -30,12 +31,11 @@ call plug#end()
 
 " coc config
 let g:coc_global_extensions = [
-	\ 'coc-pairs',
 	\ 'coc-eslint',
 	\ 'coc-json',
+	\ 'coc-pairs',
 	\ 'coc-python',
-	\ 'coc-lists',
-	\ 'coc-texlab'
+	\ 'coc-lists'
 	\ ]
 "	\ 'coc-snippets',
 "	\ 'coc-prettier',
@@ -44,6 +44,7 @@ let g:coc_global_extensions = [
 "	\ 'coc-java',
 "	\ 'coc-yaml',
 "	\ 'coc-tabnine'
+"	\ 'coc-texlab'
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'simple' "dark_minimal
@@ -79,3 +80,4 @@ let g:tex_flavor = 'latex'
 "need to npm -g install instant-markdown-d
 
 map <C-n> :NERDTreeToggle<CR>
+map <Leader>/ :noh<CR>
