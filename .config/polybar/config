@@ -18,9 +18,10 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #e6000000
-background-alt = #e61d1f21
-focused = #e6333333
+background = #db0f0f0f
+background-alt = #db31363b
+focused = #db3d4247
+; focused = #db333333
 ; focused = #cc016B73
 ;foreground = ${xrdb:color7:#222}
 foreground = #e5e5e5

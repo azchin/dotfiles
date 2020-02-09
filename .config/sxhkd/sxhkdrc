@@ -11,7 +11,7 @@ super + {_,shift +} Return
 	{_,sudo }st
 
 super + backslash
-	alacritty
+	st -n "st-monokai" -p 1
 
 # lockscreen
 super + shift + x

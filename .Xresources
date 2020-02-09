@@ -32,7 +32,7 @@ URxvt.iso14755_52: false
 
 ! black
 *.color0:       #1d1f21
-*.color8:       #333333
+*.color8:       #31363b
 
 ! red
 *.color1:       #f0544c

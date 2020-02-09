@@ -8,7 +8,7 @@ killall -q polybar
 
 sxhkd &
 dunst &
-picom -b
+picom -CGb
 onedrive -m &
 #onedrive -m --confdir ~/.config/onedrive/config_personal &
 ~/scripts/polybar-bsp.sh -r
