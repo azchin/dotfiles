@@ -183,7 +183,7 @@ fi
 
 # DIR
 if [ ! -n "${BULLETTRAIN_DIR_BG+1}" ]; then
-  BULLETTRAIN_DIR_BG=12
+  BULLETTRAIN_DIR_BG=14
 fi
 if [ ! -n "${BULLETTRAIN_DIR_FG+1}" ]; then
   BULLETTRAIN_DIR_FG=0

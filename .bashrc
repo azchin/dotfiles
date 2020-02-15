@@ -15,7 +15,7 @@ export BROWSER="firefox"
 
 # pfetch config
 export PF_INFO="ascii title os kernel pkgs shell editor wm"
-export PF_COL1=4
+export PF_COL1=6
 export PF_COL2=8
 export PF_COL3=3
 export PF_ALIGN="10"

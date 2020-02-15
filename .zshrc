@@ -19,6 +19,8 @@ else
 	source ~/zsh/bullet-train.zsh-theme
 fi
 
+source ~/scripts/insulter.zsh
+
 # User configuration
 
 HISTSIZE=1000
