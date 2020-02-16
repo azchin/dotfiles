@@ -34,7 +34,7 @@ foreground-unf = #a2a2a2
 ;primary = #ff29fb
 primary = #3daee9
 secondary = #e60053
-alert = #bd2c40
+alert = #f4005f
 underline = #fba922
 
 [bar/bspwm]
