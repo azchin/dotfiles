@@ -8,7 +8,7 @@ super + c
 
 # terminal emulator
 super + {_,shift +} Return
-	{_,sudo }st{_, bash}
+	{st,sudo st bash}
 
 super + backslash
 	st -n "st-monokai" -p 1
