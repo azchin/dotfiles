@@ -44,5 +44,6 @@ alias hib='systemctl hibernate'
 alias open='xdg-open'
 alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
 [ -f /usr/bin/pfetch ] && alias clear='clear && pfetch'
+alias vi='nvim'
 
 alias g++14="g++ -std=c++14 -Wall -g"
