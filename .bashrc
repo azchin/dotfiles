@@ -19,7 +19,7 @@ export PF_COL1=6
 export PF_COL2=8
 export PF_COL3=3
 export PF_ALIGN="10"
-export PF_ASCII="arch"
+#export PF_ASCII="arch"
 
 stty -ixon
 

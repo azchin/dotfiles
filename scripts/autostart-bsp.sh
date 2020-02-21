@@ -6,8 +6,8 @@ currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || 
 #pkill sxhkd
 #pkill dunst 
 #pkill picom
-pkill xflux
-pkill keepassxc
+#pkill xflux
+#pkill keepassxc
 #pkill onedrive
 #pkill xss-lock
 pkill light-locker
@@ -37,14 +37,14 @@ light-locker --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
 #~/.config/polybar/launch.sh &
 ~/scripts/ricerez.sh
 nm-applet &
-xflux -l 43.7 -g -79.4 -k 4000
+#xflux -l 43.7 -g -79.4 -k 4000
 
 # startup
 
-if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
-	bspc rule -a brave desktop="2"
-	brave &
-fi
+#if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
+#	bspc rule -a brave desktop="2"
+#	brave &
+#fi
 
 #sleep 1
 #
@@ -54,10 +54,10 @@ fi
 #	firefox --new-window youtube.com &
 #fi
 
-if [ $(bspc query -N -d "5" | wc -l) -eq 0 ] ; then
-	bspc rule -a KeePassXC desktop="5"
-	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
-fi
+#if [ $(bspc query -N -d "5" | wc -l) -eq 0 ] ; then
+#	bspc rule -a KeePassXC desktop="5"
+#	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
+#fi
 
 if [ $(bspc query -N -d "1" | wc -l) -eq 0 ] ; then
 	bspc rule -a st-256color desktop="1"
@@ -65,8 +65,8 @@ if [ $(bspc query -N -d "1" | wc -l) -eq 0 ] ; then
 fi
 
 sleep 1
-bspc desktop -f $currentDesktop
+#bspc desktop -f $currentDesktop
 #bspc node @5:/ -g hidden=on
-bspc rule -r KeePassXC
+#bspc rule -r KeePassXC
 bspc rule -r st-256color
-bspc rule -r brave
+#bspc rule -r brave

@@ -70,7 +70,7 @@ font-2 = "DejaVu Sans Mono:style=Bold:size=9;2"
 
 
 ;modules-left = filesystem packages memory cpufreq temperature pulseaudio
-modules-left = filesystem packages memory pulseaudio
+modules-left = filesystem packages memory battery pulseaudio
 modules-center = bspwm
 ;modules-right = mpd wlan date time
 modules-right = wlan date time
@@ -103,6 +103,20 @@ label-mounted = %used% (%percentage_used%%)
 ;label-mounted = %{F#3daee9}%mountpoint%%{F-} %used% (%percentage_used%%)
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = AC
+poll-interval = 5
+time-format = %H:%M
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
+label-charging = +%percentage%%
+label-discharging = %percentage%%
+label-full = full
 
 [module/bspwm]
 type = internal/bspwm
@@ -199,7 +213,7 @@ label = %gb_used%
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlp3s0
 interval = 3.0
 
 ;format-connected = <label-connected>
