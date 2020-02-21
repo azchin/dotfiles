@@ -4,7 +4,7 @@ set laststatus=2
 set tabstop=2 softtabstop=0 shiftwidth=2 expandtab
 set noshowmode
 set clipboard=unnamed
-set smartcase
+set ignorecase smartcase
 set autoindent smartindent cindent
 syntax on	
 
@@ -81,3 +81,5 @@ let g:tex_flavor = 'latex'
 
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>/ :noh<CR>
+inoremap <C-v> <ESC>"+pa
+vnoremap <C-c> "+y

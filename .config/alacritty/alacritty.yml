@@ -78,17 +78,17 @@
   # Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
 
-#scrolling:
+scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  history: 10000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
-  #multiplier: 3
+  multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
-  #auto_scroll: false
+  auto_scroll: true
 
 # Spaces per Tab (changes require restart)
 #
@@ -578,6 +578,8 @@ colors:
 
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: PageUp,                        action: ScrollPageUp     }
+  - { key: PageDown,                      action: ScrollPageDown   }
 
 
 # Bindings are always filled by default, but will be replaced when a new
