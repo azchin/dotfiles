@@ -8,7 +8,7 @@ super + c
 
 # terminal emulator
 super + {_,shift +} Return
-	{st,sudo st bash}
+	{_,sudo }st
 
 super + backslash
 	st -p 2
@@ -20,12 +20,12 @@ super + shift + x
 
 # launch
 super + {_,shift} + space
-	{_,sudo} dmenu_run
+	{~/scripts/dmenu_run_history.sh,sudo dmenu_run}
 	#{_,sudo} rofi -show run	
 
 # applications
 super + x ; super + {Caps_Lock,a,b,i,f,p,c,d,q,r,s,l,u,z} 
-	{:,alacritty,brave,brave -incognito,firefox,firefox -private,code,pcmanfm,qutebrowser,urxvt -e ranger,steam,lutris,urxvt,tabbed -c zathura -e}
+	{:,alacritty,brave,brave -incognito,firefox,firefox -private,code,pcmanfm,surf,urxvt -e ranger,steam,lutris,urxvt,tabbed -c zathura -e}
 
 # screenshot
 Print
@@ -150,10 +150,10 @@ super + Tab
 
 # focus the older or newer node in the focus history
 #super + {o,i}
-alt + {_,shift + } grave
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+#alt + {_,shift + } grave
+#	bspc wm -h off; \
+#	bspc node {older,newer} -f; \
+#	bspc wm -h on
 
 # focus to the given desktop
 super + {0-9}

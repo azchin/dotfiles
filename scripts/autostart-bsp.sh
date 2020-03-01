@@ -26,7 +26,6 @@ setxkbmap -option caps:escape_shifted_capslock
 ~/scripts/setbg.sh
 #picom -b
 #xss-lock --transfer-sleep-lock ~/scripts/lock.sh & 
-#xss-lock --transfer-sleep-lock -- light-locker-command -l &
 tmux new -s andrew -d 
 #onedrive -m &
 light-locker --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
@@ -37,13 +36,19 @@ light-locker --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
 #~/.config/polybar/launch.sh &
 ~/scripts/ricerez.sh
 nm-applet &
-xflux -l 43.7 -g -79.4 -k 4000
+#xflux -l 43.7 -g -79.4 -k 3200
+#xflux -k 3200
 
 # startup
 
+#if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
+#	bspc rule -a brave desktop="2"
+#	brave &
+#fi
+
 if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
-	bspc rule -a brave desktop="2"
-	brave &
+	bspc rule -a firefox desktop="2"
+  firefox &
 fi
 
 #sleep 1
@@ -69,4 +74,5 @@ bspc desktop -f $currentDesktop
 #bspc node @5:/ -g hidden=on
 bspc rule -r KeePassXC
 bspc rule -r st-256color
-bspc rule -r brave
+#bspc rule -r brave
+bspc rule -r firefox

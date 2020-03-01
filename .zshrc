@@ -7,19 +7,21 @@ compinit -u -C -d "~/.zcompdump"
 
 for config_file (~/zsh/*.zsh) ; do source $config_file ; done
 source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export fpath=(~/zsh/zsh-completions/src $fpath)
+source ~/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/scripts/insulter.zsh
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ "$TERM" = "linux" ] ; then
-	#PROMPT='%B%{$fg[green]%}%n@%M%{$fg[white]%}:%{$fg[blue]%}%~%{$reset_color%}$%b '	
+ #PROMPT='%B%{$fg[green]%}%n@%M%{$fg[white]%}:%{$fg[blue]%}%~%{$reset_color%}$%b '	
 	nl='
 '
 	[[ $TERM =~ "256color" ]] && \
 	PROMPT="%B%F{10}%n@%M%f:%F{12}%~%f%b%F{10}${nl}$%f " || \
 	PROMPT="%B%F{green}%n@%M%f:%F{blue}%~%f%b%F{green}${nl}$%f "
 else
-	source ~/zsh/bullet-train.zsh-theme
+ source ~/zsh/bullet-train.zsh-theme
 fi
 
-source ~/scripts/insulter.zsh
 
 # User configuration
 
