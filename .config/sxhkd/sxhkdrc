@@ -13,6 +13,9 @@ super + {_,shift +} Return
 super + backslash
 	st -p 2
 
+super + semicolon
+	alacritty
+
 # lockscreen
 super + shift + x
 	light-locker-command -l
