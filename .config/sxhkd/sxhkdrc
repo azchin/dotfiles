@@ -19,8 +19,11 @@ super + shift + x
 	#~/scripts/lock.sh
 
 # launch
-super + {_,shift} + space
-	{_,sudo} dmenu_run
+super + space
+	dmenu_run
+#super + {_,shift} + space
+	#	{_,sudo } + dmenu_run
+	#{~/scripts/dmenu_run_history.sh,sudo dmenu_run}
 	#{_,sudo} rofi -show run	
 
 # applications
