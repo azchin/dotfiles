@@ -6,7 +6,7 @@ currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || 
 #pkill sxhkd
 #pkill dunst 
 #pkill picom
-pkill xflux
+#pkill xflux
 pkill keepassxc
 #pkill onedrive
 #pkill xss-lock
