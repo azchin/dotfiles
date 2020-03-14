@@ -13,7 +13,8 @@ super + {_,shift +} Return
 super + backslash
 	st -p 2
 
-super + semicolon
+#super + semicolon
+super + n
 	alacritty
 
 # lockscreen
@@ -28,7 +29,7 @@ super + {_,shift} + space
 
 # applications
 super + x ; super + {Caps_Lock,a,b,i,f,p,c,d,q,r,s,l,u,z} 
-	{:,alacritty,brave,brave -incognito,firefox,firefox -private,code,pcmanfm,surf,urxvt -e ranger,steam,lutris,urxvt,tabbed -c zathura -e}
+	{:,alacritty,brave,brave -incognito,firefox,firefox -private,code,pcmanfm,tabbed -c surf -e,st ranger,steam,lutris,urxvt,tabbed -c zathura -e}
 
 # screenshot
 Print
@@ -43,6 +44,10 @@ super + Insert
 	picom -b
 super + Delete
 	pkill picom
+#super + Insert
+#	compton &
+#super + Delete
+#	pkill compton
 
 # wallpaper
 super + s
@@ -97,8 +102,11 @@ super + {v,b}
 #
 
 # set the window state
-super + {t,shift + t,shift + f,f}
-	bspc node -t \~{tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,shift + f}
+	bspc node -t \~{tiled,pseudo_tiled,floating}
+
+super + f
+	~/scripts/key-bsp.sh full
 
 # set the node flags
 #super + ctrl + {m,x,y,z}
@@ -144,8 +152,8 @@ super + ctrl + {Left,Right}
 #super + grave
 #	bspc desktop -f last
 
-alt + Tab
-	bspc node -f last.local
+#alt + Tab
+#	bspc node -f last.local
 
 super + Tab
 	bspc desktop -f last

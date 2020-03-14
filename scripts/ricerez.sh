@@ -3,12 +3,14 @@
 pkill sxhkd
 pkill dunst
 pkill picom
+#pkill compton
 pkill onedrive
 killall -q polybar
 
 sxhkd &
 dunst &
-picom -CGb
+picom -b
+#compton &
 onedrive -m &
 #onedrive -m --confdir ~/.config/onedrive/config_personal &
 ~/scripts/polybar-bsp.sh -r

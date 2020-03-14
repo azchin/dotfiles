@@ -25,7 +25,7 @@ case $op in
 		first=$(echo $dimensions | cut -d ';' -f $index)
 		second=$(echo $dimensions | cut -d ';' -f $pair)
 		bspc node -z $in $first $second && exit 0
-		if [ $(bspc query -N -n focused.tiled | wc -l) -ne 0 ] ; then
+    if [ -n "$(bspc query -N -n focused.tiled)" ] ; then
 			opposite="${l};${k};${h};${j}"
 			newdir=$(echo $opposite | cut -d ';' -f $index)			
 			bspc node -z $newdir $first $second
@@ -61,7 +61,7 @@ case $op in
 	hide)
 		hidden=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.hidden)
 		marked=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.marked)
-		if [ "$(echo "$hidden" | wc -w)" -eq 0 ] ; then
+		if [ -z "$hidden" ] ; then
 			if [ -z "$marked" ] ; then
 				bspc node -g hidden=on
 			else
@@ -72,9 +72,21 @@ case $op in
 			echo "$hidden" | xargs -I _id -n 1 bspc node _id -g hidden=off
 		fi
 		;;
+  full)
+		hidden=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.hidden)
+    full=$(bspc query -N -n $(bspc query -N -n).fullscreen)
+    unfoc=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.\!focused.\!ancestor_of)
+    if [ -z "$full" ]; then
+      echo "$unfoc" | xargs -I _id -n 1 bspc node _id -g hidden=on
+      bspc node -t \~fullscreen
+    else
+      bspc node -t \~fullscreen
+      echo "$hidden" | xargs -I _id -n 1 bspc node _id -g hidden=off
+    fi
+    ;;
 	rotate)
 		marked=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.marked)
-		if [ "$(echo "$marked" | wc -w)" -eq 0 ] ; then
+		if [ -z "$marked" ] ; then
 			bspc node @/ -R "$in"
 		#else
 		#	echo "$marked" | xargs -I _id bspc node _id -R 

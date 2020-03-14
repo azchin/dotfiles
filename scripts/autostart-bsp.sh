@@ -36,6 +36,7 @@ light-locker --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
 #~/.config/polybar/launch.sh &
 ~/scripts/ricerez.sh
 nm-applet &
+[ -z "$(pgrep redshift)" ] && redshift &
 #xflux -l 43.7 -g -79.4 -k 3200
 #xflux -k 3200
 

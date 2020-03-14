@@ -199,35 +199,63 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
-
-# Colors (Monokai Pro)
+# Colors (Snazzy)
 colors:
   # Default colors
   primary:
-    background: '0x2D2A2E'
-    foreground: '0xFCFCFA'
+    background: '#282a36'
+    foreground: '#eff0eb'
 
   # Normal colors
   normal:
-    black:   '0x403E41'
-    red:     '0xFF6188'
-    green:   '0xA9DC76'
-    yellow:  '0xFFD866'
-    blue:    '0xFC9867'
-    magenta: '0xAB9DF2'
-    cyan:    '0x78DCE8'
-    white:   '0xFCFCFA'
+    black:   '#282a36'
+    red:     '#ff5c57'
+    green:   '#5af78e'
+    yellow:  '#f3f99d'
+    blue:    '#57c7ff'
+    magenta: '#ff6ac1'
+    cyan:    '#9aedfe'
+    white:   '#f1f1f0'
 
   # Bright colors
   bright:
-    black:   '0x727072'
-    red:     '0xFF6188'
-    green:   '0xA9DC76'
-    yellow:  '0xFFD866'
-    blue:    '0xFC9867'
-    magenta: '0xAB9DF2'
-    cyan:    '0x78DCE8'
-    white:   '0xFCFCFA'
+    black:   '#686868'
+    red:     '#ff5c57'
+    green:   '#5af78e'
+    yellow:  '#f3f99d'
+    blue:    '#57c7ff'
+    magenta: '#ff6ac1'
+    cyan:    '#9aedfe'
+    white:   '#f1f1f0'
+
+# Colors (Monokai Pro)
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x2D2A2E'
+#    foreground: '0xFCFCFA'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x403E41'
+#    red:     '0xFF6188'
+#    green:   '0xA9DC76'
+#    yellow:  '0xFFD866'
+#    blue:    '0xFC9867'
+#    magenta: '0xAB9DF2'
+#    cyan:    '0x78DCE8'
+#    white:   '0xFCFCFA'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x727072'
+#    red:     '0xFF6188'
+#    green:   '0xA9DC76'
+#    yellow:  '0xFFD866'
+#    blue:    '0xFC9867'
+#    magenta: '0xAB9DF2'
+#    cyan:    '0x78DCE8'
+#    white:   '0xFCFCFA'
 
 
 # Colors (Tomorrow Night Bright)
@@ -580,6 +608,10 @@ key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
   - { key: PageUp,                        action: ScrollPageUp     }
   - { key: PageDown,                      action: ScrollPageDown   }
+    #- { key: Equals,   mods: Control|Shift, action: IncreaseFontSize }
+    #- { key: Add,      mods: Control|Shift, action: IncreaseFontSize }
+    #- { key: Subtract, mods: Control|Shift, action: DecreaseFontSize }
+    #- { key: Minus,    mods: Control|Shift, action: DecreaseFontSize }
 
 
 # Bindings are always filled by default, but will be replaced when a new

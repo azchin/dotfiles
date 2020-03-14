@@ -30,6 +30,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias diff='diff --color=auto'
 
 eval $(ssh-agent -s) &>/dev/null
 ssh-add ~/.ssh/id_rsa &>/dev/null

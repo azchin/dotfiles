@@ -35,8 +35,8 @@ URxvt.iso14755_52: false
 *.color8:       #31363b
 
 ! red
-*.color1:       #f0544c
-*.color9:       #f0544c
+*.color1:       #f4005f
+*.color9:       #f4005f
 
 ! green
 *.color2:       #35b566
@@ -47,16 +47,16 @@ URxvt.iso14755_52: false
 *.color11:      #fba922
 
 ! blue
-*.color4:       #9d1dff
-*.color12:      #3daee9
+*.color4:       #ff00ca
+*.color12:      #ff00ca
 
 ! magenta
-*.color5:       #f5603f
-*.color13:      #f5603f
+*.color5:       #fc9867
+*.color13:      #fc9867
 
 ! cyan
-*.color6:       #ff00ca
-*.color14:      #ff00ca
+*.color6:       #3daee9
+*.color14:      #3daee9
 
 ! white
 *.color7:       #a2a2a2

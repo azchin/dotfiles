@@ -1,5 +1,5 @@
 set number relativenumber
-set mouse=a
+"set mouse=a
 set laststatus=2
 set tabstop=2 softtabstop=0 shiftwidth=2 expandtab
 set noshowmode
