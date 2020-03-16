@@ -71,7 +71,7 @@ if [ $(bspc query -N -d "1" | wc -l) -eq 0 ] ; then
 fi
 
 sleep 1
-bspc desktop -f $currentDesktop
+#bspc desktop -f $currentDesktop
 #bspc node @5:/ -g hidden=on
 bspc rule -r KeePassXC
 bspc rule -r st-256color
