@@ -33,4 +33,5 @@ unsetopt autocd beep
 _comp_options+=(globdots)   # Include hidden files
 zstyle ':completion:*' special-dirs false
 
-[ -f /usr/bin/pfetch ] && pfetch
+#[ -f /usr/bin/pfetch ] && pfetch
+pfetch

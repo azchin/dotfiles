@@ -6,6 +6,7 @@ set noshowmode
 set clipboard=unnamed
 set ignorecase smartcase
 set autoindent smartindent cindent
+"set termguicolors
 syntax on	
 
 " Recompile suckless programs automatically:
@@ -23,6 +24,7 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'kovetskiy/sxhkd-vim'
+"Plug 'rrethy/vim-hexokinase'
 "Plug 'valloric/youcompleteme' "ycm slows startup
 "Plug 'shougo/deoplete.nvim'
 
