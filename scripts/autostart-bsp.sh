@@ -12,6 +12,7 @@ pkill keepassxc
 #pkill xss-lock
 pkill light-locker
 tmux kill-server
+killall -q fcitx
 #killall -q polybar
 setxkbmap -option
 
@@ -20,6 +21,7 @@ setxkbmap -option
 #sxhkd &
 #dunst &
 #[ -n "$(xrandr -q | grep "60.00\*")" ] && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75
+fcitx &
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
 setxkbmap -option caps:escape_shifted_capslock
@@ -41,6 +43,10 @@ nm-applet &
 #xflux -k 3200
 
 # startup
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 #if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
 #	bspc rule -a brave desktop="2"

@@ -12,6 +12,7 @@ export VISUAL="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 #export RANGER_LOAD_DEFAULT_RC=false
+#export MANPAGER="nvim"
 
 # pfetch config
 export PF_INFO="ascii title os kernel pkgs shell editor wm"
@@ -47,6 +48,8 @@ alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
 #[ -f /usr/bin/pfetch ] && alias clear='clear && pfetch'
 alias clear='clear && pfetch'
 alias vi='nvim'
+alias color='crunchbang-mini'
 
 alias g++14="g++ -std=c++14 -Wall -g"
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+alias dlg="dots log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"

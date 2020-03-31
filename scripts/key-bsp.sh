@@ -15,7 +15,7 @@ case $op in
 			bspc desktop -f "$in"
 		fi
 		;;
-	resize)
+  resize) # rework with cases (directions) and function (encapsulate control flow)
 		pix=20
 		h=left; j=bottom; k=top; l=right
 		dimensions="-${pix};0;${pix};0;0;${pix};0;-${pix}"

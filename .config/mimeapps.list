@@ -18,6 +18,7 @@ image/gif=sxiv.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
 x-scheme-handler/discord-529050037532098580=discord-529050037532098580.desktop
+x-scheme-handler/msteams=teams.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
