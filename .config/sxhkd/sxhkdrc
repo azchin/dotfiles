@@ -111,7 +111,7 @@ super + {t,shift + t,shift + f}
 	bspc node -t \~{tiled,pseudo_tiled,floating}
 
 super + f
-	~/bin/key-bsp.sh full
+	~/bin/bspwm/key-bsp.sh full
 
 # set the node flags
 #super + ctrl + {m,x,y,z}
@@ -121,7 +121,7 @@ super + ctrl + m
 	bspc node -g marked
 
 super + ctrl + n
-	~/bin/key-bsp.sh hide
+	~/bin/bspwm/key-bsp.sh hide
 
 #super + shift + {c,v}
 #	xclip -{i,o}
@@ -173,10 +173,10 @@ super + Tab
 
 # focus to the given desktop
 super + {0-9}
-	~/bin/key-bsp.sh focusnode {0-9}
+	~/bin/bspwm/key-bsp.sh focusnode {0-9}
 
 super + d ; super + {g,a,r}
-	~/bin/key-bsp.sh {focusDesktop,addDesktop,removeDesktop}
+	~/bin/bspwm/key-bsp.sh {focusDesktop,addDesktop,removeDesktop}
 
 # send to the given desktop
 super + shift + {0-9}
@@ -211,7 +211,7 @@ super + ctrl + shift + space
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	~/bin/key-bsp.sh resize {left,bottom,top,right}
+	~/bin/bspwm/key-bsp.sh resize {left,bottom,top,right}
 	#bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward

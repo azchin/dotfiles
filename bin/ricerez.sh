@@ -13,5 +13,5 @@ picom -b
 #compton &
 onedrive -m &
 #onedrive -m --confdir ~/.config/onedrive/config_personal &
-~/bin/polybar-bsp.sh -r
-~/.config/polybar/launch.sh &
+~/bin/polybar/polybar-bsp.sh -r
+~/bin/polybar/launch.sh &
