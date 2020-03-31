@@ -14,4 +14,4 @@ else
 	icon="audio-volume-high"
 fi
 [ -z "$message" ] && exit 1
-~/scripts/notify.sh "$message" "$icon"
+~/bin/notify.sh "$message" "$icon"

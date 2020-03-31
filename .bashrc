@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export PATH=$HOME/scripts:$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
+export PATH=$HOME/bin:$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 export EDITOR="vi"
 export VISUAL="nvim"
@@ -46,7 +46,7 @@ alias hib='systemctl hibernate'
 alias open='xdg-open'
 alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
 #[ -f /usr/bin/pfetch ] && alias clear='clear && pfetch'
-alias clear='clear && pfetch'
+alias c='clear && pfetch'
 alias vi='nvim'
 alias color='crunchbang-mini'
 

@@ -49,5 +49,5 @@ bspc rule -a Lutris state=floating
 #bspc rule -a Screenkey manage=off
 #bspc rule -a jetbrains-studio state=floating
 
-~/scripts/autostart-bsp.sh &
+~/bin/autostart-bsp.sh &
 

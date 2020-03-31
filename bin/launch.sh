@@ -1,6 +1,6 @@
 #!/bin/sh
 
-input=${1:-~/scripts/configs/cmd.ini}
+input=${1:-~/bin/configs/cmd.ini}
 options=$(grep -E "^[^#].+=.+" "$input" | cut -d '=' -f 1)
 select=$(echo "$options" | dmenu -i -p "Execute")
 comm=$(grep -E "^$select=" "$input")

@@ -43,7 +43,7 @@ case $op in
 		done
 		[ -z "$name" ] && exit 1
 		bspc monitor -a $name
-		~/scripts/polybar-bsp.sh
+		~/bin/polybar-bsp.sh
 		;;
 	removeDesktop)
 		default="<<"

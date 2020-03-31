@@ -5,7 +5,7 @@
 
 #light-locker-command -l 
 
-store=~/scripts/temp/lock.txt
+store=~/bin/temp/lock.txt
 path=~/images/lockbg2
 files=$(ls $path)
 num=$(echo "$files" | wc -w)

@@ -24,4 +24,4 @@ next)
 esac
 
 [ -z "$msg" ] || [ -n "$(echo "$msg" | grep -E "^MPD")" ] && exit 1	
-~/scripts/notify.sh "$msg" "$icon"
+~/bin/notify.sh "$msg" "$icon"

@@ -25,18 +25,18 @@ fcitx &
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
 setxkbmap -option caps:escape_shifted_capslock
-~/scripts/setbg.sh
+~/bin/setbg.sh
 #picom -b
-#xss-lock --transfer-sleep-lock ~/scripts/lock.sh & 
+#xss-lock --transfer-sleep-lock ~/bin/lock.sh & 
 tmux new -s andrew -d 
 #onedrive -m &
 light-locker --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
 #light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
 
 # polybar
-#~/scripts/polybar-bsp.sh -r
+#~/bin/polybar-bsp.sh -r
 #~/.config/polybar/launch.sh &
-~/scripts/ricerez.sh
+~/bin/ricerez.sh
 nm-applet &
 [ -z "$(pgrep redshift)" ] && redshift &
 #xflux -l 43.7 -g -79.4 -k 3200

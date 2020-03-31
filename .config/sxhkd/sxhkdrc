@@ -4,7 +4,7 @@
 
 # Custom dmenu commands
 super + c
-	~/scripts/launch.sh
+	~/bin/launch.sh
 
 # terminal emulator
 super + {_,shift +} Return
@@ -20,11 +20,11 @@ super + n
 # lockscreen
 super + shift + x
 	light-locker-command -l
-	#~/scripts/lock.sh
+	#~/bin/lock.sh
 
 # launch
 super + {_,shift} + space
-	{~/scripts/dmenu_run_history.sh,sudo dmenu_run}
+	{~/bin/dmenu_run_history.sh,sudo dmenu_run}
 	#{_,sudo} rofi -show run	
 
 # applications
@@ -51,10 +51,10 @@ super + Delete
 
 # wallpaper
 super + s
-	~/scripts/setbg.sh
+	~/bin/setbg.sh
 
 super + a
-	~/scripts/setbg.sh -r
+	~/bin/setbg.sh -r
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -111,7 +111,7 @@ super + {t,shift + t,shift + f}
 	bspc node -t \~{tiled,pseudo_tiled,floating}
 
 super + f
-	~/scripts/key-bsp.sh full
+	~/bin/key-bsp.sh full
 
 # set the node flags
 #super + ctrl + {m,x,y,z}
@@ -121,7 +121,7 @@ super + ctrl + m
 	bspc node -g marked
 
 super + ctrl + n
-	~/scripts/key-bsp.sh hide
+	~/bin/key-bsp.sh hide
 
 #super + shift + {c,v}
 #	xclip -{i,o}
@@ -173,10 +173,10 @@ super + Tab
 
 # focus to the given desktop
 super + {0-9}
-	~/scripts/key-bsp.sh focusnode {0-9}
+	~/bin/key-bsp.sh focusnode {0-9}
 
 super + d ; super + {g,a,r}
-	~/scripts/key-bsp.sh {focusDesktop,addDesktop,removeDesktop}
+	~/bin/key-bsp.sh {focusDesktop,addDesktop,removeDesktop}
 
 # send to the given desktop
 super + shift + {0-9}
@@ -211,7 +211,7 @@ super + ctrl + shift + space
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	~/scripts/key-bsp.sh resize {left,bottom,top,right}
+	~/bin/key-bsp.sh resize {left,bottom,top,right}
 	#bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
@@ -232,16 +232,16 @@ super + {End,Home}
 # Volume
 
 XF86Audio{Lower,Raise}Volume
-	~/scripts/volume.sh {-,+}5
+	~/bin/volume.sh {-,+}5
 	#pactl set-sink-volume @DEFAULT_SINK@ {-,+}5%
 
 shift + XF86Audio{Lower,Raise}Volume
-	~/scripts/volume.sh {-,+}1
+	~/bin/volume.sh {-,+}1
 	#pactl set-sink-volume @DEFAULT_SINK@ {-,+}1%
 
 XF86AudioMute
-	~/scripts/volume.sh mute
+	~/bin/volume.sh mute
 	#pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 XF86Audio{Play,Prev,Next}
-	~/scripts/media.sh {play,prev,next}
+	~/bin/media.sh {play,prev,next}

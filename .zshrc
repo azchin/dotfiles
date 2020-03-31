@@ -9,7 +9,7 @@ for config_file (~/zsh/*.zsh) ; do source $config_file ; done
 source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export fpath=(~/zsh/zsh-completions/src $fpath)
 source ~/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/scripts/insulter.zsh
+source ~/bin/insulter.zsh
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ "$TERM" = "linux" ] ; then
  #PROMPT='%B%{$fg[green]%}%n@%M%{$fg[white]%}:%{$fg[blue]%}%~%{$reset_color%}$%b '	
