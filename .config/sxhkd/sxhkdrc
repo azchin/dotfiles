@@ -11,7 +11,7 @@ super + {_,shift +} Return
 	{_,sudo }st
 
 super + backslash
-	st -p 2
+	st -p 1
 
 #super + semicolon
 super + n
@@ -44,10 +44,6 @@ super + Insert
 	picom -b
 super + Delete
 	pkill picom
-#super + Insert
-#	compton &
-#super + Delete
-#	pkill compton
 
 # wallpaper
 super + s
@@ -73,8 +69,6 @@ super + shift + e
 
 super + shift + s
 	systemctl suspend
-	#[ $(echo -e "Sleep\nCancel" | dmenu -i -p "Sleep?") = "Sleep" ] \
-	#&& systemctl suspend
 
 # close and kill
 super + shift + {q,c}
@@ -111,7 +105,7 @@ super + {t,shift + t,shift + f}
 	bspc node -t \~{tiled,pseudo_tiled,floating}
 
 super + f
-	~/bin/bspwm/key-bsp.sh full
+	~/bin/bspwm/full.sh
 
 # set the node flags
 #super + ctrl + {m,x,y,z}
@@ -121,10 +115,7 @@ super + ctrl + m
 	bspc node -g marked
 
 super + ctrl + n
-	~/bin/bspwm/key-bsp.sh hide
-
-#super + shift + {c,v}
-#	xclip -{i,o}
+	~/bin/bspwm/hide.sh
 
 #
 # focus/swap
@@ -145,20 +136,8 @@ super + {_,shift + }grave
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-#super + bracket{left,right}
-#	bspc desktop -f {prev,next}.local
 super + ctrl + {Left,Right}
 	bspc desktop -f {prev,next}.local
-
-# focus the last node
-#{alt,super} + Tab
-#	bspc node -f last{_,.local}
-# note: grave -> `
-#super + grave
-#	bspc desktop -f last
-
-#alt + Tab
-#	bspc node -f last.local
 
 super + Tab
 	bspc desktop -f last
@@ -173,17 +152,14 @@ super + Tab
 
 # focus to the given desktop
 super + {0-9}
-	~/bin/bspwm/key-bsp.sh focusnode {0-9}
+	~/bin/bspwm/focusdesktop.sh {0-9}
 
 super + d ; super + {g,a,r}
-	~/bin/bspwm/key-bsp.sh {focusDesktop,addDesktop,removeDesktop}
+	~/bin/bspwm/{godesktop,adddesktop,removedesktop}.sh
 
 # send to the given desktop
 super + shift + {0-9}
 	bspc node -d '{0-9}'
-
-#super + alt + {1-9,0}
-#	bspc desktop -s '^{1-9,10}'
 
 #
 # preselect
@@ -211,8 +187,7 @@ super + ctrl + shift + space
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	~/bin/bspwm/key-bsp.sh resize {left,bottom,top,right}
-	#bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+	~/bin/bspwm/resize.sh {left,bottom,top,right}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
