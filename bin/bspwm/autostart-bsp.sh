@@ -8,6 +8,7 @@ currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || 
 #pkill picom
 #pkill xflux
 pkill keepassxc
+#pkill imwheel
 #pkill onedrive
 #pkill xss-lock
 pkill light-locker
@@ -22,6 +23,7 @@ setxkbmap -option
 #dunst &
 #[ -n "$(xrandr -q | grep "60.00\*")" ] && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75
 fcitx &
+#imwheel
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
 setxkbmap -option caps:escape_shifted_capslock
@@ -54,7 +56,7 @@ export XMODIFIERS=@im=fcitx
 #fi
 
 if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
-	bspc rule -a firefox desktop="2"
+	bspc rule -a firefox desktop="^2"
   firefox &
 fi
 
@@ -67,12 +69,12 @@ fi
 #fi
 
 if [ $(bspc query -N -d "5" | wc -l) -eq 0 ] ; then
-	bspc rule -a KeePassXC desktop="5"
+	bspc rule -a KeePassXC desktop="^5"
 	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
 fi
 
 if [ $(bspc query -N -d "1" | wc -l) -eq 0 ] ; then
-	bspc rule -a st-256color desktop="1"
+	bspc rule -a st-256color desktop="^1"
 	st &
 fi
 

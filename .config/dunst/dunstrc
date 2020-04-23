@@ -415,4 +415,4 @@
 
 [brave]
     desktop_entry = brave-browser
-    timeout = 10
+    timeout = 5

@@ -154,12 +154,12 @@ super + Tab
 super + {0-9}
 	~/bin/bspwm/focusdesktop.sh {0-9}
 
-super + d ; super + {g,a,r}
-	~/bin/bspwm/{godesktop,adddesktop,removedesktop}.sh
+#super + d ; super + {g,a,r}
+#	~/bin/bspwm/{godesktop,adddesktop,removedesktop}.sh
 
 # send to the given desktop
 super + shift + {0-9}
-	bspc node -d '{0-9}'
+	bspc node -d $(~/bin/bspwm/desktopname.sh '{0-9}')
 
 #
 # preselect

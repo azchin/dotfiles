@@ -12,9 +12,9 @@ case $dir in
   left) 
   dx=-$pix  ; dy=0      ; opp=right   ;;
   bottom) 
-  dx=0      ; dy=-$pix  ; opp=top     ;;
+  dx=0      ; dy=$pix  ; opp=top     ;;
   top)
-  dx=0      ; dy=$pix   ; opp=bottom  ;;
+  dx=0      ; dy=-$pix   ; opp=bottom  ;;
   right)
   dx=$pix   ; dy=0      ; opp=left    ;;
   *) exit 1 ;;
