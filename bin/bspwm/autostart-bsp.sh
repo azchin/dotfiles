@@ -1,6 +1,6 @@
 #!/bin/sh
 
-currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || echo "2")
+currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || echo "1")
 
 # kill services
 #pkill sxhkd
@@ -12,6 +12,7 @@ pkill keepassxc
 #pkill onedrive
 #pkill xss-lock
 pkill light-locker
+pkill udiskie
 tmux kill-server
 killall -q fcitx
 #killall -q polybar
@@ -23,6 +24,7 @@ setxkbmap -option
 #dunst &
 #[ -n "$(xrandr -q | grep "60.00\*")" ] && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75
 fcitx &
+udiskie --tray &
 #imwheel
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst

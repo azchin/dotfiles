@@ -103,17 +103,17 @@ scrolling:
 
 font:
   normal:
-    family: DejaVu Sans Mono for Powerline
-    style: Book
+    family: Hack
+    style: Regular
   bold:
-    family: DejaVu Sans Mono for Powerline
+    family: Hack
     style: Bold
   italic:
-    family: DejaVu Sans Mono for Powerline
-    style: Oblique
+    family: Hack
+    style: Italic
   bold_italic:
-    family: DejaVu Sans Mono for Powerline
-    style: Bold Oblique
+    family: Hack
+    style: Bold Italic
   size: 9.0
 
 
@@ -388,10 +388,10 @@ colors:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: true
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #
@@ -450,7 +450,7 @@ colors:
   # Record all characters and escape sequences as test data.
   #ref_test: false
 
-#mouse:
+mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -462,7 +462,7 @@ colors:
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: false
 
-  #url:
+  url:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
@@ -474,9 +474,9 @@ colors:
     #   - (macOS) open
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
-    #launcher:
-    #  program: xdg-open
-    #  args: []
+    launcher:
+      program: firefox
+      args: [-private]
 
     # URL modifiers
     #
