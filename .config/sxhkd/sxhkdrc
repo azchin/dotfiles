@@ -8,7 +8,7 @@ super + c
 
 # terminal emulator
 super + {_,shift +} Return
-	{_,sudo }st
+	{_,sudo }alacritty --config-file ~/.config/alacritty/rice.yml
 
 super + backslash
 	st -p 1
@@ -29,7 +29,7 @@ super + {_,shift} + space
 
 # applications
 super + x ; super + {Caps_Lock,a,b,i,f,p,c,d,q,r,s,l,u,z} 
-	{:,alacritty,brave,brave -incognito,firefox,firefox -private,code,pcmanfm,tabbed -c surf -e,st ranger,steam,lutris,urxvt,tabbed -c zathura -e}
+	{:,alacritty,brave,brave -incognito,firefox,firefox -private-window,code,pcmanfm,tabbed -c surf -e,st ranger,steam,lutris,urxvt,tabbed -c zathura -e}
 
 # screenshot
 Print

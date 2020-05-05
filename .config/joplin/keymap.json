@@ -1,0 +1,42 @@
+[
+	{ "keys": ["h", "LEFT", "SHIFT_TAB"], "type": "function", "command": "focus_previous" },
+	{ "keys": ["j", "DOWN"], "type": "function", "command": "move_down" },
+	{ "keys": ["k", "UP"], "type": "function", "command": "move_up" },
+	{ "keys": ["l", "RIGHT", "TAB"], "type": "function", "command": "focus_next" },
+	{ "keys": ["w", "ZZ"], "type": "prompt", "command": "export \"/home/andrew/\"", "cursorPosition": -2 },
+	{ "keys": ["q"], "command": "exit" },
+
+
+	{ "keys": [":"], "type": "function", "command": "enter_command_line_mode" },
+	{ "keys": ["PAGE_UP"], "type": "function", "command": "page_up" },
+	{ "keys": ["PAGE_DOWN"], "type": "function", "command": "page_down" },
+	{ "keys": ["ENTER"], "type": "function", "command": "activate" },
+	{ "keys": ["DELETE", "BACKSPACE"], "type": "function", "command": "delete" },
+
+	{ "keys": ["tt"], "command": "todo toggle $n" },
+	{ "keys": ["tm"], "type": "function", "command": "toggle_metadata" },
+	{ "keys": ["tc"], "type": "function", "command": "toggle_console" },
+	{ "keys": ["/"], "type": "prompt", "command": "search \"\"", "cursorPosition": -2 },
+
+
+	{ "keys": ["mn"], "type": "prompt", "command": "mknote \"\"", "cursorPosition": -2 },
+	{ "keys": ["mt"], "type": "prompt", "command": "mktodo \"\"", "cursorPosition": -2 },
+	{ "keys": ["mb"], "type": "prompt", "command": "mkbook \"\"", "cursorPosition": -2 },
+
+	{ "keys": ["dt"], "command": "todo clear $n" },
+
+	{ "keys": ["cb"], "type": "prompt", "command": "ren $b \"\"", "cursorPosition": -2 },
+	{ "keys": ["dB"], "command": "rmbook $b" },
+
+	{ "keys": ["ah"], "type": "prompt", "command": "attach $n \"/home/andrew/\"", "cursorPosition": -2 },
+	{ "keys": ["ad"], "type": "prompt", "command": "attach $n \"/home/andrew/drive/\"", "cursorPosition": -2 },
+	{ "keys": ["aD"], "type": "prompt", "command": "attach $n \"/home/andrew/Downloads/\"", "cursorPosition": -2 },
+	{ "keys": ["ai"], "type": "prompt", "command": "attach $n \"/home/andrew/images/\"", "cursorPosition": -2 },
+	{ "keys": ["as"], "type": "prompt", "command": "attach $n \"/home/andrew/images/screenshots/\"", "cursorPosition": -2 },
+	{ "keys": ["am"], "type": "prompt", "command": "attach $n \"/home/andrew/images/screenshots_mod/\"", "cursorPosition": -2 },
+
+	{ "keys": ["yn"], "type": "prompt", "command": "cp $n \"\"", "cursorPosition": -2 },
+	{ "keys": ["cn"], "type": "prompt", "command": "ren $n \"\"", "cursorPosition": -2 },
+	{ "keys": ["dn"], "type": "prompt", "command": "mv $n \"\"", "cursorPosition": -2 },
+	{ "keys": ["dN"], "command": "rmnote $n" }
+]

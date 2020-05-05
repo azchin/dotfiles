@@ -3,25 +3,25 @@
 currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || echo "1")
 
 # kill services
-#pkill sxhkd
-#pkill dunst 
-#pkill picom
+pkill sxhkd
+pkill dunst 
+pkill picom
 #pkill xflux
 pkill keepassxc
 #pkill imwheel
-#pkill onedrive
+pkill onedrive
 #pkill xss-lock
 pkill light-locker
 pkill udiskie
 tmux kill-server
 killall -q fcitx
-#killall -q polybar
+killall -q polybar
 setxkbmap -option
 
 # services
 #xset m 4/5 1
-#sxhkd &
-#dunst &
+sxhkd &
+dunst &
 #[ -n "$(xrandr -q | grep "60.00\*")" ] && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75
 fcitx &
 udiskie --tray &
@@ -29,18 +29,17 @@ udiskie --tray &
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
 setxkbmap -option caps:escape_shifted_capslock
-~/bin/setbg.sh
-#picom -b
+~/bin/wallpaper.sh
+picom -b
 #xss-lock --transfer-sleep-lock ~/bin/lock.sh & 
 tmux new -s andrew -d 
-#onedrive -m &
+onedrive -m &
 light-locker --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
 #light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
 
 # polybar
 #~/bin/polybar/polybar-bsp.sh -r
-#~/bin/polybar/launch.sh &
-~/bin/ricerez.sh
+~/bin/polybar/launch.sh &
 nm-applet &
 [ -z "$(pgrep redshift)" ] && redshift &
 #xflux -l 43.7 -g -79.4 -k 3200
@@ -57,7 +56,7 @@ export XMODIFIERS=@im=fcitx
 #	brave &
 #fi
 
-if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
+if [ $(bspc query -N -d "^2" | wc -l) -eq 0 ] ; then
 	bspc rule -a firefox desktop="^2"
   firefox &
 fi
@@ -70,20 +69,26 @@ fi
 #	firefox --new-window youtube.com &
 #fi
 
-if [ $(bspc query -N -d "5" | wc -l) -eq 0 ] ; then
+if [ $(bspc query -N -d "^5" | wc -l) -eq 0 ] ; then
 	bspc rule -a KeePassXC desktop="^5"
 	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
 fi
 
-if [ $(bspc query -N -d "1" | wc -l) -eq 0 ] ; then
-	bspc rule -a st-256color desktop="^1"
-	st &
+if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
+	bspc rule -a Alacritty desktop="^1"
+	alacritty --config-file ~/.config/alacritty/rice.yml &
 fi
+
+# if [ $(bspc query -N -d "1" | wc -l) -eq 0 ] ; then
+# 	bspc rule -a st-256color desktop="^1"
+# 	st &
+# fi
 
 sleep 1
 bspc desktop -f $currentDesktop
 #bspc node @5:/ -g hidden=on
 bspc rule -r KeePassXC
-bspc rule -r st-256color
+# bspc rule -r st-256color
+bspc rule -r Alacritty
 #bspc rule -r brave
 bspc rule -r firefox

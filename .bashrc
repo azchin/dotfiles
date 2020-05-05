@@ -5,7 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 
 export EDITOR="vi"
 export VISUAL="nvim"
@@ -22,7 +23,8 @@ export PF_COL3=3
 export PF_ALIGN="10"
 export PF_ASCII="arch"
 
-stty -ixon
+# disables ^S ^Q (stop and start characters)
+stty -ixon -ixoff
 
 #export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
 #export CLICOLORS=1
@@ -52,4 +54,3 @@ alias color='crunchbang-mini'
 
 alias g++14="g++ -std=c++14 -Wall -g"
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-alias dlg="dots log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"

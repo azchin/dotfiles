@@ -1,7 +1,8 @@
 set number relativenumber
-"set mouse=a
+set mouse=a
 set laststatus=2
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+" set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=2 softtabstop=0 shiftwidth=2 noexpandtab
 set noshowmode
 set clipboard=unnamed
 set ignorecase smartcase
@@ -51,6 +52,8 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-ragtag'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'glts/vim-radical'
+Plug 'tpope/vim-repeat'
 "Plug 'rrethy/vim-hexokinase'
 "Plug 'valloric/youcompleteme' "ycm slows startup
 "Plug 'shougo/deoplete.nvim'
@@ -63,20 +66,39 @@ call plug#end()
 
 " CoC
 let g:coc_global_extensions = [
-	\ 'coc-eslint',
+  \ 'coc-actions',
 	\ 'coc-json',
 	\ 'coc-pairs',
 	\ 'coc-python',
+	\ 'coc-tabnine',
+	\ 'coc-texlab',
 	\ 'coc-lists'
 	\ ]
 "	\ 'coc-snippets',
 "	\ 'coc-prettier',
 "	\ 'coc-tsserver',
+" \ 'coc-eslint',
+"	\ 'coc-flow',
 "	\ 'coc-html',
 "	\ 'coc-java',
+"	\ 'coc-jedi',
 "	\ 'coc-yaml',
-"	\ 'coc-tabnine'
-"	\ 'coc-texlab'
+"	\ 'coc-template',
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" inoremap <silent><expr> <Tab>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<Tab>" :
+"       \ coc#refresh()
+inoremap <expr> <c-space> pumvisible() ? "\<C-y>" : coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <BS> pumvisible() ? "\<Esc>i"
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -124,3 +146,5 @@ let g:gitgutter_map_keys = 0
 " Commentary 
 "autocmd FileType apache setlocal commentstring=#\ %s
 
+" Repeat
+"silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)

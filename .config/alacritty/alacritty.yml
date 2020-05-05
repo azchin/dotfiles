@@ -450,7 +450,7 @@ live_config_reload: true
   # Record all characters and escape sequences as test data.
   #ref_test: false
 
-mouse:
+# mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -462,7 +462,7 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: false
 
-  url:
+  # url:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.
@@ -474,9 +474,9 @@ mouse:
     #   - (macOS) open
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
-    launcher:
-      program: firefox
-      args: [-private]
+    # launcher:
+    #   program: firefox
+    #   args: [-private]
 
     # URL modifiers
     #
@@ -608,6 +608,7 @@ key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
   - { key: PageUp,                        action: ScrollPageUp     }
   - { key: PageDown,                      action: ScrollPageDown   }
+  - { key: Q,        mods: Control|Shift, action: Quit             }
     #- { key: Equals,   mods: Control|Shift, action: IncreaseFontSize }
     #- { key: Add,      mods: Control|Shift, action: IncreaseFontSize }
     #- { key: Subtract, mods: Control|Shift, action: DecreaseFontSize }
