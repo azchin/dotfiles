@@ -10,7 +10,7 @@ pkill picom
 pkill keepassxc
 #pkill imwheel
 pkill onedrive
-#pkill xss-lock
+pkill xss-lock
 pkill light-locker
 pkill udiskie
 tmux kill-server
@@ -28,14 +28,17 @@ udiskie --tray &
 #imwheel
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
-setxkbmap -option caps:escape_shifted_capslock
+# setxkbmap -option caps:escape_shifted_capslock
+setxkbmap -option caps:swapescape
 ~/bin/wallpaper.sh
 picom -b
-#xss-lock --transfer-sleep-lock ~/bin/lock.sh & 
+xss-lock --transfer-sleep-lock ~/bin/lock.sh & 
 tmux new -s andrew -d 
 onedrive -m &
-light-locker --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
-#light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 --idle-hint &
+# xss-lock --transfer-sleep-lock -- light-locker-command -l &
+# light-locker &
+# light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
+# light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
 
 # polybar
 #~/bin/polybar/polybar-bsp.sh -r
@@ -74,21 +77,20 @@ if [ $(bspc query -N -d "^5" | wc -l) -eq 0 ] ; then
 	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
 fi
 
-if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
-	bspc rule -a Alacritty desktop="^1"
-	alacritty --config-file ~/.config/alacritty/rice.yml &
-fi
-
-# if [ $(bspc query -N -d "1" | wc -l) -eq 0 ] ; then
-# 	bspc rule -a st-256color desktop="^1"
-# 	st &
+# if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
+# 	bspc rule -a Alacritty desktop="^1"
+# 	alacritty --config-file ~/.config/alacritty/rice.yml &
 # fi
 
-sleep 1
+if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
+	bspc rule -a st-256color desktop="^1"
+	st &
+fi
+
 bspc desktop -f $currentDesktop
+sleep 2
 #bspc node @5:/ -g hidden=on
 bspc rule -r KeePassXC
-# bspc rule -r st-256color
-bspc rule -r Alacritty
-#bspc rule -r brave
+bspc rule -r st-256color
+# bspc rule -r Alacritty
 bspc rule -r firefox

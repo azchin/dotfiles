@@ -1,0 +1,5 @@
+#!/bin/sh
+wmname LG3D
+/usr/bin/idea &
+sleep 5
+wmname bspwm

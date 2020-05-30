@@ -40,8 +40,10 @@ bspc config removal_adjustment true
 #bspc config external_rules_command ~/.config/bspwm/external_rules
 bspc rule -a Zathura state=tiled
 bspc rule -a Surf state=tiled
+bspc rule -a Emacs state=tiled
 bspc rule -a Steam state=floating
 bspc rule -a Lutris state=floating
+bspc rule -a guvcview state=floating
 
 #bspc config external_rules_command "$(which external_rules)"
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
@@ -51,5 +53,5 @@ bspc rule -a Lutris state=floating
 #bspc rule -a Screenkey manage=off
 #bspc rule -a jetbrains-studio state=floating
 
-~/bin/bspwm/startup.sh &
+~/bin/bspwm/autostart.sh &
 

@@ -9,6 +9,7 @@ else			# if no xdg dir, fall back to dotfiles in ~
 	historyfile=$HOME/.dmenu_history
 fi
 
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 IFS=:
 if stest -dqr -n "$cache" $PATH; then
 	stest -flx $PATH | sort -u > "$cache"

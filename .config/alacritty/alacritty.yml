@@ -102,36 +102,50 @@ scrolling:
 # Font configuration
 
 font:
+
+  # normal:
+  #   family: FiraCode Nerd Font
+  #   style: Regular
+  # bold:
+  #   family: FiraCode Nerd Font
+  #   style: Bold
+  # italic:
+  #   family: FiraCode Nerd Font
+  #   style: Italic
+  # bold_italic:
+  #   family: FiraCode Nerd Font
+  #   style: Bold Italic
+  # size: 9.0
+
   normal:
-    family: Hack
-    style: Regular
+    family: DejaVuSansMono Nerd Font
+    style: Book
   bold:
-    family: Hack
+    family: DejaVuSansMono Nerd Font
     style: Bold
   italic:
-    family: Hack
-    style: Italic
+    family: DejaVuSansMono Nerd Font
+    style: Oblique
   bold_italic:
-    family: Hack
-    style: Bold Italic
+    family: DejaVuSansMono Nerd Font
+    style: Oblique
   size: 9.0
-
 
 #font:
   # Normal (roman) font face
-  #normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    #family: monospace
+  # normal:
+  #    Font family
+    
+  #    Default:
+  #      - (macOS) Menlo
+  #      - (Linux/BSD) monospace
+  #      - (Windows) Consolas
+  #   family: monospace
 
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
+  #    The `style` can be specified to pick a specific face.
+  #   style: Regular
 
-  # Bold font face
+  #  Bold font face
   #bold:
     # Font family
     #
@@ -200,62 +214,68 @@ font:
 #draw_bold_text_with_bright_colors: true
 
 # Colors (Snazzy)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#282a36'
+#     foreground: '#eff0eb'
+
+#   # cursor:
+#   #   cursor: '#97979b'
+#   # selection:
+#   #   text:       '#282a36'
+#   #   background: '#feffff'
+
+#   # Normal colors
+#   normal:
+#     black:   '#282a36'
+#     red:     '#ff5c57'
+#     green:   '#5af78e'
+#     yellow:  '#f3f99d'
+#     blue:    '#57c7ff'
+#     magenta: '#ff6ac1'
+#     cyan:    '#9aedfe'
+#     white:   '#f1f1f0'
+
+#   # Bright colors
+#   bright:
+#     black:   '#686868'
+#     red:     '#ff5c57'
+#     green:   '#5af78e'
+#     yellow:  '#f3f99d'
+#     blue:    '#57c7ff'
+#     magenta: '#ff6ac1'
+#     cyan:    '#9aedfe'
+#     white:   '#f1f1f0'
+
+ # Colors (Monokai Pro)
 colors:
   # Default colors
   primary:
-    background: '#282a36'
-    foreground: '#eff0eb'
+    background: '0x2D2A2E'
+    foreground: '0xFCFCFA'
 
   # Normal colors
   normal:
-    black:   '#282a36'
-    red:     '#ff5c57'
-    green:   '#5af78e'
-    yellow:  '#f3f99d'
-    blue:    '#57c7ff'
-    magenta: '#ff6ac1'
-    cyan:    '#9aedfe'
-    white:   '#f1f1f0'
+    black:   '0x403E41'
+    red:     '0xFF6188'
+    green:   '0xA9DC76'
+    yellow:  '0xFFD866'
+    blue:    '0xFC9867'
+    magenta: '0xAB9DF2'
+    cyan:    '0x78DCE8'
+    white:   '0xFCFCFA'
 
   # Bright colors
   bright:
-    black:   '#686868'
-    red:     '#ff5c57'
-    green:   '#5af78e'
-    yellow:  '#f3f99d'
-    blue:    '#57c7ff'
-    magenta: '#ff6ac1'
-    cyan:    '#9aedfe'
-    white:   '#f1f1f0'
-
-# Colors (Monokai Pro)
-#colors:
-#  # Default colors
-#  primary:
-#    background: '0x2D2A2E'
-#    foreground: '0xFCFCFA'
-#
-#  # Normal colors
-#  normal:
-#    black:   '0x403E41'
-#    red:     '0xFF6188'
-#    green:   '0xA9DC76'
-#    yellow:  '0xFFD866'
-#    blue:    '0xFC9867'
-#    magenta: '0xAB9DF2'
-#    cyan:    '0x78DCE8'
-#    white:   '0xFCFCFA'
-#
-#  # Bright colors
-#  bright:
-#    black:   '0x727072'
-#    red:     '0xFF6188'
-#    green:   '0xA9DC76'
-#    yellow:  '0xFFD866'
-#    blue:    '0xFC9867'
-#    magenta: '0xAB9DF2'
-#    cyan:    '0x78DCE8'
-#    white:   '0xFCFCFA'
+    black:   '0x727072'
+    red:     '0xFF6188'
+    green:   '0xA9DC76'
+    yellow:  '0xFFD866'
+    blue:    '0xFC9867'
+    magenta: '0xAB9DF2'
+    cyan:    '0x78DCE8'
+    white:   '0xFCFCFA'
 
 
 # Colors (Tomorrow Night Bright)
@@ -609,10 +629,16 @@ key_bindings:
   - { key: PageUp,                        action: ScrollPageUp     }
   - { key: PageDown,                      action: ScrollPageDown   }
   - { key: Q,        mods: Control|Shift, action: Quit             }
-    #- { key: Equals,   mods: Control|Shift, action: IncreaseFontSize }
-    #- { key: Add,      mods: Control|Shift, action: IncreaseFontSize }
-    #- { key: Subtract, mods: Control|Shift, action: DecreaseFontSize }
-    #- { key: Minus,    mods: Control|Shift, action: DecreaseFontSize }
+  - { key: Key0,     mods: Control,       action: None             }
+  - { key: Equals,   mods: Control,       action: None             }
+  - { key: Add,      mods: Control,       action: None             }
+  - { key: Subtract, mods: Control,       action: None             }
+  - { key: Minus,    mods: Control,       action: None             }
+  - { key: 11,       mods: Control|Shift, action: ResetFontSize    }
+  - { key: 12,       mods: Control|Shift, action: DecreaseFontSize }
+  - { key: 12,       mods: Control|Shift, action: DecreaseFontSize }
+  - { key: 13,       mods: Control|Shift, action: IncreaseFontSize }
+  - { key: 13,       mods: Control|Shift, action: IncreaseFontSize }
 
 
 # Bindings are always filled by default, but will be replaced when a new

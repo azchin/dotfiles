@@ -18,7 +18,7 @@ ncmpcpp_directory = ~/.config/ncmpcpp
 ## MPD clients (eg. ncmpc) also use that location.
 ##
 #
-#lyrics_directory = ~/.lyrics
+lyrics_directory = ~/.local/share/lyrics
 #
 ##### connection settings #####
 #
@@ -42,7 +42,7 @@ mpd_music_dir = ~/music
 ## (it has to be put into mpd.conf):
 ##
 #
-visualizer_fifo_path = ~/.tmp/mpd.fifo
+visualizer_fifo_path = ~/.cache/mpd/mpd.fifo
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp to determine which output

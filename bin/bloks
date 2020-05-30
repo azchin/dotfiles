@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# ANSI Color -- use these variables to easily have different color
+#    and format output. Make sure to output the reset sequence after 
+#    colors (f = foreground, b = background), and use the 'off'
+#    feature for anything you turn on.
+
+initializeANSI()
+{
+  esc=""
+
+  blackf="${esc}[30m";   redf="${esc}[31m";    greenf="${esc}[32m"
+  yellowf="${esc}[33m"   bluef="${esc}[34m";   purplef="${esc}[35m"
+  cyanf="${esc}[36m";    whitef="${esc}[37m"
+  
+  blackb="${esc}[1;30m";   redb="${esc}[1;31m";    greenb="${esc}[1;32m"
+  yellowb="${esc}[1;33m"   blueb="${esc}[1;34m";   purpleb="${esc}[1;35m"
+  cyanb="${esc}[1;36m";    whiteb="${esc}[1;37m"
+
+  boldon="${esc}[1m";    boldoff="${esc}[22m"
+  italicson="${esc}[3m"; italicsoff="${esc}[23m"
+  ulon="${esc}[4m";      uloff="${esc}[24m"
+  invon="${esc}[7m";     invoff="${esc}[27m"
+
+  reset="${esc}[0m"
+}
+
+# note in this first use that switching colors doesn't require a reset
+# first - the new color overrides the old one.
+
+numbers (){
+
+initializeANSI
+
+cat << EOF
+
+${blackf}00000000${reset} ${redf}01010101${reset} ${greenf}02020202${reset} ${yellowf}03030303${reset} ${bluef}04040404${reset} ${purplef}05050505${reset} ${cyanf}06060606${reset} ${whitef}07070707${reset}
+${blackb}08080808${reset} ${redb}09090909${reset} ${greenb}10101010${reset} ${yellowb}11111111${reset} ${blueb}12121212${reset} ${purpleb}13131313${reset} ${cyanb}14141414${reset} ${whiteb}15151515${reset}
+
+EOF
+
+}
+
+blocks (){
+
+initializeANSI
+
+cat << EOF
+
+${blackf}████${reset}${blackb}████${reset} ${redf}████${reset}${redb}████${reset} ${greenf}████${reset}${greenb}████${reset} ${yellowf}████${reset}${yellowb}████${reset} ${bluef}████${reset}${blueb}████${reset} ${purplef}████${reset}${purpleb}████${reset} ${cyanf}████${reset}${cyanb}████${reset} ${whitef}████${reset}${whiteb}████${reset}
+${blackf}████${reset}${blackb}████${reset} ${redf}████${reset}${redb}████${reset} ${greenf}████${reset}${greenb}████${reset} ${yellowf}████${reset}${yellowb}████${reset} ${bluef}████${reset}${blueb}████${reset} ${purplef}████${reset}${purpleb}████${reset} ${cyanf}████${reset}${cyanb}████${reset} ${whitef}████${reset}${whiteb}████${reset}
+${blackf}████${reset}${blackb}████${reset} ${redf}████${reset}${redb}████${reset} ${greenf}████${reset}${greenb}████${reset} ${yellowf}████${reset}${yellowb}████${reset} ${bluef}████${reset}${blueb}████${reset} ${purplef}████${reset}${purpleb}████${reset} ${cyanf}████${reset}${cyanb}████${reset} ${whitef}████${reset}${whiteb}████${reset}
+
+EOF
+
+}
+
+case $1 in
+	b)	blocks;;
+	n)	numbers;;
+	a)	blocks && numbers;;
+	*)  blocks && numbers;;
+esac

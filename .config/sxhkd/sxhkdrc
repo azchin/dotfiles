@@ -8,7 +8,8 @@ super + c
 
 # terminal emulator
 super + {_,shift +} Return
-	{_,sudo }alacritty --config-file ~/.config/alacritty/rice.yml
+	{_,sudo }st
+	# {_,sudo }alacritty --config-file ~/.config/alacritty/rice.yml
 
 super + backslash
 	st -p 1
@@ -19,8 +20,8 @@ super + n
 
 # lockscreen
 super + shift + x
-	light-locker-command -l
-	#~/bin/lock.sh
+	~/bin/lock.sh
+	# light-locker-command -l
 
 # launch
 super + {_,shift} + space
@@ -47,10 +48,10 @@ super + Delete
 
 # wallpaper
 super + s
-	~/bin/setbg.sh
+	~/bin/wallpaper.sh
 
 super + a
-	~/bin/setbg.sh -r
+	~/bin/wallpaper.sh -r
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -106,6 +107,7 @@ super + {t,shift + t,shift + f}
 
 super + f
 	~/bin/bspwm/full.sh
+	# bspc node -t \~fullscreen
 
 # set the node flags
 #super + ctrl + {m,x,y,z}
