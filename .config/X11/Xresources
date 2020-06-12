@@ -1,11 +1,16 @@
-URxvt.font: xft:DejaVuSansMono Nerd Font:style=Book:size=9
-Urxvt.boldFont: xft:DejaVuSansMono Nerd Font:style=Bold:size=9
-Urxvt.italicFont: xft:DejaVuSansMono Nerd Font:style=Oblique:size=9
-Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font:style=Bold Oblique:size=9
+URxvt.perl-lib: /home/andrew/.config/urxvt/ext
+URxvt.font: xft:DejaVuSansMono Nerd Font Mono:style=Book:size=9
+Urxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold:size=9
+Urxvt.italicFont: xft:DejaVuSansMono Nerd Font Mono:style=Oblique:size=9
+Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold Oblique:size=9
+! URxvt.font: xft:FuraMono Nerd Font Mono:style=Regular:size=9
+! URxvt.boldFont: xft:FuraCode Nerd Font:style=Bold:size=9
 
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt.cursorBlink: false
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
 
 URxvt.iso14755: false
 URxvt.iso14755_52: false
@@ -15,18 +20,10 @@ URxvt.perl-ext-common: default,matcher,resize-font
 URxvt.keysym.C-C: eval:selection_to_clipboard
 URxvt.keysym.C-V: eval:paste_clipboard
 
-! URxvt.keysym.C-underscore:     resize-font:smaller
-! URxvt.keysym.C-plus:      resize-font:bigger
-! URxvt.keysym.C-parenright:     resize-font:reset
-! URxvt.keysym.C-question:  resize-font:show
-! URxvt.keysym.Control-Shift-0x005F:     resize-font:smaller
-! URxvt.keysym.Control-Shift-0x002B:      resize-font:bigger
-! URxvt.keysym.Control-Shift-0x0029:     resize-font:reset
-! URxvt.keysym.Control-Shift-0x003F:  resize-font:show
-URxvt.keysym.C-K: resize-font:smaller
-URxvt.keysym.C-J: resize-font:bigger
-URxvt.keysym.C-H: resize-font:reset
-URxvt.keysym.C-L: resize-font:show
+URxvt.keysym.C-underscore: resize-font:smaller
+URxvt.keysym.C-plus: resize-font:bigger
+URxvt.keysym.C-parenright: resize-font:reset
+URxvt.keysym.C-question: resize-font:show
 
 URxvt.url-launcher: /usr/bin/xdg-open
 Urxvt.keysym.C-U: matcher:last
@@ -57,16 +54,16 @@ URxvt.matcher.button: 1
 *.color11:      #fba922
 
 ! blue
-*.color4:       #ff00ca
-*.color12:      #ff00ca
+*.color4:       #3daee9
+*.color12:      #3daee9
 
 ! magenta
 *.color5:       #fc9867
 *.color13:      #fc9867
 
 ! cyan
-*.color6:       #3daee9
-*.color14:      #3daee9
+*.color6:       #9aedfe
+*.color14:      #9aedfe
 
 ! white
 *.color7:       #a2a2a2

@@ -6,7 +6,7 @@ if [ "$1" = "-r" ] ; then
 fi
 
 bgdir=~/images/desktopbg2
-store=~/bin/temp/setbg.txt
+store=$XDG_CACHE_HOME/wallpaper
 files=$(ls $bgdir)
 num=$(echo "$files" | wc -w)
 [ $reset -eq 1 ] && echo 1 > $store

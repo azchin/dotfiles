@@ -16,6 +16,7 @@ if stest -dqr -n "$cache" $PATH; then
 fi
 unset IFS
 
+	# | dmenu "$@" \
 awk -v histfile=$historyfile '
 	BEGIN {
 		while( (getline < histfile) > 0 ) {
@@ -24,7 +25,7 @@ awk -v histfile=$historyfile '
 			x[$0]=1
 		}
 	} !x[$0]++ ' "$cache" \
-	| dmenu "$@" \
+	| rofi -dmenu -i "$@" \
 	| awk -v histfile=$historyfile '
 		BEGIN {
 			FS=OFS="\t"

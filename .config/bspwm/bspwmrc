@@ -44,6 +44,8 @@ bspc rule -a Emacs state=tiled
 bspc rule -a Steam state=floating
 bspc rule -a Lutris state=floating
 bspc rule -a guvcview state=floating
+bspc rule -a mpv state=floating
+bspc rule -a Xephyr state=floating
 
 #bspc config external_rules_command "$(which external_rules)"
 #bspc rule -a Gimp desktop='^8' state=floating follow=on

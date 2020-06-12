@@ -2,12 +2,16 @@
 
 currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || echo "1")
 
+# special resets
+redshift -x
+
 # kill services
 pkill sxhkd
 pkill dunst 
 pkill picom
 #pkill xflux
 pkill keepassxc
+pkill redshift
 #pkill imwheel
 pkill onedrive
 pkill xss-lock
@@ -20,16 +24,18 @@ setxkbmap -option
 
 # services
 #xset m 4/5 1
+# xmodmap ~/.config/X11/Xmodmap
 sxhkd &
 dunst &
+[ -z "$(pgrep urxvtd)" ] && urxvtd &
 #[ -n "$(xrandr -q | grep "60.00\*")" ] && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75
 fcitx &
 udiskie --tray &
 #imwheel
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
-# setxkbmap -option caps:escape_shifted_capslock
-setxkbmap -option caps:swapescape
+setxkbmap -option caps:escape_shifted_capslock
+# setxkbmap -option caps:swapescape
 ~/bin/wallpaper.sh
 picom -b
 xss-lock --transfer-sleep-lock ~/bin/lock.sh & 
@@ -39,20 +45,16 @@ onedrive -m &
 # light-locker &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
-
-# polybar
 #~/bin/polybar/polybar-bsp.sh -r
 ~/bin/polybar/launch.sh &
 nm-applet &
-[ -z "$(pgrep redshift)" ] && redshift &
-#xflux -l 43.7 -g -79.4 -k 3200
-#xflux -k 3200
-
-# startup
+redshift &
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
+# startup
 
 #if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
 #	bspc rule -a brave desktop="2"

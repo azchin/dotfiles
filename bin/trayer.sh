@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# Note: use trayer-srg-git
 trayer \
   --align right \
   --heighttype pixel --height 24 \

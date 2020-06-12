@@ -1,76 +1,36 @@
-" Plugins using vim-plug
-call plug#begin('~/.config/nvim/plugged')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'lervag/vimtex'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
-Plug 'kovetskiy/sxhkd-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/matchit.zip'
-Plug 'tpope/vim-ragtag'
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-Plug 'glts/vim-radical'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-eunuch'
-Plug 'plasticboy/vim-markdown'
-
-"Plug 'rrethy/vim-hexokinase'
-"Plug 'valloric/youcompleteme' "ycm slows startup
-"Plug 'shougo/deoplete.nvim'
-"
-"Plug 'godlygeek/tabular'
-"Plug 'easymotion/vim-easymotion'
-call plug#end()
-
-
+" #################################################################
 " Vanilla
 set number relativenumber
 set mouse=a
 set laststatus=2
 " set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+" set tabstop=8 softtabstop=0 shiftwidth=8 noexpandtab
 set tabstop=2 softtabstop=0 shiftwidth=2 noexpandtab
 set foldlevel=99
+set signcolumn=no
 set noshowmode
 " set clipboard=unnamed
 set clipboard=unnamedplus
 set ignorecase smartcase
 set autoindent smartindent cindent
+set nobackup nowritebackup
+set undodir=$XDG_DATA_HOME/nvim/undo// undofile 
+set directory=$XDG_DATA_HOME/nvim/swap// swapfile
+set wildmode=longest,list,full
 set cursorline cursorcolumn
+set splitright
 highlight clear CursorLine
 highlight clear CursorColumn
 highlight clear MatchParen
+highlight clear SignColumn
 highlight CursorLine cterm=bold
-highlight CursorLineNR ctermbg=8 cterm=bold
+highlight CursorLineNR ctermbg=black cterm=bold
 highlight CursorColumn cterm=bold
 highlight MatchParen ctermfg=red cterm=bold
-"set termguicolors
+highlight SignColumn ctermfg=yellow ctermbg=black
+" highlight Search ctermbg=green
+" set termguicolors
 syntax on	
-
-let mapleader = "\<Space>"
-" let maplocalleader = "\<Space>"
-nnoremap Y y$
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-nnoremap <Leader>/ :noh<CR>
-inoremap <C-v> <ESC>"+pa
-vnoremap <C-c> "+y
-nnoremap <Leader>h <C-w><C-h>
-nnoremap <Leader>j <C-w><C-j>
-nnoremap <Leader>k <C-w><C-k>
-nnoremap <Leader>l <C-w><C-l>
-nnoremap <Leader>s <C-w><C-s>
-nnoremap <Leader>v <C-w><C-v>
-nnoremap <Leader>n <C-w><C-n>
-nnoremap <Leader>q <C-w><C-q>
-nnoremap <Leader>c <C-w><C-c>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>a :qa<CR>
-
 " set undodir=$XDG_DATA_HOME/vim/undo
 " set directory=$XDG_DATA_HOME/vim/swap
 " set backupdir=$XDG_DATA_HOME/vim/backup
@@ -78,6 +38,59 @@ nnoremap <Leader>a :qa<CR>
 " set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 " set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
+" Key mappings
+let mapleader = "\<Space>"
+" let maplocalleader = "\<Space>"
+nnoremap Y y$
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+nnoremap <silent> <Leader>/ :noh<CR>
+inoremap <silent> <C-v> <ESC>"+pa
+vnoremap <silent> <C-c> "+y
+nnoremap <silent> <Leader>h :wincmd h<CR>
+nnoremap <silent> <Leader>j :wincmd j<CR>
+nnoremap <silent> <Leader>k :wincmd k<CR>
+nnoremap <silent> <Leader>l :wincmd l<CR>
+" nnoremap <silent> <Leader>H :vertical resize +2<CR>
+" nnoremap <silent> <Leader>J :resize -2<CR>
+" nnoremap <silent> <Leader>K :resize +2<CR>
+" nnoremap <silent> <Leader>L :vertical resize -2<CR>
+nnoremap <silent> <Leader>e :wincmd =<CR>
+nnoremap <silent> <Leader>s :wincmd s<CR>
+nnoremap <silent> <Leader>v :wincmd v<CR>
+" nnoremap <silent> <Leader>n :wincmd n<CR>
+nnoremap <silent> <Leader>n :vnew<CR>
+nnoremap <silent> <C-n> :Lex<CR>
+nnoremap <silent> <Leader>q :wincmd q<CR>
+nnoremap <silent> <Leader>c :wincmd c<CR>
+nnoremap <silent> <Leader>w :w<CR>
+nnoremap <silent> <Leader>a :qa<CR>
+nnoremap <silent> <Leader>Q :q!<CR>
+nnoremap <silent> <Leader>W :wq<CR>
+nnoremap <silent> <Leader>A :qa!<CR>
+" nnoremap <Leader>s :setlocal spell! spell?<CR>
+function! SignToggle()
+	if(&signcolumn == 'no') 
+		set signcolumn=auto
+	else
+		set signcolumn=no
+	endif
+endfunction
+nnoremap <silent> <Leader>c :call SignToggle()<CR>
+
+" Netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 1
+let g:netrw_list_hide = ".*\.swp,.*\.git"
+let g:netrw_browse_split = 0
+let g:netrw_winsize = 25
+let g:netrw_bufsettings = "noma nomod nu rnu nowrap ro nobl"
+" let g:netrw_altv = 1
+set fillchars=vert:\ 
+highlight clear VertSplit
+highlight VertSplit ctermfg=black ctermbg=black
+
+" Autocommands
 autocmd BufRead,BufNewFile profile,aliases setfiletype sh
 autocmd BufRead,BufNewFile README setfiletype markdown
 
@@ -89,12 +102,6 @@ augroup suckless
   autocmd BufWritePost config.def.h !cp config.def.h config.h && sudo make install clean 
 augroup end
 
-augroup markdownmap
-  autocmd!
-  autocmd Filetype markdown nnoremap <LocalLeader>mm :InstantMarkdownPreview <CR>
-  autocmd Filetype markdown nnoremap <LocalLeader>ms :InstantMarkdownStop <CR>
-augroup end
-
 function! PlainText()
 	if(&filetype == '')
 		set comments= commentstring=#\ %s
@@ -104,6 +111,38 @@ autocmd BufEnter * call PlainText()
 
 autocmd BufWritePost *Xresources !xrdb %
 
+" #################################################################
+" Plugins using vim-plug
+call plug#begin('$XDG_DATA_HOME/nvim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'lervag/vimtex'
+Plug 'tpope/vim-fugitive'
+" Plug 'scrooloose/nerdtree'
+Plug 'kovetskiy/sxhkd-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/matchit.zip'
+Plug 'tpope/vim-ragtag'
+Plug 'glts/vim-radical'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+Plug 'plasticboy/vim-markdown'
+
+"Plug 'rrethy/vim-hexokinase'
+"Plug 'valloric/youcompleteme' "ycm slows startup
+"Plug 'shougo/deoplete.nvim'
+"Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+"
+"Plug 'godlygeek/tabular'
+"Plug 'easymotion/vim-easymotion'
+"Plug 'tpope/vim-vinegar'
+call plug#end()
+
+" #################################################################
 " Plugin specific
 " CoC
 let g:coc_global_extensions = [
@@ -111,10 +150,11 @@ let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-pairs',
 	\ 'coc-python',
+	\ 'coc-texlab',
 	\ 'coc-tabnine',
 	\ 'coc-lists'
 	\ ]
-	" \ 'coc-texlab',
+	" " TODO remove/modify signs
 	"	\ 'coc-snippets',
 	"	\ 'coc-prettier',
 	"	\ 'coc-tsserver',
@@ -164,21 +204,27 @@ let g:tex_flavor = 'latex'
 " let g:vimtex_quickfix_mode = 0
 
 " Instant Markdown
-filetype plugin on
-"Uncomment to override defaults:
-"need to npm -g install instant-markdown-d
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-"let g:instant_markdown_mathjax = 1
-"let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-"let g:instant_markdown_autoscroll = 0
-"let g:instant_markdown_browser = "qutebrowser"
+"filetype plugin on
+""Uncomment to override defaults:
+""need to npm -g install instant-markdown-d
+"let g:instant_markdown_slow = 1
+"let g:instant_markdown_autostart = 0
+""let g:instant_markdown_mathjax = 1
+""let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+""let g:instant_markdown_autoscroll = 0
+""let g:instant_markdown_browser = "qutebrowser"
+"augroup markdownmap
+"  autocmd!
+"  autocmd Filetype markdown nnoremap <LocalLeader>mm :InstantMarkdownPreview <CR>
+"  autocmd Filetype markdown nnoremap <LocalLeader>ms :InstantMarkdownStop <CR>
+"augroup end
+
 
 " Ragtag
 let g:ragtag_global_maps = 1
 
 " Nerdtree
-nnoremap <C-n> :NERDTreeToggle<CR>
+" nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Gitgutter
 let g:gitgutter_enabled = 1

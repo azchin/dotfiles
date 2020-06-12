@@ -1,5 +1,5 @@
 ! "Enabled modi" Set from: Default
-! rofi.modi:                           window,run,ssh
+rofi.modi:                           window,run,ssh
 ! "Window width" Set from: Default
 ! rofi.width:                          50
 ! "Number of lines" Set from: Default
@@ -23,9 +23,9 @@
 ! "Whether to load and show icons" Set from: Default
 ! rofi.show-icons:                     false
 ! "Terminal to use" Set from: Default
-! rofi.terminal:                       rofi-sensible-terminal
+rofi.terminal:                       alacritty
 ! "Ssh client to use" Set from: Default
-! rofi.ssh-client:                     ssh
+rofi.ssh-client:                     ssh
 ! "Ssh command to execute" Set from: Default
 ! rofi.ssh-command:                    {terminal} -e {ssh-client} {host} [-p {port}]
 ! "Run command to execute" Set from: Default
@@ -47,15 +47,15 @@
 ! "DRUN format string. (Supports: generic,name,comment,exec,categories)" Set from: Default
 ! rofi.drun-display-format:            {name} [<span weight='light' size='small'><i>({generic})</i></span>]
 ! "Disable history in run/ssh" Set from: Default
-! rofi.disable-history:                false
+rofi.disable-history:                true
 ! "Programs ignored for history" Set from: Default
 ! rofi.ignored-prefixes:               
 ! "Use sorting" Set from: Default
-! rofi.sort:                           false
+rofi.sort:                           false
 ! "Choose the strategy used for sorting: normal (levenshtein) or fzf." Set from: Default
-! rofi.sorting-method:                 
+! rofi.sorting-method:                 fzf
 ! "Set case-sensitivity" Set from: Default
-! rofi.case-sensitive:                 false
+rofi.case-sensitive:                 false
 ! "Cycle through the results list" Set from: Default
 ! rofi.cycle:                          true
 ! "Enable sidebar-mode" Set from: Default
@@ -65,7 +65,7 @@
 ! "Enable auto select mode" Set from: Default
 ! rofi.auto-select:                    false
 ! "Parse hosts file for ssh mode" Set from: Default
-! rofi.parse-hosts:                    false
+! rofi.parse-hosts:                    true
 ! "Parse known_hosts file for ssh mode" Set from: Default
 ! rofi.parse-known-hosts:              true
 ! "Set the modi to combine in combi mode" Set from: Default

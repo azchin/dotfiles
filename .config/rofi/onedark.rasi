@@ -16,31 +16,33 @@
   yellow:     #fba922;
   blue:       #3daee9;
   mangenta:   #e44650;
-  cyan:       #ff00ca;
-  emphasis:   #3daee9;
+  cyan:       #9aedfe;
+  emphasis:   #9aedfe;
   text:       #e5e5e5;
   text-alt:   #e5e5e5;
   fg:         #abb2bf;
-  //bg:         #282c34;
-  bg:         #0f0f0fcc;
+  /* bg:         #282c34; */
+  bg:         #0f0f0fe6;
 
   spacing: 0;
   background-color: transparent;
 
-  //font: "Knack Nerd Font 14";
-  font: "DejaVu Sans Mono Bold 12";
+  font: "DejaVu Sans Mono 12";
   text-color: @text;
 }
 
 window {
   transparency: "real";
-  fullscreen: true;
-  //background-color: #282c34dd;
+  /* fullscreen: true; */
+  /* background-color: #282c34dd; */
   background-color: @bg;
+	border-radius: 8px;
 }
 
 mainbox {
-  padding: 25% 25%;
+  /* padding: 25% 25%; */
+	border: 0;
+	padding: 16px;
 }
 
 inputbar {
@@ -49,7 +51,7 @@ inputbar {
 }
 
 prompt {
-  text-color: @blue;
+  text-color: @emphasis;
 }
 
 textbox-prompt-colon {

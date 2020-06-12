@@ -14,7 +14,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 #export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
 #export CLICOLORS=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
-
+export ZSH="$XDG_CONFIG_HOME/zsh"
 # pfetch config
 export PF_INFO="ascii title os kernel pkgs shell editor wm"
 export PF_COL1=6
@@ -23,6 +23,8 @@ export PF_COL3=3
 export PF_ALIGN="10"
 export PF_ASCII="arch"
 #export XDG_CURRENT_DESKTOP="bspwm"
+
+export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-color"
 
 #export VIMINIT='if !has('nvim') | source "$XDG_CONFIG_HOME/vim/vimrc" | endif'
 #export VIMINIT='source "$XDG_CONFIG_HOME/vim/vimrc"'

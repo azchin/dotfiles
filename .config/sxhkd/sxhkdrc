@@ -8,11 +8,12 @@ super + c
 
 # terminal emulator
 super + {_,shift +} Return
-	{_,sudo }st
+	{_,sudo }urxvtc
 	# {_,sudo }alacritty --config-file ~/.config/alacritty/rice.yml
 
 super + backslash
-	st -p 1
+	st
+	# st -p 1
 
 #super + semicolon
 super + n
@@ -27,6 +28,12 @@ super + shift + x
 super + {_,shift} + space
 	{~/bin/dmenu_run_history.sh,sudo dmenu_run}
 	#{_,sudo} rofi -show run	
+
+super + s; super + s
+	rofi -show ssh
+
+super + s; super + k
+	~/bin/screenkey.sh
 
 # applications
 super + x ; super + {Caps_Lock,a,b,i,f,p,c,d,q,r,s,l,u,z} 
@@ -47,11 +54,8 @@ super + Delete
 	pkill picom
 
 # wallpaper
-super + s
-	~/bin/wallpaper.sh
-
-super + a
-	~/bin/wallpaper.sh -r
+super + w; super + {s,a}
+	~/bin/wallpaper.sh{_,-r}
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -91,7 +95,7 @@ super + m
 super + bracket{left,right}
 	bspc node @/ --rotate {-90,90}
 
-super + {e,w}
+super + {e,r}
 	bspc node @/ -{E,B}
 
 super + {v,b}

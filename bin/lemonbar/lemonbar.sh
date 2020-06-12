@@ -1,4 +1,5 @@
 #!/bin/sh
+# Note: use lemonbar-xft-git
 
 # can try to use `tput` to centre text
 # how to handle subscription + clock cycle?

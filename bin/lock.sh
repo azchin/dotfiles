@@ -5,7 +5,7 @@ slock
 
 #light-locker-command -l 
 
-# store=~/bin/temp/lock.txt
+# store=$XDG_CACHE_HOME/lock
 # path=~/images/lockbg2
 # files=$(ls $path)
 # num=$(echo "$files" | wc -w)
