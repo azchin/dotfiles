@@ -3,10 +3,22 @@
 wid=$1
 class=$2
 instance=$3
+conseq=$4
 
-#desktop=$(bspc query -D -d --names)
-#if [ $(bspc query -N -d | wc -l) -eq 0 ] ; then
-#	echo "desktop=^$desktop border=off"
-#else
-#	echo "desktop=^$desktop border=on"
-#fi
+# _dynamic_spawn() {
+# 	# masters=$(bspc query -N @/1 -n '.descendant_of.window')
+# 	dest=$(bspc query -N @/1 -n '.descendant_of.window' | head -n1)
+# 	bspc node $dest -p north
+# 	echo "node=${dest}"
+# }
+
+# desktop=$(bspc query -D -d --names)
+# if [ $desktop -eq 5 ] ; then
+# 	_dynamic_spawn
+# fi
+
+receptacles=$(bspc query -N -n '.local.!window.leaf')
+if [ -n "$receptacles" ] ; then
+	dest=$(echo $receptacles | tail -n1)
+	echo "node=${dest}"
+fi

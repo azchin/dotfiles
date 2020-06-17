@@ -8,7 +8,7 @@ set laststatus=2
 set tabstop=2 softtabstop=0 shiftwidth=2 noexpandtab
 set foldlevel=99
 set signcolumn=no
-set noshowmode
+set showmode
 " set clipboard=unnamed
 set clipboard=unnamedplus
 set ignorecase smartcase
@@ -23,11 +23,13 @@ highlight clear CursorLine
 highlight clear CursorColumn
 highlight clear MatchParen
 highlight clear SignColumn
+highlight clear ModeMsg
 highlight CursorLine cterm=bold
 highlight CursorLineNR ctermbg=black cterm=bold
 highlight CursorColumn cterm=bold
 highlight MatchParen ctermfg=red cterm=bold
 highlight SignColumn ctermfg=yellow ctermbg=black
+highlight ModeMsg ctermfg=yellow cterm=bold
 " highlight Search ctermbg=green
 " set termguicolors
 syntax on	
@@ -66,7 +68,7 @@ nnoremap <silent> <Leader>c :wincmd c<CR>
 nnoremap <silent> <Leader>w :w<CR>
 nnoremap <silent> <Leader>a :qa<CR>
 nnoremap <silent> <Leader>Q :q!<CR>
-nnoremap <silent> <Leader>W :wq<CR>
+" nnoremap <silent> <Leader>W :wq<CR>
 nnoremap <silent> <Leader>A :qa!<CR>
 " nnoremap <Leader>s :setlocal spell! spell?<CR>
 function! SignToggle()
@@ -116,8 +118,8 @@ autocmd BufWritePost *Xresources !xrdb %
 call plug#begin('$XDG_DATA_HOME/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 " Plug 'scrooloose/nerdtree'
@@ -150,11 +152,11 @@ let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-pairs',
 	\ 'coc-python',
-	\ 'coc-texlab',
 	\ 'coc-tabnine',
 	\ 'coc-lists'
 	\ ]
 	" " TODO remove/modify signs
+	" \ 'coc-texlab',
 	"	\ 'coc-snippets',
 	"	\ 'coc-prettier',
 	"	\ 'coc-tsserver',
@@ -229,6 +231,10 @@ let g:ragtag_global_maps = 1
 " Gitgutter
 let g:gitgutter_enabled = 1
 let g:gitgutter_map_keys = 0
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
 
 " Commentary 
 " autocmd FileType apache setlocal commentstring=#\ %s
@@ -240,3 +246,44 @@ autocmd Filetype xdefaults setlocal commentstring=!\ %s
 
 " Markdown
 " let g:vim_markdown_folding_level = 5
+
+" #################################################################
+" Statusline
+
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline ctermfg=green
+  elseif a:mode == 'r'
+    hi statusline ctermfg=red
+  else
+    hi statusline ctermfg=magenta
+  endif
+endfunction
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertChange * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline ctermbg=black ctermfg=white
+
+" default the statusline to green when entering Vim
+highlight clear StatusLine
+highlight clear StatusLineNC
+hi statusline ctermbg=black ctermfg=white
+hi StatusLineNC ctermbg=black ctermfg=darkgrey
+
+set statusline=   " clear the statusline for when vimrc is reloaded
+" set statusline+=%#ModeMsg#
+set statusline+=\ 
+" set statusline+=%-3.3n\                      " buffer number
+set statusline+=%n\                      " buffer number
+set statusline+=%h%m%r%w                    " flags
+set statusline+=%f\                          " file name
+set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+set statusline+=%{&fileformat}]              " file format
+set statusline+=%=                           " right align
+" set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+" set statusline+=%b,0x%-8B\                   " current char
+set statusline+=%<(%{GitStatus()})\ 
+set statusline+=(%l/%L\ %c%V)\ %p%%
+set statusline+=\ 
+" set statusline+=%-8.(%l,%c%V%)\ %<%p%%        " offset

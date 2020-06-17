@@ -1,5 +1,10 @@
 #!/bin/sh
 
+. ~/.config/profile
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || echo "1")
 
 # special resets
@@ -20,6 +25,7 @@ pkill udiskie
 tmux kill-server
 killall -q fcitx
 killall -q polybar
+# ~/bin/lemonbar/kill-lemon.sh
 setxkbmap -option
 
 # services
@@ -47,22 +53,19 @@ onedrive -m &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
 #~/bin/polybar/polybar-bsp.sh -r
 ~/bin/polybar/launch.sh &
+# ~/bin/lemonbar/lemonbar.sh
 nm-applet &
 redshift &
-
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
 
 # startup
 
 #if [ $(bspc query -N -d "2" | wc -l) -eq 0 ] ; then
-#	bspc rule -a brave desktop="2"
+#	bspc rule -a brave -o desktop="2"
 #	brave &
 #fi
 
 if [ $(bspc query -N -d "^2" | wc -l) -eq 0 ] ; then
-	bspc rule -a firefox desktop="^2"
+	bspc rule -a firefox -o desktop="^2"
   firefox &
 fi
 
@@ -75,7 +78,7 @@ fi
 #fi
 
 if [ $(bspc query -N -d "^5" | wc -l) -eq 0 ] ; then
-	bspc rule -a KeePassXC desktop="^5"
+	bspc rule -a KeePassXC -o desktop="^5"
 	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
 fi
 
@@ -85,14 +88,14 @@ fi
 # fi
 
 if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
-	bspc rule -a st-256color desktop="^1"
-	st &
+	bspc rule -a urxvtc -o desktop="^1"
+	urxvtc &
 fi
 
 bspc desktop -f $currentDesktop
 sleep 2
 #bspc node @5:/ -g hidden=on
-bspc rule -r KeePassXC
-bspc rule -r st-256color
-# bspc rule -r Alacritty
-bspc rule -r firefox
+# bspc rule -r KeePassXC
+# bspc rule -r st-256color
+# # bspc rule -r Alacritty
+# bspc rule -r firefox

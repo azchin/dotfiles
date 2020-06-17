@@ -79,5 +79,5 @@ git_dirty() {
     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
 }
 
-RPROMPT='$(git_prompt)'
+# RPROMPT='$(git_prompt)'
 # source ~/zsh/bullet-train.zsh-theme

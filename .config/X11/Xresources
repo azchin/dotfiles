@@ -3,7 +3,7 @@ URxvt.font: xft:DejaVuSansMono Nerd Font Mono:style=Book:size=9
 Urxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold:size=9
 Urxvt.italicFont: xft:DejaVuSansMono Nerd Font Mono:style=Oblique:size=9
 Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold Oblique:size=9
-! URxvt.font: xft:FuraMono Nerd Font Mono:style=Regular:size=9
+! URxvt.font: xft:FuraCode Nerd Font:style=Regular:size=9
 ! URxvt.boldFont: xft:FuraCode Nerd Font:style=Bold:size=9
 
 URxvt.letterSpace: -1

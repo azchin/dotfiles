@@ -7,9 +7,14 @@ super + c
 	~/bin/launch.sh
 
 # terminal emulator
-super + {_,shift +} Return
-	{_,sudo }urxvtc
-	# {_,sudo }alacritty --config-file ~/.config/alacritty/rice.yml
+# super + {_,shift +} Return
+# 	{_,sudo }urxvtc
+
+super + Return
+	urxvtc
+
+super + shift + Return
+	sudo urxvt
 
 super + backslash
 	st
@@ -91,12 +96,16 @@ super + m
 #super + s
 #	bspc node -s biggest
 
+
 # Rotate desktop
 super + bracket{left,right}
 	bspc node @/ --rotate {-90,90}
 
-super + {e,r}
-	bspc node @/ -{E,B}
+super + e
+	bspc node @/ -E
+
+# super + {e,r}
+# 	bspc node @/ -{E,B}
 
 super + {v,b}
 	bspc node @/ --flip {vertical,horizontal}
@@ -173,7 +182,18 @@ super + shift + {0-9}
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
-	bspc node -p \~{west,south,north,east}
+	~/bin/bspwm/receptacle.sh spawn {west,south,north,east}
+	# bspc node -p \~{west,south,north,east}
+
+# receptacles
+super + ctrl + u;
+	~/bin/bspwm/receptacle.sh kill
+
+super + ctrl + s
+	~/bin/bspwm/receptacle.sh swap
+
+super + ctrl + q;
+	~/bin/bspwm/receptacle.sh killall
 
 # preselect the ratio
 super + ctrl + {1-9}
