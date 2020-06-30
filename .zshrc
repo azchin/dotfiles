@@ -14,6 +14,7 @@ source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export fpath=($ZSH/zsh-completions/src $fpath)
 source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/bin/insulter.zsh
+source $ZSH/order/git-async.zsh
 
 # User configuration
 
@@ -29,5 +30,7 @@ zstyle ':completion:*' special-dirs false
 # 	echo -ne '\e[2 q'
 # 	dvtm
 # fi
+
+############### TODO Zinit
 
 ~/bin/termstart.sh

@@ -2,28 +2,42 @@
 
 
 lmodules=(storage packages memory cpu cpu_temp pulseaudio)
-cmodules=(bspwm)
+# cmodules=(bspwm)
+cmodules=()
 rmodules=(wifi timedate)
 # offset=$(_trayer_geometry)
 
 
 declare -A mods
 _buildbar() {
-	build="%{l} "
+	build=""
 	for item in "${lmodules[@]}" ; do
 		 build="${build}${mods[$item]} | "
 	done
-	build="${build}%{c}"
 	for item in "${cmodules[@]}" ; do
 		 build="${build}${mods[$item]}"
 	done
-	build="${build}%{r}"
 	for item in "${rmodules[@]}" ; do
 		 build="${build} | ${mods[$item]}"
 	done
-	build="${build}%{O$((${mods[tray]} + 3))}"
 	echo $build
 }
+# _buildbar() {
+# 	build="%{l} "
+# 	for item in "${lmodules[@]}" ; do
+# 		 build="${build}${mods[$item]} | "
+# 	done
+# 	build="${build}%{c}"
+# 	for item in "${cmodules[@]}" ; do
+# 		 build="${build}${mods[$item]}"
+# 	done
+# 	build="${build}%{r}"
+# 	for item in "${rmodules[@]}" ; do
+# 		 build="${build} | ${mods[$item]}"
+# 	done
+# 	build="${build}%{O$((${mods[tray]} + 3))}"
+# 	echo $build
+# }
 
 _listen() {
 	while read -r line ; do
@@ -35,15 +49,17 @@ _listen() {
 	done
 }
 
-~/bin/lemonbar/modules.sh | _listen | lemonbar \
-	-f "DejaVu Sans Mono:style=Bold:size=9" \
-	-B "#0f0f0f" \
-	-F "#e5e5e5" \
-	-U "#0f0f0f" \
-	-u 3 \
-	-b -p \
-	-g "x27++" \
-	&
+~/bin/lemonbar/modules.sh | _listen | dzen2 -p
+
+# ~/bin/lemonbar/modules.sh | _listen | lemonbar \
+# 	-f "DejaVu Sans Mono:style=Bold:size=9" \
+# 	-B "#0f0f0f" \
+# 	-F "#e5e5e5" \
+# 	-U "#0f0f0f" \
+# 	-u 3 \
+# 	-b -p \
+# 	-g "x27++" \
+# 	&
 
 
 

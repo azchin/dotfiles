@@ -53,31 +53,54 @@ PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
 # export ZSH_THEME_GIT_PROMPT_AHEAD=" ⬆"
 # export ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
 # export ZSH_THEME_GIT_PROMPT_SUFFIX=""
-export ZSH_THEME_GIT_PROMPT_PREFIX="\ue0a0 "
-export ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}\u2713%F{15}"
-export ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}x%F{15}"
-export ZSH_THEME_GIT_PROMPT_ADDED=" %F{green}+%F{15}"
-export ZSH_THEME_GIT_PROMPT_MODIFIED=" %F{blue}~%F{15}"
-export ZSH_THEME_GIT_PROMPT_DELETED=" %F{red}-%F{black}"
-export ZSH_THEME_GIT_PROMPT_UNTRACKED=" %F{yellow}*%F{black}"
-export ZSH_THEME_GIT_PROMPT_RENAMED=" \u2192"
-export ZSH_THEME_GIT_PROMPT_UNMERGED=" ="
-export ZSH_THEME_GIT_PROMPT_BEHIND=" \u2193"
-export ZSH_THEME_GIT_PROMPT_AHEAD=" \u2191"
-export ZSH_THEME_GIT_PROMPT_DIVERGED=" \u2195"
-export ZSH_THEME_GIT_PROMPT_SUFFIX=""
+#
+# export ZSH_THEME_GIT_PROMPT_PREFIX="\ue0a0 "
+# export ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}\u2713%F{15}"
+# export ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}x%F{15}"
+# export ZSH_THEME_GIT_PROMPT_ADDED=" %F{green}+%F{15}"
+# export ZSH_THEME_GIT_PROMPT_MODIFIED=" %F{blue}~%F{15}"
+# export ZSH_THEME_GIT_PROMPT_DELETED=" %F{red}-%F{black}"
+# export ZSH_THEME_GIT_PROMPT_UNTRACKED=" %F{yellow}*%F{black}"
+# export ZSH_THEME_GIT_PROMPT_RENAMED=" \u2192"
+# export ZSH_THEME_GIT_PROMPT_UNMERGED=" ="
+# export ZSH_THEME_GIT_PROMPT_BEHIND=" \u2193"
+# export ZSH_THEME_GIT_PROMPT_AHEAD=" \u2191"
+# export ZSH_THEME_GIT_PROMPT_DIVERGED=" \u2195"
+# export ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
-git_prompt() {
-	local ref
-	ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
-	ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-	echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
-git_dirty() {
-	[ -n "$(command git status --porcelain 2>/dev/null)" ] && \
-    echo "$ZSH_THEME_GIT_PROMPT_DIRTY" || \
-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-}
+# git_prompt() {
+# 	local ref
+# 	ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+# 	ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+# 	echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+# }
+# git_dirty() {
+# 	[ -n "$(command git status --porcelain 2>/dev/null)" ] && \
+#     echo "$ZSH_THEME_GIT_PROMPT_DIRTY" || \
+#     echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+# }
 
-# RPROMPT='$(git_prompt)'
+# autoload -Uz vcs_info
+# zstyle ':vcs_info"*' enable git
+# formats="\ue0a0 %b%c%u"
+# formats="$(echo "\ue0a0") %c%u%b"
+# local actionformats="${formats}%{${fg[default]}%} ${PRCH[sep]} %{${fg[green]}%}%a"
+# zstyle    ':vcs_info:git*' formats           "$formats"
+# zstyle    ':vcs_info:git*' stagedstr         '%F{green}+ '
+# zstyle    ':vcs_info:git*' unstagedstr       '%F{red}* '
+# zstyle    ':vcs_info:git*' check-for-changes         true
+# zstyle    ':vcs_info:git*' check-for-staged-changes  true
+# precmd() { vcs_info }
+
+# zstyle ':vcs_info"*' enable git
+# () {
+# 	local formats="\ue0a0 %b%c%u"
+# 	# local actionformats="${formats}%{${fg[default]}%} ${PRCH[sep]} %{${fg[green]}%}%a"
+# 	zstyle    ':vcs_info:git*' stagedstr         'hullo'
+# 	zstyle    ':vcs_info:git*' unstagedstr       'goodbye'
+# 	zstyle    ':vcs_info:git*' formats           "$formats"
+# }
+# add-zsh-hook precmd vcs_info
+
+RPROMPT='${vcs_info_msg_0_}'
 # source ~/zsh/bullet-train.zsh-theme

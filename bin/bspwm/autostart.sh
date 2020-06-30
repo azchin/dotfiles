@@ -5,7 +5,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
-currentDesktop=$([ -n "$(pgrep sxhkd)" ] && echo $(bspc query -D -d --names) || echo "1")
+currentDesktop=$([ -n "$(pidof sxhkd)" ] && echo $(bspc query -D -d --names) || echo "1")
 
 # special resets
 redshift -x
@@ -33,7 +33,8 @@ setxkbmap -option
 # xmodmap ~/.config/X11/Xmodmap
 sxhkd &
 dunst &
-[ -z "$(pgrep urxvtd)" ] && urxvtd &
+[ -z "$(pidof urxvtd)" ] && urxvtd &
+[ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager
 #[ -n "$(xrandr -q | grep "60.00\*")" ] && xrandr --output HDMI-A-0 --mode 1920x1080 --rate 75
 fcitx &
 udiskie --tray &
@@ -44,7 +45,7 @@ setxkbmap -option caps:escape_shifted_capslock
 # setxkbmap -option caps:swapescape
 ~/bin/wallpaper.sh
 picom -b
-xss-lock --transfer-sleep-lock ~/bin/lock.sh & 
+xss-lock -l ~/bin/lock.sh & 
 tmux new -s andrew -d 
 onedrive -m &
 # xss-lock --transfer-sleep-lock -- light-locker-command -l &
@@ -69,33 +70,21 @@ if [ $(bspc query -N -d "^2" | wc -l) -eq 0 ] ; then
   firefox &
 fi
 
-#sleep 1
-#
-#if [ $(bspc query -N -d "^9" | wc -l) -eq 0 ] ; then
-#	bspc rule -r firefox
-#	bspc rule -a firefox desktop="^9"
-#	firefox --new-window youtube.com &
-#fi
-
 if [ $(bspc query -N -d "^5" | wc -l) -eq 0 ] ; then
 	bspc rule -a KeePassXC -o desktop="^5"
 	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
 fi
 
 # if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
-# 	bspc rule -a Alacritty desktop="^1"
+# 	bspc rule -a Alacritty -o desktop="^1"
 # 	alacritty --config-file ~/.config/alacritty/rice.yml &
 # fi
 
 if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
-	bspc rule -a urxvtc -o desktop="^1"
+	bspc rule -a URxvt -o desktop="^1"
 	urxvtc &
 fi
 
 bspc desktop -f $currentDesktop
 sleep 2
 #bspc node @5:/ -g hidden=on
-# bspc rule -r KeePassXC
-# bspc rule -r st-256color
-# # bspc rule -r Alacritty
-# bspc rule -r firefox

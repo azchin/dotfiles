@@ -1,22 +1,37 @@
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias diff='diff --color=auto'
+alias ls='ls --color=always'
+alias ll='ls -l'
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
+alias fgrep='fgrep --color=always'
+alias diff='diff --color=always'
+alias rg='rg --color ansi'
+alias less='less -R'
+# alias c='clear'
 
-#alias v='xclip -o -sel clip'
-#alias c='xclip -o | xclip -sel clip'
+# Systemd
 alias slep='systemctl suspend'
 alias shut='systemctl poweroff'
 alias rez='systemctl reboot'
 alias hib='systemctl hibernate'
+
+# Desktop specific
 alias open='xdg-open'
 alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
-#[ -f /usr/bin/pfetch ] && alias clear='clear && pfetch'
 alias c='clear && termstart.sh'
+alias cdc='cd && c'
 alias vi='nvim'
 alias se='sudoedit'
 alias color='crunchbang-mini'
+alias xclip='xclip -selection clipboard'
 
+# Git
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gca='git commit -a -m'
+alias gps='git push'
+alias gpl='git pull'
+
+# Stolen
 alias g++14="g++ -std=c++14 -Wall -g"
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"

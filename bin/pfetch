@@ -786,7 +786,8 @@ get_palette() {
     #
     # This allows us to save hardcoding a second set of sequences
     # for background colors.
-    palette="[7m$c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 [m"
+    # palette="[7m$c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 [m"
+    palette="[7m1;$c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 [m"
 
     # Print the palette with a new-line before and afterwards.
     printf '\n' >&6

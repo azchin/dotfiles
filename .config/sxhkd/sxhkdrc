@@ -13,6 +13,9 @@ super + c
 super + Return
 	urxvtc
 
+# super + s ; super + x
+# 	~/bin/cs350.sh
+
 super + shift + Return
 	sudo urxvt
 
@@ -74,8 +77,10 @@ super + Escape
 super + shift + r
 	bspc wm -r
 super + shift + e
-	[ $(echo -e "Exit\nCancel" | dmenu -i -p "Exit this session?") = "Exit" ] \
+	[ $(echo -e "Exit\nCancel" | drofi "Exit this session?") = "Exit" ] \
 	&& bspc quit
+	# [ $(echo -e "Exit\nCancel" | dmenu -i -p "Exit this session?") = "Exit" ] \
+	# && bspc quit
 
 super + shift + s
 	systemctl suspend

@@ -14,11 +14,10 @@ set clipboard=unnamedplus
 set ignorecase smartcase
 set autoindent smartindent cindent
 set nobackup nowritebackup
-set undodir=$XDG_DATA_HOME/nvim/undo// undofile 
+set undodir=$XDG_DATA_HOME/nvim/undo undofile 
 set directory=$XDG_DATA_HOME/nvim/swap// swapfile
 set wildmode=longest,list,full
 set cursorline cursorcolumn
-set splitright
 highlight clear CursorLine
 highlight clear CursorColumn
 highlight clear MatchParen
@@ -33,9 +32,7 @@ highlight ModeMsg ctermfg=yellow cterm=bold
 " highlight Search ctermbg=green
 " set termguicolors
 syntax on	
-" set undodir=$XDG_DATA_HOME/vim/undo
-" set directory=$XDG_DATA_HOME/vim/swap
-" set backupdir=$XDG_DATA_HOME/vim/backup
+" set backupdir=$XDG_DATA_HOME/nvim/backup//
 " set viewdir=$XDG_DATA_HOME/vim/view
 " set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 " set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
@@ -44,6 +41,8 @@ syntax on
 let mapleader = "\<Space>"
 " let maplocalleader = "\<Space>"
 nnoremap Y y$
+" nnoremap n nzz
+" nnoremap N Nzz
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 nnoremap <silent> <Leader>/ :noh<CR>
@@ -61,8 +60,9 @@ nnoremap <silent> <Leader>e :wincmd =<CR>
 nnoremap <silent> <Leader>s :wincmd s<CR>
 nnoremap <silent> <Leader>v :wincmd v<CR>
 " nnoremap <silent> <Leader>n :wincmd n<CR>
-nnoremap <silent> <Leader>n :vnew<CR>
-nnoremap <silent> <C-n> :Lex<CR>
+nnoremap <silent> <Leader>N :vnew<CR>
+nnoremap <silent> <Leader>n :Lex<CR>
+nnoremap <silent> <Leader>u :UndotreeToggle<CR>
 nnoremap <silent> <Leader>q :wincmd q<CR>
 nnoremap <silent> <Leader>c :wincmd c<CR>
 nnoremap <silent> <Leader>w :w<CR>
@@ -70,7 +70,7 @@ nnoremap <silent> <Leader>a :qa<CR>
 nnoremap <silent> <Leader>Q :q!<CR>
 " nnoremap <silent> <Leader>W :wq<CR>
 nnoremap <silent> <Leader>A :qa!<CR>
-" nnoremap <Leader>s :setlocal spell! spell?<CR>
+nnoremap <silent> <Leader>d :bd<CR>
 function! SignToggle()
 	if(&signcolumn == 'no') 
 		set signcolumn=auto
@@ -113,26 +113,33 @@ autocmd BufEnter * call PlainText()
 
 autocmd BufWritePost *Xresources !xrdb %
 
+
+cnoreabbrev <expr> help ((getcmdtype() is# ':'    && getcmdline() is# 'help')?('vert help'):('help'))
+cnoreabbrev <expr> h ((getcmdtype() is# ':'    && getcmdline() is# 'h')?('vert h'):('h'))
+
 " #################################################################
 " Plugins using vim-plug
 call plug#begin('$XDG_DATA_HOME/nvim/plugged')
 
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex'
-Plug 'tpope/vim-fugitive'
 " Plug 'scrooloose/nerdtree'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-ragtag'
 Plug 'glts/vim-radical'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-eunuch'
 Plug 'plasticboy/vim-markdown'
+Plug 'mbbill/undotree'
+Plug 'unblevable/quick-scope' 
 
 "Plug 'rrethy/vim-hexokinase'
 "Plug 'valloric/youcompleteme' "ycm slows startup
@@ -142,6 +149,7 @@ Plug 'plasticboy/vim-markdown'
 "Plug 'godlygeek/tabular'
 "Plug 'easymotion/vim-easymotion'
 "Plug 'tpope/vim-vinegar'
+" Plug 'spolu/dwm.vim'
 call plug#end()
 
 " #################################################################
@@ -247,6 +255,22 @@ autocmd Filetype xdefaults setlocal commentstring=!\ %s
 " Markdown
 " let g:vim_markdown_folding_level = 5
 
+" Undotree
+let g:undotree_SplitWidth = 25
+let g:undotree_ShortIndicators = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_WindowLayout = 2
+let g:undotree_DiffpanelHeight = 8
+
+" Quick scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_max_chars=128
+" let g:qs_lazy_highlight = 1
+" highlight QuickScopePrimary ctermfg=155 cterm=underline
+" highlight QuickScopeSecondary ctermfg=81 cterm=underline
+highlight QuickScopePrimary ctermfg=226 cterm=underline
+highlight QuickScopeSecondary ctermfg=99 cterm=underline
+
 " #################################################################
 " Statusline
 
@@ -276,14 +300,15 @@ set statusline+=\
 " set statusline+=%-3.3n\                      " buffer number
 set statusline+=%n\                      " buffer number
 set statusline+=%h%m%r%w                    " flags
-set statusline+=%f\                          " file name
+" set statusline+=%f\                          " file name
+set statusline+=%t\                          " file name tail
 set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
 set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
 set statusline+=%{&fileformat}]              " file format
 set statusline+=%=                           " right align
 " set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
 " set statusline+=%b,0x%-8B\                   " current char
-set statusline+=%<(%{GitStatus()})\ 
+" set statusline+=%<(%{GitStatus()})\ 
 set statusline+=(%l/%L\ %c%V)\ %p%%
 set statusline+=\ 
 " set statusline+=%-8.(%l,%c%V%)\ %<%p%%        " offset

@@ -19,9 +19,13 @@ x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
 x-scheme-handler/discord-529050037532098580=discord-529050037532098580.desktop
 x-scheme-handler/msteams=teams.desktop
+text/markdown=nvim.desktop
+text/plain=nvim.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 text/html=firefox.desktop;
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+text/markdown=nvim.desktop;
+text/plain=nvim.desktop;
