@@ -6,7 +6,7 @@ alias fgrep='fgrep --color=always'
 alias diff='diff --color=always'
 alias rg='rg --color ansi'
 alias less='less -R'
-# alias c='clear'
+alias c='clear'
 
 # Systemd
 alias slep='systemctl suspend'
@@ -31,7 +31,12 @@ alias gc='git commit -m'
 alias gca='git commit -a -m'
 alias gps='git push'
 alias gpl='git pull'
+alias gb='git branch'
+alias gch='git checkout'
+alias gcb='git checkout -b'
+alias gd='git diff'
 
 # Stolen
-alias g++14="g++ -std=c++14 -Wall -g"
+# alias g++14="g++ -std=c++14 -Wall -g"
+alias g++14="g++ -std=c++14 -g"
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"

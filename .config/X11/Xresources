@@ -56,8 +56,8 @@ URxvt.secondaryScroll: 0
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-! URxvt.perl-ext-common: default,matcher,resize-font,selection-to-clipboard
-URxvt.perl-ext-common: default,matcher,resize-font
+! URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.perl-ext-common: default,resize-font,url-select
 URxvt.keysym.C-C: eval:selection_to_clipboard
 URxvt.keysym.C-V: eval:paste_clipboard
 
@@ -66,13 +66,17 @@ URxvt.keysym.C-plus: resize-font:bigger
 URxvt.keysym.C-parenright: resize-font:reset
 URxvt.keysym.C-question: resize-font:show
 
-URxvt.url-launcher: /usr/bin/xdg-open
-Urxvt.keysym.C-U: matcher:last
-Urxvt.keysym.C-I: matcher:list
-Urxvt.keysym.C-O: matcher:select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+! URxvt.url-launcher: /usr/bin/xdg-open
+! Urxvt.keysym.C-U: matcher:last
+! Urxvt.keysym.C-I: matcher:list
+! Urxvt.keysym.C-O: matcher:select
 ! URxvt.url-launcher: /usr/bin/firefox -private-window 
-URxvt.matcher.button: 1
-! URxvt.matcher.rend.0: Uline Bold fg4
+! URxvt.matcher.button: 1
+! URxvt.matcher.rend.0: Uline Bold fg6
 
 ! Dzen
 dzen2.font: DejaVu Sans Mono:style=Book:size=12

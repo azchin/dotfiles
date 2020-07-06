@@ -44,8 +44,8 @@ super + s; super + k
 	~/bin/screenkey.sh
 
 # applications
-super + x ; super + {Caps_Lock,a,b,i,f,p,c,d,q,r,s,l,u,z} 
-	{:,alacritty,brave,brave -incognito,firefox,firefox -private-window,code,pcmanfm,tabbed -c surf -e,st ranger,steam,lutris,urxvt,tabbed -c zathura -e}
+super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,l,u,z} 
+	{:,alacritty,brave,emacs,brave -incognito,firefox,firefox -private-window,code,pcmanfm,tabbed -c surf -e,st ranger,steam,lutris,urxvt,tabbed -c zathura -e}
 
 # screenshot
 Print

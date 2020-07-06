@@ -11,6 +11,7 @@ set signcolumn=no
 set showmode
 " set clipboard=unnamed
 set clipboard=unnamedplus
+set splitright
 set ignorecase smartcase
 set autoindent smartindent cindent
 set nobackup nowritebackup

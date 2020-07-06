@@ -1,4 +1,8 @@
-export PATH=$HOME/.emacs.d/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+export PATH=$XDG_CONFIG_HOME/emacs/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export EDITOR="vi"
 export VISUAL="nvim"
@@ -6,10 +10,6 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export RANGER_LOAD_DEFAULT_RC=false
 #export MANPAGER="nvim"
-
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
 
 #export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
 #export CLICOLORS=1
@@ -32,6 +32,7 @@ export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-col
 #export OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc" 
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
