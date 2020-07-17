@@ -1,39 +1,66 @@
+
 ! Color scheme
-*.foreground: #e5e5e5
-*.background: #0f0f0f
-*.cursorColor: #e5e5e5
+! *.foreground: #fcfcfa
+! *.background: #2d2a2e
+! *.cursorColor: #e5e5e5
+! ! black
+! *.color0:       #403e41
+! *.color8:       #727072
+! ! red
+! *.color1:       #ff6188
+! *.color9:       #ff6188
+! ! green
+! *.color2:       #a9dc76
+! *.color10:      #a9dc76
+! ! yellow
+! *.color3:       #ffd866
+! *.color11:      #ffd866
+! ! blue
+! *.color4:       #fc9867
+! *.color12:      #fc9867
+! ! magenta
+! *.color5:       #ab9df2
+! *.color13:      #ab9df2
+! ! cyan
+! *.color6:       #78dce8
+! *.color14:      #78dce8
+! ! white
+! *.color7:       #fcfcfa
+! *.color15:      #fcfcfa
 
+URxvt.depth: 32
+URxvt.foreground: #e5e5e5
+URxvt.background: [90]#0f0f0f
+URxvt.cursorColor: #e5e5e5
 ! black
-*.color0:       #1d1f21
-*.color8:       #31363b
-
+! *.color0:       #1d1f21
+! *.color8:       #31363b
+URxvt.color0:       #2b2b2b
+URxvt.color8:       #51585e
 ! red
-*.color1:       #f4005f
-*.color9:       #f4005f
-
+URxvt.color1:       #ff5c57
+URxvt.color9:       #ff5c57
 ! green
-*.color2:       #35b566
-*.color10:      #35b566
-
+URxvt.color2:       #35b566
+URxvt.color10:      #35b566
 ! yellow
-*.color3:       #fba922
-*.color11:      #fba922
-
+URxvt.color3:       #ffd866
+URxvt.color11:      #ffd866
 ! blue
-*.color4:       #3daee9
-*.color12:      #3daee9
-
+URxvt.color4:       #3daee9
+URxvt.color12:      #3daee9
 ! magenta
-*.color5:       #fc9867
-*.color13:      #fc9867
-
+    magenta: '0xAB9DF2'
+! URxvt.color5:       #fc9867
+! URxvt.color13:      #fc9867
+URxvt.color5:       #ab9df2
+URxvt.color13:      #ab9df2
 ! cyan
-*.color6:       #9aedfe
-*.color14:      #9aedfe
-
+URxvt.color6:       #9aedfe
+URxvt.color14:      #9aedfe
 ! white
-*.color7:       #a2a2a2
-*.color15:      #e5e5e5
+URxvt.color7:       #a2a2a2
+URxvt.color15:      #e5e5e5
 
 ! URXVT
 URxvt.perl-lib: /home/andrew/.config/urxvt/ext
@@ -57,7 +84,7 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 ! URxvt.perl-ext-common: default,matcher,resize-font
-URxvt.perl-ext-common: default,resize-font,url-select
+URxvt.perl-ext-common: default,resize-font,url-select,keyboard-select
 URxvt.keysym.C-C: eval:selection_to_clipboard
 URxvt.keysym.C-V: eval:paste_clipboard
 
@@ -66,9 +93,12 @@ URxvt.keysym.C-plus: resize-font:bigger
 URxvt.keysym.C-parenright: resize-font:reset
 URxvt.keysym.C-question: resize-font:show
 
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.C-U: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+URxvt.url-select.button: 1
+
+URxvt.keysym.C-S: perl:keyboard-select:activate
 
 ! URxvt.url-launcher: /usr/bin/xdg-open
 ! Urxvt.keysym.C-U: matcher:last
@@ -77,6 +107,3 @@ URxvt.url-select.underline: true
 ! URxvt.url-launcher: /usr/bin/firefox -private-window 
 ! URxvt.matcher.button: 1
 ! URxvt.matcher.rend.0: Uline Bold fg6
-
-! Dzen
-dzen2.font: DejaVu Sans Mono:style=Book:size=12

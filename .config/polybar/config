@@ -22,8 +22,11 @@
 ;background = #db0f0f0f
 ;background-alt = #db31363b
 ;focused = #db3d4247
-;
-background = #0f0f0f
+
+; 86%
+; background = #db0f0f0f 
+; 90%
+background = #e60f0f0f
 background-alt = #31363b
 focused = #3d4247
 ; focused = #db333333
@@ -32,7 +35,8 @@ focused = #3d4247
 foreground = #e5e5e5
 ;foreground-alt = #555
 foreground-alt = #666666
-foreground-foc = #fba922
+; foreground-foc = #fba922
+foreground-foc = #ffd866
 foreground-unf = #a2a2a2
 ;primary = #ffb52a
 ;primary = #cc00cc
@@ -40,7 +44,7 @@ foreground-unf = #a2a2a2
 primary = #3daee9
 secondary = #e60053
 alert = #f4005f
-underline = #fba922
+underline = #ffd866
 
 [bar/bspwm]
 monitor = DisplayPort-0
@@ -73,17 +77,19 @@ font-1 = "Material Design Icons:style=Regular:size=14;3"
 ;font-2 = Siji:style=Regular:size=11;2
 
 
-modules-left = filesystem packages memory cpu temperature pulseaudio 
+modules-left = filesystem packages memory cpu temperature pulseaudio
 modules-center = bspwm
-;modules-right = title wlan date time
 modules-right = wlan date time
+
+; modules-left = battery filesystem packages memory cpu temperature alsa 
+; modules-right = title wlan date time
 
 tray-position = right
 tray-padding = 1
 
 wm-restack = bspwm
-
 override-redirect = true
+enable-ipc = true
 
 separator = "|"
 ;separator = ""
@@ -156,6 +162,25 @@ label-empty-padding = 1
 
 ; Separator in between workspaces
 ; label-separator = |
+
+; [module/hide]
+; type = custom/ipc
+; hook-0 = 
+
+[module/battery]
+; /sys/class/power_supply 
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = AC
+poll-interval = 5
+time-format = %H:%M
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
+label-charging = +%percentage%%
+label-discharging = %percentage%%
+label-full = full
 
 [module/mpd]
 type = internal/mpd
@@ -268,8 +293,8 @@ date = "%F"
 ;time-alt = %H:%M:%S
 
 ; format-prefix = ""
-format-prefix-font = 2
-format-prefix-foreground = ${colors.primary}
+; format-prefix-font = 2
+; format-prefix-foreground = ${colors.primary}
 ;format-underline = #0a6cf5
 
 label = %date%
@@ -284,6 +309,18 @@ time = "%T %Z"
 format-prefix-foreground = ${colors.primary}
 
 label = %time%
+
+[module/alsa]
+type = internal/alsa
+; /proc/asound/cards
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+master-mixer = Master
+
+format-volume = <label-volume>
+label-volume = %percentage:2%%
+interval = 1
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -365,6 +402,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 hwmon-path = /sys/devices/platform/it87.2624/hwmon/hwmon1/temp3_input
+; hwmon-path = /sys/class/hwmon/hwmon0/
 ;hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
 ;hwmon-path = /sys/devices/platform/it87.2656/hwmon/hwmon2/temp1_input
 

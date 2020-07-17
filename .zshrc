@@ -26,6 +26,11 @@ unsetopt autocd beep
 _comp_options+=(globdots)   # Include hidden files
 zstyle ':completion:*' special-dirs false
 
+# bindkey -s "\C\r" "$TERM &\n"
+# spawn_widget() 
+# zle -N my-script_widget
+# bindkey '\ej' my-script_widget
+
 # if ! [[ "$TERM" =~ "dvtm" ]] ; then
 # 	echo -ne '\e[2 q'
 # 	dvtm

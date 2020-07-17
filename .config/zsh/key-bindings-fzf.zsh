@@ -82,6 +82,6 @@ fzf-history-widget() {
   return $ret
 }
 zle     -N   fzf-history-widget
-bindkey '^H' fzf-history-widget
+bindkey '^R' fzf-history-widget
 
 fi

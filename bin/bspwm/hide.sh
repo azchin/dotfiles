@@ -1,7 +1,8 @@
 #!/bin/sh
 
-hidden=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.hidden)
-marked=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.marked)
+hidden=$(bspc query -N -n '.hidden.local')
+marked=$(bspc query -N -n '.marked.local')
+# marked=$(bspc query -N -d | xargs -I _id bspc query -N -n _id.marked)
 if [ -z "$hidden" ] ; then
 	if [ -z "$marked" ] ; then
 		bspc node -g hidden=on

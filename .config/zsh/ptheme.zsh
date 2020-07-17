@@ -31,10 +31,11 @@ nl='
 
 # mach="%F{magenta}%n@%M%f"
 # dir="%F{cyan}%64<...<%~%<<%f" # 36
+# prm="%F{green}λ %f"
 err="%0(?:%F{green}>>:%F{red}%?) "
-prm="%F{green}λ %f"
+prm="%F{green}$ %f"
 cur="%F{cyan}%2~%f"
-date="%F{magenta}%D{%a}%f"
+date="%F{yellow}%D{%a}%f"
 # PROMPT="%B%F{green}[${mach} %F{cyan}${dir}%F{green}] ${err}%F{green}${prm}%f%b"
 PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
 # RPROMPT="%B${dir}%f%b"

@@ -11,7 +11,7 @@ set signcolumn=no
 set showmode
 " set clipboard=unnamed
 set clipboard=unnamedplus
-set splitright
+" set splitright
 set ignorecase smartcase
 set autoindent smartindent cindent
 set nobackup nowritebackup
@@ -96,6 +96,12 @@ highlight VertSplit ctermfg=black ctermbg=black
 " Autocommands
 autocmd BufRead,BufNewFile profile,aliases setfiletype sh
 autocmd BufRead,BufNewFile README setfiletype markdown
+autocmd BufRead,BufNewFile xmobar* setfiletype haskell
+
+augroup haskell
+	autocmd!
+	autocmd Filetype haskell set tabstop=4 softtabstop=0 shiftwidth=4 expandtab
+augroup end
 
 autocmd BufWritePost *.sh :silent exec '![ $(stat -c "%a" %) = 755 ] || chmod 755 %'
 " autocmd BufNewFile *.sh 0r ~/.config/nvim/skeleton/skeleton.sh
@@ -103,6 +109,7 @@ autocmd BufWritePost *.sh :silent exec '![ $(stat -c "%a" %) = 755 ] || chmod 75
 augroup suckless
   autocmd!
   autocmd BufWritePost config.def.h !cp config.def.h config.h && sudo make install clean 
+  autocmd BufWritePost config.h !sudo make install clean 
 augroup end
 
 function! PlainText()
@@ -115,7 +122,7 @@ autocmd BufEnter * call PlainText()
 autocmd BufWritePost *Xresources !xrdb %
 
 
-cnoreabbrev <expr> help ((getcmdtype() is# ':'    && getcmdline() is# 'help')?('vert help'):('help'))
+" cnoreabbrev <expr> help ((getcmdtype() is# ':'    && getcmdline() is# 'help')?('vert help'):('help'))
 cnoreabbrev <expr> h ((getcmdtype() is# ':'    && getcmdline() is# 'h')?('vert h'):('h'))
 
 " #################################################################
@@ -161,11 +168,11 @@ let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-pairs',
 	\ 'coc-python',
-	\ 'coc-tabnine',
 	\ 'coc-lists'
 	\ ]
 	" " TODO remove/modify signs
 	" \ 'coc-texlab',
+	" \ 'coc-tabnine',
 	"	\ 'coc-snippets',
 	"	\ 'coc-prettier',
 	"	\ 'coc-tsserver',
@@ -177,17 +184,17 @@ let g:coc_global_extensions = [
 	"	\ 'coc-yaml',
 	"	\ 'coc-template',
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
 " inoremap <silent><expr> <Tab>
 "       \ pumvisible() ? "\<C-n>" :
 "       \ <SID>check_back_space() ? "\<Tab>" :
 "       \ coc#refresh()
-inoremap <expr> <c-space> pumvisible() ? "\<C-y>" : coc#refresh()
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <c-space> pumvisible() ? "\<C-y>" : coc#refresh()
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <BS> pumvisible() ? "\<Esc>i"
 

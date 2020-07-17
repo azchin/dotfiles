@@ -22,3 +22,12 @@ if [ -n "$receptacles" ] ; then
 	dest=$(echo $receptacles | tail -n1)
 	echo "node=${dest}"
 fi
+
+# dynamic=6
+# deskfoc=$(bspc query -D -d --names)
+# nodecount=$(bspc query -N -n '.window.local' | wc -l)
+# if [ "$dynamic" = "$deskfoc" ] && [ $nodecount -gt 1 ] ; then
+# 	dest='@/2'
+# 	dir=north
+# 	echo "node=${dest} split_dir=${dir}"
+# fi

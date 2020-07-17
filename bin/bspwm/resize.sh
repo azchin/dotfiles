@@ -1,7 +1,7 @@
 #!/bin/sh
 
 dir=$1
-pix=20
+pix=48
 
 _resize() {
   bspc node -z $dir $dx $dy

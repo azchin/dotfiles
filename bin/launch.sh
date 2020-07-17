@@ -1,7 +1,7 @@
 #!/bin/sh
 
 input=${1:-"$HOME/bin/configs/cmd.ini"}
-options=$(grep -E "^[^#].+=.+" "$input" | cut -d '=' -f 1)
+options=$(grep -E "^[^#;].+=.+" "$input" | cut -d '=' -f 1)
 echo $options
 select=$(echo "$options" | rofi -dmenu -i -p "Execute")
 comm=$(grep -E "^$select=" "$input")

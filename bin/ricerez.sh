@@ -1,17 +1,15 @@
 #!/bin/sh
 
-pkill sxhkd
 pkill dunst
-pkill picom
-#pkill compton
-pkill onedrive
-killall -q polybar
+pkill xcompmgr
+pkill redshift
 
-sxhkd &
+pkill -USR1 -x sxhkd
+polybar-msg cmd restart
 dunst &
-picom -b
-#compton &
-onedrive -m &
+redshift &
+xcompmgr &
+
 #onedrive -m --confdir ~/.config/onedrive/config_personal &
 #~/bin/polybar/polybar-bsp.sh -r
-~/bin/polybar/launch.sh &
+# ~/bin/polybar/launch.sh &

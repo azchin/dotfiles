@@ -1,9 +1,11 @@
 #!/bin/bash
 
 
-lmodules=(storage packages memory cpu cpu_temp pulseaudio)
+# lmodules=(storage packages memory cpu cpu_temp pulseaudio)
 # cmodules=(bspwm)
-cmodules=()
+# cmodules=()
+lmodules=(bspwm)
+cmodules=(storage packages memory cpu cpu_temp pulseaudio)
 rmodules=(wifi timedate)
 # offset=$(_trayer_geometry)
 
@@ -11,14 +13,17 @@ rmodules=(wifi timedate)
 declare -A mods
 _buildbar() {
 	build=""
+	# build="^p(_LEFT)"
 	for item in "${lmodules[@]}" ; do
-		 build="${build}${mods[$item]} | "
+		 build="${build}- ${mods[$item]} -"
 	done
+	# build="${build}^p(_CENTER)"
 	for item in "${cmodules[@]}" ; do
-		 build="${build}${mods[$item]}"
+		 build="${build}- ${mods[$item]} -"
 	done
+	# build="${build}^p(_RIGHT)"
 	for item in "${rmodules[@]}" ; do
-		 build="${build} | ${mods[$item]}"
+		 build="${build}- ${mods[$item]} -"
 	done
 	echo $build
 }
@@ -49,7 +54,7 @@ _listen() {
 	done
 }
 
-~/bin/lemonbar/modules.sh | _listen | dzen2 -p
+~/bin/lemonbar/modules.sh | _listen | dzen2 -p -ta r -h 27 
 
 # ~/bin/lemonbar/modules.sh | _listen | lemonbar \
 # 	-f "DejaVu Sans Mono:style=Bold:size=9" \

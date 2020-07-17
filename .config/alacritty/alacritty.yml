@@ -211,41 +211,41 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
-# Colors (Snazzy)
-colors:
-  # Default colors
-  primary:
-    background: '#282a36'
-    foreground: '#eff0eb'
+# # Colors (Snazzy)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#282a36'
+#     foreground: '#eff0eb'
 
-  # cursor:
-  #   cursor: '#97979b'
-  # selection:
-  #   text:       '#282a36'
-  #   background: '#feffff'
+#   # cursor:
+#   #   cursor: '#97979b'
+#   # selection:
+#   #   text:       '#282a36'
+#   #   background: '#feffff'
 
-  # Normal colors
-  normal:
-    # black:   '#282a36'
-    black:   '#3a3d4d'
-    red:     '#ff5c57'
-    green:   '#5af78e'
-    yellow:  '#f3f99d'
-    blue:    '#57c7ff'
-    magenta: '#ff6ac1'
-    cyan:    '#9aedfe'
-    white:   '#f1f1f0'
+#   # Normal colors
+#   normal:
+#     # black:   '#282a36'
+#     black:   '#3a3d4d'
+#     red:     '#ff5c57'
+#     green:   '#5af78e'
+#     yellow:  '#f3f99d'
+#     blue:    '#57c7ff'
+#     magenta: '#ff6ac1'
+#     cyan:    '#9aedfe'
+#     white:   '#f1f1f0'
 
-  # Bright colors
-  bright:
-    black:   '#686868'
-    red:     '#ff5c57'
-    green:   '#5af78e'
-    yellow:  '#f3f99d'
-    blue:    '#57c7ff'
-    magenta: '#ff6ac1'
-    cyan:    '#9aedfe'
-    white:   '#f1f1f0'
+#   # Bright colors
+#   bright:
+#     black:   '#686868'
+#     red:     '#ff5c57'
+#     green:   '#5af78e'
+#     yellow:  '#f3f99d'
+#     blue:    '#57c7ff'
+#     magenta: '#ff6ac1'
+#     cyan:    '#9aedfe'
+#     white:   '#f1f1f0'
 
 
 # # Colors (Gruvbox dark)
@@ -281,34 +281,34 @@ colors:
 #     cyan:    '0x8ec07c'
 #     white:   '0xebdbb2'
 
- # # Colors (Monokai Pro)
-# colors:
- #  # Default colors
- #  primary:
- #    background: '0x2D2A2E'
- #    foreground: '0xFCFCFA'
+ # Colors (Monokai Pro)
+colors:
+  # Default colors
+  primary:
+    background: '0x2D2A2E'
+    foreground: '0xFCFCFA'
 
- #  # Normal colors
- #  normal:
- #    black:   '0x403E41'
- #    red:     '0xFF6188'
- #    green:   '0xA9DC76'
- #    yellow:  '0xFFD866'
- #    blue:    '0xFC9867'
- #    magenta: '0xAB9DF2'
- #    cyan:    '0x78DCE8'
- #    white:   '0xFCFCFA'
+  # Normal colors
+  normal:
+    black:   '0x403E41'
+    red:     '0xFF6188'
+    green:   '0xA9DC76'
+    yellow:  '0xFFD866'
+    blue:    '0xFC9867'
+    magenta: '0xAB9DF2'
+    cyan:    '0x78DCE8'
+    white:   '0xFCFCFA'
 
- #  # Bright colors
- #  bright:
- #    black:   '0x727072'
- #    red:     '0xFF6188'
- #    green:   '0xA9DC76'
- #    yellow:  '0xFFD866'
- #    blue:    '0xFC9867'
- #    magenta: '0xAB9DF2'
- #    cyan:    '0x78DCE8'
- #    white:   '0xFCFCFA'
+  # Bright colors
+  bright:
+    black:   '0x727072'
+    red:     '0xFF6188'
+    green:   '0xA9DC76'
+    yellow:  '0xFFD866'
+    blue:    '0xFC9867'
+    magenta: '0xAB9DF2'
+    cyan:    '0x78DCE8'
+    white:   '0xFCFCFA'
 
 
 # Colors (Tomorrow Night Bright)
