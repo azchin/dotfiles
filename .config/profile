@@ -6,6 +6,7 @@ export PATH=$XDG_CONFIG_HOME/emacs/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin
 
 export EDITOR="vi"
 export VISUAL="nvim"
+export OPENER="xdg-open"
 export TERMINAL="st"
 export BROWSER="firefox"
 export RANGER_LOAD_DEFAULT_RC=false
@@ -25,7 +26,9 @@ export PF_ASCII="arch"
 #export XDG_CURRENT_DESKTOP="bspwm"
 
 export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-color"
+export SXHKD_SHELL="/usr/bin/sh"
 
+# XDG Specifications
 #export VIMINIT='if !has('nvim') | source "$XDG_CONFIG_HOME/vim/vimrc" | endif'
 #export VIMINIT='source "$XDG_CONFIG_HOME/vim/vimrc"'
 #export OCTAVE_HISTFILE="$XDG_CACHE_HOME/octave-hsts"

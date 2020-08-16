@@ -16,11 +16,11 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.RefocusLast
 import XMonad.Hooks.InsertPosition
 -- import XMonad.Hooks.ServerMode
+-- import XMonad.Layout.Fullscreen
 
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
-import XMonad.Layout.IfMax
 import XMonad.Layout.Spacing
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.PerWorkspace
@@ -56,6 +56,7 @@ import XMonad.Actions.Commands
 -- import XMonad.Actions.GroupNavigation
 -- import XMonad.Layout.Groups (extra func?)
 -- import XMonad.Actions.PerWorkspaceKeys
+-- import XMonad.Actions.WorkspaceNames
 --
 
 myTerminal = "st"
@@ -69,12 +70,11 @@ myModMask       = mod4Mask
 myFocusFollowsMouse = True
 
 
-myLayout = refocusLastLayoutHook $ avoidStruts $ smartBorders $ 
-           Tog.toggleLayouts monocle $ 
-           onWorkspaces["2"] l2 $ lnorm
+myLayout = refocusLastLayoutHook $ avoidStruts $ smartBorders $ lnorm
+           -- Tog.toggleLayouts monocle $ onWorkspaces["2"] l2 $ lnorm
     where
-        lnorm = ctile ||| cmtile ||| two ||| three ||| grid 
-        l2 = two ||| ctile ||| cmtile ||| three ||| grid 
+        lnorm = tile ||| mtile ||| two ||| three ||| grid ||| monocle
+        -- l2 = two ||| tile ||| mtile ||| three ||| grid 
         gaps = spacingRaw False screenb True windowb True
         gs = 8
         screenb = (Border gs gs gs gs)
@@ -83,33 +83,31 @@ myLayout = refocusLastLayoutHook $ avoidStruts $ smartBorders $
         frac = (1/2)
         rt = ResizableTall 1 delta frac []
         -- rt = Tall 1 delta frac
-        tile = modWorkspaces["1","6"] gaps $ rt
-        mtile = modWorkspaces["1","6"] gaps $ Mirror rt
-        ctile = renamed [Replace "tile"] $ IfMax 5 tile two
-        cmtile = renamed [Replace "mirror"] $ IfMax 5 mtile two
-        grid = renamed [Replace "grid"] $ modWorkspaces["1","6"] gaps $ GridRatio (4/3)
-        two = renamed [Replace "two"] $ modWorkspaces["1","6"] gaps $ TwoPanePersistent Nothing delta frac
-        three = renamed [Replace "three"] $ modWorkspaces["1","6"] gaps $ ThreeColMid 1 delta frac
-        monocle = renamed [Replace "monocle"] $ modWorkspaces["1","6"] gaps $ noBorders Full 
+        tile = renamed [Replace "[]=="] $ modWorkspaces["1","6"] gaps $ rt
+        mtile = renamed [Replace "TTTT"] $ modWorkspaces["1","6"] gaps $ Mirror rt
+        grid = renamed [Replace "===="] $ modWorkspaces["1","6"] gaps $ GridRatio (4/3)
+        two = renamed [Replace "[][]"] $ modWorkspaces["1","6"] gaps $ TwoPanePersistent Nothing delta frac
+        three = renamed [Replace "=[]="] $ modWorkspaces["1","6"] gaps $ ThreeColMid 1 delta frac
+        monocle = renamed [Replace "[  ]"] $ modWorkspaces["1","6"] gaps $ noBorders Full 
 
 myManageHook = composeAll
     [ isFullscreen --> doFullFloat
-    , className =? "mpv" --> doFloat
+    -- , className =? "mpv" --> doFloat
     , className =? "Gimp" --> doFloat
     , className =? "guvcview" --> doFloat
     , className =? "Xephyr" --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    -- , insertPosition End Newer -- or Master Newer
+    -- , insertPosition End Newer
     , insertPosition Master Newer
     ]
 
 myEventHook = composeAll
     [ fullscreenEventHook
+    , ewmhDesktopsEventHook
     -- , serverModeEventHook
     -- , serverModeEventHookCmd
     ]
 
--- myStartupHook = return()
 myStartupHook = do
     return()
     spawnOnce "~/bin/core.sh"
@@ -161,16 +159,14 @@ myConfig = ewmh $ docks $ defaultConfig {
     ]
     `additionalKeysP`
     [ ("M-S-e", io (exitWith ExitSuccess))
-    , ("M-S-q", kill) -- not needed with xdo
-    , ("M-<Return>", safeSpawn myTerminal [])
-    , ("M-S-r", safeSpawn "xmonad" ["--recompile"] >> safeSpawn "xmonad" ["--restart"])
+    , ("M-S-q", kill) 
+    -- , ("M-<Return>", safeSpawn myTerminal [])
+    , ("M-S-r", unsafeSpawn "xmonad --recompile; xmonad --restart")
     , ("M-S-h", promote)
     , ("M-<Space>", promote)
     , ("M-r", refresh) -- unused
     , ("C-M-S-q", killAll)
-    -- , ("M-o", cycleThroughLayouts ["tile", "mirror", "two", "three", "grid"])
     , ("M-o", sendMessage NextLayout)
-    , ("M-t", cycleThroughLayouts ["tile", "two"])
     , ("M-j", windows W.focusDown)
     , ("M-k", windows W.focusUp)
     , ("M-h", windows W.focusMaster)
@@ -181,12 +177,14 @@ myConfig = ewmh $ docks $ defaultConfig {
     , ("M-<Right>", toggleFocus) 
     , ("M-S-j", windows W.swapDown)
     , ("M-S-k", windows W.swapUp)
+    -- , ("M-t", cycleThroughLayouts ["[]==", "[][]"])
     -- , ("M-t", withFocused $ windows . W.sink)
-    , ("M-f", withFocused toggleFloat)
-    , ("M-S-f", sinkAll)
+    , ("M-t", withFocused toggleFloat)
+    , ("M-S-t", sinkAll)
     , ("M-b", sendMessage ToggleStruts)
-    , ("M-m", sendMessage $ Tog.Toggle "monocle")
-    , ("M-u", sendMessage $ JumpToLayout "tile")
+    , ("M-f", sendMessage $ JumpToLayout "[  ]")
+    , ("M-e", sendMessage $ JumpToLayout "[]==")
+    , ("M-d", sendMessage $ JumpToLayout "[][]")
     , ("M-<Tab>", toggleWS) -- workspace
     , ("C-M4-<Left>", prevWS)
     , ("C-M4-<Right>", nextWS)
@@ -202,6 +200,39 @@ myConfig = ewmh $ docks $ defaultConfig {
     , ("C-M-l", withFocused $ keysMoveWindow (64, 0))
     , ("C-M-j", withFocused $ keysMoveWindow (0, 64))
     , ("C-M-k", withFocused $ keysMoveWindow (0, -64))
+
+    -- applications
+    , ("M-<Return>", unsafeSpawn "urxvtc || urxvt")
+    , ("M-n", safeSpawn "alacritty" [])
+    , ("M-p", safeSpawn "/home/andrew/bin/dmenu_run_history.sh" ["/home/andrew/bin/drofi"])
+    , ("M-c", safeSpawn "/home/andrew/bin/launch.sh" [])
+    , ("M-v", safeSpawn "emacsclient" ["-c", "-a", "emacs"])
+    , ("M-S-p", safeSpawn "sudo" ["dmenu_run"])
+    , ("M-S-x", safeSpawn "/home/andrew/bin/lock.sh" [])
+    , ("M-S-s", safeSpawn "systemctl" ["suspend"])
+    , ("M-x M-a", safeSpawn "alacritty" [])
+    , ("M-x M-b", safeSpawn "brave" [])
+    , ("M-x M-f", safeSpawn "firefox" [])
+    , ("M-x M-c", safeSpawn "code" [])
+    , ("M-x M-d", safeSpawn "pcmanfm" [])
+    , ("M-x M-e", unsafeSpawn "pkill emacs; emacs --daemon")
+    , ("M-x M-q", safeSpawn "tabbed" ["-c", "vimb", "-e"])
+    , ("M-x M-r", safeSpawn "st" ["-e", "ranger"])
+    , ("M-x M-u", safeSpawn "urxvt" [])
+    , ("M-x M-z", safeSpawn "/home/andrew/bin/zathura.sh" [])
+    , ("<Print>", unsafeSpawn "maim -s | xclip -sel clip -t image/png")
+    , ("M-<Print>", unsafeSpawn "maim ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png")
+    , ("S-<Print>", unsafeSpawn "maim -s ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png")
+    , ("M-w M-s", safeSpawn "/home/andrew/bin/wallpaper.sh" [])
+    , ("M-w M-a", safeSpawn "/home/andrew/bin/wallpaper.sh"  ["-r"])
+    , ("<XF86AudioLowerVolume>", safeSpawn "/home/andrew/bin/volume.sh" ["-5"])
+    , ("<XF86AudioRaiseVolume>", safeSpawn "/home/andrew/bin/volume.sh" ["+5"])
+    , ("S-<XF86AudioLowerVolume>", safeSpawn "/home/andrew/bin/volume.sh" ["-1"])
+    , ("S-<XF86AudioRaiseVolume>", safeSpawn "/home/andrew/bin/volume.sh" ["+1"])
+    , ("<XF86AudioMute>", safeSpawn "/home/andrew/bin/volume.sh" ["mute"])
+    , ("<XF86AudioPlay>", safeSpawn "/home/andrew/bin/media.sh" ["play"])
+    , ("<XF86AudioPrev>", safeSpawn "/home/andrew/bin/media.sh" ["prev"])
+    , ("<XF86AudioNext>", safeSpawn "/home/andrew/bin/media.sh" ["next"])
     ]
     `additionalKeys`
     [ ((myModMask, xK_comma), sendMessage (IncMasterN 1))
@@ -225,7 +256,7 @@ toggleFloat w = windows (\s -> if M.member w (W.floating s)
                     else (W.float w (W.RationalRect (1/8) (1/8) (3/4) (3/4)) s))
 
 main = do
-    xmonad myConfig
+    xmonad $ myConfig
 
 -- Default keybindings + some modifications
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -247,11 +278,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --                 ]
     --     , (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]]
 
-
-    -- mod4-[1..9] @@ Switch to window N
-    -- ++ 
-    -- [((mod1Mask, k), focusNth i)
-    --     | (i, k) <- zip [0 .. 8] [xK_1 ..]]
 
     -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3

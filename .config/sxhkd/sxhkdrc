@@ -18,8 +18,11 @@ super + backslash
 super + n
 	alacritty
 
-super + r
-	~/bin/ricerez.sh
+super + v
+	emacsclient -c -a emacs
+
+# super + r
+# 	~/bin/ricerez.sh
 
 # lockscreen
 super + shift + x
@@ -27,7 +30,7 @@ super + shift + x
 
 # launch
 super + {_,shift} + p
-	{~/bin/dmenu_run_history.sh,sudo dmenu_run}
+	{~/bin/dmenu_run_history.sh ~/bin/drofi,sudo dmenu_run}
 
 super + s; super + s
 	rofi -show ssh
@@ -37,12 +40,12 @@ super + s; super + k
 
 # applications
 
-super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,u,z} 
+super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,t,u,z} 
 	{ \
 	:, \
 	alacritty, \
 	brave, \
-	emacs, \
+	pkill emacs; emacs --daemon, \
 	brave -incognito, \
 	firefox, \
 	firefox -private-window, \
@@ -51,8 +54,9 @@ super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,u,z}
 	tabbed -c vimb -e, \
 	urxvtc -e ranger, \
 	st, \
+	tor-browser, \
 	urxvt, \
-	tabbed -c zathura -e \
+	~/bin/zathura.sh \
 	}
 
 # screenshot
@@ -62,12 +66,6 @@ Print
 
 {super,shift} + Print
 	maim {_,-s} ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
-
-# compositor
-super + Insert
-	picom -b
-super + Delete
-	pkill picom
 
 # wallpaper
 super + w; super + {s,a}

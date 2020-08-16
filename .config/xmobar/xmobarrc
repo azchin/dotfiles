@@ -17,7 +17,7 @@ Config {
    , alignSep = "}{"  -- separator between left-right alignment
    -- , template = "%battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork% }{ %RJTT% | %date% || %kbd% "
    -- , template = " %disku% | %cpu% | %memory% | %alsa:default:Master% }%UnsafeXMonadLog%{ %wi% | %date% "
-   , template = " %UnsafeXMonadLog% }{ | %cpu% | %memory% | %disku% | %alsa:default:Master% | %wi% | %date% "
+   , template = " %UnsafeXMonadLog% }{ | %cpu% | %memory% | V %alsascript% | %wi% | %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -99,8 +99,8 @@ Config {
                              -- , "--high"     , "#ff5c57"
                              ] 10
 
-        , Run DiskU          [ ("/", "D <usedp>%") ] -- <used>
-                             [] 50
+        -- , Run DiskU          [ ("/", "D <usedp>%") ] -- <used>
+        --                      [] 50
                      -- [ "--Low"      , "25"        -- units: %
                      -- , "--High"     , "80"        -- units: %
                      -- , "--low"      , "#35b566"
@@ -114,9 +114,10 @@ Config {
         --                      -- , "--on"       , ""
         --                      -- , "--off"      , ""
         --                      ] 10
-        , Run Alsa "default" "Master"
-                             [ "--template" , "V <volume>%"
-                             ]
+
+        -- , Run Alsa "default" "Master"
+        --                      [ "--template" , "V <volume>%"
+        --                      ]
         -- battery monitor
         , Run Battery        [ "--template" , "Batt: <acstatus>"
                              , "--Low"      , "30"        -- units: %
@@ -140,9 +141,10 @@ Config {
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         -- , Run Date           "%F (%a) %T %Z" "date" 10
-        , Run Date           "%F %T %Z" "date" 10
+        , Run Date           "%b %d %T %Z" "date" 10
         -- , Run CommandReader "/home/andrew/bin/xmobar/pacread.sh" "pac"
         -- , Run CommandReader "/home/andrew/bin/alsa/monitor.sh" "alsa"
+        , Run Com "/home/andrew/bin/alsa/volume.sh" [] "alsascript" 10
         , Run UnsafeXMonadLog
         ]
    }

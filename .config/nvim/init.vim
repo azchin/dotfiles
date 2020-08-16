@@ -108,7 +108,7 @@ autocmd BufWritePost *.sh :silent exec '![ $(stat -c "%a" %) = 755 ] || chmod 75
 
 augroup suckless
   autocmd!
-  autocmd BufWritePost config.def.h !cp config.def.h config.h && sudo make install clean 
+  " autocmd BufWritePost config.def.h !cp config.def.h config.h && sudo make install clean 
   autocmd BufWritePost config.h !sudo make install clean 
 augroup end
 
@@ -148,6 +148,7 @@ Plug 'glts/vim-radical'
 Plug 'plasticboy/vim-markdown'
 Plug 'mbbill/undotree'
 Plug 'unblevable/quick-scope' 
+Plug 'tommcdo/vim-exchange'
 
 "Plug 'rrethy/vim-hexokinase'
 "Plug 'valloric/youcompleteme' "ycm slows startup

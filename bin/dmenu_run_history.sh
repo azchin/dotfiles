@@ -1,5 +1,6 @@
 #!/bin/sh
 
+[ "$#" -lt 1 ] && exit 1
 cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
 if [ -d "$cachedir" ]; then
 	cache=$cachedir/dmenu_run
@@ -17,6 +18,7 @@ fi
 unset IFS
 
 	# | dmenu "$@" \
+	# | rofi -dmenu -i "$@" \
 awk -v histfile=$historyfile '
 	BEGIN {
 		while( (getline < histfile) > 0 ) {
@@ -25,7 +27,7 @@ awk -v histfile=$historyfile '
 			x[$0]=1
 		}
 	} !x[$0]++ ' "$cache" \
-	| rofi -dmenu -i "$@" \
+	| "$@" \
 	| awk -v histfile=$historyfile '
 		BEGIN {
 			FS=OFS="\t"

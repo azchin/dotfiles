@@ -34,12 +34,13 @@ nl='
 # prm="%F{green}λ %f"
 err="%0(?:%F{green}>>:%F{red}%?) "
 prm="%F{green}$ %f"
-cur="%F{cyan}%2~%f"
+cur="%F{cyan}%3~%f"
 date="%F{yellow}%D{%a}%f"
 # PROMPT="%B%F{green}[${mach} %F{cyan}${dir}%F{green}] ${err}%F{green}${prm}%f%b"
 PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
 # RPROMPT="%B${dir}%f%b"
 
+RPROMPT='${vcs_info_msg_0_}'
 
 
 # export ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}✔%F{15}"
@@ -103,5 +104,4 @@ PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
 # }
 # add-zsh-hook precmd vcs_info
 
-RPROMPT='${vcs_info_msg_0_}'
 # source ~/zsh/bullet-train.zsh-theme

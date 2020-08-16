@@ -45,7 +45,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 setopt multios
 setopt prompt_subst
 
-[[ -n "$WINDOW" ]] && SCREEN_NO="%B$WINDOW%b " || SCREEN_NO=""
+# [[ -n "$WINDOW" ]] && SCREEN_NO="%B$WINDOW%b " || SCREEN_NO=""
 
 # git theming default: Variables for theming the git info prompt
 # ZSH_THEME_GIT_PROMPT_PREFIX="git:("         # Prefix at the very beginning of the prompt, before the branch name

@@ -16,6 +16,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.RefocusLast
 import XMonad.Hooks.InsertPosition
 -- import XMonad.Hooks.ServerMode
+import XMonad.Layout.Fullscreen as FS
 
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.NoBorders
@@ -46,8 +47,6 @@ import XMonad.Actions.Commands
 
 -- check out later
 -- https://hackage.haskell.org/package/xmonad-contrib
--- import XMonad.Util.Cursor
--- import XMonad.Util.Run (safe spawn)
 -- import XMonad.Hooks.Script (autostart script)
 -- import XMonad.Hooks.UrgencyHook
 -- import XMonad.Actions.LinkWorkspaces 
@@ -57,12 +56,7 @@ import XMonad.Actions.Commands
 -- import XMonad.Hooks.WorkspaceHistory (super tab?)
 -- import XMonad.Actions.GroupNavigation
 -- import XMonad.Layout.Groups (extra func?)
--- import XMonad.Layout.WorkspaceDir
 -- import XMonad.Actions.PerWorkspaceKeys
--- import XMonad.Layout.LayoutCombinators (jump to layout)
--- import XMonad.Actions.FloatKeys
--- import XMonad.Layout.TwoPane
--- import XMonad.Layout.TwoPanePersistent
 --
 
 myTerminal = "st"
@@ -76,7 +70,6 @@ myModMask       = mod4Mask
 myFocusFollowsMouse = True
 
 
--- smartborders causes single window to freeze if switched/reset to `tile`
 myLayout = refocusLastLayoutHook $ avoidStruts $ smartBorders $ 
            Tog.toggleLayouts monocle $ 
            onWorkspaces["2"] l2 $ lnorm
@@ -89,8 +82,8 @@ myLayout = refocusLastLayoutHook $ avoidStruts $ smartBorders $
         windowb = (Border gs gs gs gs)
         delta = (5/100)
         frac = (1/2)
-        -- rt = ResizableTall 1 delta frac []
-        rt = Tall 1 delta frac
+        rt = ResizableTall 1 delta frac []
+        -- rt = Tall 1 delta frac
         tile = modWorkspaces["1","6"] gaps $ rt
         mtile = modWorkspaces["1","6"] gaps $ Mirror rt
         ctile = renamed [Replace "tile"] $ IfMax 5 tile two
@@ -109,10 +102,12 @@ myManageHook = composeAll
     , resource  =? "desktop_window" --> doIgnore
     -- , insertPosition End Newer -- or Master Newer
     , insertPosition Master Newer
+    , FS.fullscreenManageHook
     ]
 
 myEventHook = composeAll
-    [ fullscreenEventHook
+    [ FS.fullscreenEventHook
+    , ewmhDesktopsEventHook
     -- , serverModeEventHook
     -- , serverModeEventHookCmd
     ]
@@ -120,7 +115,7 @@ myEventHook = composeAll
 myStartupHook = do
     return()
     spawnOnce "~/bin/core.sh"
-    spawn "~/bin/xmonad/autostart.sh"
+    safeSpawn "/home/andrew/bin/xmonad/autostart.sh" []
 
 myPP = xmobarPP { ppSep    = " | "
                 , ppCurrent = xmobarColor "#ffd866" "" . wrap "[" "]"
@@ -131,7 +126,7 @@ myPP = xmobarPP { ppSep    = " | "
                 , ppOrder  = \(ws:l:t:_) -> [ws,l,t]
                 }
 
-myConfig = ewmh $ docks $ defaultConfig {
+myConfig = FS.fullscreenSupport $ ewmh $ docks $ defaultConfig {
     -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -168,9 +163,9 @@ myConfig = ewmh $ docks $ defaultConfig {
     ]
     `additionalKeysP`
     [ ("M-S-e", io (exitWith ExitSuccess))
-    , ("M-S-q", kill) -- not needed with xdo
-    -- , ("M-<Return>", spawn myTerminal)
-    , ("M-S-r", spawn "xmonad --recompile; xmonad --restart")
+    , ("M-S-c", kill) 
+    , ("M-<Return>", safeSpawn myTerminal [])
+    , ("M-S-r", safeSpawn "xmonad" ["--recompile"] >> safeSpawn "xmonad" ["--restart"])
     , ("M-S-h", promote)
     , ("M-<Space>", promote)
     , ("M-r", refresh) -- unused
