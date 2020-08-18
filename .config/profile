@@ -16,6 +16,8 @@ export RANGER_LOAD_DEFAULT_RC=false
 #export CLICOLORS=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
 export ZSH="$XDG_CONFIG_HOME/zsh"
+declare -A ZINIT
+export ZINIT[HOME_DIR]="$XDG_CONFIG_HOME/zsh/zinit"
 # pfetch config
 export PF_INFO="ascii title os kernel pkgs shell editor wm"
 export PF_COL1=6

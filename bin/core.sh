@@ -13,7 +13,7 @@ pkill dunst
 pkill redshift
 pkill onedrive
 pkill xss-lock
-pkill udisksctl
+# pkill udisksctl
 tmux kill-server
 # killall -q fcitx
 setxkbmap -option
@@ -25,7 +25,7 @@ dunst &
 [ $(ps ax | grep "emacs --daemon" | wc -l) -le 1 ] && emacs --daemon
 [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager
 # fcitx &
-udisksctl monitor &
+# udisksctl monitor &
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
 setxkbmap -option caps:escape_shifted_capslock
