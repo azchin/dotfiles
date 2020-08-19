@@ -1,0 +1,19 @@
+#!/bin/sh
+
+[ -z "$1" ] && exit 1
+
+filename=$(basename -- "$1")
+path=$(realpath -- "$1")
+extension="${filename##*.}"
+prefix="${filename%.*}"
+dir=$(pwd)
+editor=vi
+[ -n "$EDITOR" ] && editor="$EDITOR"
+[ -n "$VISUAL" ] && editor="$VISUAL"
+
+tempfile=$(doas -- mktemp --suffix=".${extension}" "${prefix}XXXXXXXXXX")
+doas cp $path $tempfile
+doas chmod 777 $tempfile
+$editor $tempfile
+doas cp $tempfile $path
+doas rm $tempfile

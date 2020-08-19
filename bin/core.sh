@@ -14,8 +14,9 @@ pkill redshift
 pkill onedrive
 pkill xss-lock
 # pkill udisksctl
+pkill nm-applet
 tmux kill-server
-# killall -q fcitx
+killall -q fcitx
 setxkbmap -option
 
 # services
@@ -24,7 +25,7 @@ dunst &
 [ -z "$(pidof urxvtd)" ] && urxvtd &
 [ $(ps ax | grep "emacs --daemon" | wc -l) -le 1 ] && emacs --daemon
 [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager
-# fcitx &
+fcitx &
 # udisksctl monitor &
 xsetroot -cursor_name left_ptr
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst
@@ -41,7 +42,7 @@ xss-lock -l ~/bin/lock.sh &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
 redshift &
-# nm-applet &
+nm-applet &
 
 # instructions
 nmcli -g SSID device wifi list > "$XDG_CACHE_HOME"/ssidlist

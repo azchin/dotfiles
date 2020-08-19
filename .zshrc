@@ -16,6 +16,8 @@ for config_file ($ZSH/*.zsh) ; do source $config_file ; done
 # source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/bin/insulter.zsh
 
+declare -A ZINIT
+export ZINIT[HOME_DIR]="$XDG_CONFIG_HOME/zsh/zinit"
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting

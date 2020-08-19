@@ -13,9 +13,9 @@ alias c='clear'
 alias yd='pwd > $XDG_CACHE_HOME/currentdirectory'
 alias pd='cd $(cat $XDG_CACHE_HOME/currentdirectory)'
 alias qd='cat $XDG_CACHE_HOME/currentdirectory'
-alias sudo='doas --'
+# alias sudo='doas --'
 # alias doas='doas --'
-alias de='doasedit'
+# alias de='doasedit'
 
 # Apps
 alias ones='onedrive --synchronize'
