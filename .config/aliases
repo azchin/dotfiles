@@ -21,6 +21,9 @@ alias de='doasedit'
 alias ones='onedrive --synchronize'
 alias onesr='onedrive --synchronize --resync'
 alias psg='ps ax | grep'
+alias ytdl='youtube-dl'
+alias music='youtube-dl -x --audio-format mp3'
+alias sxkb='setxkbmap -option caps:escape_shifted_capslock'
 
 # Systemd
 alias slep='systemctl suspend'
