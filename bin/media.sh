@@ -14,10 +14,10 @@ play)
 	msg=$(echo "$msg" | head -n1)
 	;;
 next)
-	msg=$(mpc next 2>&1) 
+	msg=$(mpc next 2>&1 | head -n1) 
 	icon="media-skip-forward"
 	if [ $(echo $msg | wc -l) -eq 1 ] ; then
-		[ -z $(echo $msg | grep -E "^MPD") ] && msg="End of playlist"
+		[ -n "$(echo $msg | grep -E "^MPD error")" ] && msg="End of playlist"
 		icon="media-playback-stop"
 	fi
 	;;

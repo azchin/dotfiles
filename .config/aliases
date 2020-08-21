@@ -24,6 +24,7 @@ alias psg='ps ax | grep'
 alias ytdl='youtube-dl'
 alias music='youtube-dl -x --audio-format mp3'
 alias sxkb='setxkbmap -option caps:escape_shifted_capslock'
+alias mvol='mpc volume'
 
 # Systemd
 alias slep='systemctl suspend'

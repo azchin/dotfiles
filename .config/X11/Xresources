@@ -34,10 +34,10 @@ URxvt.foreground: #e5e5e5
 URxvt.background: [90]#0f0f0f
 URxvt.cursorColor: #e5e5e5
 ! black
-! *.color0:       #1d1f21
-! *.color8:       #31363b
-URxvt.color0:       #2b2b2b
-URxvt.color8:       #51585e
+*.color0:       #1d1f21
+*.color8:       #31363b
+! URxvt.color0:       #2b2b2b
+! URxvt.color8:       #51585e
 ! red
 URxvt.color1:       #ff5c57
 URxvt.color9:       #ff5c57
@@ -64,11 +64,12 @@ URxvt.color15:      #e5e5e5
 
 ! URXVT
 URxvt.perl-lib: /home/andrew/.config/urxvt/ext
-URxvt.font: xft:DejaVuSansMono Nerd Font Mono:style=Book:size=9
+URxvt.font: xft:DejaVu Sans Mono:style=Book:size=9, xft:DejaVuSansMono Nerd Font Mono, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
 Urxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold:size=9
 Urxvt.italicFont: xft:DejaVuSansMono Nerd Font Mono:style=Oblique:size=9
 Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold Oblique:size=9
-! URxvt.font: xft:FuraCode Nerd Font:style=Regular:size=9
+
+! URxvt.font: xft:FuraCode Nerd Font:style=Regular:size=9, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
 ! URxvt.boldFont: xft:FuraCode Nerd Font:style=Bold:size=9
 ! Urxvt.italicFont: xft:FuraCode Nerd Font Mono:size=9
 ! Urxvt.boldItalicFont: xft:FuraCode Nerd Font Mono:size=9
