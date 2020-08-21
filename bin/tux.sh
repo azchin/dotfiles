@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 echo -n "\033[1;33m"
 cat << "EOF"
      ___
