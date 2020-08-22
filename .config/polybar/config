@@ -431,13 +431,13 @@ label-empty =
 
 [module/packages]
 type = custom/script
-; exec = pacman -Q | wc -l
-exec = /home/andrew/bin/polybar/pacread.sh
+exec = pacman -Qq | wc -l
+; exec = /home/andrew/bin/polybar/pacread.sh
 label = %output% pkgs
 ; format-prefix = ""
 format-prefix-foreground = ${colors.primary}
-tail = true
-; interval = 5
+; tail = true
+interval = 5
 
 [module/toolmenu]
 type = custom/menu

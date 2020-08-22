@@ -7,8 +7,8 @@ super + c
 	~/bin/launch.sh
 
 # terminal emulator
-super + Return
-	urxvtc
+# super + Return
+# 	urxvtc
 
 super + backslash
 	st

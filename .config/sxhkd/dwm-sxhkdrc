@@ -1,0 +1,15 @@
+# close and kill
+# super + shift + {q,c}
+# 	xdo {close, kill}
+
+# super + Tab
+# 	~/bin/focusdesktop.sh
+
+# super + {0-9}
+# 	~/bin/focusdesktop.sh {0-9}
+
+# super + shift + {0-9}
+# 	~/bin/senddesktop.sh {0-9}
+
+super + ctrl + {Left,Right}
+	~/bin/nextdesktop.sh {prev,next}
