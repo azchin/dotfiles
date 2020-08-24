@@ -66,7 +66,7 @@ static const struct arg args[] = {
 	{ cpu_perc, " C %s%% |", NULL },
 	{ ram_perc, " M %s%% |", NULL },
 	{ battery_perc, " %s%%", "BAT0" },
-	{ battery_remaining, "[%s%] |", "BAT0" },
+	{ battery_remaining, "[%s] |", "BAT0" },
 	/* { disk_perc, " D %s%%", "/" }, */
 	{ run_command, " V %s |", "/home/andrew/bin/alsa/volume.sh" },
 	{ wifi_essid, " %.16s |", "wlp3s0" },
