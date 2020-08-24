@@ -3,8 +3,6 @@
 # [[ -f ~/.bashrc ]] && . ~/.bashrc
 source ~/.config/profile
 source ~/.config/aliases
-source $ZSH/zinit/bin/zinit.zsh
-
 stty -ixon -ixoff
 
 autoload -U compaudit compinit
@@ -18,6 +16,7 @@ for config_file ($ZSH/*.zsh) ; do source $config_file ; done
 
 declare -A ZINIT
 export ZINIT[HOME_DIR]="$XDG_CONFIG_HOME/zsh/zinit"
+source $ZSH/zinit/bin/zinit.zsh
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
