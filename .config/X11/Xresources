@@ -1,6 +1,7 @@
 
 ! Color scheme
 
+! Monokai Pro
 ! URxvt.foreground: #fcfcfa
 ! URxvt.background: #2d2a2e
 ! URxvt.cursorColor: #e5e5e5
@@ -68,11 +69,6 @@ URxvt.font: xft:DejaVu Sans Mono:style=Book:size=9, xft:DejaVuSansMono Nerd Font
 Urxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold:size=9
 Urxvt.italicFont: xft:DejaVuSansMono Nerd Font Mono:style=Oblique:size=9
 Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold Oblique:size=9
-
-! URxvt.font: xft:FuraCode Nerd Font:style=Regular:size=9, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
-! URxvt.boldFont: xft:FuraCode Nerd Font:style=Bold:size=9
-! Urxvt.italicFont: xft:FuraCode Nerd Font Mono:size=9
-! Urxvt.boldItalicFont: xft:FuraCode Nerd Font Mono:size=9
 
 URxvt.saveLines: 4096
 URxvt.letterSpace: -1

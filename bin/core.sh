@@ -15,7 +15,7 @@ pkill onedrive
 pkill xss-lock
 # pkill udisksctl
 pkill nm-applet
-tmux kill-server
+# tmux kill-server
 killall -q fcitx
 setxkbmap -option
 
@@ -35,7 +35,7 @@ setxkbmap -option caps:escape_shifted_capslock
 # setxkbmap -option ctrl:nocaps
 # xcape -e 'Control_L=Escape' -t 200
 ~/bin/wallpaper.sh
-tmux new -s andrew -d 
+# tmux new -s andrew -d 
 onedrive -m &
 xss-lock -l ~/bin/lock.sh & 
 # light-locker &

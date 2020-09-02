@@ -319,6 +319,7 @@ set statusline+=%=                           " right align
 " set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
 " set statusline+=%b,0x%-8B\                   " current char
 " set statusline+=%<(%{GitStatus()})\ 
-set statusline+=(%l/%L\ %c%V)\ %p%%
+" set statusline+=(%l/%L\ %c%V)\ %p%%
+set statusline+=(%l/%L\ %c)\ %p%%
 set statusline+=\ 
 " set statusline+=%-8.(%l,%c%V%)\ %<%p%%        " offset
