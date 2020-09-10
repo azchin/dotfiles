@@ -45,4 +45,4 @@ redshift &
 nm-applet &
 
 # instructions
-nmcli -g SSID device wifi list > "$XDG_CACHE_HOME"/ssidlist
+# nmcli -g SSID device wifi list > "$XDG_CACHE_HOME"/ssidlist
