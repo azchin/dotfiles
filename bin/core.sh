@@ -11,7 +11,7 @@ redshift -x
 # kill services
 pkill dunst 
 pkill redshift
-pkill onedrive
+# pkill onedrive
 pkill xss-lock
 # pkill udisksctl
 pkill nm-applet
@@ -36,7 +36,7 @@ setxkbmap -option caps:escape_shifted_capslock
 # xcape -e 'Control_L=Escape' -t 200
 ~/bin/wallpaper.sh
 # tmux new -s andrew -d 
-onedrive -m &
+# onedrive -m &
 xss-lock -l ~/bin/lock.sh & 
 # light-locker &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
