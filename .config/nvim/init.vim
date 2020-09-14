@@ -1,6 +1,7 @@
 " #################################################################
 " Vanilla
 set number relativenumber
+set lazyredraw
 set mouse=a
 set laststatus=2
 " set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
