@@ -1,7 +1,9 @@
 #!/bin/sh
-. /home/andrew/.config/profile
-userresources=$XDG_CONFIG_HOME/X11/Xresources
-usermodmap=$XDG_CONFIG_HOME/X11/Xmodmap
+. $HOME/.config/profile
+# userresources=$XDG_CONFIG_HOME/X11/Xresources
+# usermodmap=$XDG_CONFIG_HOME/X11/Xmodmap
+userresources=$HOME/.Xresources
+usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
@@ -32,6 +34,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# /home/andrew/bin/core.sh &
-# /home/andrew/bin/dwm/autostart.sh &
 exec dwm

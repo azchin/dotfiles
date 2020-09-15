@@ -2,9 +2,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export PATH=$XDG_CONFIG_HOME/emacs/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# export PATH=$XDG_CONFIG_HOME/emacs/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-export EDITOR="vi"
+# export EDITOR="nvim"
+# export VISUAL="nvim"
+export EDITOR="nvim"
 export VISUAL="nvim"
 export OPENER="xdg-open"
 export TERMINAL="st"
@@ -22,11 +25,11 @@ export PF_COL1=6
 export PF_COL2=8
 export PF_COL3=3
 export PF_ALIGN="10"
-export PF_ASCII="arch"
+# export PF_ASCII="arch"
 #export XDG_CURRENT_DESKTOP="bspwm"
 
 export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-color"
-export SXHKD_SHELL="/usr/bin/sh"
+export SXHKD_SHELL="/bin/sh"
 
 # XDG Specifications
 #export VIMINIT='if !has('nvim') | source "$XDG_CONFIG_HOME/vim/vimrc" | endif'

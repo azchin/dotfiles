@@ -25,12 +25,16 @@ alias ytdl='youtube-dl'
 alias music='youtube-dl -x --audio-format mp3'
 alias sxkb='setxkbmap -option caps:escape_shifted_capslock'
 alias mvol='mpc volume'
+alias emkill='emacsclient -e "(server-shutdown)"'
 
 # Systemd
-alias slep='systemctl suspend'
-alias shut='systemctl poweroff'
-alias rez='systemctl reboot'
-alias hib='systemctl hibernate'
+alias slep='loginctl suspend'
+alias shut='loginctl poweroff'
+alias rez='loginctl reboot'
+alias hib='loginctl hibernate'
+
+# Gentoo
+alias update='sudo emerge -auDU --keep-going --with-bdeps=y @world'
 
 # Desktop specific
 alias open='xdg-open'

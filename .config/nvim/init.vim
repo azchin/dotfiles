@@ -136,7 +136,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex'

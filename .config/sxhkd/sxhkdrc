@@ -40,7 +40,7 @@ super + s; super + k
 
 # applications
 
-super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,t,u,z} 
+super + x ; super + {Caps_Lock,a,b,e,i,f,g,p,c,d,q,r,s,t,u,z} 
 	{ \
 	:, \
 	alacritty, \
@@ -48,6 +48,7 @@ super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,t,u,z}
 	pkill emacs; emacs --daemon, \
 	brave -incognito, \
 	firefox, \
+	midori, \
 	firefox -private-window, \
 	code, \
 	pcmanfm, \
@@ -72,7 +73,7 @@ super + w; super + {s,a}
 	~/bin/wallpaper.sh {_,-r}
 
 super + shift + s
-	systemctl suspend
+	loginctl suspend
 
 # make sxhkd reload its configuration files:
 super + Escape
