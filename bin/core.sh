@@ -11,7 +11,7 @@ redshift -x
 # kill services
 pkill dunst 
 pkill redshift
-pkill onedrive
+# pkill onedrive
 pkill xss-lock
 # pkill udisksctl
 pkill nm-applet
