@@ -17,7 +17,8 @@ Config {
    , alignSep = "}{"  -- separator between left-right alignment
    -- , template = "%battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork% }{ %RJTT% | %date% || %kbd% "
    -- , template = " %disku% | %cpu% | %memory% | %alsa:default:Master% }%UnsafeXMonadLog%{ %wi% | %date% "
-   , template = " %UnsafeXMonadLog% }{ | %cpu% | %memory% | V %alsascript% | %wi% | %date% "
+   -- , template = " %UnsafeXMonadLog% }{ | %cpu% | %memory% | V %alsascript% | %wi% | %date% "
+   , template = " %UnsafeStdinReader% }{ | %cpu% | %memory% | V %alsascript% | %wlp3s0wi% | %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -53,7 +54,7 @@ Config {
         --                      ] 10
 
 				-- wifi
-        [ Run Wireless ""    [ "--template" , "<ssid>" -- "<quality>"
+        [ Run Wireless "wlp3s0"    [ "--template" , "<essid> <quality>%"
                              -- , "--Low"      , "50"
                              -- , "--High"     , "80"
                              -- , "--low"      , "red"
@@ -145,6 +146,7 @@ Config {
         -- , Run CommandReader "/home/andrew/bin/xmobar/pacread.sh" "pac"
         -- , Run CommandReader "/home/andrew/bin/alsa/monitor.sh" "alsa"
         , Run Com "/home/andrew/bin/alsa/volume.sh" [] "alsascript" 10
-        , Run UnsafeXMonadLog
+        -- , Run UnsafeXMonadLog
+        , Run UnsafeStdinReader
         ]
    }

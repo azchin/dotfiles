@@ -8,6 +8,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
 import XMonad.Util.Themes
+import XMonad.Util.WorkspaceCompare
 
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
@@ -31,6 +32,7 @@ import XMonad.Layout.Reflect
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.TwoPanePersistent
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.IndependentScreens
 
 import XMonad.Actions.WithAll
 -- import XMonad.Actions.MouseResize
@@ -70,7 +72,7 @@ myModMask       = mod4Mask
 myFocusFollowsMouse = True
 
 
-myLayout = refocusLastLayoutHook $ avoidStruts $ smartBorders $ lnorm
+myLayout = refocusLastLayoutHook $ avoidStruts $ lessBorders Screen $ lnorm
            -- Tog.toggleLayouts monocle $ onWorkspaces["2"] l2 $ lnorm
     where
         lnorm = tile ||| mtile ||| two ||| three ||| grid ||| monocle
@@ -83,12 +85,13 @@ myLayout = refocusLastLayoutHook $ avoidStruts $ smartBorders $ lnorm
         frac = (1/2)
         rt = ResizableTall 1 delta frac []
         -- rt = Tall 1 delta frac
-        tile = renamed [Replace "[]=="] $ modWorkspaces["1","6"] gaps $ rt
-        mtile = renamed [Replace "TTTT"] $ modWorkspaces["1","6"] gaps $ Mirror rt
-        grid = renamed [Replace "===="] $ modWorkspaces["1","6"] gaps $ GridRatio (4/3)
-        two = renamed [Replace "[][]"] $ modWorkspaces["1","6"] gaps $ TwoPanePersistent Nothing delta frac
-        three = renamed [Replace "=[]="] $ modWorkspaces["1","6"] gaps $ ThreeColMid 1 delta frac
-        monocle = renamed [Replace "[  ]"] $ modWorkspaces["1","6"] gaps $ noBorders Full 
+        -- tile = renamed [Replace "[]=="] $ modWorkspaces["1","6"] gaps $ rt
+        tile = renamed [Replace "[]=="] $ rt
+        mtile = renamed [Replace "TTTT"] $ Mirror rt
+        grid = renamed [Replace "===="] $ GridRatio (4/3)
+        two = renamed [Replace "[][]"] $ TwoPanePersistent Nothing delta frac
+        three = renamed [Replace "=[]="] $ ThreeColMid 1 delta frac
+        monocle = renamed [Replace "[  ]"] $ noBorders Full 
 
 myManageHook = composeAll
     [ isFullscreen --> doFullFloat
@@ -104,6 +107,7 @@ myManageHook = composeAll
 myEventHook = composeAll
     [ fullscreenEventHook
     , ewmhDesktopsEventHook
+    , docksEventHook
     -- , serverModeEventHook
     -- , serverModeEventHookCmd
     ]
@@ -111,15 +115,28 @@ myEventHook = composeAll
 myStartupHook = do
     return()
     spawnOnce "~/bin/core.sh"
-    safeSpawn "/home/andrew/bin/xmonad/autostart.sh" []
+    -- spawnOnce "/home/andrew/bin/xmonad/autostart.sh" []
+    -- spawnOnce "xmobar"
 
-myPP = xmobarPP { ppSep    = " | "
+-- myPP = xmobarPP { ppSep    = " | "
+--                 , ppCurrent = xmobarColor "#ffd866" "" . wrap "[" "]"
+--                 -- , ppVisible = xmobarColor "#ff5c57" "" . wrap "[" "]"
+--                 , ppVisible = xmobarColor "#ffd866" ""
+--                 , ppHidden = xmobarColor "#e5e5e5" ""
+--                 , ppTitle = xmobarColor "#e5e5e5" "#2b2b2b"
+--                 -- , ppHiddenNoWindows = xmobarColor "#a2a2a2" ""
+--                 , ppOrder  = \(ws:l:t:_) -> [ws,l,t]
+--                 , ppSort = getSortByXineramaRule
+--                 }
+myPP h s = marshallPP s xmobarPP { ppSep    = " | "
                 , ppCurrent = xmobarColor "#ffd866" "" . wrap "[" "]"
-                , ppVisible = xmobarColor "#e5e5e5" ""
+                , ppVisible = xmobarColor "#ffd866" "" . wrap "(" ")"
+                , ppHidden = xmobarColor "#e5e5e5" ""
                 , ppTitle = xmobarColor "#e5e5e5" "#2b2b2b"
-                -- , ppVisibleNoWindows = Just (xmobarColor "gray" "")
-                , ppHiddenNoWindows = xmobarColor "#a2a2a2" ""
+                -- , ppHiddenNoWindows = xmobarColor "#a2a2a2" ""
                 , ppOrder  = \(ws:l:t:_) -> [ws,l,t]
+                , ppSort = getSortByXineramaRule
+                , ppOutput = hPutStrLn h
                 }
 
 myConfig = ewmh $ docks $ defaultConfig {
@@ -137,7 +154,7 @@ myConfig = ewmh $ docks $ defaultConfig {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = dynamicLogString myPP >>= xmonadPropLog,
+        -- logHook            = dynamicLogString myPP >>= xmonadPropLog,
         startupHook        = myStartupHook
     }
     `removeKeysP`
@@ -164,7 +181,8 @@ myConfig = ewmh $ docks $ defaultConfig {
     , ("M-S-r", unsafeSpawn "xmonad --recompile; xmonad --restart")
     , ("M-S-h", promote)
     , ("M-<Space>", promote)
-    , ("M-r", refresh) -- unused
+    -- , ("M-r", refresh) -- unused
+    , ("M-q", refresh) -- unused
     , ("C-M-S-q", killAll)
     , ("M-o", sendMessage NextLayout)
     , ("M-j", windows W.focusDown)
@@ -185,9 +203,12 @@ myConfig = ewmh $ docks $ defaultConfig {
     , ("M-f", sendMessage $ JumpToLayout "[  ]")
     , ("M-e", sendMessage $ JumpToLayout "[]==")
     , ("M-d", sendMessage $ JumpToLayout "[][]")
+    , ("M-r", sendMessage $ JumpToLayout "TTTT")
     , ("M-<Tab>", toggleWS) -- workspace
     , ("C-M4-<Left>", prevWS)
     , ("C-M4-<Right>", nextWS)
+    , ("M-m", nextScreen)
+    , ("M-S-m", shiftNextScreen)
     , ("M4-M1-h", sendMessage Shrink)
     , ("M4-M1-l", sendMessage Expand)
     , ("M4-M1-j", sendMessage MirrorShrink)
@@ -204,7 +225,7 @@ myConfig = ewmh $ docks $ defaultConfig {
     -- applications
     , ("M-<Return>", unsafeSpawn "urxvtc || urxvt")
     , ("M-n", safeSpawn "alacritty" [])
-    , ("M-p", safeSpawn "/home/andrew/bin/dmenu_run_history.sh" ["/home/andrew/bin/drofi"])
+    , ("M-p", safeSpawn "/home/andrew/bin/dmenu_run_history.sh" ["dmenu"])
     , ("M-c", safeSpawn "/home/andrew/bin/launch.sh" [])
     , ("M-v", safeSpawn "emacsclient" ["-c", "-a", "emacs"])
     , ("M-S-p", safeSpawn "sudo" ["dmenu_run"])
@@ -255,8 +276,17 @@ toggleFloat w = windows (\s -> if M.member w (W.floating s)
                     then W.sink w s
                     else (W.float w (W.RationalRect (1/8) (1/8) (3/4) (3/4)) s))
 
+xmobarCommand (S s) = "xmobar -x " ++ show s
+
 main = do
-    xmonad $ myConfig
+    -- xmonad $ myConfig
+    nScreens <- countScreens
+    hs <- mapM (spawnPipe . xmobarCommand) [0 .. nScreens-1]
+    xmonad $ myConfig {
+        workspaces = withScreens nScreens myWorkspaces,
+        logHook = mapM_ dynamicLogWithPP $ zipWith myPP hs [0 .. nScreens-1]
+        -- logHook = mapM_ (dynamicLogWithPP . myPP) hs
+    }
 
 -- Default keybindings + some modifications
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -268,9 +298,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-[1..9], Move client to workspace N
     --
     ++
-    [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+    [((m .|. modm, k), windows $ onCurrentScreen f i)
+        | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+
+    -- [((m .|. modm, k), windows $ f i)
+        -- | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
+        -- | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
 
     -- [((modm .|. m, k), a i)
     --     | (a, m) <- [ (switchWS (\y -> windows $ W.view y) message, 0)

@@ -1,16 +1,16 @@
 #!/bin/sh
 
 # killall -q picom
-killall -q xmobar
+# killall -q xmobar
 # killall -q sxhkd
 # killall -q xcompmgr
 
 # ~/bin/core.sh
-xmobar &
+# xmobar &
 # sxhkd ~/.config/sxhkd/xmonad-sxhkdrc &
 # sxhkd &
 # xcompmgr &
-[ -z "$(pidof picom)"] && picom -b
+# [ -z "$(pidof picom)"] && picom -b
 
 # xsetroot -cursor_name left_ptr
 # setxkbmap -option caps:escape_shifted_capslock
