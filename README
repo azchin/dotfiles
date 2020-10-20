@@ -1,4 +1,3 @@
-# dotfiles
 Aggregation of all my config files and scripts for my Arch Linux desktop.
 
 A lot of configs/scripts use my local path (e.g. for images), so they might not be fully portable.

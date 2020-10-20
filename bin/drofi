@@ -1,2 +1,2 @@
 #!/bin/sh
-rofi -dmenu -i < /dev/stdin
+rofi -dmenu -i $@ < /dev/stdin
