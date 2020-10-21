@@ -6,6 +6,9 @@
 super + c
 	~/bin/launch.sh
 
+super + shift + c
+	xdo kill
+
 # terminal emulator
 # super + Return
 # 	urxvtc
@@ -29,14 +32,21 @@ super + shift + x
 	~/bin/lock.sh
 
 # launch
-super + {_,shift} + p
-	{~/bin/dmenu_run_history.sh ~/bin/drofi,sudo dmenu_run}
+# super + {_,shift} + p
+# 	{~/bin/dmenu_run_history.sh ~/bin/drofi,sudo dmenu_run}
 
-super + s; super + s
-	rofi -show ssh
+super + s
+	urxvtc -e sudo su || urxvt -e sudo su
+	# urxvtc -e dash -l || urxvt -e dash -l
 
-super + s; super + k
-	~/bin/screenkey.sh
+super + z
+	urxvtc -e abduco -e ^d -A andrew zsh || urxvt -e abduco -e ^d -A andrew zsh
+
+# super + s; super + s
+# 	rofi -show ssh
+
+# super + s; super + k
+# 	~/bin/screenkey.sh
 
 # applications
 

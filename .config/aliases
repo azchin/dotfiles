@@ -10,14 +10,16 @@ alias diff='diff --color=auto'
 alias rg='rg --color ansi'
 alias less='less -R'
 alias c='clear'
-alias yd='pwd > $XDG_CACHE_HOME/currentdirectory'
-alias pd='cd $(cat $XDG_CACHE_HOME/currentdirectory)'
-alias qd='cat $XDG_CACHE_HOME/currentdirectory'
+alias yd='pwd > $XDG_DATA_HOME/currentdirectory'
+alias pd='cd $(cat $XDG_DATA_HOME/currentdirectory)'
+alias qd='cat $XDG_DATA_HOME/currentdirectory'
 # alias sudo='doas --'
 # alias doas='doas --'
 # alias de='doasedit'
 
 # Apps
+alias ez='exec zsh'
+alias e="$VISUAL"
 alias ones='onedrive --synchronize'
 alias onesr='onedrive --synchronize --resync'
 alias psg='ps ax | grep'
@@ -27,6 +29,7 @@ alias sxkb='setxkbmap -option caps:escape_shifted_capslock'
 alias mvol='mpc volume'
 alias emkill='emacsclient -e "(server-shutdown)"'
 alias torr='transmission-remote'
+alias sess='abduco -e ^d -A andrew zsh'
 
 # Systemd
 alias slep='loginctl suspend'
@@ -35,7 +38,14 @@ alias rez='loginctl reboot'
 alias hib='loginctl hibernate'
 
 # Gentoo
-alias update='sudo emerge -auDU --keep-going --with-bdeps=y @world'
+alias updateall='sudo smart-live-rebuild -q && sudo emerge -auDUqv --keep-going --with-bdeps=y @world'
+alias update='sudo emerge -auDUqv --keep-going --with-bdeps=y @world'
+alias newuse='sudo emerge -autDNqv --with-bdeps=y @world'
+alias install='sudo emerge -atqv'
+alias cleanup='sudo emerge -acq'
+alias uninstall='sudo emerge --deselect'
+alias query='qlist -I | grep'
+alias 9999='sudo smart-live-rebuild -q'
 
 # Desktop specific
 alias open='xdg-open'
@@ -43,6 +53,7 @@ alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
 alias c='clear && termstart.sh'
 alias cdc='cd && c'
 alias vi='nvim'
+# alias less='nvimpager'
 alias se='sudoedit'
 alias color='crunchbang-mini'
 alias xclip='xclip -selection clipboard'
@@ -62,4 +73,5 @@ alias gd='git diff'
 # Stolen
 # alias g++14="g++ -std=c++14 -Wall -g"
 alias g++14="g++ -std=c++14 -g"
+alias g++17="g++ -std=c++17 -g"
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"

@@ -2,10 +2,10 @@
 # bspwm hotkeys
 #
 
-super + shift + {q,c}
-	bspc node -{c,k}
-# super + shift + c
-# 	bspc node -c
+# super + shift + {q,c}
+# 	bspc node -{c,k}
+super + shift + c
+	bspc node -k
 
 # quit/restart bspwm
 super + shift + r

@@ -4,9 +4,9 @@ set number relativenumber
 set lazyredraw
 set mouse=a
 set laststatus=2
-" set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " set tabstop=8 softtabstop=0 shiftwidth=8 noexpandtab
-set tabstop=2 softtabstop=0 shiftwidth=2 noexpandtab
+" set tabstop=2 softtabstop=0 shiftwidth=2 noexpandtab
 set foldlevel=99
 set signcolumn=no
 set showmode
@@ -50,24 +50,24 @@ inoremap <C-k> <Up>
 nnoremap <silent> <Leader>/ :noh<CR>
 inoremap <silent> <C-v> <ESC>"+pa
 vnoremap <silent> <C-c> "+y
-nnoremap <silent> <Leader>h :wincmd h<CR>
-nnoremap <silent> <Leader>j :wincmd j<CR>
-nnoremap <silent> <Leader>k :wincmd k<CR>
-nnoremap <silent> <Leader>l :wincmd l<CR>
+nnoremap <silent> <Leader>wh :wincmd h<CR>
+nnoremap <silent> <Leader>wj :wincmd j<CR>
+nnoremap <silent> <Leader>wk :wincmd k<CR>
+nnoremap <silent> <Leader>wl :wincmd l<CR>
 " nnoremap <silent> <Leader>H :vertical resize +2<CR>
 " nnoremap <silent> <Leader>J :resize -2<CR>
 " nnoremap <silent> <Leader>K :resize +2<CR>
 " nnoremap <silent> <Leader>L :vertical resize -2<CR>
-nnoremap <silent> <Leader>e :wincmd =<CR>
-nnoremap <silent> <Leader>s :wincmd s<CR>
-nnoremap <silent> <Leader>v :wincmd v<CR>
+nnoremap <silent> <Leader>we :wincmd =<CR>
+nnoremap <silent> <Leader>ws :wincmd s<CR>
+nnoremap <silent> <Leader>wv :wincmd v<CR>
 " nnoremap <silent> <Leader>n :wincmd n<CR>
 nnoremap <silent> <Leader>N :vnew<CR>
 nnoremap <silent> <Leader>n :Lex<CR>
 nnoremap <silent> <Leader>u :UndotreeToggle<CR>
 nnoremap <silent> <Leader>q :wincmd q<CR>
 nnoremap <silent> <Leader>c :wincmd c<CR>
-nnoremap <silent> <Leader>w :w<CR>
+nnoremap <silent> <Leader>s :w<CR>
 nnoremap <silent> <Leader>a :qa<CR>
 nnoremap <silent> <Leader>Q :q!<CR>
 " nnoremap <silent> <Leader>W :wq<CR>
@@ -137,7 +137,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex'
@@ -168,9 +168,7 @@ call plug#end()
 " CoC
 let g:coc_global_extensions = [
   \ 'coc-actions',
-	\ 'coc-json',
 	\ 'coc-pairs',
-	\ 'coc-python',
 	\ 'coc-lists'
 	\ ]
 	" " TODO remove/modify signs
@@ -186,6 +184,8 @@ let g:coc_global_extensions = [
 	"	\ 'coc-jedi',
 	"	\ 'coc-yaml',
 	"	\ 'coc-template',
+	" \ 'coc-python',
+	" \ 'coc-json',
 
 " function! s:check_back_space() abort
 "   let col = col('.') - 1

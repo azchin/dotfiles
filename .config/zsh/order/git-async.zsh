@@ -1,13 +1,22 @@
 # autoload -Uz vcs_info
 # zstyle ':vcs_info:*' enable git
 # () {
-#     local formats="${PRCH[branch]} %b%c%u"
-#     local actionformats="${formats}%{${fg[default]}%} ${PRCH[sep]} %{${fg[green]}%}%a"
-#     zstyle ':vcs_info:*:*' formats           $formats
-#     zstyle ':vcs_info:*:*' actionformats     $actionformats
-#     zstyle ':vcs_info:*:*' stagedstr         "%{${fg[green]}%}${PRCH[circle]}"
-#     zstyle ':vcs_info:*:*' unstagedstr       "%{${fg[yellow]}%}${PRCH[circle]}"
-#     zstyle ':vcs_info:*:*' check-for-changes true
+# 	local formats="\ue0a0 %c%u%b"
+# 	local actionformats="\ue0a0 %c%u%b"
+# 	# local actionformats="${formats}%{${fg[default]}%} ${PRCH[sep]} %{${fg[green]}%}%a"
+# 	zstyle ':vcs_info:git*' check-for-changes true
+# 	zstyle ':vcs_info:git*' check-for-staged-changes true
+# 	zstyle    ':vcs_info:git*' stagedstr         "%F{green}+%f "
+# 	zstyle    ':vcs_info:git*' unstagedstr       "%F{red}*%f "
+# 	zstyle    ':vcs_info:git*' formats           "$formats"
+# 	zstyle    ':vcs_info:*:*' actionformats     $actionformats
+# #     local formats="${PRCH[branch]} %b%c%u"
+# #     local actionformats="${formats}%{${fg[default]}%} ${PRCH[sep]} %{${fg[green]}%}%a"
+# #     zstyle ':vcs_info:*:*' formats           $formats
+# #     zstyle ':vcs_info:*:*' actionformats     $actionformats
+# #     zstyle ':vcs_info:*:*' stagedstr         "%{${fg[green]}%}${PRCH[circle]}"
+# #     zstyle ':vcs_info:*:*' unstagedstr       "%{${fg[yellow]}%}${PRCH[circle]}"
+# #     zstyle ':vcs_info:*:*' check-for-changes true
 # }
 
 

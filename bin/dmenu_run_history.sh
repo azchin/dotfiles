@@ -1,7 +1,8 @@
 #!/bin/sh
 
 [ "$#" -lt 1 ] && exit 1
-cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
+# cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
+cachedir=${XDG_DATA_HOME:-"$HOME/.local/share"}
 if [ -d "$cachedir" ]; then
 	cache=$cachedir/dmenu_run
 	historyfile=$cachedir/dmenu_history

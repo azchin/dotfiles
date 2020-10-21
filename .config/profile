@@ -1,5 +1,5 @@
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
+# export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # export PATH=$XDG_CONFIG_HOME/emacs/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -7,8 +7,8 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # export EDITOR="nvim"
 # export VISUAL="nvim"
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="emacsclient -c -a nvim"
+export VISUAL="emacsclient -c -a nvim"
 export OPENER="xdg-open"
 export TERMINAL="st"
 export BROWSER="firefox"
@@ -31,6 +31,9 @@ export PF_ALIGN="10"
 export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-color"
 export SXHKD_SHELL="/bin/sh"
 
+# export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
+# export CCACHE_DIR="/var/cache/ccache"
+
 # XDG Specifications
 #export VIMINIT='if !has('nvim') | source "$XDG_CONFIG_HOME/vim/vimrc" | endif'
 #export VIMINIT='source "$XDG_CONFIG_HOME/vim/vimrc"'
@@ -38,7 +41,7 @@ export SXHKD_SHELL="/bin/sh"
 #export OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc" 
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
+export HISTFILE="$XDG_DATA_HOME"/history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
@@ -48,3 +51,4 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 # export RXVT_SOCKET="$XDG_CACHE_HOME"/urxvt/urxvtd
+# export ABDUCO_SOCKET_DIR="$XDG_CACHE_HOME"

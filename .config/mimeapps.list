@@ -29,3 +29,4 @@ text/html=firefox.desktop;
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 text/markdown=nvim.desktop;
 text/plain=nvim.desktop;
+text/calendar=emacs.desktop;emacsclient.desktop;

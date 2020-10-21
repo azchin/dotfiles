@@ -1,6 +1,7 @@
 
 # vi mode
 bindkey -v
+bindkey -e
 export KEYTIMEOUT=1
 
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then

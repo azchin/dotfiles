@@ -69,6 +69,7 @@ static const struct arg args[] = {
 	{ battery_remaining, "[%s] |", "BAT0" },
 	/* { disk_perc, " D %s%%", "/" }, */
 	{ run_command, " V %s |", "/home/andrew/bin/alsa/volume.sh" },
-	{ wifi_essid, " %.16s |", "wlp3s0" },
+	{ wifi_essid, " %.16s", "wlp3s0" },
+	{ wifi_perc, " %s%% |", "wlp3s0" },
 	{ datetime, " %s", "%b %d %T %Z" },
 };
