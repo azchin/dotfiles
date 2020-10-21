@@ -4,7 +4,7 @@
 
 # Custom dmenu commands
 super + c
-	~/bin/launch.sh
+	~/bin/launch.sh ~/bin/drofi
 
 super + shift + c
 	xdo kill
@@ -83,7 +83,7 @@ super + w; super + {s,a}
 	~/bin/wallpaper.sh {_,-r}
 
 super + shift + s
-	loginctl suspend
+	systemctl suspend
 
 # make sxhkd reload its configuration files:
 super + Escape
