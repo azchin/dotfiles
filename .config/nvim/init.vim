@@ -61,6 +61,7 @@ nnoremap <silent> <Leader>wl :wincmd l<CR>
 nnoremap <silent> <Leader>we :wincmd =<CR>
 nnoremap <silent> <Leader>ws :wincmd s<CR>
 nnoremap <silent> <Leader>wv :wincmd v<CR>
+nnoremap <silent> <Leader>wo :wincmd o<CR>
 " nnoremap <silent> <Leader>n :wincmd n<CR>
 nnoremap <silent> <Leader>N :vnew<CR>
 nnoremap <silent> <Leader>n :Lex<CR>
