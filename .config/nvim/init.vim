@@ -61,6 +61,7 @@ nnoremap <silent> <Leader>wl :wincmd l<CR>
 nnoremap <silent> <Leader>we :wincmd =<CR>
 nnoremap <silent> <Leader>ws :wincmd s<CR>
 nnoremap <silent> <Leader>wv :wincmd v<CR>
+nnoremap <silent> <Leader>wo :wincmd o<CR>
 " nnoremap <silent> <Leader>n :wincmd n<CR>
 nnoremap <silent> <Leader>N :vnew<CR>
 nnoremap <silent> <Leader>n :Lex<CR>
@@ -137,17 +138,17 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-Plug 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 " Plug 'scrooloose/nerdtree'
-Plug 'kovetskiy/sxhkd-vim'
-Plug 'airblade/vim-gitgutter'
+" Plug 'kovetskiy/sxhkd-vim'
+"Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-ragtag'
 Plug 'glts/vim-radical'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 Plug 'mbbill/undotree'
 Plug 'unblevable/quick-scope' 
 Plug 'tommcdo/vim-exchange'
