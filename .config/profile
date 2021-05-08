@@ -1,5 +1,5 @@
 export XDG_CONFIG_HOME="$HOME/.config"
-# export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # export PATH=$XDG_CONFIG_HOME/emacs/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -30,6 +30,8 @@ export PF_ALIGN="10"
 
 export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-color"
 export SXHKD_SHELL="/bin/sh"
+
+export QT_STYLE_OVERRIDE="kvantum"
 
 # export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
 # export CCACHE_DIR="/var/cache/ccache"

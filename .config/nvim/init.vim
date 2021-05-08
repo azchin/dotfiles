@@ -4,7 +4,7 @@ set number relativenumber
 set lazyredraw
 set mouse=a
 set laststatus=2
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 " set tabstop=8 softtabstop=0 shiftwidth=8 noexpandtab
 " set tabstop=2 softtabstop=0 shiftwidth=2 noexpandtab
 set foldlevel=99

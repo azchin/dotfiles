@@ -18,19 +18,19 @@ pkill redshift
 # tmux kill-server
 # killall -q fcitx
 # setxkbmap -option
-killall -q xscreensaver
-killall -q sleep_timer.sh
+# killall -q xscreensaver
+# killall -q sleep_timer.sh
 killall -q emacs
 
 # services
-~/bin/asound.sh off
-~/bin/screens.sh
+# ~/bin/asound.sh off
+# ~/bin/screens.sh
 
 ~/bin/wallpaper.sh
-xcalib -d :0 "/usr/share/color/icc/Lenovo T520.icm" &
+# xcalib -d :0 "/usr/share/color/icc/Lenovo T520.icm" &
 xsetroot -cursor_name left_ptr &
 redshift &
-xscreensaver &
+# xscreensaver &
 
 #xset m 4/5 1
 dunst &
@@ -45,6 +45,7 @@ setxkbmap -option caps:escape_shifted_capslock
 # setxkbmap -option caps:super
 # xcape -e 'Super_L=Escape' -t 200
 # setxkbmap -option ctrl:nocaps
+udiskie -t &
 # xcape -e 'Control_L=Escape' -t 200
 # tmux new -s andrew -d 
 # onedrive -m &
@@ -56,4 +57,8 @@ setxkbmap -option caps:escape_shifted_capslock
 
 # instructions
 # nmcli -g SSID device wifi list > "$XDG_CACHE_HOME"/ssidlist
-sleep_timer.sh &
+# sleep_timer.sh &
+
+# jack_control start
+# qjackctl &
+# cadence-session-start -s &

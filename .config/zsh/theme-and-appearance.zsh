@@ -2,7 +2,8 @@
 autoload -U colors && colors
 
 # Enable ls colors
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
+# export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LSCOLORS="Gxfxcxdxbxegedabagcxbx"
 
 # TODO organise this chaotic logic
 

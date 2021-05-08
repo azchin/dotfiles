@@ -24,10 +24,10 @@ xcompmgr &
 #	brave &
 #fi
 
-if [ $(bspc query -N -d "^2" | wc -l) -eq 0 ] ; then
-	bspc rule -a firefox -o desktop="^2"
-  firefox &
-fi
+# if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
+# 	bspc rule -a firefox -o desktop="^1"
+#   firefox &
+# fi
 
 if [ $(bspc query -N -d "^5" | wc -l) -eq 0 ] ; then
 	bspc rule -a KeePassXC -o desktop="^5"
@@ -39,10 +39,10 @@ fi
 # 	alacritty --config-file ~/.config/alacritty/rice.yml &
 # fi
 
-if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
-	bspc rule -a URxvt -o desktop="^1"
-	urxvtc &
-fi
+# if [ $(bspc query -N -d "^2" | wc -l) -eq 0 ] ; then
+# 	bspc rule -a URxvt -o desktop="^2"
+# 	urxvtc &
+# fi
 
 bspc desktop -f $currentDesktop
 sleep 2

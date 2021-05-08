@@ -2,10 +2,18 @@
 # bspwm hotkeys
 #
 
+super + Return
+  urxvtc || urxvt
+
+super + {_,shift} + p
+	{~/bin/dmenu_run_history.sh ~/bin/drofi,sudo dmenu_run}
+
 # super + shift + {q,c}
 # 	bspc node -{c,k}
-super + shift + c
-	bspc node -k
+super + shift + q
+  bspc node -c
+# super + shift + c
+# 	bspc node -k
 
 # quit/restart bspwm
 super + shift + r
@@ -17,7 +25,7 @@ super + shift + e
 	# [ $(echo -e "Exit\nCancel" | dmenu -i -p "Exit this session?") = "Exit" ] \
 	# && bspc quit
 
-# alternate between the tiled and monocle layout
+# superernate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
 	# ~/bin/bspwm/biggest.sh
@@ -103,7 +111,7 @@ super + Tab
 
 # focus the older or newer node in the focus history
 #super + {o,i}
-#alt + {_,shift + } grave
+#super + {_,shift + } grave
 #	bspc wm -h off; \
 #	bspc node {older,newer} -f; \
 #	bspc wm -h on
