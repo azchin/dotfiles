@@ -1,0 +1,10 @@
+
+killall -q sxhkd
+killall -q xcompmgr
+
+~/bin/core.sh
+
+sxhkd &
+xcompmgr &
+skippy-xd --start-daemon &
+tint2 &

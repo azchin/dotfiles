@@ -4,7 +4,7 @@ set number relativenumber
 set lazyredraw
 set mouse=a
 set laststatus=2
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 " set tabstop=8 softtabstop=0 shiftwidth=8 noexpandtab
 " set tabstop=2 softtabstop=0 shiftwidth=2 noexpandtab
 set foldlevel=99
@@ -102,7 +102,12 @@ autocmd BufRead,BufNewFile xmobar* setfiletype haskell
 
 augroup haskell
 	autocmd!
-	autocmd Filetype haskell set tabstop=4 softtabstop=0 shiftwidth=4 expandtab
+	autocmd Filetype haskell set tabstop=4 shiftwidth=4 expandtab
+augroup end
+
+augroup xml
+    autocmd!
+    autocmd Filetype xml set tabstop=2 shiftwidth=2 expandtab
 augroup end
 
 autocmd BufWritePost *.sh :silent exec '![ $(stat -c "%a" %) = 755 ] || chmod 755 %'
@@ -138,7 +143,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 "Plug 'lervag/vimtex'

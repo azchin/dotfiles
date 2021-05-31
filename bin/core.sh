@@ -53,7 +53,8 @@ udiskie -t &
 # light-locker &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
-# nm-applet &
+nm-applet &
+keepassxc &
 
 # instructions
 # nmcli -g SSID device wifi list > "$XDG_CACHE_HOME"/ssidlist
