@@ -328,7 +328,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>urxvtc</command>
+        <command>alacritty</command>
       </action>
     </keybind>
     <keybind key="W-p">
