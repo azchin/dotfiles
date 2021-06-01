@@ -6,5 +6,5 @@ killall -q xcompmgr
 
 sxhkd &
 xcompmgr &
-skippy-xd --start-daemon &
+# skippy-xd --start-daemon &
 tint2 &

@@ -59,7 +59,7 @@ super + x ; super + {Caps_Lock,a,b,e,i,f,g,p,c,d,q,r,s,t,u,z}
 	brave -incognito, \
 	firefox, \
 	midori, \
-	firefox -private-window, \
+    pavucontrol, \
 	code, \
 	pcmanfm, \
 	tabbed -c vimb -e, \
