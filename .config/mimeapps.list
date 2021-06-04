@@ -13,7 +13,7 @@ application/x-extension-xht=firefox.desktop
 application/pdf=zathura-tabbed.desktop
 x-scheme-handler/postman=Postman.desktop
 image/jpeg=sxiv.desktop
-image/png=sxiv.desktop
+image/png=org.nomacs.ImageLounge.desktop
 image/gif=sxiv.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
@@ -21,6 +21,7 @@ x-scheme-handler/discord-529050037532098580=discord-529050037532098580.desktop
 x-scheme-handler/msteams=teams.desktop
 text/markdown=nvim.desktop
 text/plain=nvim.desktop
+inode/directory=pcmanfm.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -30,3 +31,6 @@ application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 text/markdown=nvim.desktop;
 text/plain=nvim.desktop;
 text/calendar=emacs.desktop;emacsclient.desktop;
+inode/directory=pcmanfm.desktop;
+image/svg+xml=org.nomacs.ImageLounge.desktop;
+image/png=org.nomacs.ImageLounge.desktop;

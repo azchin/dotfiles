@@ -43,8 +43,8 @@ URxvt.color8:       [90]#31363b
 URxvt.color1:       [90]#ff5c57
 URxvt.color9:       [90]#ff5c57
 ! green
-URxvt.color2:       [90]#35b566
-URxvt.color10:      [90]#35b566
+URxvt.color2:       [90]#a9dc76
+URxvt.color10:      [90]#a9dc76
 ! yellow
 URxvt.color3:       [90]#ffd866
 URxvt.color11:      [90]#ffd866
@@ -63,12 +63,46 @@ URxvt.color14:      [90]#9aedfe
 URxvt.color7:       [90]#a2a2a2
 URxvt.color15:      [90]#e5e5e5
 
+! URxvt.depth: 32
+! URxvt.foreground: #e5e5e5
+! URxvt.background: #0f0f0f
+! URxvt.cursorColor: #e5e5e5
+! ! black
+! URxvt.color0:       #1d1f21
+! URxvt.color8:       #31363b
+! ! URxvt.color0:       #2b2b2b
+! ! URxvt.color8:       #51585e
+! ! red
+! URxvt.color1:       #ff5c57
+! URxvt.color9:       #ff5c57
+! ! green
+! URxvt.color2:       #35b566
+! URxvt.color10:      #35b566
+! ! yellow
+! URxvt.color3:       #ffd866
+! URxvt.color11:      #ffd866
+! ! blue
+! URxvt.color4:       #3daee9
+! URxvt.color12:      #3daee9
+! ! magenta
+! ! URxvt.color5:       #fc9867
+! ! URxvt.color13:      #fc9867
+! URxvt.color5:       #ab9df2
+! URxvt.color13:      #ab9df2
+! ! cyan
+! URxvt.color6:       #9aedfe
+! URxvt.color14:      #9aedfe
+! ! white
+! URxvt.color7:       #a2a2a2
+! URxvt.color15:      #e5e5e5
+
 ! URXVT
 URxvt.perl-lib: /home/andrew/.config/urxvt/ext
-URxvt.font: xft:DejaVu Sans Mono:style=Book:size=9, xft:DejaVuSansMono Nerd Font Mono, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
-Urxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold:size=9
-Urxvt.italicFont: xft:DejaVuSansMono Nerd Font Mono:style=Oblique:size=9
-Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold Oblique:size=9
+! URxvt.font: xft:DejaVu Sans Mono:style=Book:size=9, xft:DejaVuSansMono Nerd Font Mono, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
+URxvt.font: xft:DejaVuSansMono Nerd Font:style=Book:size=9
+Urxvt.boldFont: xft:DejaVuSansMono Nerd Font:style=Bold:size=9
+Urxvt.italicFont: xft:DejaVuSansMono Nerd Font:style=Oblique:size=9
+Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font:style=Bold Oblique:size=9
 
 URxvt.saveLines: 4096
 URxvt.letterSpace: -1

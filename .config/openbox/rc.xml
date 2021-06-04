@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
-    <strength>10</strength>
-    <screen_edge_strength>20</screen_edge_strength>
+    <strength>0</strength>
+    <screen_edge_strength>0</screen_edge_strength>
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
@@ -234,12 +234,15 @@
     <keybind key="W-f">
       <action name="ToggleMaximize"/>
     </keybind>
+    <keybind key="W-t">
+      <action name="ToggleAlwaysOnBottom"/>
+    </keybind>
     <keybind key="W-m">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>center</x>
         <y>center</y>
-        <width>40%</width>
+        <width>50%</width>
         <height>75%</height>
       </action>
     </keybind>
@@ -247,7 +250,7 @@
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>0</x>
-        <y>0</y>
+        <y>center</y>
         <width>50%</width>
         <height>100%</height>
       </action>
@@ -261,7 +264,12 @@
           <action name="Unmaximize"/>
         </then>
         <else>
-          <action name="Iconify"/>
+          <action name="MoveResizeTo">
+              <x>center</x>
+              <y>center</y>
+              <width>50%</width>
+              <height>75%</height>
+          </action>
         </else>
       </action>
     </keybind>
@@ -272,7 +280,7 @@
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>-0</x>
-        <y>0</y>
+        <y>center</y>
         <width>50%</width>
         <height>100%</height>
       </action>
@@ -280,25 +288,25 @@
     <keybind key="S-W-h">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-        <x>8</x>
+        <x>0</x>
       </action>
     </keybind>
     <keybind key="S-W-j">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-        <y>-8</y>
+        <y>-0</y>
       </action>
     </keybind>
     <keybind key="S-W-k">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-        <y>8</y>
+        <y>0</y>
       </action>
     </keybind>
     <keybind key="S-W-l">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-        <x>-8</x>
+        <x>-0</x>
       </action>
     </keybind>
     <keybind key="S-W-m">
@@ -346,15 +354,15 @@
     <keybind key="W-Tab">
       <action name="ShowMenu">
         <menu>client-list-combined-menu</menu>
-        <position>
-          <x>center</x>
-          <y>center</y>
-        </position>
+        <!-- <position> -->
+        <!--   <x>center</x> -->
+        <!--   <y>center</y> -->
+        <!-- </position> -->
       </action>
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>urxvtc</command>
+        <command>alacritty -e tmux</command>
       </action>
     </keybind>
     <keybind key="W-p">
@@ -383,7 +391,7 @@
     <!-- number of pixels the mouse must move before a drag begins -->
     <doubleClickTime>500</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
-    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <screenEdgeWarpTime>0</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
@@ -396,7 +404,7 @@
       </mousebind>
       <mousebind action="Drag" button="W-Right">
         <action name="Resize">
-          <edge>bottomright</edge>
+          <!-- <edge>bottomright</edge> -->
         </action>
       </mousebind>
       <mousebind action="Press" button="W-Middle">
@@ -628,21 +636,31 @@
   <applications>
     <application class="Alacritty">
       <size>
-        <width>70%</width>
-        <height>70%</height>
+        <width>60%</width>
+        <height>75%</height>
       </size>
-      <maximized>yes</maximized>
+      <position>
+        <x>center</x>
+        <y>center</y>
+      </position>
     </application>
     <application class="URxvt">
+      <position>
+        <x>center</x>
+        <y>center</y>
+      </position>
       <size>
-        <width>40%</width>
-        <height>65%</height>
+        <width>50%</width>
+        <height>75%</height>
       </size>
     </application>
     <application class="Emacs">
+      <position>
+        <y>center</y>
+      </position>
       <size>
-        <width>40%</width>
-        <height>65%</height>
+        <width>50%</width>
+        <height>75%</height>
       </size>
     </application>
 

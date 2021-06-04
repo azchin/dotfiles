@@ -4,6 +4,8 @@ currentDesktop=$([ -n "$(pidof sxhkd)" ] && echo $(bspc query -D -d --names) || 
 
 pkill sxhkd
 pkill xcompmgr
+pkill tint2
+pkill alttab
 # ~/bin/lemonbar/kill-lemon.sh
 # killall -q polybar
 # pkill tab.sh
@@ -11,11 +13,13 @@ pkill xcompmgr
 ~/bin/core.sh
 
 #~/bin/polybar/polybar-bsp.sh -r
-[ -z "$(pidof)" ] && (~/bin/polybar/launch.sh &) || polybar-msg cmd restart
+# [ -z "$(pidof)" ] && (~/bin/polybar/launch.sh &) || polybar-msg cmd restart
 # ~/bin/lemonbar/lemonbar.sh
 # ~/bin/bspwm/tab.sh &
-sxhkd ~/.config/sxhkd/bspwm-sxhkdrc &
+sxhkd ~/.config/sxhkd/bspwm-float-sxhkdrc &
 xcompmgr &
+tint2 &
+alttab -fg "#d58681" -bg "#31363b" -frame "#eb564d" -t 128x150 -i 127x64 &
 
 # startup
 
@@ -29,10 +33,10 @@ xcompmgr &
 #   firefox &
 # fi
 
-if [ $(bspc query -N -d "^5" | wc -l) -eq 0 ] ; then
-	bspc rule -a KeePassXC -o desktop="^5"
-	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
-fi
+# if [ $(bspc query -N -d "^5" | wc -l) -eq 0 ] ; then
+# 	bspc rule -a KeePassXC -o desktop="^5"
+# 	keepassxc --keyfile ~/Desktop/Passwords.key ~/Desktop/Passwords.kdbx &
+# fi
 
 # if [ $(bspc query -N -d "^1" | wc -l) -eq 0 ] ; then
 # 	bspc rule -a Alacritty -o desktop="^1"

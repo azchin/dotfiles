@@ -21,6 +21,7 @@ pkill redshift
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
 killall -q emacs
+pkill udiskie
 
 # services
 # ~/bin/asound.sh off

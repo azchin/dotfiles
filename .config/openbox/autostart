@@ -1,6 +1,7 @@
 
 killall -q sxhkd
 killall -q xcompmgr
+killall -q tint2
 
 ~/bin/core.sh
 

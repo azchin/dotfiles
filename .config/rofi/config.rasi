@@ -1,0 +1,9 @@
+configuration {
+	modi: "window,run,ssh";
+	terminal: "alacritty";
+	ssh-client: "ssh";
+	disable-history: true;
+	sort: false;
+	case-sensitive: false;
+	theme: "/home/andrew/.config/rofi/onedark.rasi";
+}
