@@ -1,11 +1,11 @@
 
 killall -q sxhkd
-killall -q xcompmgr
+killall -q picom
 killall -q tint2
 
 ~/bin/core.sh
 
 sxhkd &
-xcompmgr &
+picom &
 # skippy-xd --start-daemon &
 tint2 &

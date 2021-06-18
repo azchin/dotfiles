@@ -41,7 +41,7 @@
   </placement>
   <theme>
     <!-- <name>Mikachu</name> -->
-    <name>Nord-Openbox</name>
+    <name>Degrade-Froly</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -56,7 +56,7 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>sans</name>
+      <name>Fira Code</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -65,7 +65,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>sans</name>
+      <name>Fira Code</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -74,7 +74,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>sans</name>
+      <name>Fira Code</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>normal</weight>
@@ -83,7 +83,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>sans</name>
+      <name>Fira Code</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>normal</weight>
@@ -92,7 +92,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>sans</name>
+      <name>Fira Code</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -101,7 +101,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>sans</name>
+      <name>Fira Code</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -122,12 +122,12 @@
     <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
-    <name>Desktop 1</name>
-    <name>Desktop 2</name>
-    <name>Desktop 3</name>
-    <name>Desktop 4</name>
+      <name>Desktop 1</name>
+      <name>Desktop 2</name>
+      <name>Desktop 3</name>
+      <name>Desktop 4</name>
     </names>
-    <popupTime>250</popupTime>
+    <popupTime>500</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -231,6 +231,9 @@
         <follow>no</follow>
       </action>
     </keybind>
+    <keybind key="W-b">
+      <action name="ToggleDecorations"/>
+    </keybind>
     <keybind key="W-f">
       <action name="ToggleMaximize"/>
     </keybind>
@@ -248,6 +251,7 @@
     </keybind>
     <keybind key="W-h">
       <action name="Unmaximize"/>
+      <!-- <action name="Decorate"/> -->
       <action name="MoveResizeTo">
         <x>0</x>
         <y>center</y>
@@ -262,22 +266,28 @@
         </query>
         <then>
           <action name="Unmaximize"/>
+          <!-- <action name="Decorate"/> -->
         </then>
         <else>
-          <action name="MoveResizeTo">
-              <x>center</x>
-              <y>center</y>
-              <width>50%</width>
-              <height>75%</height>
-          </action>
+          <!-- <action name="MoveResizeTo"> -->
+          <!--   <x>center</x> -->
+          <!--   <y>center</y> -->
+          <!--   <width>50%</width> -->
+          <!--   <height>75%</height> -->
+          <!-- </action> -->
+          <action name="Lower"/>
+          <action name="FocusToBottom"/>
+          <action name="Unfocus"/>
         </else>
       </action>
     </keybind>
     <keybind key="W-k">
       <action name="Maximize"/>
+      <!-- <action name="Undecorate"/> -->
     </keybind>
     <keybind key="W-l">
       <action name="Unmaximize"/>
+      <!-- <action name="Decorate"/> -->
       <action name="MoveResizeTo">
         <x>-0</x>
         <y>center</y>
@@ -400,9 +410,13 @@
        switching due to hitting the edge of the screen -->
     <context name="Frame">
       <mousebind action="Drag" button="W-Left">
+        <action name="Focus"/>
+        <action name="Raise"/>
         <action name="Move"/>
       </mousebind>
       <mousebind action="Drag" button="W-Right">
+        <action name="Focus"/>
+        <action name="Raise"/>
         <action name="Resize">
           <!-- <edge>bottomright</edge> -->
         </action>
@@ -416,6 +430,11 @@
     <context name="Titlebar">
       <mousebind action="Drag" button="Left">
         <action name="Move"/>
+      </mousebind>
+      <mousebind action="Press" button="Left">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
       </mousebind>
       <mousebind action="DoubleClick" button="Left">
         <action name="ToggleMaximize"/>
@@ -603,7 +622,7 @@
       </mousebind>
       <mousebind action="Press" button="Right">
         <action name="ShowMenu">
-          <menu>root-menu</menu>
+          <menu>client-list-combined-menu</menu>
         </action>
       </mousebind>
     </context>
@@ -663,7 +682,9 @@
         <height>75%</height>
       </size>
     </application>
-
+    <application class="firefox">
+      <decor>no</decor>
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.

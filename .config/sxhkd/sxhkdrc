@@ -35,12 +35,12 @@ super + shift + x
 # super + {_,shift} + p
 # 	{~/bin/dmenu_run_history.sh ~/bin/drofi,sudo dmenu_run}
 
-super + s
-	urxvtc -e sudo su || urxvt -e sudo su
+# super + s
+	# urxvtc -e sudo su || urxvt -e sudo su
 	# urxvtc -e dash -l || urxvt -e dash -l
 
-super + z
-	urxvtc -e abduco -e ^d -A andrew zsh || urxvt -e abduco -e ^d -A andrew zsh
+# super + z
+# 	urxvtc -e abduco -e ^d -A andrew zsh || urxvt -e abduco -e ^d -A andrew zsh
 
 # super + s; super + s
 # 	rofi -show ssh
@@ -101,6 +101,10 @@ shift + XF86Audio{Lower,Raise}Volume
 XF86AudioMute
 	~/bin/volume.sh mute
 
+# can implement smarter behaviour w/ diff players via dmenu, notification
 XF86Audio{Play,Prev,Next}
-	~/bin/media.sh {play,prev,next}
+	playerctl {play-pause, previous, next}
+
+# XF86Audio{Play,Prev,Next}
+# 	~/bin/media.sh {play,prev,next}
 
