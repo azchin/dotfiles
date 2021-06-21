@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu>
+  <menu id="main-menu" label="Main Menu">
+    <!-- this is a menu item, such as a program -->
+    <showIcons>no</showIcons>
+    <separator id="power-separator" label="Power Options"/>
+    <!-- icon="/usr/share/icons/Papirus/128x128/apps/distributor-logo-archlinux.svg" -->
+    <item label=" Sleep                    ">
+      <action name="Execute">
+        <command>systemctl suspend</command>
+        <prompt>Would you like to go to sleep?           </prompt>
+      </action>
+    </item>
+    <item label=" Restart">
+      <action name="Execute">
+        <command>systemctl reboot</command>
+        <prompt>Would you like to restart the system?    </prompt>
+      </action>
+    </item>
+    <item label=" Shut Down">
+      <action name="Execute">
+        <command>systemctl poweroff</command>
+        <prompt>Would you like to shut down the system?  </prompt>
+      </action>
+    </item>
+    <separator id="apps-separator" label="Applications"/>
+    <!-- <menu id="applications" label=" XDG" execute="xdg_menu -\-format openbox3-pipe -\-root-menu /etc/xdg/menus/arch-applications.menu" /> -->
+    <!-- icon="/usr/share/icons/Papirus/128x128/apps/distributor-logo-archlinux.svg" -->
+    <item label=" Alacritty">
+      <action name="Execute">
+        <command>alacritty</command>
+      </action>
+    </item>
+    <item label=" Firefox">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </item>
+    <item label=" Emacs">
+      <action name="Execute">
+        <command>emacsclient -c -a emacs</command>
+      </action>
+    </item>
+    <item label=" KeepassXC">
+      <action name="Execute">
+        <command>keepassxc</command>
+      </action>
+    </item>
+    <item label=" Keybase">
+      <action name="Execute">
+        <command>keybase-gui</command>
+      </action>
+    </item>
+  </menu>
+</openbox_menu>

@@ -295,6 +295,30 @@
         <height>100%</height>
       </action>
     </keybind>
+    <keybind key="W-A-h">
+      <action name="MoveRelative">
+        <x>-5%</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-A-j">
+      <action name="MoveRelative">
+        <x>0</x>
+        <y>5%</y>
+      </action>
+    </keybind>
+    <keybind key="W-A-k">
+      <action name="MoveRelative">
+        <x>0</x>
+        <y>-5%</y>
+      </action>
+    </keybind>
+    <keybind key="W-A-l">
+      <action name="MoveRelative">
+        <x>5%</x>
+        <y>0</y>
+      </action>
+    </keybind>
     <keybind key="S-W-h">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
@@ -326,23 +350,17 @@
         <y>center</y>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
-      <action name="SendToDesktop"/>
-    </keybind>
-    <keybind key="S-A-Right">
-      <action name="SendToDesktop"/>
-    </keybind>
     <keybind key="S-W-q">
       <action name="Close"/>
     </keybind>
     <keybind key="S-W-r">
       <action name="Reconfigure"/>
     </keybind>
-    <keybind key="A-Escape">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
-    </keybind>
+    <!-- <keybind key="A-Escape"> -->
+    <!--   <action name="Lower"/> -->
+    <!--   <action name="FocusToBottom"/> -->
+    <!--   <action name="Unfocus"/> -->
+    <!-- </keybind> -->
     <keybind key="A-Tab">
       <action name="NextWindow">
         <bar>no</bar>
@@ -355,12 +373,12 @@
         <raise>yes</raise>
       </action>
     </keybind>
-    <keybind key="C-A-Tab">
-      <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
-      </action>
-    </keybind>
+    <!-- <keybind key="C-A-Tab"> -->
+    <!--   <action name="NextWindow"> -->
+    <!--     <panels>yes</panels> -->
+    <!--     <desktop>yes</desktop> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="W-Tab">
       <action name="ShowMenu">
         <menu>client-list-combined-menu</menu>
@@ -372,7 +390,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>alacritty -e tmux</command>
+        <command>sh -c "xdo activate -N Alacritty || alacritty -e tmux"</command>
       </action>
     </keybind>
     <keybind key="W-p">
@@ -380,20 +398,25 @@
         <command>/home/andrew/bin/dmenu_run_history.sh drofi</command>
       </action>
     </keybind>
-    <keybind key="W-S-Right">
-      <action name="DirectionalCycleWindows"/>
-    </keybind>
-    <keybind key="W-S-Left">
-      <action name="DirectionalCycleWindows"/>
-    </keybind>
-    <keybind key="W-S-Up">
-      <action name="DirectionalCycleWindows"/>
-    </keybind>
-    <keybind key="W-S-Down">
-      <action name="DirectionalCycleWindows"/>
-    </keybind>
+    <!-- <keybind key="W-S-Right"> -->
+    <!--   <action name="DirectionalCycleWindows"/> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-S-Left"> -->
+    <!--   <action name="DirectionalCycleWindows"/> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-S-Up"> -->
+    <!--   <action name="DirectionalCycleWindows"/> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-S-Down"> -->
+    <!--   <action name="DirectionalCycleWindows"/> -->
+    <!-- </keybind> -->
     <keybind key="S-W-e">
       <action name="Exit"/>
+    </keybind>
+    <keybind key="W-a">
+      <action name="ShowMenu">
+        <menu>main-menu</menu>
+      </action>
     </keybind>
   </keyboard>
   <mouse>
@@ -615,12 +638,17 @@
     </context>
     <context name="Root">
       <!-- Menus -->
-      <mousebind action="Press" button="Middle">
+      <!-- <mousebind action="Press" button="Middle"> -->
+      <!--   <action name="ShowMenu"> -->
+      <!--     <menu>client-list-combined-menu</menu> -->
+      <!--   </action> -->
+      <!-- </mousebind> -->
+      <mousebind action="Press" button="Right">
         <action name="ShowMenu">
-          <menu>client-list-combined-menu</menu>
+          <menu>main-menu</menu>
         </action>
       </mousebind>
-      <mousebind action="Press" button="Right">
+      <mousebind action="Press" button="Middle">
         <action name="ShowMenu">
           <menu>client-list-combined-menu</menu>
         </action>
@@ -637,12 +665,12 @@
        menu is hidden again -->
     <middle>no</middle>
     <!-- center submenus vertically about the parent entry -->
-    <submenuShowDelay>100</submenuShowDelay>
+    <submenuShowDelay>0</submenuShowDelay>
     <!-- time to delay before showing a submenu after hovering over the parent
        entry.
        if this is a negative value, then the delay is infinite and the
        submenu will not be shown until it is clicked on -->
-    <submenuHideDelay>400</submenuHideDelay>
+    <submenuHideDelay>100</submenuHideDelay>
     <!-- time to delay before hiding a submenu when selecting another
        entry in parent menu
        if this is a negative value, then the delay is infinite and the
