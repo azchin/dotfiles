@@ -20,12 +20,12 @@
 ### WINDOW
 border.width: 0
 
-window.client.padding.width: 4
+window.client.padding.width: 2
 window.client.padding.height: 0
-window.handle.width: 4
+window.handle.width: 2
 
-padding.width: 4
-padding.height: 4
+padding.width: 12
+padding.height: 6
 
 window.active.border.color: #31363b
 window.inactive.border.color: #31363b
@@ -44,11 +44,13 @@ window.active.button.hover.image.color: #afb8c5
 window.active.button.toggled.unpressed.image.color: #D3DAE3
 window.active.button.toggled.pressed.image.color: #FD7980
 window.active.button.toggled.hover.image.color: #afb8c5
-window.inactive.button.unpressed.image.color: #1F2328
+# window.inactive.button.unpressed.image.color: #1F2328
+window.inactive.button.unpressed.image.color: #7F8388
 window.inactive.button.pressed.image.color: #FD7980
 window.inactive.button.disabled.image.color: #31363b
 window.inactive.button.hover.image.color: #afb8c5
-window.inactive.button.toggled.unpressed.image.color: #1F2328
+# window.inactive.button.toggled.unpressed.image.color: #1F2328
+window.inactive.button.toggled.unpressed.image.color: #7F8388
 window.inactive.button.toggled.pressed.image.color: #FD7980
 window.inactive.button.toggled.hover.image.color: #afb8c5
 
