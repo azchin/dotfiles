@@ -5,6 +5,7 @@ killall -q tint2
 
 ~/bin/core.sh
 
+~/.cargo/bin/stateful-split-screen &
 sxhkd &
 picom &
 # skippy-xd --start-daemon &

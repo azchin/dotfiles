@@ -7,20 +7,17 @@
     <!-- icon="/usr/share/icons/Papirus/128x128/apps/distributor-logo-archlinux.svg" -->
     <item label=" Sleep                    ">
       <action name="Execute">
-        <command>systemctl suspend</command>
-        <prompt>Would you like to go to sleep?           </prompt>
+        <command>rofi-power.sh --suspend</command>
       </action>
     </item>
     <item label=" Restart">
       <action name="Execute">
-        <command>systemctl reboot</command>
-        <prompt>Would you like to restart the system?    </prompt>
+        <command>rofi-power.sh --restart</command>
       </action>
     </item>
     <item label=" Shut Down">
       <action name="Execute">
-        <command>systemctl poweroff</command>
-        <prompt>Would you like to shut down the system?  </prompt>
+        <command>rofi-power.sh --shutdown</command>
       </action>
     </item>
     <separator id="apps-separator" label="Applications"/>
@@ -49,6 +46,11 @@
     <item label=" Keybase">
       <action name="Execute">
         <command>keybase-gui</command>
+      </action>
+    </item>
+    <item label=" Tint2 Config">
+      <action name="Execute">
+        <command>tint2conf</command>
       </action>
     </item>
   </menu>

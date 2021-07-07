@@ -20,7 +20,7 @@ super + shift + r
 	bspc wm -r
 
 super + shift + e
-	[ $(echo "Exit\nCancel" | drofi "Exit this session?") = "Exit" ] \
+	[ $(echo "Exit\nCancel" | drofi -p "Exit this session?") = "Exit" ] \
 	&& bspc quit
 	# [ $(echo -e "Exit\nCancel" | dmenu -i -p "Exit this session?") = "Exit" ] \
 	# && bspc quit

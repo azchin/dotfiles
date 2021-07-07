@@ -36,13 +36,15 @@ window {
   /* fullscreen: true; */
   /* background-color: #282c34dd; */
   background-color: @bg;
-	border-radius: 8px;
+  border-radius: 8px;
+  location: center;
+  anchor: center;
 }
 
 mainbox {
   /* padding: 25% 25%; */
-	border: 0;
-	padding: 16px;
+  border: 0;
+  padding: 16px;
 }
 
 inputbar {
@@ -66,8 +68,10 @@ entry {
 
 listview {
   spacing: 5px;
-  dynamic: true;
   scrollbar: false;
+  lines: 15;
+  dynamic: false;
+  fixed-height: false;
 }
 
 element {

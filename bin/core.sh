@@ -20,7 +20,7 @@ pkill redshift
 # setxkbmap -option
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
-killall -q emacs
+# killall -q emacs
 pkill udiskie
 
 # services
@@ -36,9 +36,9 @@ redshift &
 #xset m 4/5 1
 dunst &
 [ -z "$(pidof urxvtd)" ] && urxvtd &
-# [ $(ps ax | grep "emacs --daemon" | wc -l) -le 1 ] && emacs --daemon &
-emacs --daemon &
-# [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
+[ $(ps ax | grep "emacs --daemon" | wc -l) -le 1 ] && emacs --daemon &
+# emacs --daemon &
+[ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 # fcitx &
 # udisksctl monitor &
 # find setxkbmap options in /usr/share/X11/xkb/rules/base.lst

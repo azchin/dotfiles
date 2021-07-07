@@ -56,7 +56,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 12))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 12))
 (setq confirm-kill-emacs nil)
 ; (setq evil-normal-state-cursor '(box "#E5E5E5")
 ;       evil-insert-state-cursor '(bar "#E5E5E5")
