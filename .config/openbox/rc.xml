@@ -250,7 +250,6 @@ and back in -->
         <height>80%</height>
       </action>
     </keybind>
-
     <keybind key="W-h">
       <action name="Unmaximize"/>
       <action name="Execute">
@@ -263,55 +262,15 @@ and back in -->
         <command>sssc restore</command>
       </action>
     </keybind>
+    <keybind key="W-k">
+      <action name="Maximize"/>
+    </keybind>
     <keybind key="W-l">
       <action name="Unmaximize"/>
       <action name="Execute">
         <command>sssc splitright</command>
       </action>
     </keybind>
-
-    <!-- <keybind key="W-h"> -->
-    <!--   <action name="Unmaximize"/> -->
-    <!--   <action name="MoveResizeTo"> -->
-    <!--     <x>0</x> -->
-    <!--     <y>center</y> -->
-    <!--     <width>50%</width> -->
-    <!--     <height>100%</height> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-j"> -->
-    <!--   <action name="If"> -->
-    <!--     <query target="default"> -->
-    <!--       <maximized>yes</maximized> -->
-    <!--     </query> -->
-    <!--     <then> -->
-    <!--       <action name="Unmaximize"/> -->
-    <!--     </then> -->
-    <!--     <else> -->
-    <!--       <!-\- <action name="MoveResizeTo"> -\-> -->
-    <!--       <!-\-   <x>center</x> -\-> -->
-    <!--       <!-\-   <y>center</y> -\-> -->
-    <!--       <!-\-   <width>50%</width> -\-> -->
-    <!--       <!-\-   <height>75%</height> -\-> -->
-    <!--       <!-\- </action> -\-> -->
-    <!--       <action name="Lower"/> -->
-    <!--       <action name="FocusToBottom"/> -->
-    <!--       <action name="Unfocus"/> -->
-    <!--     </else> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <keybind key="W-k">
-      <action name="Maximize"/>
-    </keybind>
-    <!-- <keybind key="W-l"> -->
-    <!--   <action name="Unmaximize"/> -->
-    <!--   <action name="MoveResizeTo"> -->
-    <!--     <x>-0</x> -->
-    <!--     <y>center</y> -->
-    <!--     <width>50%</width> -->
-    <!--     <height>100%</height> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
     <keybind key="W-A-h">
       <action name="MoveRelative">
         <x>-10%</x>
@@ -452,7 +411,7 @@ and back in -->
     <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
          switching due to hitting the edge of the screen -->
-    <context name="Frame">
+    <context name="Frame Desktop">
       <mousebind action="Click" button="W-Up">
         <action name="PreviousWindow">
           <dialog>list</dialog>
@@ -462,7 +421,7 @@ and back in -->
         </action>
       </mousebind>
     </context>
-    <context name="Frame">
+    <context name="Frame Desktop">
       <mousebind action="Click" button="W-Down">
         <action name="NextWindow">
           <dialog>list</dialog>
