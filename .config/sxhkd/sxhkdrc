@@ -71,11 +71,11 @@ super + x ; super + {Caps_Lock,a,b,e,i,f,g,p,c,d,q,r,s,t,u,z}
 	}
 
 # screenshot
-Print
-	maim -s | xclip -sel clip -t image/png
+{super,_} + Print
+	maim {_,-s} | xclip -sel clip -t image/png
 	#flameshot {gui,full -c} -p ~/screenshots
 
-{super,shift} + Print
+{super + shift,shift} + Print
 	maim {_,-s} ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
 
 # wallpaper
