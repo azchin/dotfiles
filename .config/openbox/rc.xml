@@ -250,27 +250,27 @@ and back in -->
         <height>80%</height>
       </action>
     </keybind>
-    <keybind key="W-h">
-      <action name="Unmaximize"/>
-      <action name="Execute">
-        <command>sssc splitleft</command>
-      </action>
-    </keybind>
-    <keybind key="W-j">
-      <action name="Unmaximize"/>
-      <action name="Execute">
-        <command>sssc restore</command>
-      </action>
-    </keybind>
-    <keybind key="W-k">
-      <action name="Maximize"/>
-    </keybind>
-    <keybind key="W-l">
-      <action name="Unmaximize"/>
-      <action name="Execute">
-        <command>sssc splitright</command>
-      </action>
-    </keybind>
+    <!-- <keybind key="W-h"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="Execute"> -->
+    <!--     <command>sssc splitleft</command> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-j"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="Execute"> -->
+    <!--     <command>sssc restore</command> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-k"> -->
+    <!--   <action name="Maximize"/> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-l"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="Execute"> -->
+    <!--     <command>sssc splitright</command> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="W-A-h">
       <action name="MoveRelative">
         <x>-10%</x>

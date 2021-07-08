@@ -6,7 +6,7 @@ killall -q tint2
 ~/bin/core.sh
 
 ~/.cargo/bin/stateful-split-screen &
-sxhkd &
+sxhkd ~/.config/sxhkd/floating-sxhkdrc &
 picom &
 # skippy-xd --start-daemon &
 tint2 &
