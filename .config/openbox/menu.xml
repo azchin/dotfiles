@@ -20,6 +20,11 @@
         <command>rofi-power.sh --shutdown</command>
       </action>
     </item>
+    <item label=" Hibernate">
+      <action name="Execute">
+        <command>rofi-power.sh --hibernate</command>
+      </action>
+    </item>
     <separator id="apps-separator" label="Applications"/>
     <!-- <menu id="applications" label=" XDG" execute="xdg_menu -\-format openbox3-pipe -\-root-menu /etc/xdg/menus/arch-applications.menu" /> -->
     <!-- icon="/usr/share/icons/Papirus/128x128/apps/distributor-logo-archlinux.svg" -->
