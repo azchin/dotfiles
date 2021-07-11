@@ -4,7 +4,7 @@
 
 # Custom dmenu commands
 super + c
-	~/bin/launch.sh ~/bin/drofi
+	~/bin/launch.sh dmenu
 
 super + shift + c
 	xdo kill

@@ -27,4 +27,4 @@ fi
 ssid=$(echo "$list" | sed -En "/\S/p" | dmenu -p "SSID")
 [ -z "$ssid" ] && exit 1
 passwd=$(echo "" | dmenu -p "Password")
-nmcli device wifi connect "$ssid" $([ -n "$passwd" ] && echo "password ${passwd}")
+nmcli device wifi connect "$ssid" $([ -n "$passwd" ] && echo password "${passwd}")
