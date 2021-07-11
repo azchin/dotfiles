@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "### RSNAPSHOT MONTHLY ###"
+rsnapshot monthly || echo "Backup failure"
+echo ""

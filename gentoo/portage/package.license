@@ -1,0 +1,9 @@
+# required by sys-kernel/genkernel-4.1.0-r2::gentoo[firmware]
+# required by sys-kernel/genkernel (argument)
+sys-kernel/linux-firmware linux-fw-redistributable no-source-code
+# required by sys-firmware/intel-microcode (argument)
+>=sys-firmware/intel-microcode-20200616_p20200617 intel-ucode
+# required by nvidia-drivers (argument)
+=x11-drivers/nvidia-drivers-390.138-r4 NVIDIA-r2
+# required by nvidia-firmware (argument)
+>=sys-firmware/nvidia-firmware-340.32-r1 NVIDIA-r2

@@ -1,0 +1,1 @@
+x11-misc/xscreensaver -caps -gdm -gdk-pixbuf -perl -new-login -offensive -opengl -suid jpeg
