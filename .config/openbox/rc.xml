@@ -363,7 +363,7 @@ and back in -->
     <!-- </keybind> -->
     <keybind key="W-Tab">
       <action name="Execute">
-        <command>rofi -show window</command>
+        <command>~/bin/rofi-window.sh</command>
       </action>
       <!-- <action name="ShowMenu"> -->
       <!--   <menu>client-list-combined-menu</menu> -->
@@ -416,6 +416,7 @@ and back in -->
     <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
          switching due to hitting the edge of the screen -->
+
     <context name="Frame Desktop">
       <mousebind action="Click" button="W-Up">
         <action name="PreviousWindow">
@@ -718,6 +719,9 @@ and back in -->
     <application class="firefox">
       <decor>no</decor>
     </application>
+    <!-- <application name="gsimplecal"> -->
+    <!--   <skip_taskbar>true</skip_taskbar> -->
+    <!-- </application> -->
     <!--
         # this is an example with comments through out. use these to make your
         # own rules, but without the comments of course.

@@ -21,7 +21,7 @@
   text:       #e5e5e5;
   text-alt:   #e5e5e5;
   fg:         #abb2bf;
-  /* bg:         #282c34; */
+  // bg:         #282c34;
   bg:         #0f0f0fe6;
 
   spacing: 0;
@@ -63,13 +63,13 @@ textbox-prompt-colon {
 }
 
 entry {
-  margin: 0px 10px;
+  margin: 0px 0px;
 }
 
 listview {
-  spacing: 5px;
+  spacing: 0px;
   scrollbar: false;
-  lines: 15;
+  lines: 8;
   dynamic: false;
   fixed-height: false;
 }
@@ -87,6 +87,7 @@ element selected {
 
 element-text {
   text-color: @text-alt;
+  vertical-align: 0.5;
 }
 
 element-text selected {
@@ -99,6 +100,10 @@ element-text urgent, element selected urgent {
 
 element-text active, element selected active {
   text-color: @purple;
+}
+
+element-icon {
+  size: 40;
 }
 
 message {
