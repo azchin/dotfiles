@@ -69,7 +69,7 @@ entry {
 listview {
   spacing: 0px;
   scrollbar: false;
-  lines: 8;
+  lines: 12;
   dynamic: false;
   fixed-height: false;
 }
@@ -103,7 +103,7 @@ element-text active, element selected active {
 }
 
 element-icon {
-  size: 40;
+  size: 48;
 }
 
 message {
