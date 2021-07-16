@@ -32,6 +32,7 @@ source $ZSH/zinit/plugins/zsh-users---zsh-completions/zsh-completions.plugin.zsh
 source $ZSH/zinit/plugins/zsh-users---zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/zinit/plugins/mafredri---zsh-async/async.zsh
 source $ZSH/order/git-async.zsh
+export fpath=($ZSH/completions $fpath)
 
 # User configuration
 
