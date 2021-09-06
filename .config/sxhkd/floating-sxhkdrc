@@ -1,2 +1,5 @@
 super + {h, j, k, l}
-    sssc {splitleft, restore, maximize, splitright}
+	sssc {splitleft, restore, maximize, splitright}
+
+# super + f
+# 	~/bin/sss-toggle-max.sh

@@ -241,6 +241,24 @@ and back in -->
       <action name="ToggleAlwaysOnBottom"/>
     </keybind>
     <keybind key="W-f">
+      <action name="ToggleMaximize"/>
+      <!-- <action name="If"> -->
+      <!--   <query> -->
+      <!--     <maximized>yes</maximized> -->
+      <!--   </query> -->
+      <!--   <then> -->
+      <!--     <action name="Execute"> -->
+      <!--       <command> sssc restore</command> -->
+      <!--     </action> -->
+      <!--   </then> -->
+      <!--   <else> -->
+      <!--     <action name="Execute"> -->
+      <!--       <command> sssc maximize</command> -->
+      <!--     </action> -->
+      <!--   </else> -->
+      <!-- </action> -->
+    </keybind>
+    <keybind key="W-d">
       <action name="Lower"/>
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
@@ -268,7 +286,9 @@ and back in -->
     <!--   </action> -->
     <!-- </keybind> -->
     <!-- <keybind key="W-k"> -->
-    <!--   <action name="Maximize"/> -->
+    <!--   <action name="Execute"> -->
+    <!--     <command> sssc maximize</command> -->
+    <!--   </action> -->
     <!-- </keybind> -->
     <!-- <keybind key="W-l"> -->
     <!--   <action name="Unmaximize"/> -->
@@ -455,6 +475,23 @@ and back in -->
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
       </mousebind>
+      <mousebind action="Drag" button="A-Left">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Move"/>
+      </mousebind>
+      <mousebind action="Drag" button="A-Right">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Resize">
+          <!-- <edge>bottomright</edge> -->
+        </action>
+      </mousebind>
+      <mousebind action="Press" button="A-Middle">
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
+      </mousebind>
     </context>
     <context name="Titlebar">
       <mousebind action="Drag" button="Left">
@@ -576,12 +613,22 @@ and back in -->
     </context>
     <context name="Shade">
       <mousebind action="Press" button="Left">
-        <action name="Focus"/>
-        <action name="Raise"/>
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
       </mousebind>
-      <mousebind action="Click" button="Left">
-        <action name="ToggleShade"/>
+      <mousebind action="Press" button="Right">
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
       </mousebind>
+      <!-- <mousebind action="Press" button="Left"> -->
+      <!--   <action name="Focus"/> -->
+      <!--   <action name="Raise"/> -->
+      <!-- </mousebind> -->
+      <!-- <mousebind action="Click" button="Left"> -->
+      <!--   <action name="ToggleShade"/> -->
+      <!-- </mousebind> -->
     </context>
     <context name="Iconify">
       <mousebind action="Press" button="Left">

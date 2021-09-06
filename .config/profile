@@ -2,7 +2,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export PATH=$HOME/.emacs.d/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export DICPATH=$HOME/.local/share/hunspell/en_CA.aff
@@ -33,6 +33,7 @@ export PF_ALIGN="10"
 
 export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-color"
 export SXHKD_SHELL="/bin/sh"
+export MOZ_X11_EGL=1
 
 export QT_STYLE_OVERRIDE="kvantum"
 
@@ -57,4 +58,7 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 # export RXVT_SOCKET="$XDG_CACHE_HOME"/urxvt/urxvtd
 # export ABDUCO_SOCKET_DIR="$XDG_CACHE_HOME"
+
+export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.deno/bin:$PATH"
 . "$HOME/.cargo/env"
