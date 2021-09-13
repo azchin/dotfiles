@@ -60,7 +60,6 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 # export RXVT_SOCKET="$XDG_CACHE_HOME"/urxvt/urxvtd
 # export ABDUCO_SOCKET_DIR="$XDG_CACHE_HOME"
 
-<<<<<<< HEAD
 # export QT_QPA_PLATFORM=wayland
 # export MOZ_ENABLE_WAYLAND=1
 # export MOZ_WEBRENDER=1
@@ -69,8 +68,4 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 
 export SVDIR=~/service
 
-=======
-export PATH="$HOME/.emacs.d/bin:$PATH"
-export PATH="$HOME/.deno/bin:$PATH"
->>>>>>> cc2d7634921fc43cde3ae005f891aee49070de6d
 . "$HOME/.cargo/env"
