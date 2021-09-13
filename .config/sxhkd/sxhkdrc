@@ -83,7 +83,7 @@ super + w; super + {s,a}
 	~/bin/wallpaper.sh {_,-r}
 
 super + shift + s
-	systemctl suspend
+	loginctl suspend
 
 # make sxhkd reload its configuration files:
 super + Escape

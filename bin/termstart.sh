@@ -19,6 +19,6 @@
 # 	pfetch
 # fi
 
-# command -v pfetch >/dev/null 2>&1 && pfetch || :
+command -v pfetch >/dev/null 2>&1 && pfetch || :
 
-~/bin/tux.sh
+# ~/bin/tux.sh

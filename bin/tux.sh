@@ -1,5 +1,5 @@
-#!/bin/sh
-echo -n "\033[1;33m"
+#!/bin/bash
+echo -ne "\033[1;33m"
 # cat << "EOF"
 #      ___
 #     (.. |
@@ -19,4 +19,4 @@ cat << "EOF"
  \/-____\/
 EOF
 
-echo "\033[0m"
+echo -e "\033[0m"
