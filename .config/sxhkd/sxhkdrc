@@ -103,8 +103,16 @@ XF86AudioMute
 
 # can implement smarter behaviour w/ diff players via dmenu, notification
 XF86Audio{Play,Prev,Next}
-	playerctl {play-pause, previous, next}
+	~/bin/playerctl.sh {play-pause, previous, next}
 
 # XF86Audio{Play,Prev,Next}
 # 	~/bin/media.sh {play,prev,next}
 
+{F3,F4}
+	xdotool getactivewindow key '{ctrl+shift+Tab,ctrl+Tab}'
+
+F2
+	xdotool getactivewindow click 2
+
+super + {button4,button5}
+	~/bin/volume.sh {-,+}1
