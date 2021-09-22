@@ -36,7 +36,7 @@ export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-col
 export SXHKD_SHELL="/bin/sh"
 export MOZ_X11_EGL=1
 
-export QT_STYLE_OVERRIDE="kvantum"
+# export QT_STYLE_OVERRIDE="kvantum"
 
 # export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
 # export CCACHE_DIR="/var/cache/ccache"

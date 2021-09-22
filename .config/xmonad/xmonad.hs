@@ -114,7 +114,7 @@ myEventHook = composeAll
 
 myStartupHook = do
     return()
-    spawnOnce "~/bin/core.sh"
+    spawnOnce "~/bin/autostart.sh"
     -- spawnOnce "/home/andrew/bin/xmonad/autostart.sh" []
     -- spawnOnce "xmobar"
 

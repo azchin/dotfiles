@@ -50,18 +50,17 @@ super + shift + x
 
 # applications
 
-super + x ; super + {Caps_Lock,a,b,e,i,f,g,p,c,d,q,r,s,t,u,z} 
+super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,t,u,z} 
 	{ \
 	:, \
 	alacritty, \
-	brave, \
+	chromium, \
 	emacsclient -e "(server-shutdown)"; emacs --daemon, \
 	brave -incognito, \
 	firefox, \
-	midori, \
     pavucontrol, \
-	code, \
-	pcmanfm, \
+	codium, \
+	dolphin, \
 	tabbed -c vimb -e, \
 	urxvtc -e ranger, \
 	st, \
@@ -72,11 +71,12 @@ super + x ; super + {Caps_Lock,a,b,e,i,f,g,p,c,d,q,r,s,t,u,z}
 
 # screenshot
 {super,_} + Print
-	maim {_,-s} | xclip -sel clip -t image/png
-	#flameshot {gui,full -c} -p ~/screenshots
+    flameshot {gui, full -c}
+	# flameshot {gui,full -c} -p ~/screenshots
+# 	maim {_,-s} | xclip -sel clip -t image/png
 
-{super + shift,shift} + Print
-	maim {_,-s} ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
+# {super + shift,shift} + Print
+# 	maim {_,-s} ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
 
 # wallpaper
 super + w; super + {s,a}

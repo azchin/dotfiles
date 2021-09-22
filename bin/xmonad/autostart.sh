@@ -5,7 +5,7 @@
 # killall -q sxhkd
 # killall -q xcompmgr
 
-# ~/bin/core.sh
+# ~/bin/autostart.sh
 # xmobar &
 # sxhkd ~/.config/sxhkd/xmonad-sxhkdrc &
 # sxhkd &

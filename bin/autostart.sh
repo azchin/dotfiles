@@ -1,11 +1,12 @@
 #!/bin/sh
 
 . ~/.config/profile
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-# export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 # special resets
+autorandr --change
 redshift -x
 
 # kill services
@@ -17,7 +18,7 @@ pkill udiskie
 # pkill udisksctl
 # pkill nm-applet
 # tmux kill-server
-# killall -q fcitx
+killall -q fcitx
 # setxkbmap -option
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
@@ -28,8 +29,10 @@ pkill udiskie
 # ~/bin/screens.sh
 
 ~/bin/wallpaper.sh
+xset b off
 xsetroot -cursor_name left_ptr &
 redshift &
+autorandr --change &
 # xcalib -d :0 "/usr/share/color/icc/Lenovo T520.icm" &
 # xscreensaver &
 
@@ -38,9 +41,12 @@ dunst &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 setxkbmap -option caps:escape_shifted_capslock
+pipewire &
 udiskie -t &
 nm-applet &
 keepassxc &
+# ibus-daemon -drxR
+fcitx5 -d
 
 # [ -z "$(pidof urxvtd)" ] && urxvtd &
 #xset m 4/5 1
@@ -54,7 +60,7 @@ keepassxc &
 # tmux new -s andrew -d 
 # onedrive -m &
 # xss-lock -l ~/bin/lock.sh & 
-# light-locker &
+light-locker &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
 

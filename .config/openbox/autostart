@@ -3,7 +3,7 @@ killall -q sxhkd
 killall -q picom
 killall -q tint2
 
-~/bin/core.sh
+~/bin/autostart.sh
 
 ~/.cargo/bin/stateful-split-screen &
 sxhkd ~/.config/sxhkd/floating-sxhkdrc &
