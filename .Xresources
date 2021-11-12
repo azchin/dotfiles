@@ -1,3 +1,5 @@
+Xft.dpi: 96
+
 
 ! Color scheme
 
@@ -98,8 +100,8 @@ URxvt.color15:      #fcfcfa
 
 ! URXVT
 URxvt.perl-lib: /home/andrew/.config/urxvt/ext
-! URxvt.font: xft:DejaVu Sans Mono:style=Book:size=10, xft:DejaVuSansMono Nerd Font Mono, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
-URxvt.font: xft:DejaVuSansMono Nerd Font Mono:style=Book:size=10
+URxvt.font: xft:DejaVu Sans Mono:style=Book:size=10, xft:DejaVuSansMono Nerd Font Mono, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
+! URxvt.font: xft:DejaVuSansMono Nerd Font Mono:style=Book:size=10
 Urxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold:size=10
 Urxvt.italicFont: xft:DejaVuSansMono Nerd Font Mono:style=Oblique:size=10
 Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold Oblique:size=10
