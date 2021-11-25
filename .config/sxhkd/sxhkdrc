@@ -24,6 +24,9 @@ super + n
 super + v
 	emacsclient -c -a emacs
 
+super + g
+    gvim
+
 # super + r
 # 	~/bin/ricerez.sh
 
@@ -54,7 +57,7 @@ super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,t,u,z}
 	{ \
 	:, \
 	alacritty, \
-	chromium, \
+	brave, \
 	emacsclient -e "(server-shutdown)"; emacs --daemon, \
 	brave -incognito, \
 	firefox, \

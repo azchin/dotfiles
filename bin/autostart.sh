@@ -1,9 +1,13 @@
 #!/bin/sh
 
 . ~/.config/profile
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+# export XMODIFIERS=@im=fcitx
+
+# export GTK_IM_MODULE=ibus
+# export QT_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
 
 # special resets
 autorandr --change
@@ -18,7 +22,7 @@ pkill udiskie
 # pkill udisksctl
 # pkill nm-applet
 # tmux kill-server
-killall -q fcitx
+# killall -q fcitx
 # setxkbmap -option
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
@@ -29,6 +33,7 @@ killall -q fcitx
 # ~/bin/screens.sh
 
 ~/bin/wallpaper.sh
+# xrandr --dpi 96
 xset b off
 xsetroot -cursor_name left_ptr &
 redshift &
@@ -47,6 +52,8 @@ nm-applet &
 keepassxc &
 # ibus-daemon -drxR
 fcitx5 -d
+pasystray &
+megasync &
 
 # [ -z "$(pidof urxvtd)" ] && urxvtd &
 #xset m 4/5 1
@@ -59,8 +66,8 @@ fcitx5 -d
 # xcape -e 'Control_L=Escape' -t 200
 # tmux new -s andrew -d 
 # onedrive -m &
-# xss-lock -l ~/bin/lock.sh & 
-light-locker &
+xss-lock -l ~/bin/lock.sh & 
+# light-locker &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
 
