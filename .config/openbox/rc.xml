@@ -763,9 +763,9 @@ and back in -->
         <height>75%</height>
       </size>
     </application>
-    <application class="firefox">
-      <decor>no</decor>
-    </application>
+    <!-- <application class="firefox"> -->
+    <!--   <decor>no</decor> -->
+    <!-- </application> -->
     <!-- <application name="gsimplecal"> -->
     <!--   <skip_taskbar>true</skip_taskbar> -->
     <!-- </application> -->
