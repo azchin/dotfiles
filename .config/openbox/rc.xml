@@ -396,6 +396,7 @@ and back in -->
     <keybind key="W-Return">
       <action name="Execute">
         <command>sh -c "xdo activate -d -N Alacritty || alacritty -e tmux"</command>
+        <!-- <command>sh -c "xdo activate -d -N URxvt || (urxvtc || urxvt)"</command> -->
       </action>
     </keybind>
     <keybind key="W-space">

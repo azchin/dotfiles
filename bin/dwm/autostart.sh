@@ -4,7 +4,7 @@ killall -q slstatus
 killall -q sxhkd
 killall -q xcompmgr
 
-# ~/bin/core.sh
+# ~/bin/autostart.sh
 
 slstatus &
 sxhkd &

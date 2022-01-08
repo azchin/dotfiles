@@ -2,8 +2,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.emacs.d/bin:$PATH
+export PATH=$HOME/.deno/bin:$PATH
 
 export DICPATH=$HOME/.local/share/hunspell/en_CA.aff
 export DICTIONARY=en_CA
@@ -35,7 +36,7 @@ export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-col
 export SXHKD_SHELL="/bin/sh"
 export MOZ_X11_EGL=1
 
-export QT_STYLE_OVERRIDE="kvantum"
+# export QT_STYLE_OVERRIDE="kvantum"
 
 # export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
 # export CCACHE_DIR="/var/cache/ccache"
@@ -59,6 +60,12 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 # export RXVT_SOCKET="$XDG_CACHE_HOME"/urxvt/urxvtd
 # export ABDUCO_SOCKET_DIR="$XDG_CACHE_HOME"
 
-export PATH="$HOME/.emacs.d/bin:$PATH"
-export PATH="$HOME/.deno/bin:$PATH"
+# export QT_QPA_PLATFORM=wayland
+# export MOZ_ENABLE_WAYLAND=1
+# export MOZ_WEBRENDER=1
+# export XDG_SESSION_TYPE=wayland
+# export XDG_CURRENT_DESKTOP=kwin
+
+export SVDIR=~/service
+
 . "$HOME/.cargo/env"

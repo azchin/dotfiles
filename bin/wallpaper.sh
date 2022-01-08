@@ -1,5 +1,8 @@
 #!/bin/sh
 
+hsetroot -cover "$HOME/Pictures/zQbYocwXGY.png"
+exit
+
 store=${XDG_DATA_HOME:=$HOME/.local/share}/wallpaper
 reset=0
 if [ "$1" = "-r" ] || ! [ -f "$store" ]; then

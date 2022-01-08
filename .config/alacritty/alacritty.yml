@@ -12,14 +12,14 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: xterm-256color
 
-#window:
+  #window:
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   #dimensions:
-  #  columns: 0
-  #  lines: 0
+    #columns: 150
+    #lines: 50
 
   # Window position (changes require restart)
   #
@@ -129,16 +129,16 @@ font:
   #   # style: Regular
   # size: 9.0
   normal:
-    family: DejaVuSansMono Nerd Font
+    family: DejaVuSansMono Nerd Font Mono
     style: Book
   bold:
-    family: DejaVuSansMono Nerd Font
+    family: DejaVuSansMono Nerd Font Mono
     style: Bold
   italic:
-    family: DejaVuSansMono Nerd Font
+    family: DejaVuSansMono Nerd Font Mono
     style: Oblique
   bold_italic:
-    family: DejaVuSansMono Nerd Font
+    family: DejaVuSansMono Nerd Font Mono
     style: Oblique
   size: 10.0
 

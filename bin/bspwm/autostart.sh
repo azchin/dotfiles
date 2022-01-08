@@ -10,7 +10,7 @@ pkill alttab
 # killall -q polybar
 # pkill tab.sh
 
-~/bin/core.sh
+~/bin/autostart.sh
 
 #~/bin/polybar/polybar-bsp.sh -r
 # [ -z "$(pidof)" ] && (~/bin/polybar/launch.sh &) || polybar-msg cmd restart

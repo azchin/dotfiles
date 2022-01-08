@@ -66,14 +66,14 @@ nnoremap <silent> <Leader>wo :wincmd o<CR>
 nnoremap <silent> <Leader>N :vnew<CR>
 nnoremap <silent> <Leader>n :Lex<CR>
 nnoremap <silent> <Leader>u :UndotreeToggle<CR>
-nnoremap <silent> <Leader>q :wincmd q<CR>
+nnoremap <silent> <Leader>wq :wincmd q<CR>
 nnoremap <silent> <Leader>c :wincmd c<CR>
 nnoremap <silent> <Leader>s :w<CR>
-nnoremap <silent> <Leader>a :qa<CR>
+nnoremap <silent> <Leader>qq :qa<CR>
 nnoremap <silent> <Leader>Q :q!<CR>
 " nnoremap <silent> <Leader>W :wq<CR>
 nnoremap <silent> <Leader>A :qa!<CR>
-nnoremap <silent> <Leader>d :bd<CR>
+nnoremap <silent> <Leader>bd :bd<CR>
 function! SignToggle()
 	if(&signcolumn == 'no') 
 		set signcolumn=auto

@@ -5,7 +5,12 @@
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=@im=fcitx
 
+# export GTK_IM_MODULE=ibus
+# export QT_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
+
 # special resets
+autorandr --change
 redshift -x
 
 # kill services
@@ -28,8 +33,11 @@ pkill udiskie
 # ~/bin/screens.sh
 
 ~/bin/wallpaper.sh
+# xrandr --dpi 96
+xset b off
 xsetroot -cursor_name left_ptr &
 redshift &
+autorandr --change &
 # xcalib -d :0 "/usr/share/color/icc/Lenovo T520.icm" &
 # xscreensaver &
 
@@ -38,9 +46,14 @@ dunst &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 setxkbmap -option caps:escape_shifted_capslock
+pipewire &
 udiskie -t &
 nm-applet &
 keepassxc &
+# ibus-daemon -drxR
+fcitx5 -d
+pasystray &
+megasync &
 
 # [ -z "$(pidof urxvtd)" ] && urxvtd &
 #xset m 4/5 1
@@ -53,7 +66,7 @@ keepassxc &
 # xcape -e 'Control_L=Escape' -t 200
 # tmux new -s andrew -d 
 # onedrive -m &
-# xss-lock -l ~/bin/lock.sh & 
+xss-lock -l ~/bin/lock.sh & 
 # light-locker &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &

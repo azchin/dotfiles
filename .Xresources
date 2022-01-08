@@ -1,67 +1,69 @@
+Xft.dpi: 96
+
 
 ! Color scheme
 
 ! Monokai Pro
-! URxvt.foreground: #fcfcfa
-! URxvt.background: #2d2a2e
-! URxvt.cursorColor: #e5e5e5
-! ! black
-! URxvt.color0:       #403e41
-! URxvt.color8:       #727072
-! ! red
-! URxvt.color1:       #ff6188
-! URxvt.color9:       #ff6188
-! ! green
-! URxvt.color2:       #a9dc76
-! URxvt.color10:      #a9dc76
-! ! yellow
-! URxvt.color3:       #ffd866
-! URxvt.color11:      #ffd866
-! ! blue
-! URxvt.color4:       #fc9867
-! URxvt.color12:      #fc9867
-! ! magenta
-! URxvt.color5:       #ab9df2
-! URxvt.color13:      #ab9df2
-! ! cyan
-! URxvt.color6:       #78dce8
-! URxvt.color14:      #78dce8
-! ! white
-! URxvt.color7:       #fcfcfa
-! URxvt.color15:      #fcfcfa
-
-URxvt.depth: 32
-URxvt.foreground: [90]#e5e5e5
-URxvt.background: [90]#0f0f0f
-URxvt.cursorColor: [90]#e5e5e5
+URxvt.foreground: #fcfcfa
+URxvt.background: #2d2a2e
+URxvt.cursorColor: #e5e5e5
 ! black
-URxvt.color0:       [90]#1d1f21
-URxvt.color8:       [90]#31363b
-! URxvt.color0:       #2b2b2b
-! URxvt.color8:       #51585e
+URxvt.color0:       #403e41
+URxvt.color8:       #727072
 ! red
-URxvt.color1:       [90]#ff5c57
-URxvt.color9:       [90]#ff5c57
+URxvt.color1:       #ff6188
+URxvt.color9:       #ff6188
 ! green
-URxvt.color2:       [90]#a9dc76
-URxvt.color10:      [90]#a9dc76
+URxvt.color2:       #a9dc76
+URxvt.color10:      #a9dc76
 ! yellow
-URxvt.color3:       [90]#ffd866
-URxvt.color11:      [90]#ffd866
+URxvt.color3:       #ffd866
+URxvt.color11:      #ffd866
 ! blue
-URxvt.color4:       [90]#3daee9
-URxvt.color12:      [90]#3daee9
+URxvt.color4:       #fc9867
+URxvt.color12:      #fc9867
 ! magenta
-! URxvt.color5:       #fc9867
-! URxvt.color13:      #fc9867
-URxvt.color5:       [90]#ab9df2
-URxvt.color13:      [90]#ab9df2
+URxvt.color5:       #ab9df2
+URxvt.color13:      #ab9df2
 ! cyan
-URxvt.color6:       [90]#9aedfe
-URxvt.color14:      [90]#9aedfe
+URxvt.color6:       #78dce8
+URxvt.color14:      #78dce8
 ! white
-URxvt.color7:       [90]#a2a2a2
-URxvt.color15:      [90]#e5e5e5
+URxvt.color7:       #fcfcfa
+URxvt.color15:      #fcfcfa
+
+! URxvt.depth: 32
+! URxvt.foreground: [90]#e5e5e5
+! URxvt.background: [90]#0f0f0f
+! URxvt.cursorColor: [90]#e5e5e5
+! ! black
+! URxvt.color0:       [90]#1d1f21
+! URxvt.color8:       [90]#31363b
+! ! URxvt.color0:       #2b2b2b
+! ! URxvt.color8:       #51585e
+! ! red
+! URxvt.color1:       [90]#ff5c57
+! URxvt.color9:       [90]#ff5c57
+! ! green
+! URxvt.color2:       [90]#a9dc76
+! URxvt.color10:      [90]#a9dc76
+! ! yellow
+! URxvt.color3:       [90]#ffd866
+! URxvt.color11:      [90]#ffd866
+! ! blue
+! URxvt.color4:       [90]#3daee9
+! URxvt.color12:      [90]#3daee9
+! ! magenta
+! ! URxvt.color5:       #fc9867
+! ! URxvt.color13:      #fc9867
+! URxvt.color5:       [90]#ab9df2
+! URxvt.color13:      [90]#ab9df2
+! ! cyan
+! URxvt.color6:       [90]#9aedfe
+! URxvt.color14:      [90]#9aedfe
+! ! white
+! URxvt.color7:       [90]#a2a2a2
+! URxvt.color15:      [90]#e5e5e5
 
 ! URxvt.depth: 32
 ! URxvt.foreground: #e5e5e5
@@ -98,12 +100,13 @@ URxvt.color15:      [90]#e5e5e5
 
 ! URXVT
 URxvt.perl-lib: /home/andrew/.config/urxvt/ext
-! URxvt.font: xft:DejaVu Sans Mono:style=Book:size=9, xft:DejaVuSansMono Nerd Font Mono, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
-URxvt.font: xft:DejaVuSansMono Nerd Font:style=Book:size=9
-Urxvt.boldFont: xft:DejaVuSansMono Nerd Font:style=Bold:size=9
-Urxvt.italicFont: xft:DejaVuSansMono Nerd Font:style=Oblique:size=9
-Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font:style=Bold Oblique:size=9
+URxvt.font: xft:DejaVu Sans Mono:style=Book:size=10, xft:DejaVuSansMono Nerd Font Mono, xft:Noto Sans Mono CJK JP, xft:Noto Sans Mono CJK TC, xft:Noto Sans Mono CJK KR, xft:Noto Sans Mono CJK HK
+! URxvt.font: xft:DejaVuSansMono Nerd Font Mono:style=Book:size=10
+Urxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold:size=10
+Urxvt.italicFont: xft:DejaVuSansMono Nerd Font Mono:style=Oblique:size=10
+Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold Oblique:size=10
 
+URxvt.geometry: 150x50
 URxvt.saveLines: 4096
 URxvt.letterSpace: -1
 ! URxvt.lineSpace: -1
