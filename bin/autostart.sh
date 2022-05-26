@@ -66,7 +66,7 @@ megasync &
 # xcape -e 'Control_L=Escape' -t 200
 # tmux new -s andrew -d 
 # onedrive -m &
-xss-lock -l ~/bin/lock.sh & 
+# xss-lock -l ~/bin/lock.sh & 
 # light-locker &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
