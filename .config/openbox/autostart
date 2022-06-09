@@ -1,12 +1,11 @@
 
-killall -q sxhkd
-killall -q picom
+# killall -q picom
 killall -q tint2
 
 ~/bin/autostart.sh
 
 ~/.cargo/bin/stateful-split-screen &
-sxhkd ~/.config/sxhkd/floating-sxhkdrc &
-picom &
+# sxhkd ~/.config/sxhkd/floating-sxhkdrc &
+# picom --experimental-backends &
 # skippy-xd --start-daemon &
 tint2 &

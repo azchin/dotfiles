@@ -1,7 +1,7 @@
 #!/bin/sh
 
-hsetroot -cover "$HOME/Pictures/zQbYocwXGY.png"
-exit
+# hsetroot -cover "$HOME/Pictures/zQbYocwXGY.png"
+# exit
 
 store=${XDG_DATA_HOME:=$HOME/.local/share}/wallpaper
 reset=0

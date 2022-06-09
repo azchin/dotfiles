@@ -56,7 +56,7 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -65,7 +65,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -74,7 +74,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>normal</weight>
@@ -83,7 +83,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>normal</weight>
@@ -92,7 +92,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -101,7 +101,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -264,38 +264,63 @@ and back in -->
       <action name="Unfocus"/>
     </keybind>
     <keybind key="W-m">
-      <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-        <!-- use branching to have diff behavior for diff programs -->
-        <x>center</x>
-        <y>80</y>
-        <width>64%</width>
-        <height>80%</height>
+        <monitor>next</monitor>
       </action>
     </keybind>
-    <!-- <keybind key="W-h"> -->
-    <!--   <action name="Unmaximize"/> -->
-    <!--   <action name="Execute"> -->
-    <!--     <command>sssc splitleft</command> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-j"> -->
-    <!--   <action name="Unmaximize"/> -->
-    <!--   <action name="Execute"> -->
-    <!--     <command>sssc restore</command> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-k"> -->
-    <!--   <action name="Execute"> -->
-    <!--     <command> sssc maximize</command> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-l"> -->
-    <!--   <action name="Unmaximize"/> -->
-    <!--   <action name="Execute"> -->
-    <!--     <command>sssc splitright</command> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
+    <keybind key="W-S-m">
+      <action name="MoveResizeTo">
+        <monitor>previous</monitor>
+      </action>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+    <keybind key="W-h">
+      <action name="Execute">
+        <command>sssc save</command>
+      </action>
+      <action name="Execute">
+        <command>xdotool key super+Left</command>
+      </action>
+    </keybind>
+    <keybind key="W-j">
+      <action name="Unmaximize"/>
+      <action name="Execute">
+        <command>sssc restore</command>
+      </action>
+    </keybind>
+    <keybind key="W-k">
+      <action name="Execute">
+        <command>sssc save</command>
+      </action>
+      <action name="Execute">
+        <command>sssc maximize</command>
+      </action>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>50%</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>sssc save</command>
+      </action>
+      <action name="Execute">
+        <command>xdotool key super+Right</command>
+      </action>
+    </keybind>
     <keybind key="W-A-h">
       <action name="MoveRelative">
         <x>-10%</x>

@@ -16,6 +16,7 @@ autoload -U compaudit compinit
 compinit -u -C -d "$XDG_CACHE_HOME/zcompdump"
 
 for config_file ($ZSH/*.zsh) ; do source $config_file ; done
+
 # source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export fpath=($ZSH/zsh-completions/src $fpath)
 # source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
