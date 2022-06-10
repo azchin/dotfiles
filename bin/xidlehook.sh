@@ -1,7 +1,7 @@
 #!/bin/sh
 export DISPLAY=:0
 export XAUTHORITY=/home/andrew/.Xauthority
-/home/andrew/bin/notify.sh "Idle detection enabled" "battery-100"
+/home/andrew/bin/notify.sh "Idle detection enabled" "battery"
 [ -z "$(pidof xidlehook)" ] && \
     xidlehook \
     --detect-sleep \

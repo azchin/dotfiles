@@ -1,6 +1,6 @@
 [Added Associations]
 application/octet-stream=emacs.desktop;
-application/pdf=org.kde.okular.desktop;xreader.desktop;org.pwmt.zathura-pdf-poppler.desktop;
+application/pdf=mupdf.desktop;org.kde.okular.desktop;xreader.desktop;org.pwmt.zathura-pdf-poppler.desktop;
 application/postscript=org.pwmt.zathura.desktop;xreader.desktop;
 application/text/plain=emacs.desktop;
 audio/mpeg=mpv.desktop;

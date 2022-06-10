@@ -86,7 +86,7 @@ super + w; super + {s,a}
 	~/bin/wallpaper.sh {_,-r}
 
 super + shift + s
-	systemctl suspend
+	systemctl suspend-then-hibernate
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -95,16 +95,16 @@ super + Escape
 # Volume
 
 XF86Audio{Lower,Raise}Volume
-	pamixer -{d,i} 5 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-on
+	pamixer -{d,i} 5 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high
 	# ~/bin/volume.sh {-,+}5
 	# #pactl set-sink-volume @DEFAULT_SINK@ {-,+}5%
 
 shift + XF86Audio{Lower,Raise}Volume
-	pamixer -{d,i} 1 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-on
+	pamixer -{d,i} 1 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high
 	# ~/bin/volume.sh {-,+}1
 
 XF86AudioMute
-	pamixer -t && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-on
+	pamixer -t && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high
 	# ~/bin/volume.sh mute
 
 # can implement smarter behaviour w/ diff players via dmenu, notification
@@ -112,7 +112,7 @@ XF86Audio{Play,Prev,Next}
 	~/bin/playerctl.sh {play-pause, previous, next}
 
 XF86MonBrightness{Down,Up}
-	sudo light -{U,A} 5 && ~/bin/notify.sh "Brightness: $(light -G)" gpm-brightness-lcd
+	sudo light -{U,A} 5 && ~/bin/notify.sh "Brightness: $(light -G)" brightnesssettings
 
 # XF86Audio{Play,Prev,Next}
 # 	~/bin/media.sh {play,prev,next}

@@ -263,12 +263,12 @@ and back in -->
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-    <keybind key="W-m">
+    <keybind key="W-y">
       <action name="MoveResizeTo">
         <monitor>next</monitor>
       </action>
     </keybind>
-    <keybind key="W-S-m">
+    <keybind key="W-S-y">
       <action name="MoveResizeTo">
         <monitor>previous</monitor>
       </action>
@@ -298,9 +298,6 @@ and back in -->
     </keybind>
     <keybind key="W-k">
       <action name="Execute">
-        <command>sssc save</command>
-      </action>
-      <action name="Execute">
         <command>sssc maximize</command>
       </action>
     </keybind>
@@ -319,6 +316,15 @@ and back in -->
       </action>
       <action name="Execute">
         <command>xdotool key super+Right</command>
+      </action>
+    </keybind>
+    <keybind key="W-m">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>center</x>
+        <y>center</y>
+        <width>64%</width>
+        <height>80%</height>
       </action>
     </keybind>
     <keybind key="W-A-h">
@@ -445,9 +451,12 @@ and back in -->
       <action name="Exit"/>
     </keybind>
     <keybind key="W-a">
-      <action name="ShowMenu">
-        <menu>main-menu</menu>
+      <action name="Execute">
+        <command>xfce4-appfinder</command>
       </action>
+      <!-- <action name="ShowMenu"> -->
+      <!--   <menu>main-menu</menu> -->
+      <!-- </action> -->
     </keybind>
   </keyboard>
   <mouse>
@@ -538,11 +547,11 @@ and back in -->
         <action name="Raise"/>
         <action name="Unshade"/>
       </mousebind>
-      <mousebind action="Press" button="Middle">
-        <action name="Lower"/>
-        <action name="FocusToBottom"/>
-        <action name="Unfocus"/>
-      </mousebind>
+      <!-- <mousebind action="Press" button="Middle"> -->
+      <!--   <action name="Lower"/> -->
+      <!--   <action name="FocusToBottom"/> -->
+      <!--   <action name="Unfocus"/> -->
+      <!-- </mousebind> -->
       <mousebind action="Press" button="Right">
         <action name="Focus"/>
         <action name="Raise"/>

@@ -25,6 +25,7 @@ pkill cbatticon
 pkill pasystray
 # pkill udisksctl
 pkill nm-applet
+pkill devilspie2
 # tmux kill-server
 # killall -q fcitx
 # setxkbmap -option
@@ -61,6 +62,7 @@ fcitx5 -d
 pasystray &
 cbatticon &
 megasync &
+devilspie2 &
 
 # [ -z "$(pidof urxvtd)" ] && urxvtd &
 #xset m 4/5 1

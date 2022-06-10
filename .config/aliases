@@ -35,7 +35,7 @@ alias torr='transmission-remote'
 alias sess='abduco -e ^d -A andrew zsh'
 
 # Systemd
-alias slep='systemctl suspend'
+alias slep='systemctl suspend-then-hibernate'
 alias shut='systemctl poweroff'
 alias rez='systemctl reboot'
 alias hib='systemctl hibernate'
