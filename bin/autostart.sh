@@ -21,7 +21,7 @@ pkill udiskie
 # pkill onedrive
 pkill xss-lock
 pkill xidlehook
-pkill cbatticon
+# pkill cbatticon
 pkill pasystray
 # pkill udisksctl
 pkill nm-applet
@@ -60,7 +60,7 @@ keepassxc &
 # ibus-daemon -drxR
 fcitx5 -d
 pasystray &
-cbatticon &
+# cbatticon &
 megasync &
 devilspie2 &
 

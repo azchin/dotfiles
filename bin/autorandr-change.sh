@@ -7,8 +7,7 @@ export DISPLAY=:0
 export XAUTHORITY=/home/$_USER/.Xauthority
 
 if [ "$USER" = "$_USER" ] ; then
-    /usr/bin/autorandr --change &
-    $HOME/bin/wallpaper.sh &
+    { /usr/bin/autorandr --change; $HOME/bin/wallpaper.sh; } &
 else
     runuser -w DISPLAY,XAUTHORITY -u $_USER -- /usr/bin/autorandr --change &
     runuser -w DISPLAY,XAUTHORITY -u $_USER -- /home/$_USER/bin/wallpaper.sh &

@@ -22,21 +22,21 @@ for config_file ($ZSH/*.zsh) ; do source $config_file ; done
 # source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/bin/insulter.zsh
 
-# declare -A ZINIT
-# export ZINIT[HOME_DIR]="$XDG_CONFIG_HOME/zsh/zinit"
-# source $ZSH/zinit/bin/zinit.zsh
-# zinit light zsh-users/zsh-autosuggestions
-# zinit light zsh-users/zsh-completions
-# zinit light zsh-users/zsh-syntax-highlighting
-# zinit light mafredri/zsh-async
-# source $ZSH/order/git-async.zsh
-
-source $ZSH/zinit/plugins/zsh-users---zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZSH/zinit/plugins/zsh-users---zsh-completions/zsh-completions.plugin.zsh
-source $ZSH/zinit/plugins/zsh-users---zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSH/zinit/plugins/mafredri---zsh-async/async.zsh
+declare -A ZINIT
+export ZINIT[HOME_DIR]="$XDG_CONFIG_HOME/zsh/zinit"
+source $ZSH/zinit/bin/zinit.zsh
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light mafredri/zsh-async
 source $ZSH/order/git-async.zsh
-export fpath=($ZSH/completions $fpath)
+
+# source $ZSH/zinit/plugins/zsh-users---zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $ZSH/zinit/plugins/zsh-users---zsh-completions/zsh-completions.plugin.zsh
+# source $ZSH/zinit/plugins/zsh-users---zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $ZSH/zinit/plugins/mafredri---zsh-async/async.zsh
+# source $ZSH/order/git-async.zsh
+# export fpath=($ZSH/completions $fpath)
 
 # User configuration
 

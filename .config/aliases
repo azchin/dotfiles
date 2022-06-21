@@ -80,9 +80,11 @@ alias gd='git diff'
 
 # Zypper
 alias zse='zypper --no-refresh se'
+alias zif='zypper --no-refresh if'
 alias zin='sudo zypper in'
 alias zrm='sudo zypper rm --clean-deps'
-alias zup='sudo zypper dup'
+alias zup='sudo zypper dup; sudo flatpak update'
+alias zre='sudo zypper refresh'
 
 # Stolen
 # alias g++14="g++ -std=c++14 -Wall -g"

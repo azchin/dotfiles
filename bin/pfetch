@@ -1164,14 +1164,28 @@ get_ascii() {
 
         [Oo]pen[Ss][Uu][Ss][Ee]*|[Oo]pen*SUSE*|SUSE*|suse*)
             read_ascii 2 <<-EOF
-				${c2}  _______
-				${c2}__|   __ \\
-				${c2}     / .\\ \\
-				${c2}     \\__/ |
-				${c2}   _______|
-				${c2}   \\_______
-				${c2}__________/
+${c7}                                     ......
+${c7}     .,cdxxxoc,.               .:kKMMMNWMMMNk:.
+${c7}    cKMMN0OOOKWMMXo. ;        ;0MWk:.      .:OMMk.
+${c7}  ;WMK;.       .lKMMNM,     :NMK,             .OMW;
+${c7} cMW;            'WMMMN   ,XMK,                 oMM'
+${c7}.MMc               ..;l. xMN:                    KM0
+${c7}'MM.                   'NMO                      oMM
+${c7}.MM,                 .kMMl                       xMN
+${c7} KM0               .kMM0. .dl:,..               .WMd
+${c7} .XM0.           ,OMMK,    OMMMK.              .XMK
+${c7}   oWMO:.    .;xNMMk,       NNNMKl.          .xWMx
+${c7}     :ONMMNXMMMKx;          .  ,xNMWKkxllox0NMWk,
+${c7}         .....                    .:dOOXXKOxl,
 			EOF
+
+				# ${c2}  _______
+				# ${c2}__|   __ \\
+				# ${c2}     / .\\ \\
+				# ${c2}     \\__/ |
+				# ${c2}   _______|
+				# ${c2}   \\_______
+				# ${c2}__________/
         ;;
 
         [Oo]pen[Ww]rt*)

@@ -53,23 +53,16 @@ super + shift + x
 
 # applications
 
-super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,t,u,z} 
+super + x ; super + {Caps_Lock,b,e,f,c,d,t,u} 
 	{ \
 	:, \
-	alacritty, \
-	brave, \
+	brave-browser, \
 	emacsclient -e "(server-shutdown)"; emacs --daemon, \
-	brave -incognito, \
 	firefox, \
-	pavucontrol, \
 	codium, \
 	thunar, \
-	tabbed -c vimb -e, \
-	urxvtc -e ranger, \
-	st, \
 	tor-browser, \
 	urxvt, \
-	~/bin/zathura.sh \
 	}
 
 # screenshot
@@ -124,4 +117,4 @@ XF86MonBrightness{Down,Up}
 # 	xdotool getactivewindow click 2
 
 super + {button4,button5}
-	~/bin/volume.sh {-,+}1
+	pamixer -{d,i} 1 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high

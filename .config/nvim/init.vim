@@ -113,11 +113,11 @@ augroup end
 autocmd BufWritePost *.sh :silent exec '![ $(stat -c "%a" %) = 755 ] || chmod 755 %'
 " autocmd BufNewFile *.sh 0r ~/.config/nvim/skeleton/skeleton.sh
 
-augroup suckless
-  autocmd!
-  " autocmd BufWritePost config.def.h !cp config.def.h config.h && sudo make install clean 
-  autocmd BufWritePost config.h !sudo make install clean 
-augroup end
+" augroup suckless
+"   autocmd!
+"   " autocmd BufWritePost config.def.h !cp config.def.h config.h && sudo make install clean 
+"   autocmd BufWritePost config.h !sudo make install clean 
+" augroup end
 
 function! PlainText()
 	if(&filetype == '')
