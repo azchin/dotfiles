@@ -2,7 +2,7 @@
     // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
+    // "width": 1080, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     // "modules-left": ["sway/workspaces"],
@@ -10,7 +10,8 @@
     "modules-left": ["wlr/taskbar"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "clock", "tray"],
     "wlr/taskbar": {
-        "format": "{icon} {title:.16}",
+        "format": "{icon} {title:.8}",
+        // "format": "{icon}",
         "on-click": "activate",
         "active-first": true
     },
@@ -62,7 +63,7 @@
     "network": {
         "interface": "wlp*", // (Optional) To force the use of this interface
         //"format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": "{essid:.10} ({signalStrength}%)",
+        "format-wifi": "{essid:.10}",
         "format-ethernet": "{ipaddr}/{cidr} ",
         //"tooltip-format": "{ifname} via {gwaddr} ",
         "tooltip": false,

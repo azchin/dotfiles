@@ -24,4 +24,3 @@ stty -ixon -ixoff
 # [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 ~/bin/termstart.sh
-. "$HOME/.cargo/env"

@@ -6,6 +6,7 @@ export XAUTHORITY=/home/andrew/.Xauthority
 
 /home/andrew/bin/notify.sh "Idle detection disabled" "battery"
 
+# if xrandr | grep "XWAYLAND" 2>&1 1>/dev/null ; then
 if [ -n "$(pidof wayfire)" ] ; then
     killall -q swayidle
 else

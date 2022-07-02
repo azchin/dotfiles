@@ -1,20 +1,21 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CURRENT_DESKTOP="wayfire"
+# export XDG_CURRENT_DESKTOP="wayfire"
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.emacs.d/bin:$PATH
 export PATH=$HOME/.deno/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 export DICPATH=$HOME/.local/share/hunspell/en_CA.aff
 export DICTIONARY=en_CA
 
-export GDK_BACKEND=wayland
-export QT_QPA_PLATFORM=wayland-egl
-export QT_QPA_PLATFORMTHEME=qt5ct
-export CLUTTER_BACKEND=wayland
-export SDL_VIDEODRIVER=wayland
+# export GDK_BACKEND=wayland
+# export QT_QPA_PLATFORM=wayland-egl
+# export QT_QPA_PLATFORMTHEME=qt5ct
+# export CLUTTER_BACKEND=wayland
+# export SDL_VIDEODRIVER=wayland
 
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -75,5 +76,4 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 
 export SVDIR=~/service
 
-
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
