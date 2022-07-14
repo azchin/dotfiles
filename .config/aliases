@@ -35,7 +35,7 @@ alias torr='transmission-remote'
 alias sess='abduco -e ^d -A andrew zsh'
 
 # Systemd
-alias slep='systemctl suspend'
+alias slep='systemctl suspend-then-hibernate'
 alias shut='systemctl poweroff'
 alias rez='systemctl reboot'
 alias hib='systemctl hibernate'
@@ -77,9 +77,27 @@ alias gb='git branch'
 alias gck='git checkout'
 alias gcb='git checkout -b'
 alias gd='git diff'
+alias gmd='git merge --no-commit --no-ff'
+alias gma='git merge --abort'
+alias gm='git merge'
+alias gr='git rebase'
+alias gri='git rebase -i'
+
+# Zypper
+alias zse='zypper --no-refresh se'
+alias zif='zypper --no-refresh if'
+alias zin='sudo zypper in'
+alias zrm='sudo zypper rm --clean-deps'
+alias zup='sudo zypper dup --allow-vendor-change --no-recommends; sudo flatpak update'
+alias zyp='sudo zypper'
 
 # Stolen
 # alias g++14="g++ -std=c++14 -Wall -g"
 alias g++14="g++ -std=c++14 -g"
 alias g++17="g++ -std=c++17 -g"
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+
+# Functions
+rmd () {
+    pandoc $1 | lynx -stdin
+}

@@ -11,16 +11,21 @@
 
 # special resets
 autorandr --change
-redshift -x
+# redshift -x
 
 # kill services
 killall dunst 
-pkill redshift
+killall -q sxhkd
+# pkill redshift
 pkill udiskie
 # pkill onedrive
-# pkill xss-lock
+pkill xss-lock
+pkill xidlehook
+# pkill cbatticon
+pkill pasystray
 # pkill udisksctl
-# pkill nm-applet
+pkill nm-applet
+pkill devilspie2
 # tmux kill-server
 # killall -q fcitx
 # setxkbmap -option
@@ -36,7 +41,7 @@ pkill udiskie
 # xrandr --dpi 96
 xset b off
 xsetroot -cursor_name left_ptr &
-redshift &
+# redshift &
 autorandr --change &
 # xcalib -d :0 "/usr/share/color/icc/Lenovo T520.icm" &
 # xscreensaver &
@@ -44,16 +49,20 @@ autorandr --change &
 dunst &
 [ $(ps ax | grep "emacs --daemon" | wc -l) -le 1 ] && emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
-[ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
+# [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 setxkbmap -option caps:escape_shifted_capslock
-pipewire &
+# sxhkd ~/.config/sxhkd/floating-sxhkdrc &
+sxhkd &
+# pipewire &
 udiskie -t &
 nm-applet &
 keepassxc &
 # ibus-daemon -drxR
 fcitx5 -d
 pasystray &
+# cbatticon &
 megasync &
+devilspie2 &
 
 # [ -z "$(pidof urxvtd)" ] && urxvtd &
 #xset m 4/5 1
@@ -66,7 +75,8 @@ megasync &
 # xcape -e 'Control_L=Escape' -t 200
 # tmux new -s andrew -d 
 # onedrive -m &
-# xss-lock -l ~/bin/lock.sh & 
+xss-lock -l ~/bin/lock.sh & 
+xidlehook.sh &
 # light-locker &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &

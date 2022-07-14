@@ -15,7 +15,7 @@
          under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
     <!-- move focus under the mouse, even when the mouse is not moving -->
-    <focusDelay>200</focusDelay>
+    <focusDelay>0</focusDelay>
     <!-- when followMouse is enabled, the mouse must be inside the window for
          this many milliseconds (1000 = 1 sec) before moving focus to it -->
     <raiseOnFocus>no</raiseOnFocus>
@@ -28,7 +28,7 @@
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
          the top left corner -->
-    <monitor>Primary</monitor>
+    <monitor>Mouse</monitor>
     <!-- with Smart placement on a multi-monitor system, try to place new windows
          on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
          the active window is, 'Primary' - only on the primary monitor -->
@@ -56,7 +56,7 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -65,7 +65,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -74,7 +74,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>normal</weight>
@@ -83,7 +83,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>normal</weight>
@@ -92,7 +92,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -101,7 +101,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Fira Code</name>
+      <name>DejaVu Sans Mono</name>
       <size>11</size>
       <!-- font size in points -->
       <weight>bold</weight>
@@ -263,39 +263,70 @@ and back in -->
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
+    <keybind key="W-y">
+      <action name="MoveResizeTo">
+        <monitor>next</monitor>
+      </action>
+    </keybind>
+    <keybind key="W-S-y">
+      <action name="MoveResizeTo">
+        <monitor>previous</monitor>
+      </action>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+    <keybind key="W-h">
+      <action name="Execute">
+        <command>sssc save</command>
+      </action>
+      <action name="Execute">
+        <command>xdotool key super+Left</command>
+      </action>
+    </keybind>
+    <keybind key="W-j">
+      <action name="Unmaximize"/>
+      <action name="Execute">
+        <command>sssc restore</command>
+      </action>
+    </keybind>
+    <keybind key="W-k">
+      <action name="Execute">
+        <command>sssc maximize</command>
+      </action>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>50%</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>sssc save</command>
+      </action>
+      <action name="Execute">
+        <command>xdotool key super+Right</command>
+      </action>
+    </keybind>
     <keybind key="W-m">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-        <!-- use branching to have diff behavior for diff programs -->
         <x>center</x>
-        <y>80</y>
+        <y>center</y>
         <width>64%</width>
         <height>80%</height>
       </action>
     </keybind>
-    <!-- <keybind key="W-h"> -->
-    <!--   <action name="Unmaximize"/> -->
-    <!--   <action name="Execute"> -->
-    <!--     <command>sssc splitleft</command> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-j"> -->
-    <!--   <action name="Unmaximize"/> -->
-    <!--   <action name="Execute"> -->
-    <!--     <command>sssc restore</command> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-k"> -->
-    <!--   <action name="Execute"> -->
-    <!--     <command> sssc maximize</command> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
-    <!-- <keybind key="W-l"> -->
-    <!--   <action name="Unmaximize"/> -->
-    <!--   <action name="Execute"> -->
-    <!--     <command>sssc splitright</command> -->
-    <!--   </action> -->
-    <!-- </keybind> -->
     <keybind key="W-A-h">
       <action name="MoveRelative">
         <x>-10%</x>
@@ -420,9 +451,12 @@ and back in -->
       <action name="Exit"/>
     </keybind>
     <keybind key="W-a">
-      <action name="ShowMenu">
-        <menu>main-menu</menu>
+      <action name="Execute">
+        <command>xfce4-appfinder</command>
       </action>
+      <!-- <action name="ShowMenu"> -->
+      <!--   <menu>main-menu</menu> -->
+      <!-- </action> -->
     </keybind>
   </keyboard>
   <mouse>
@@ -467,31 +501,20 @@ and back in -->
       <mousebind action="Drag" button="W-Right">
         <action name="Focus"/>
         <action name="Raise"/>
-        <action name="Resize">
-          <!-- <edge>bottomright</edge> -->
-        </action>
+        <action name="Resize"/>
       </mousebind>
       <mousebind action="Press" button="W-Middle">
         <action name="Lower"/>
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
       </mousebind>
-      <mousebind action="Drag" button="A-Left">
+      <mousebind action="Drag" button="W-S-Left">
         <action name="Focus"/>
         <action name="Raise"/>
-        <action name="Move"/>
+        <action name="Resize"/>
       </mousebind>
-      <mousebind action="Drag" button="A-Right">
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Resize">
-          <!-- <edge>bottomright</edge> -->
-        </action>
-      </mousebind>
-      <mousebind action="Press" button="A-Middle">
-        <action name="Lower"/>
-        <action name="FocusToBottom"/>
-        <action name="Unfocus"/>
+      <mousebind action="Press" button="W-S-Middle">
+        <action name="Close"/>
       </mousebind>
     </context>
     <context name="Titlebar">
@@ -513,11 +536,11 @@ and back in -->
         <action name="Raise"/>
         <action name="Unshade"/>
       </mousebind>
-      <mousebind action="Press" button="Middle">
-        <action name="Lower"/>
-        <action name="FocusToBottom"/>
-        <action name="Unfocus"/>
-      </mousebind>
+      <!-- <mousebind action="Press" button="Middle"> -->
+      <!--   <action name="Lower"/> -->
+      <!--   <action name="FocusToBottom"/> -->
+      <!--   <action name="Unfocus"/> -->
+      <!-- </mousebind> -->
       <mousebind action="Press" button="Right">
         <action name="Focus"/>
         <action name="Raise"/>

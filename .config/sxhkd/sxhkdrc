@@ -53,40 +53,33 @@ super + shift + x
 
 # applications
 
-super + x ; super + {Caps_Lock,a,b,e,i,f,p,c,d,q,r,s,t,u,z} 
+super + x ; super + {Caps_Lock,b,e,f,c,d,t,u} 
 	{ \
 	:, \
-	alacritty, \
-	brave, \
+	brave-browser, \
 	emacsclient -e "(server-shutdown)"; emacs --daemon, \
-	brave -incognito, \
 	firefox, \
-    pavucontrol, \
 	codium, \
-	dolphin, \
-	tabbed -c vimb -e, \
-	urxvtc -e ranger, \
-	st, \
+	thunar, \
 	tor-browser, \
 	urxvt, \
-	~/bin/zathura.sh \
 	}
 
 # screenshot
 {super,_} + Print
-    flameshot {gui, full -c}
+	maim {-s,_} | xclip -sel clip -t image/png
+    # flameshot {gui, full -c}
 	# flameshot {gui,full -c} -p ~/screenshots
-# 	maim {_,-s} | xclip -sel clip -t image/png
 
-# {super + shift,shift} + Print
-# 	maim {_,-s} ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
+{super + shift,shift} + Print
+	maim {-s,_} ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
 
 # wallpaper
 super + w; super + {s,a}
 	~/bin/wallpaper.sh {_,-r}
 
 super + shift + s
-	loginctl suspend
+	systemctl suspend-then-hibernate
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -95,27 +88,33 @@ super + Escape
 # Volume
 
 XF86Audio{Lower,Raise}Volume
-	~/bin/volume.sh {-,+}5
-	#pactl set-sink-volume @DEFAULT_SINK@ {-,+}5%
+	pamixer -{d,i} 5 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high
+	# ~/bin/volume.sh {-,+}5
+	# #pactl set-sink-volume @DEFAULT_SINK@ {-,+}5%
 
 shift + XF86Audio{Lower,Raise}Volume
-	~/bin/volume.sh {-,+}1
+	pamixer -{d,i} 1 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high
+	# ~/bin/volume.sh {-,+}1
 
 XF86AudioMute
-	~/bin/volume.sh mute
+	pamixer -t && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high
+	# ~/bin/volume.sh mute
 
 # can implement smarter behaviour w/ diff players via dmenu, notification
 XF86Audio{Play,Prev,Next}
 	~/bin/playerctl.sh {play-pause, previous, next}
 
+XF86MonBrightness{Down,Up}
+	sudo light -{U,A} 5 && ~/bin/notify.sh "Brightness: $(light -G)" brightnesssettings
+
 # XF86Audio{Play,Prev,Next}
 # 	~/bin/media.sh {play,prev,next}
 
-{F3,F4}
-	xdotool getactivewindow key '{ctrl+shift+Tab,ctrl+Tab}'
+# {F3,F4}
+# 	xdotool getactivewindow key '{ctrl+shift+Tab,ctrl+Tab}'
 
-F2
-	xdotool getactivewindow click 2
+# F2
+# 	xdotool getactivewindow click 2
 
 super + {button4,button5}
-	~/bin/volume.sh {-,+}1
+	pamixer -{d,i} 1 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high

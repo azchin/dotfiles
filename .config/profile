@@ -1,18 +1,26 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+# export XDG_CURRENT_DESKTOP="wayfire"
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.emacs.d/bin:$PATH
 export PATH=$HOME/.deno/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 export DICPATH=$HOME/.local/share/hunspell/en_CA.aff
 export DICTIONARY=en_CA
 
-# export EDITOR="nvim"
-# export VISUAL="nvim"
-export EDITOR="emacsclient -c -a nvim"
-export VISUAL="emacsclient -c -a nvim"
+# export GDK_BACKEND=wayland
+# export QT_QPA_PLATFORM=wayland-egl
+# export QT_QPA_PLATFORMTHEME=qt5ct
+# export CLUTTER_BACKEND=wayland
+# export SDL_VIDEODRIVER=wayland
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+# export EDITOR="emacsclient -c -a nvim"
+# export VISUAL="emacsclient -c -a nvim"
 export OPENER="xdg-open"
 export TERMINAL="st"
 export BROWSER="firefox"
@@ -24,17 +32,17 @@ export RANGER_LOAD_DEFAULT_RC=false
 #export LSCOLORS=ExFxBxDxCxegedabagacad
 export ZSH="$XDG_CONFIG_HOME/zsh"
 # pfetch config
-export PF_INFO="ascii title os kernel pkgs shell editor wm"
-export PF_COL1=6
+# export PF_INFO="ascii title os kernel pkgs shell editor wm"
+export PF_INFO="ascii title os kernel uptime shell editor wm de"
+export PF_COL1=2
 export PF_COL2=8
-export PF_COL3=3
+export PF_COL3=2
 export PF_ALIGN="10"
 # export PF_ASCII="arch"
 #export XDG_CURRENT_DESKTOP="bspwm"
 
 export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-color"
 export SXHKD_SHELL="/bin/sh"
-export MOZ_X11_EGL=1
 
 # export QT_STYLE_OVERRIDE="kvantum"
 
@@ -68,4 +76,4 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 
 export SVDIR=~/service
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"

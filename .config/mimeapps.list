@@ -1,6 +1,6 @@
 [Added Associations]
 application/octet-stream=emacs.desktop;
-application/pdf=org.kde.okular.desktop;xreader.desktop;org.pwmt.zathura-pdf-poppler.desktop;
+application/pdf=qpdfview.desktop;mupdf.desktop;org.kde.okular.desktop;xreader.desktop;org.pwmt.zathura-pdf-poppler.desktop;
 application/postscript=org.pwmt.zathura.desktop;xreader.desktop;
 application/text/plain=emacs.desktop;
 audio/mpeg=mpv.desktop;
@@ -16,6 +16,7 @@ video/mp4=vlc.desktop;
 video/x-matroska=mpv.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
+image/jpeg=feh.desktop;
 
 [Default Applications]
 application/pdf=org.kde.okular.desktop
