@@ -1,7 +1,9 @@
 set selection-clipboard clipboard
 set window-title-basename true
 set statusbar-home-tilde true
+set show-recent 0
+set guioptions svh
 set font "DejaVu Sans Mono 9"
-set inputbar-fg "#fba922"
-set highlight-color "#ff00ca"
-set highlight-active-color "#fba922"
+# set inputbar-fg "#fba922"
+# set highlight-color "#ff00ca"
+# set highlight-active-color "#fba922"

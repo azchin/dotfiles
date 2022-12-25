@@ -17,6 +17,7 @@ export PS1='\[\033[01;00m\]$? \[\033[01;32m\][ \u@\h \[\033[01;36m\]\w\[\033[01;
 export CLICOLORS=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 set -o vi
+set keyseq-timeout 50
 
 # disables ^S ^Q (stop and start characters)
 stty -ixon -ixoff

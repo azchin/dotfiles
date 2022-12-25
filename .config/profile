@@ -19,6 +19,10 @@ export DICTIONARY=en_CA
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+export LSP_USE_PLISTS=true
+# export LESS="-RFM --mouse --incsearch"
+export LESS="-RFM --incsearch"
+export MANOPT="-I"
 # export EDITOR="emacsclient -c -a nvim"
 # export VISUAL="emacsclient -c -a nvim"
 export OPENER="xdg-open"
@@ -75,5 +79,3 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 # export XDG_CURRENT_DESKTOP=kwin
 
 export SVDIR=~/service
-
-# . "$HOME/.cargo/env"

@@ -33,9 +33,10 @@ alias mvol='mpc volume'
 alias emkill='emacsclient -e "(server-shutdown)"'
 alias torr='transmission-remote'
 alias sess='abduco -e ^d -A andrew zsh'
+alias mpvnv='mpv --no-video'
 
 # Systemd
-alias slep='systemctl suspend-then-hibernate'
+alias slep='systemctl suspend'
 alias shut='systemctl poweroff'
 alias rez='systemctl reboot'
 alias hib='systemctl hibernate'
@@ -77,8 +78,12 @@ alias gb='git branch'
 alias gck='git checkout'
 alias gcb='git checkout -b'
 alias gd='git diff'
-alias gmd='git merge --no-commit --no-ff'
-alias gma='git merge --abort'
+gmd() { 
+    git merge --no-commit --no-ff $@
+    succ=$?
+    git merge --abort
+    [ $succ -eq 0 ] && git rebase $@ || git merge $@
+}
 alias gm='git merge'
 alias gr='git rebase'
 alias gri='git rebase -i'
@@ -90,6 +95,11 @@ alias zin='sudo zypper in'
 alias zrm='sudo zypper rm --clean-deps'
 alias zup='sudo zypper dup --allow-vendor-change --no-recommends; sudo flatpak update'
 alias zyp='sudo zypper'
+
+# Wireguard
+alias wgup='sudo systemctl start wg-quick@bambino'
+alias wgdown='sudo systemctl stop wg-quick@bambino'
+alias nmrestart='sudo systemctl restart NetworkManager'
 
 # Stolen
 # alias g++14="g++ -std=c++14 -Wall -g"

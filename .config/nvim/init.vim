@@ -130,7 +130,9 @@ set statusline+=\
 
 " #################################################################
 " Plugins using vim-plug
+" Use below command to install vim-plug
 " sh -c 'curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+" In neovim call ':PlugInstall'
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-unimpaired'   " Goated
