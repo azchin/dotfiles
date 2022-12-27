@@ -20,18 +20,18 @@ killall -q sxhkd
 pkill udiskie
 # pkill onedrive
 pkill xss-lock
-pkill xidlehook
+# pkill xidlehook
 # pkill cbatticon
 pkill pasystray
 # pkill udisksctl
 pkill nm-applet
-pkill devilspie2
+# pkill devilspie2
 # tmux kill-server
 # killall -q fcitx
 # setxkbmap -option
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
-# killall -q emacs
+killall -q emacs
 
 # services
 # ~/bin/asound.sh off
@@ -42,27 +42,29 @@ pkill devilspie2
 xset b off
 xsetroot -cursor_name left_ptr &
 # redshift &
-autorandr --change &
+# autorandr --change &
 # xcalib -d :0 "/usr/share/color/icc/Lenovo T520.icm" &
 # xscreensaver &
 
 dunst &
-[ $(ps ax | grep "emacs --daemon" | wc -l) -le 1 ] && emacs --daemon &
+emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
+[ -z "$(pidof syncthing)" ] && syncthing &
 # [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 setxkbmap -option caps:escape_shifted_capslock
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &
 sxhkd &
-# pipewire &
+pipewire &
+pipewire-pulse &
 udiskie -t &
 nm-applet &
-keepassxc &
+# keepassxc &
 # ibus-daemon -drxR
-fcitx5 -d
+# fcitx5 -d
 pasystray &
-# cbatticon &
-megasync &
-devilspie2 &
+# cbatticon -n -u 60 -l 30 -o 'dunstify "Low battery!"' &
+# megasync &
+# devilspie2 &
 
 # [ -z "$(pidof urxvtd)" ] && urxvtd &
 #xset m 4/5 1
@@ -75,9 +77,9 @@ devilspie2 &
 # xcape -e 'Control_L=Escape' -t 200
 # tmux new -s andrew -d 
 # onedrive -m &
+light-locker &
 xss-lock -l ~/bin/lock.sh & 
-xidlehook.sh &
-# light-locker &
+# xidlehook.sh &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &
 

@@ -48,11 +48,6 @@
         <command>keepassxc</command>
       </action>
     </item>
-    <item label=" Keybase">
-      <action name="Execute">
-        <command>keybase-gui</command>
-      </action>
-    </item>
     <item label=" Tint2 Config">
       <action name="Execute">
         <command>tint2conf</command>

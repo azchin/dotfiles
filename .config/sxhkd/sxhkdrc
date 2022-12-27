@@ -13,9 +13,9 @@ super + shift + c
 # super + Return
 # 	urxvtc
 
-super + backslash
-	st
-	# st -p 1
+# super + backslash
+# 	st
+# 	# st -p 1
 
 #super + semicolon
 super + n
@@ -24,8 +24,8 @@ super + n
 super + v
 	emacsclient -c -a emacs
 
-super + g
-    gvim
+# super + g
+#     gvim
 
 # super + r
 # 	~/bin/ricerez.sh

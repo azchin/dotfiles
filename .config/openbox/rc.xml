@@ -122,10 +122,10 @@ and back in -->
     <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>Desktop 1</name>
-      <name>Desktop 2</name>
-      <name>Desktop 3</name>
-      <name>Desktop 4</name>
+      <name>One</name>
+      <name>Two</name>
+      <name>Three</name>
+      <name>Four</name>
     </names>
     <popupTime>500</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -242,21 +242,6 @@ and back in -->
     </keybind>
     <keybind key="W-f">
       <action name="ToggleMaximize"/>
-      <!-- <action name="If"> -->
-      <!--   <query> -->
-      <!--     <maximized>yes</maximized> -->
-      <!--   </query> -->
-      <!--   <then> -->
-      <!--     <action name="Execute"> -->
-      <!--       <command> sssc restore</command> -->
-      <!--     </action> -->
-      <!--   </then> -->
-      <!--   <else> -->
-      <!--     <action name="Execute"> -->
-      <!--       <command> sssc maximize</command> -->
-      <!--     </action> -->
-      <!--   </else> -->
-      <!-- </action> -->
     </keybind>
     <keybind key="W-d">
       <action name="Lower"/>
@@ -283,23 +268,38 @@ and back in -->
       </action>
     </keybind>
     <keybind key="W-h">
-      <action name="Execute">
-        <command>sssc save</command>
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
       </action>
-      <action name="Execute">
-        <command>xdotool key super+Left</command>
-      </action>
+      <!-- <action name="Execute"> -->
+      <!--   <command>sssc save</command> -->
+      <!-- </action> -->
+      <!-- <action name="Execute"> -->
+      <!--   <command>xdotool key super+Left</command> -->
+      <!-- </action> -->
     </keybind>
     <keybind key="W-j">
       <action name="Unmaximize"/>
-      <action name="Execute">
-        <command>sssc restore</command>
+      <action name="MoveResizeTo">
+        <x>center</x>
+        <y>center</y>
+        <width>56%</width>
+        <height>70%</height>
       </action>
+      <!-- <action name="Unmaximize"/> -->
+      <!-- <action name="Execute"> -->
+      <!--   <command>sssc restore</command> -->
+      <!-- </action> -->
     </keybind>
     <keybind key="W-k">
-      <action name="Execute">
-        <command>sssc maximize</command>
-      </action>
+      <action name="Maximize"/>
+      <!-- <action name="Execute"> -->
+      <!--   <command>sssc maximize</command> -->
+      <!-- </action> -->
     </keybind>
     <keybind key="W-Right">
       <action name="Unmaximize"/>
@@ -311,12 +311,19 @@ and back in -->
       </action>
     </keybind>
     <keybind key="W-l">
-      <action name="Execute">
-        <command>sssc save</command>
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>50%</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
       </action>
-      <action name="Execute">
-        <command>xdotool key super+Right</command>
-      </action>
+      <!-- <action name="Execute"> -->
+      <!--   <command>sssc save</command> -->
+      <!-- </action> -->
+      <!-- <action name="Execute"> -->
+      <!--   <command>xdotool key super+Right</command> -->
+      <!-- </action> -->
     </keybind>
     <keybind key="W-m">
       <action name="Unmaximize"/>
@@ -427,7 +434,6 @@ and back in -->
     <keybind key="W-Return">
       <action name="Execute">
         <command>sh -c "xdo activate -d -N Alacritty || alacritty -e tmux"</command>
-        <!-- <command>sh -c "xdo activate -d -N URxvt || (urxvtc || urxvt)"</command> -->
       </action>
     </keybind>
     <keybind key="W-space">
@@ -449,14 +455,6 @@ and back in -->
     <!-- </keybind> -->
     <keybind key="S-W-e">
       <action name="Exit"/>
-    </keybind>
-    <keybind key="W-a">
-      <action name="Execute">
-        <command>xfce4-appfinder</command>
-      </action>
-      <!-- <action name="ShowMenu"> -->
-      <!--   <menu>main-menu</menu> -->
-      <!-- </action> -->
     </keybind>
   </keyboard>
   <mouse>
@@ -760,8 +758,8 @@ and back in -->
   <applications>
     <application class="Alacritty">
       <size>
-        <width>60%</width>
-        <height>75%</height>
+        <width>56%</width>
+        <height>70%</height>
       </size>
       <position>
         <x>center</x>
@@ -787,9 +785,10 @@ and back in -->
         <height>75%</height>
       </size>
     </application>
-    <!-- <application class="firefox"> -->
-    <!--   <decor>no</decor> -->
-    <!-- </application> -->
+    <application class="Firefox">
+      <decor>no</decor>
+      <maximized>true</maximized>
+    </application>
     <!-- <application name="gsimplecal"> -->
     <!--   <skip_taskbar>true</skip_taskbar> -->
     <!-- </application> -->

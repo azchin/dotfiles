@@ -4,8 +4,9 @@ killall -q tint2
 
 ~/bin/autostart.sh
 
-~/.cargo/bin/stateful-split-screen &
+# ~/.cargo/bin/stateful-split-screen &
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &
 # picom --experimental-backends &
+# picom &
 # skippy-xd --start-daemon &
 tint2 &
