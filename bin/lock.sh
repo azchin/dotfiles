@@ -2,8 +2,8 @@
 
 # slock
 #betterlockscreen -l dim && betterlockscreen -u ~/images/lockbg1
-
-light-locker-command -l 
+# light-locker-command -l 
+xsecurelock
 
 # store=$XDG_CACHE_HOME/lock
 # path=~/images/lockbg2

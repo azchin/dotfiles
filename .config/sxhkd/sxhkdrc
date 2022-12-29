@@ -56,7 +56,7 @@ super + shift + x
 super + x ; super + {Caps_Lock,b,e,f,c,d,t,u} 
 	{ \
 	:, \
-	brave-browser, \
+	flatpak run com.brave.Browser, \
 	emacsclient -e "(server-shutdown)"; emacs --daemon, \
 	firefox, \
 	codium, \
@@ -79,7 +79,7 @@ super + w; super + {s,a}
 	~/bin/wallpaper.sh {_,-r}
 
 super + shift + s
-	systemctl suspend-then-hibernate
+	loginctl suspend-then-hibernate
 
 # make sxhkd reload its configuration files:
 super + Escape

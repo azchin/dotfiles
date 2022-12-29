@@ -21,7 +21,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export LSP_USE_PLISTS=true
 # export LESS="-RFM --mouse --incsearch"
-export LESS="-RFM --incsearch"
+export LESS="-RFMi --incsearch"
 export MANOPT="-I"
 # export EDITOR="emacsclient -c -a nvim"
 # export VISUAL="emacsclient -c -a nvim"
@@ -37,7 +37,7 @@ export TERM=xterm-256color
 export ZSH="$XDG_CONFIG_HOME/zsh"
 # pfetch config
 # export PF_INFO="ascii title os kernel pkgs shell editor wm"
-export PF_INFO="ascii title os kernel uptime shell editor"
+export PF_INFO="ascii title os kernel pkgs uptime shell editor"
 export PF_COL1=2
 export PF_COL2=8
 export PF_COL3=2

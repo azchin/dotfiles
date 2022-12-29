@@ -22,7 +22,7 @@ pkill udiskie
 pkill xss-lock
 # pkill xidlehook
 # pkill cbatticon
-pkill pasystray
+# pkill pasystray
 # pkill udisksctl
 pkill nm-applet
 # pkill devilspie2
@@ -61,7 +61,7 @@ nm-applet &
 # keepassxc &
 # ibus-daemon -drxR
 # fcitx5 -d
-pasystray &
+# pasystray &
 # cbatticon -n -u 60 -l 30 -o 'dunstify "Low battery!"' &
 # megasync &
 # devilspie2 &
@@ -77,7 +77,7 @@ pasystray &
 # xcape -e 'Control_L=Escape' -t 200
 # tmux new -s andrew -d 
 # onedrive -m &
-light-locker &
+# light-locker &
 xss-lock -l ~/bin/lock.sh & 
 # xidlehook.sh &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &

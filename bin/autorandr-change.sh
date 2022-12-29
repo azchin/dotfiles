@@ -1,7 +1,9 @@
 #!/bin/sh
-xrandr | grep "XWAYLAND" 2>&1 1>/dev/null && exit
 
 _USER=andrew
+
+xrandr | grep "XWAYLAND" 2>&1 1>/dev/null && exit
+[ ! -f "/home/$_USER/.Xauthority" ] && exit
 
 export DISPLAY=:0
 export XAUTHORITY=/home/$_USER/.Xauthority

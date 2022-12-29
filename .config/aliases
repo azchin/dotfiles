@@ -36,10 +36,10 @@ alias sess='abduco -e ^d -A andrew zsh'
 alias mpvnv='mpv --no-video'
 
 # Systemd
-alias slep='systemctl suspend'
-alias shut='systemctl poweroff'
-alias rez='systemctl reboot'
-alias hib='systemctl hibernate'
+alias slep='loginctl suspend'
+alias shut='loginctl poweroff'
+alias rez='loginctl reboot'
+alias hib='loginctl hibernate'
 
 # Docker
 alias dk='sudo docker'
@@ -97,16 +97,22 @@ alias gri='git rebase -i'
 # alias zyp='sudo zypper'
 
 # xbps
-alias xup='sudo xbps-install -Su'
+alias xup='sudo xbps-install -Su; flatpak update'
 alias xin='sudo xbps-install -S'
 alias xrm='sudo xbps-remove -R'
 alias xse='xbps-query -Rs'
 alias xqr='xbps-query'
 
+# framework laptop
+alias upowerbat='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
+
 # Wireguard
-alias wgup='sudo systemctl start wg-quick@bambino'
-alias wgdown='sudo systemctl stop wg-quick@bambino'
-alias nmrestart='sudo systemctl restart NetworkManager'
+# alias wgup='sudo systemctl start wg-quick@bambino'
+# alias wgdown='sudo systemctl stop wg-quick@bambino'
+# alias nmrestart='sudo systemctl restart NetworkManager'
+alias wgup='sudo sv up wireguard'
+alias wgdown='sudo sv down wireguard'
+alias nmrestart='sudo sv restart NetworkManager'
 
 # Stolen
 # alias g++14="g++ -std=c++14 -Wall -g"

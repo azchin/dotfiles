@@ -1,17 +1,10 @@
-#export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/scripts:$PATH
-
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ $(tmux list-sessions | wc -l) -le 0 ]; then
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ $(tmux list-sessions | wc -l) -le 0 ]; then
-  exec tmux
+    exec tmux
 fi
 
 stty -ixon -ixoff
 source ~/.config/profile
 source ~/.config/aliases
-# if [ -n "$(pidof emacs)" ] ; then
-# 	export EDITOR="emacsclient -c"
-# 	export VISUAL="emacsclient -c"
-# fi
 
 autoload -U compaudit compinit
 compinit -u -C -d "$XDG_CACHE_HOME/zcompdump"

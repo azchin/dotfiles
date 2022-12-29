@@ -433,7 +433,7 @@ and back in -->
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>sh -c "xdo activate -d -N Alacritty || alacritty -e tmux"</command>
+        <command>sh -c "xdo activate -d -N URxvt || urxvt"</command>
       </action>
     </keybind>
     <keybind key="W-space">
@@ -772,8 +772,8 @@ and back in -->
         <y>center</y>
       </position>
       <size>
-        <width>50%</width>
-        <height>75%</height>
+        <width>56%</width>
+        <height>70%</height>
       </size>
     </application>
     <application class="Emacs">

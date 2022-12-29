@@ -29,15 +29,16 @@ nl='
 # 	PROMPT="%K{black} ${mach} %F{yellow} ${dir} ${err}%k%F{green}${prm}%f"
 # fi
 
-# mach="%F{magenta}%n@%M%f"
 # dir="%F{cyan}%64<...<%~%<<%f" # 36
 # prm="%F{green}λ %f"
 err="%0(?:%F{green}>>:%F{red}%?) "
 prm="%F{green}%# %f"
 cur="%F{cyan}%3~%f"
-date="%F{yellow}%D{%T}%f"
+# date="%F{yellow}%D{%T}%f"
+mach="%F{green}%n@%M%f"
 # PROMPT="%B%F{green}[${mach} %F{cyan}${dir}%F{green}] ${err}%F{green}${prm}%f%b"
-PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
+# PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
+PROMPT="%B%F{green}${err}${mach} ${cur} ${prm}%f%b"
 # RPROMPT="%B${dir}%f%b"
 
 RPROMPT='${vcs_info_msg_0_}'
