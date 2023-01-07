@@ -104,7 +104,7 @@ alias xse='xbps-query -Rs'
 alias xqr='xbps-query'
 
 # framework laptop
-alias upowerbat='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
+alias batinfo='acpi -b'
 
 # Wireguard
 # alias wgup='sudo systemctl start wg-quick@bambino'

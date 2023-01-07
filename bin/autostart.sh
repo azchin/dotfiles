@@ -17,7 +17,7 @@ autorandr --change
 killall dunst 
 killall -q sxhkd
 # pkill redshift
-pkill udiskie
+# pkill udiskie
 # pkill onedrive
 pkill xss-lock
 # pkill xidlehook
@@ -50,14 +50,16 @@ dunst &
 emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 [ -z "$(pidof syncthing)" ] && syncthing &
-# [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 setxkbmap -option caps:escape_shifted_capslock
-# sxhkd ~/.config/sxhkd/floating-sxhkdrc &
 sxhkd &
 pipewire &
 pipewire-pulse &
-udiskie -t &
 nm-applet &
+xss-lock -l ~/bin/lock.sh & 
+
+# [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
+# sxhkd ~/.config/sxhkd/floating-sxhkdrc &
+# udiskie -t &
 # keepassxc &
 # ibus-daemon -drxR
 # fcitx5 -d
@@ -78,7 +80,6 @@ nm-applet &
 # tmux new -s andrew -d 
 # onedrive -m &
 # light-locker &
-xss-lock -l ~/bin/lock.sh & 
 # xidlehook.sh &
 # light-locker --lock-on-suspend --lock-after-screensaver=60 --idle-hint &
 # light-locker --late-locking --lock-on-suspend --lock-after-screensaver=25 &

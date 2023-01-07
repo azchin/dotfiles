@@ -3,7 +3,7 @@
 # slock
 #betterlockscreen -l dim && betterlockscreen -u ~/images/lockbg1
 # light-locker-command -l 
-xsecurelock
+XSECURELOCK_DISCARD_FIRST_KEYPRESS=0 XSECURELOCK_PASSWORD_PROMPT=time xsecurelock
 
 # store=$XDG_CACHE_HOME/lock
 # path=~/images/lockbg2

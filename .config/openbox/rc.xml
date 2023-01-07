@@ -243,6 +243,9 @@ and back in -->
     <keybind key="W-f">
       <action name="ToggleMaximize"/>
     </keybind>
+    <keybind key="W-S-f">
+      <action name="ToggleFullscreen"/>
+    </keybind>
     <keybind key="W-d">
       <action name="Lower"/>
       <action name="FocusToBottom"/>
@@ -785,10 +788,10 @@ and back in -->
         <height>75%</height>
       </size>
     </application>
-    <application class="Firefox">
-      <decor>no</decor>
-      <maximized>true</maximized>
-    </application>
+    <!-- <application class="Firefox"> -->
+    <!--   <decor>no</decor> -->
+    <!--   <maximized>true</maximized> -->
+    <!-- </application> -->
     <!-- <application name="gsimplecal"> -->
     <!--   <skip_taskbar>true</skip_taskbar> -->
     <!-- </application> -->

@@ -34,18 +34,18 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect '^?' send-break
 
-function zle-keymap-select {
-	if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]] ; then
-		echo -ne '\e[2 q'
-	elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || 
-		[[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]] ; then
-		echo -ne '\e[6 q'
-	fi
-}
-zle -N zle-keymap-select
+# function zle-keymap-select {
+# 	if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]] ; then
+# 		echo -ne '\e[2 q'
+# 	elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || 
+# 		[[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]] ; then
+# 		echo -ne '\e[6 q'
+# 	fi
+# }
+# zle -N zle-keymap-select # create user-defined widget
 zle-line-init() {
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[6 q"
+    echo -ne "\e[2 q" # use block
 }
 zle -N zle-line-init
 # echo -ne '\e[6 q' # Use beam shape cursor on startup.
@@ -53,5 +53,3 @@ zle -N zle-line-init
 
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
-
-

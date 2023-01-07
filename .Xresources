@@ -108,6 +108,7 @@ URxvt.boldItalicFont: xft:DejaVu Sans Mono:style=Bold Oblique:size=12, xft:DejaV
 ! Urxvt.italicFont: xft:DejaVuSansMono Nerd Font Mono:style=Oblique:size=12
 ! Urxvt.boldItalicFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold Oblique:size=12
 
+URxvt.iconFile: /usr/share/pixmaps/rxvt-unicode.png
 URxvt.geometry: 150x50
 URxvt.saveLines: 4096
 URxvt.letterSpace: 0

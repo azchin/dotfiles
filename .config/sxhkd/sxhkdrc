@@ -17,6 +17,9 @@ super + shift + c
 # 	st
 # 	# st -p 1
 
+alt + grave
+    ~/bin/apptab.sh
+
 #super + semicolon
 super + n
 	alacritty
