@@ -11,6 +11,8 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   #TERM: xterm-256color
+  
+  WINIT_X11_SCALE_FACTOR: "1"
 
   #window:
   # Window dimensions (changes require restart)
@@ -140,7 +142,7 @@ font:
   bold_italic:
     family: DejaVuSansMono Nerd Font Mono
     style: Oblique
-  size: 11.0
+  size: 12.0
 
 #font:
   # Normal (roman) font face

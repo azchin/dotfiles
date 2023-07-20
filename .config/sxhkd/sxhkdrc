@@ -9,6 +9,9 @@ super + c
 super + shift + c
 	xdo kill
 
+super + a
+    xfce4-appfinder
+
 # terminal emulator
 # super + Return
 # 	urxvtc
@@ -20,10 +23,14 @@ super + shift + c
 alt + grave
     ~/bin/apptab.sh
 
-#super + semicolon
-super + n
-	alacritty
+super + Return
+      xdo activate -d -N Alacritty || alacritty
+      # xdo activate -d -N URxvt || urxvt
 
+super + space
+      ~/bin/dmenu_run_history.sh drofi
+
+#super + semicolon
 super + v
 	emacsclient -c -a emacs
 
@@ -75,7 +82,7 @@ super + x ; super + {Caps_Lock,b,e,f,c,d,t,u}
 	# flameshot {gui,full -c} -p ~/screenshots
 
 {super + shift,shift} + Print
-	maim {-s,_} ~/images/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
+	maim {-s,_} ~/Pictures/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
 
 # wallpaper
 super + w; super + {s,a}
@@ -104,11 +111,17 @@ XF86AudioMute
 	# ~/bin/volume.sh mute
 
 # can implement smarter behaviour w/ diff players via dmenu, notification
-XF86Audio{Play,Prev,Next}
-	~/bin/playerctl.sh {play-pause, previous, next}
+XF86Audio{Play,Prev,Next,Rewind,Forward}
+	~/bin/playerctl.sh {play-pause, previous, next, rewind, forward}
 
 XF86MonBrightness{Down,Up}
 	sudo light -{U,A} 5 && ~/bin/notify.sh "Brightness: $(light -G)" brightnesssettings
+
+shift + XF86MonBrightness{Down,Up}
+	sudo light -{U,A} 1 && ~/bin/notify.sh "Brightness: $(light -G)" brightnesssettings
+
+XF86WWW
+	firefox
 
 # XF86Audio{Play,Prev,Next}
 # 	~/bin/media.sh {play,prev,next}

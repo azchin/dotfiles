@@ -1,5 +1,9 @@
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ $(tmux list-sessions | wc -l) -le 0 ]; then
-    exec tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ linux ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]]; then
+    if [ $(tmux list-sessions | wc -l) -le 0 ]; then
+        exec tmux
+    else
+        exec tmux attach
+    fi
 fi
 
 stty -ixon -ixoff

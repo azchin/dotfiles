@@ -24,3 +24,8 @@ if [ -f "$usermodmap" ]; then
 fi
 
 exec dbus-run-session /usr/bin/openbox-session
+
+# killall tint2
+# ~/bin/autostart.sh
+# tint2 &
+# exec dbus-launch /usr/bin/xfwm4

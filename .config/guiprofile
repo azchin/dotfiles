@@ -11,16 +11,26 @@ export PATH=$HOME/.cargo/bin:$PATH
 export DICPATH=$HOME/.local/share/hunspell/en_CA.aff
 export DICTIONARY=en_CA
 
-export TERM=xterm-256color
+# export GDK_BACKEND=wayland
+# export QT_QPA_PLATFORM=wayland-egl
+# export QT_QPA_PLATFORMTHEME=qt5ct
+# export CLUTTER_BACKEND=wayland
+# export SDL_VIDEODRIVER=wayland
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 export LSP_USE_PLISTS=true
 # export LESS="-RFM --mouse --incsearch"
 export LESS="-RFMi --incsearch"
 export MANOPT="-I"
+# export EDITOR="emacsclient -c -a nvim"
+# export VISUAL="emacsclient -c -a nvim"
 export OPENER="xdg-open"
+# export BROWSER="firefox"
 export RANGER_LOAD_DEFAULT_RC=false
 #export MANPAGER="nvim"
+export TERM=xterm-256color
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 #export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
 #export CLICOLORS=1
