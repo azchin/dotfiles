@@ -31,7 +31,8 @@ pkill nm-applet
 # setxkbmap -option
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
-killall -q emacs
+# killall -q emacs
+pkill picom
 
 # services
 # ~/bin/asound.sh off
@@ -47,15 +48,17 @@ xsetroot -cursor_name left_ptr &
 # xscreensaver &
 
 dunst &
-emacs --daemon &
+# emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
-[ -z "$(pidof syncthing)" ] && syncthing &
-setxkbmap -option caps:escape_shifted_capslock
+# [ -z "$(pidof syncthing)" ] && syncthing &
+# setxkbmap -option caps:escape_shifted_capslock
 sxhkd &
 pipewire &
 pipewire-pulse &
+wireplumber &
 nm-applet &
 xss-lock -l ~/bin/lock.sh & 
+picom &
 
 # [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &

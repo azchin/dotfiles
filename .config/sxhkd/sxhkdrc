@@ -31,8 +31,10 @@ super + space
       ~/bin/dmenu_run_history.sh drofi
 
 #super + semicolon
+# super + v
+# 	emacsclient -c -a emacs
 super + v
-	emacsclient -c -a emacs
+	emacs
 
 # super + g
 #     gvim

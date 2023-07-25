@@ -842,15 +842,15 @@ and back in -->
         <height>70%</height>
       </size>
     </application>
-    <application class="Emacs">
-      <position>
-        <y>center</y>
-      </position>
-      <size>
-        <width>50%</width>
-        <height>75%</height>
-      </size>
-    </application>
+    <!-- <application class="Emacs"> -->
+    <!--   <position> -->
+    <!--     <y>center</y> -->
+    <!--   </position> -->
+    <!--   <size> -->
+    <!--     <width>50%</width> -->
+    <!--     <height>75%</height> -->
+    <!--   </size> -->
+    <!-- </application> -->
     <!-- <application class="Firefox"> -->
     <!--   <decor>no</decor> -->
     <!--   <maximized>true</maximized> -->
