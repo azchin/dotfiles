@@ -59,6 +59,7 @@ wireplumber &
 nm-applet &
 xss-lock -l ~/bin/lock.sh & 
 picom &
+nextcloud &
 
 # [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &

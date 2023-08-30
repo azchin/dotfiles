@@ -97,7 +97,7 @@ alias gri='git rebase -i'
 # alias zyp='sudo zypper'
 
 # xbps
-alias xup='sudo xbps-install -Su; flatpak update'
+alias xup='sudo xbps-install -Su && flatpak update'
 alias xin='sudo xbps-install -S'
 alias xrm='sudo xbps-remove -R'
 alias xse='xbps-query -Rs'
