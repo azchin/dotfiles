@@ -139,12 +139,12 @@ Plug 'tpope/vim-unimpaired'   " Goated
 Plug 'tpope/vim-commentary'   " Goated
 Plug 'tpope/vim-surround'     " Goated
 Plug 'unblevable/quick-scope' " Goated
-Plug 'neovim/nvim-lspconfig'  " Bloated /s
+" Plug 'neovim/nvim-lspconfig'  " Bloated /s
 Plug 'windwp/nvim-autopairs'  " Why isn't this in vanilla Vim
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'saadparwaiz1/cmp_luasnip'
+" Plug 'L3MON4D3/LuaSnip'
 
 call plug#end()
 
@@ -157,4 +157,4 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 :lua require('mypairs')
 
 " LSP
-:lua require('mylsp')
+" :lua require('mylsp')
