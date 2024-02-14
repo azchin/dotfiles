@@ -5,8 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+TERM_TMP=$TERM
 source ~/.config/profile
 source ~/.config/aliases
+export TERM=$TERM_TMP
 
 # export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
 #PS1='[\u@\h \W]\$ '

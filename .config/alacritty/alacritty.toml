@@ -1,0 +1,113 @@
+live_config_reload = true
+
+[colors.bright]
+black = "0x928374"
+blue = "0x83a598"
+cyan = "0x8ec07c"
+green = "0xb8bb26"
+magenta = "0xd3869b"
+red = "0xfb4934"
+white = "0xebdbb2"
+yellow = "0xfabd2f"
+
+[colors.normal]
+black = "0x3c3836"
+blue = "0x458588"
+cyan = "0x689d6a"
+green = "0x98971a"
+magenta = "0xb16286"
+red = "0xcc241d"
+white = "0xa89984"
+yellow = "0xd79921"
+
+[colors.primary]
+background = "0x1d2021"
+foreground = "0xebdbb2"
+
+[cursor]
+thickness = 0.2
+unfocused_hollow = true
+
+[env]
+decorations = "none"
+
+[font]
+size = 12.0
+
+[font.bold]
+family = "DejaVuSansMono Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "DejaVuSansMono Nerd Font Mono"
+style = "Oblique"
+
+[font.italic]
+family = "DejaVuSansMono Nerd Font Mono"
+style = "Oblique"
+
+[font.normal]
+family = "DejaVuSansMono Nerd Font Mono"
+style = "Book"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = 11
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = 12
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = 12
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = 13
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = 13
+mods = "Control|Shift"
+
+[scrolling]
+history = 10000
+multiplier = 3
