@@ -1,0 +1,14 @@
+. $HOME/.config/aliases
+. $HOME/.config/profile
+/usr/libexec/xdg-desktop-portal &
+dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway &
+nm-applet --indicator &
+dunst &
+#kanshi &
+#wlr-randr --output eDP-1 --custom-mode 1624x1080
+WAYLAND_DISPLAY=wayland-0 kanshi &
+waybar &
+playerctld daemon &
+pipewire &
+pipewire-pulse &
+syncthing serve --no-browser &
