@@ -13,10 +13,12 @@ nnoremap Y y$
 set foldlevel=99
 set signcolumn=no
 set nobackup nowritebackup
-set undodir=$XDG_DATA_HOME/nvim/undo undofile 
-set directory=$XDG_DATA_HOME/nvim/swap// swapfile
+set undodir=$HOME/.local/share/nvim/undo undofile 
+set directory=$HOME/.local/share/nvim/swap// swapfile
 set wildmode=longest,list,full
 set cursorline cursorcolumn
+set notermguicolors
+colorscheme vim
 highlight clear CursorLine
 highlight clear CursorColumn
 highlight clear MatchParen

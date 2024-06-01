@@ -22,8 +22,8 @@
   text:       #e5e5e5;
   text-alt:   #e5e5e5;
   fg:         #abb2bf;
-  /* bg:         #282c34; */
-  bg:         #0f0f0fe6;
+  bg:         #282c34;
+  /* bg:         #0f0f0fe6; */ 
 
   spacing: 0;
   background-color: transparent;
@@ -33,7 +33,7 @@
 }
 
 window {
-  transparency: "real";
+  /* transparency: "real"; */
   /* fullscreen: true; */
   /* background-color: #282c34dd; */
   background-color: @bg;
