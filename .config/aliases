@@ -97,11 +97,18 @@ alias gri='git rebase -i'
 # alias zyp='sudo zypper'
 
 # xbps
-alias xup='sudo xbps-install -Su && flatpak update'
-alias xin='sudo xbps-install -S'
-alias xrm='sudo xbps-remove -R'
-alias xse='xbps-query -Rs'
-alias xqr='xbps-query'
+# alias xup='sudo xbps-install -Su && flatpak update'
+# alias xin='sudo xbps-install -S'
+# alias xrm='sudo xbps-remove -R'
+# alias xse='xbps-query -Rs'
+# alias xqr='xbps-query'
+
+# pacman
+alias xup='yay -Syu && flatpak update'
+alias xin='yay -S'
+alias xrm='yay -Rs'
+alias xse='yay -Ss'
+alias xqr='yay -Qi'
 
 # framework laptop
 alias batinfo='acpi -b'

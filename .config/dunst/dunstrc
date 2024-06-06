@@ -166,7 +166,10 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/apps/:/usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/places/
+    # icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/apps/:/usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/places/
+    # icon_path = /usr/share/icons/Arc/status/16/:/usr/share/icons/Arc/devices/16/:/usr/share/icons/Arc/apps/16/:/usr/share/icons/Arc/actions/16/:/usr/share/icons/Arc/places/16/:/usr/share/icons/Arc/panel/16/
+    icon_theme = Papirus-Dark
+    enable_recursive_icon_lookup = true
 
     ### History ###
 

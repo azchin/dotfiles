@@ -17,7 +17,7 @@
 killall dunst 
 # killall -q sxhkd
 # pkill redshift
-pkill udiskie
+# pkill udiskie
 # pkill onedrive
 # pkill xss-lock
 # pkill xidlehook
@@ -33,7 +33,6 @@ pkill nm-applet
 # killall -q sleep_timer.sh
 # killall -q emacs
 pkill picom
-killall keepassxc
 
 # services
 # ~/bin/asound.sh off
@@ -60,12 +59,12 @@ dunst &
 nm-applet &
 # xss-lock -l ~/bin/lock.sh & 
 picom &
-keepassxc &
+[ -z "$(pidof keepassxc)" ] && keepassxc &
 [ -z "$(pidof nextcloud)" ] && nextcloud &
 
 # [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &
-udiskie -At &
+# udiskie -At &
 # keepassxc &
 # ibus-daemon -drxR
 # fcitx5 -d
