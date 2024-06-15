@@ -19,7 +19,7 @@ killall dunst
 # pkill redshift
 # pkill udiskie
 # pkill onedrive
-# pkill xss-lock
+pkill xss-lock
 # pkill xidlehook
 # pkill cbatticon
 # pkill pasystray
@@ -37,10 +37,13 @@ pkill picom
 # services
 # ~/bin/asound.sh off
 # ~/bin/screens.sh
+sudo ~/bin/amdgpu-clock.sh
 
 # ~/bin/wallpaper.sh
 # xrandr --dpi 96
-xset b off
+# xset b off
+xset s 3600 3600
+xset dpms 3600 3600 3600
 # xsetroot -cursor_name left_ptr &
 # redshift &
 # autorandr --change &
@@ -57,7 +60,7 @@ dunst &
 # pipewire-pulse &
 # wireplumber &
 nm-applet &
-# xss-lock -l ~/bin/lock.sh & 
+xss-lock -l ~/bin/lock.sh & 
 picom &
 [ -z "$(pidof keepassxc)" ] && keepassxc &
 [ -z "$(pidof nextcloud)" ] && nextcloud &

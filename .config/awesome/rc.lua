@@ -188,7 +188,7 @@ local function spawn_activate_smart(cmd, class)
    end
 end
 
-local function client_manage(c)
+local function client_manage_common(c)
    -- Set the windows at the slave,
    -- i.e. put it at the end of others instead of setting it master.
    -- if not awesome.startup then awful.client.setslave(c) end
@@ -202,6 +202,11 @@ local function client_manage(c)
       awful.placement.no_offscreen(c)
    end
 
+   -- FIXME setting properties prevents other code from running???
+   floating_above_rule(c)
+end
+
+local function client_manage(c)
    -- put on other
    if not_other_class(c) then
       local t = awful.screen.focused().selected_tag
@@ -210,6 +215,8 @@ local function client_manage(c)
          c:toggle_tag(g)
       end
    end
+
+   client_manage_common(c)
 end
 
 local function retag(c)
@@ -246,6 +253,16 @@ local function move_floating_client(c, x_offset, y_offset)
       geometry.x = geometry.x + x_offset
       geometry.y = geometry.y + y_offset
       c:geometry(geometry)
+   end
+end
+
+local function floating_above_rule(c)
+   if not c.fullscreen then
+      if c.floating then
+         c.ontop = true
+      else
+         c.ontop = false
+      end
    end
 end
 
@@ -430,6 +447,10 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+-- TODO
+-- rm maximize, rebind minimize, shift-bind restore minimized
+-- experiment with state: save prev layout, retag to last non-fixed tag
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
    awful.key({ modkey,           }, "z",      hotkeys_popup.show_help,
@@ -498,17 +519,17 @@ globalkeys = gears.table.join(
 
    -- Standard program
    awful.key({ modkey,           }, "g", function () spawn_activate_smart(terminal, terminal_class) end,
-      {description = "open a terminal", group = "launcher"}),
+      {description = "focus the terminal", group = "launcher"}),
    awful.key({ modkey,           }, "b", function () spawn_activate_smart(browser, browser_class) end,
-      {description = "open the browser", group = "launcher"}),
+      {description = "focus the browser", group = "launcher"}),
    awful.key({ modkey,           }, "v", function () spawn_activate_smart(visual, visual_class) end,
+      {description = "focus the editor", group = "launcher"}),
+   awful.key({ modkey, "Shift"   }, "g", function () awful.spawn(terminal) end,
+      {description = "open a terminal", group = "launcher"}),
+   awful.key({ modkey, "Shift"   }, "b", function () awful.spawn(browser) end,
+      {description = "open the browser", group = "launcher"}),
+   awful.key({ modkey, "Shift"   }, "v", function () awful.spawn(visual) end,
       {description = "open editor", group = "launcher"}),
-   awful.key({ modkey, "Shift"   }, "g", function () spawn_activate_master(terminal, terminal_class) end,
-      {description = "open a terminal in master", group = "launcher"}),
-   awful.key({ modkey, "Shift"   }, "b", function () spawn_activate_master(browser, browser_class) end,
-      {description = "open the browser in master", group = "launcher"}),
-   awful.key({ modkey, "Shift"   }, "v", function () spawn_activate_master(visual, visual_class) end,
-      {description = "open editor in master", group = "launcher"}),
    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pamixer -d 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
       {description = "Lower volume", group = "system"}),
    awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("pamixer -i 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
@@ -589,16 +610,16 @@ globalkeys = gears.table.join(
    awful.key({ modkey },            "p",     function () awful.spawn.with_shell("~/bin/dmenu_run_history.sh ~/bin/drofi") end,
       {description = "run dmenu", group = "launcher"}),
 
-   awful.key({ modkey }, "x",
-      function ()
-         awful.prompt.run {
-            prompt       = "Run Lua code: ",
-            textbox      = awful.screen.focused().mypromptbox.widget,
-            exe_callback = awful.util.eval,
-            history_path = awful.util.get_cache_dir() .. "/history_eval"
-         }
-      end,
-      {description = "lua execute prompt", group = "awesome"}),
+   -- awful.key({ modkey }, "x",
+   --    function ()
+   --       awful.prompt.run {
+   --          prompt       = "Run Lua code: ",
+   --          textbox      = awful.screen.focused().mypromptbox.widget,
+   --          exe_callback = awful.util.eval,
+   --          history_path = awful.util.get_cache_dir() .. "/history_eval"
+   --       }
+   --    end,
+   --    {description = "lua execute prompt", group = "awesome"}),
    -- Menubar
    awful.key({ modkey }, "space", function()
          local s = awful.screen.focused()
@@ -816,34 +837,39 @@ awful.rules.rules = {
      --    titlebars_enabled = false,
      -- },
      callback = function(c)
-        client_manage(c)
         local t = awful.screen.focused().selected_tag
         local g = awful.tag.find_by_name(awful.screen.focused(), browser_tag)
         if t and t ~= g then
+           -- for _, v in ipairs(g:clients()) do
+           --    if v == c then
+           --       return
+           --    end
+           -- end
            c:toggle_tag(g)
         end
+        client_manage_common(c)
      end
    },
 
    { rule = { class = terminal_class },
      callback = function(c)
-        client_manage(c)
         local t = awful.screen.focused().selected_tag
         local g = awful.tag.find_by_name(awful.screen.focused(), terminal_tag)
         if t and t ~= g then
            c:toggle_tag(g)
         end
+        client_manage_common(c)
      end
    },
 
    { rule = { class = visual_class },
      callback = function(c)
-        client_manage(c)
         local t = awful.screen.focused().selected_tag
         local g = awful.tag.find_by_name(awful.screen.focused(), visual_tag)
         if t and t ~= g then
            c:toggle_tag(g)
         end
+        client_manage_common(c)
      end
    }
 }
@@ -902,15 +928,9 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-client.connect_signal("property::floating", function(c)
-                         if not c.fullscreen then
-                           if c.floating then
-                              c.above = true
-                           else
-                              c.above = false
-                           end
-                         end
-end)
+client.connect_signal("property::floating", floating_above_rule)
+-- TODO tag request::select  if layout not floating then don't ontop
+-- TODO tag property::layout
 -- tag.connect_signal("property::layout", function(t)
 --                       if t.layout == awful.layout.suit.floating then
 --                          for _, c in ipairs(t:clients()) do
