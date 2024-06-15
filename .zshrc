@@ -1,11 +1,11 @@
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ linux ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]]; then
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ "$TERM" = alacritty ]] ; then
-    if [ $(tmux list-sessions | wc -l) -le 0 ]; then
-        exec tmux
-    # else
-    #     exec tmux attach
-    fi
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ "$TERM" = alacritty ]] ; then
+#     if [ $(tmux list-sessions | wc -l) -le 0 ]; then
+#         exec tmux
+#     # else
+#     #     exec tmux attach
+#     fi
+# fi
 
 stty -ixon -ixoff
 source ~/.config/profile

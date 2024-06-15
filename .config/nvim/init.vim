@@ -16,20 +16,6 @@ set nobackup nowritebackup
 set undodir=$HOME/.local/share/nvim/undo undofile 
 set directory=$HOME/.local/share/nvim/swap// swapfile
 set wildmode=longest,list,full
-set cursorline cursorcolumn
-set notermguicolors
-colorscheme vim
-highlight clear CursorLine
-highlight clear CursorColumn
-highlight clear MatchParen
-highlight clear SignColumn
-highlight clear ModeMsg
-highlight CursorLine cterm=bold
-highlight CursorLineNR ctermbg=black cterm=bold
-highlight CursorColumn cterm=bold
-highlight MatchParen ctermfg=red cterm=bold
-highlight SignColumn ctermfg=yellow ctermbg=black
-highlight ModeMsg ctermfg=yellow cterm=bold
 
 " Netrw
 let g:netrw_bufsettings = "noma nomod nu rnu nowrap ro nobl"
@@ -73,6 +59,10 @@ nnoremap <silent> <Leader>wh :wincmd h<CR>
 nnoremap <silent> <Leader>wj :wincmd j<CR>
 nnoremap <silent> <Leader>wk :wincmd k<CR>
 nnoremap <silent> <Leader>wl :wincmd l<CR>
+nnoremap <silent> <Leader>w<Left> :wincmd h<CR>
+nnoremap <silent> <Leader>w<Down> :wincmd j<CR>
+nnoremap <silent> <Leader>w<Up> :wincmd k<CR>
+nnoremap <silent> <Leader>w<Right> :wincmd l<CR>
 nnoremap <silent> <Leader>we :wincmd =<CR>
 nnoremap <silent> <Leader>ws :wincmd s<CR>
 nnoremap <silent> <Leader>wv :wincmd v<CR>
@@ -141,17 +131,40 @@ Plug 'tpope/vim-unimpaired'   " Goated
 Plug 'tpope/vim-commentary'   " Goated
 Plug 'tpope/vim-surround'     " Goated
 Plug 'unblevable/quick-scope' " Goated
-" Plug 'neovim/nvim-lspconfig'  " Bloated /s
+Plug 'jasonccox/vim-wayland-clipboard'
+" Plug 'projekt0n/github-nvim-theme'
+" Plug 'sainnhe/edge'
+" Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'miikanissi/modus-themes.nvim'
+Plug 'neovim/nvim-lspconfig'  " Bloated /s
 Plug 'windwp/nvim-autopairs'  " Why isn't this in vanilla Vim
 Plug 'hrsh7th/nvim-cmp'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'saadparwaiz1/cmp_luasnip'
-" Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
 
 call plug#end()
 
 " #################################################################
 " Plugin specific
+
+set notermguicolors
+" colorscheme modus_operandi
+colorscheme vim
+
+set cursorline cursorcolumn
+highlight clear CursorLine
+highlight clear CursorColumn
+highlight clear MatchParen
+highlight clear SignColumn
+highlight clear ModeMsg
+highlight CursorLine cterm=bold gui=bold
+highlight CursorLineNR ctermbg=black cterm=bold gui=bold
+highlight CursorColumn cterm=bold gui=bold
+highlight MatchParen ctermfg=red cterm=bold gui=bold
+highlight SignColumn ctermfg=yellow ctermbg=black
+highlight ModeMsg ctermfg=yellow cterm=bold gui=bold
+
 " Quick scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -159,4 +172,4 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 :lua require('mypairs')
 
 " LSP
-" :lua require('mylsp')
+:lua require('mylsp')

@@ -36,10 +36,10 @@ alias sess='abduco -e ^d -A andrew zsh'
 alias mpvnv='mpv --no-video'
 
 # Systemd
-alias slep='loginctl suspend'
-alias shut='loginctl poweroff'
-alias rez='loginctl reboot'
-alias hib='loginctl hibernate'
+alias slep='command -v systemctl >/dev/null && systemctl suspend || loginctl suspend'
+alias shut='command -v systemctl >/dev/null && systemctl poweroff || loginctl poweroff'
+alias rez='command -v systemctl >/dev/null && systemctl reboot || loginctl reboot'
+alias hib='command -v systemctl >/dev/null && systemctl hibernate || loginctl hibernate'
 
 # Docker
 alias dk='sudo docker'
@@ -104,7 +104,7 @@ alias gri='git rebase -i'
 # alias xqr='xbps-query'
 
 # pacman
-alias xup='yay -Syu && flatpak update'
+alias xup='yay -Syu && sudo flatpak update'
 alias xin='yay -S'
 alias xrm='yay -Rs'
 alias xse='yay -Ss'
