@@ -31,7 +31,6 @@ highlight VertSplit ctermfg=black ctermbg=black
 " Autocommands
 autocmd BufRead,BufNewFile profile,aliases setfiletype sh
 autocmd BufWritePost *.sh :silent exec '![ $(stat -c "%a" %) = 755 ] || chmod 755 %'
-autocmd BufWritePost *Xresources !xrdb %
 autocmd Filetype xdefaults setlocal commentstring=!\ %s
 
 augroup xml
@@ -69,14 +68,17 @@ nnoremap <silent> <Leader>wv :wincmd v<CR>
 nnoremap <silent> <Leader>wo :wincmd o<CR>
 nnoremap <silent> <Leader>N :vnew<CR>
 nnoremap <silent> <Leader>n :Lex<CR>
-nnoremap <silent> <Leader>u :UndotreeToggle<CR>
+nnoremap <silent> <Leader>dd :Ex<CR>
+nnoremap <silent> <Leader>td :Tex<CR>
 nnoremap <silent> <Leader>wq :wincmd q<CR>
 nnoremap <silent> <Leader>c :wincmd c<CR>
 nnoremap <silent> <Leader>s :w<CR>
-nnoremap <silent> <Leader>qq :qa<CR>
+nnoremap <silent> <Leader>qq :q<CR>
+nnoremap <silent> <Leader>qt :tabclose<CR>
+nnoremap <silent> <Leader>qf :qa<CR>
+nnoremap <silent> <Leader>qb :bd<CR>
 nnoremap <silent> <Leader>Q :q!<CR>
 nnoremap <silent> <Leader>A :qa!<CR>
-nnoremap <silent> <Leader>bd :bd<CR>
 function! SignToggle()
 	if(&signcolumn == 'no') 
 		set signcolumn=auto
@@ -109,13 +111,15 @@ hi StatusLineNC ctermbg=black ctermfg=darkgrey
 
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=\ 
-set statusline+=%n\                      " buffer number
+" set statusline+=%n\                      " buffer number
 set statusline+=%h%m%r%w                    " flags
-" set statusline+=%f\                          " file name
 set statusline+=%t\                          " file name tail
 set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
 set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
 set statusline+=%{&fileformat}]              " file format
+set statusline+=\ 
+set statusline+=%=                           " center align
+set statusline+=%F                           " file name
 set statusline+=%=                           " right align
 set statusline+=(%l/%L\ %c)\ %p%%
 set statusline+=\ 
@@ -142,11 +146,21 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'mbbill/undotree'
 
 call plug#end()
 
 " #################################################################
 " Plugin specific
+
+" More keybinds
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <silent> <Leader>u :UndotreeToggle<CR>
 
 set notermguicolors
 " colorscheme modus_operandi

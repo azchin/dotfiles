@@ -42,7 +42,6 @@ highlight VertSplit ctermfg=black ctermbg=black
 " Autocommands
 autocmd BufRead,BufNewFile profile,aliases setfiletype sh
 autocmd BufWritePost *.sh :silent exec '![ $(stat -c "%a" %) = 755 ] || chmod 755 %'
-autocmd BufWritePost *Xresources !xrdb %
 autocmd Filetype xdefaults setlocal commentstring=!\ %s
 
 augroup xml
