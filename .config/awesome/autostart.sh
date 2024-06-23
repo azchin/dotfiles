@@ -64,6 +64,7 @@ xss-lock -l ~/bin/lock.sh &
 picom &
 [ -z "$(pidof keepassxc)" ] && keepassxc &
 [ -z "$(pidof nextcloud)" ] && nextcloud &
+xrdb ~/.config/X11/Xresources
 
 # [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &
