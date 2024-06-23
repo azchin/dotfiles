@@ -278,9 +278,9 @@ awful.layout.layouts = {
    awful.layout.suit.tile.left,
    awful.layout.suit.max,
    awful.layout.suit.fair,
-   awful.layout.suit.tile.bottom,
-   awful.layout.suit.tile,
+   awful.layout.suit.tile.top,
    awful.layout.suit.floating,
+   -- awful.layout.suit.tile,
    -- awful.layout.suit.hiding,
    -- awful.layout.suit.magnifier,
    -- awful.layout.suit.tile.left,
@@ -648,7 +648,9 @@ clientkeys = gears.table.join(
    -- awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
    --    {description = "move to screen", group = "client"}),
    -- ANDREW what does 'end' do? Can bind this to another key later
-   awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+   awful.key({ modkey,           }, "t",      function (c) c.sticky = not c.sticky            end,
+      {description = "toggle sticky", group = "client"}),
+   awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end,
       {description = "toggle keep on top", group = "client"}),
    awful.key({ modkey,           }, "n",
       function (c)
