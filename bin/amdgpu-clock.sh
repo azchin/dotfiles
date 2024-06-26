@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # https://wiki.archlinux.org/title/AMDGPU#Manual_(default)
 # https://docs.kernel.org/6.1/gpu/amdgpu/thermal.html
 
@@ -24,6 +24,7 @@
 # VDDC:     750mV        1212mV
 
 gpu_device="/sys/class/drm/card1/device/pp_od_clk_voltage"
+gpu_dpm_sclk="/sys/class/drm/card1/device/pp_dpm_sclk"
 max_voltage=1150
 declare -A clocks
 clocks[3]=1266
@@ -32,9 +33,14 @@ clocks[5]=1420
 clocks[6]=1464
 clocks[7]=1496
 for idx in $(echo "${!clocks[@]}" | sed 's/\s/\n/g' | sort); do
-    echo "echo s ${idx} ${clocks[$idx]} ${max_voltage} > ${gpu_device}"
+    echo "echo \"s ${idx} ${clocks[$idx]} ${max_voltage}\" > ${gpu_device}"
     if [ $(id -u) -eq 0 ]; then
-        echo s ${idx} ${clocks[$idx]} ${max_voltage} > ${gpu_device}
+        echo "s ${idx} ${clocks[$idx]} ${max_voltage}" > ${gpu_device}
     fi
 done
+echo "echo \"c\" > ${gpu_device}"
+if [ $(id -u) -eq 0 ]; then
+    echo "c" > ${gpu_device}
+fi
 cat $gpu_device
+cat $gpu_dpm_sclk
