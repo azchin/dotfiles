@@ -44,6 +44,7 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%b %d %T %Z}",
         "interval": 1
+        // "on-click": "gsimplecal",
     },
     "backlight": {
         // "device": "acpi_video1",

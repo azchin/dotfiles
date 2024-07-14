@@ -207,14 +207,15 @@ local function client_manage_common(c)
 end
 
 local function client_manage(c)
-   -- put on other
-   if not_other_class(c) then
-      local t = awful.screen.focused().selected_tag
-      local g = awful.tag.find_by_name(awful.screen.focused(), other_tag)
-      if t and t ~= g then
-         c:toggle_tag(g)
-      end
-   end
+   -- NOTE commented auto-tagging
+   -- -- put on other
+   -- if not_other_class(c) then
+   --    local t = awful.screen.focused().selected_tag
+   --    local g = awful.tag.find_by_name(awful.screen.focused(), other_tag)
+   --    if t and t ~= g then
+   --       c:toggle_tag(g)
+   --    end
+   -- end
 
    client_manage_common(c)
 end
@@ -358,13 +359,14 @@ local tasklist_buttons = gears.table.join(
    end),
    awful.button({ }, 3, function()
          awful.menu.client_list({ theme = { width = 250 } })
-   end),
-   awful.button({ }, 4, function ()
-         awful.client.focus.byidx(1)
-   end),
-   awful.button({ }, 5, function ()
-         awful.client.focus.byidx(-1)
-end))
+   end)
+   -- awful.button({ }, 4, function ()
+   --       awful.client.focus.byidx(1)
+   -- end),
+   -- awful.button({ }, 5, function ()
+   --       awful.client.focus.byidx(-1)
+   -- end)
+)
 
 local function set_wallpaper(s)
    -- Wallpaper
@@ -416,7 +418,7 @@ awful.screen.connect_for_each_screen(function(s)
       }
 
       -- Create the wibox
-      s.mywibox = awful.wibar({ position = "bottom", screen = s })
+      s.mywibox = awful.wibar({ position = "top", screen = s })
 
       -- Add widgets to the wibox
       s.mywibox:setup {
@@ -518,18 +520,20 @@ globalkeys = gears.table.join(
       {description = "go back", group = "client"}),
 
    -- Standard program
-   awful.key({ modkey,           }, "g", function () spawn_activate_smart(terminal, terminal_class) end,
-      {description = "focus the terminal", group = "launcher"}),
-   awful.key({ modkey,           }, "b", function () spawn_activate_smart(browser, browser_class) end,
-      {description = "focus the browser", group = "launcher"}),
-   awful.key({ modkey,           }, "v", function () spawn_activate_smart(visual, visual_class) end,
-      {description = "focus the editor", group = "launcher"}),
-   awful.key({ modkey, "Shift"   }, "g", function () awful.spawn(terminal) end,
+   -- awful.key({ modkey,           }, "g", function () spawn_activate_smart(terminal, terminal_class) end,
+   --    {description = "focus the terminal", group = "launcher"}),
+   -- awful.key({ modkey,           }, "b", function () spawn_activate_smart(browser, browser_class) end,
+   --    {description = "focus the browser", group = "launcher"}),
+   -- awful.key({ modkey,           }, "v", function () spawn_activate_smart(visual, visual_class) end,
+   --    {description = "focus the editor", group = "launcher"}),
+
+   awful.key({ modkey,           }, "g", function () awful.spawn(terminal) end,
       {description = "open a terminal", group = "launcher"}),
-   awful.key({ modkey, "Shift"   }, "b", function () awful.spawn(browser) end,
+   awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
       {description = "open the browser", group = "launcher"}),
-   awful.key({ modkey, "Shift"   }, "v", function () awful.spawn(visual) end,
+   awful.key({ modkey,           }, "v", function () awful.spawn(visual) end,
       {description = "open editor", group = "launcher"}),
+
    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pamixer -d 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
       {description = "Lower volume", group = "system"}),
    awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("pamixer -i 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
@@ -833,47 +837,48 @@ awful.rules.rules = {
                 }, properties = { titlebars_enabled = true }
    },
 
-   -- Set Firefox to always map on the tag named "2" on screen 1.
-   { rule = { class = browser_class },
-     -- properties = {
-     --    titlebars_enabled = false,
-     -- },
-     callback = function(c)
-        local t = awful.screen.focused().selected_tag
-        local g = awful.tag.find_by_name(awful.screen.focused(), browser_tag)
-        if t and t ~= g then
-           -- for _, v in ipairs(g:clients()) do
-           --    if v == c then
-           --       return
-           --    end
-           -- end
-           c:toggle_tag(g)
-        end
-        client_manage_common(c)
-     end
-   },
+   -- NOTE commented auto-tagging
+   -- -- Set Firefox to always map on the tag named "2" on screen 1.
+   -- { rule = { class = browser_class },
+   --   -- properties = {
+   --   --    titlebars_enabled = false,
+   --   -- },
+   --   callback = function(c)
+   --      local t = awful.screen.focused().selected_tag
+   --      local g = awful.tag.find_by_name(awful.screen.focused(), browser_tag)
+   --      if t and t ~= g then
+   --         -- for _, v in ipairs(g:clients()) do
+   --         --    if v == c then
+   --         --       return
+   --         --    end
+   --         -- end
+   --         c:toggle_tag(g)
+   --      end
+   --      client_manage_common(c)
+   --   end
+   -- },
 
-   { rule = { class = terminal_class },
-     callback = function(c)
-        local t = awful.screen.focused().selected_tag
-        local g = awful.tag.find_by_name(awful.screen.focused(), terminal_tag)
-        if t and t ~= g then
-           c:toggle_tag(g)
-        end
-        client_manage_common(c)
-     end
-   },
+   -- { rule = { class = terminal_class },
+   --   callback = function(c)
+   --      local t = awful.screen.focused().selected_tag
+   --      local g = awful.tag.find_by_name(awful.screen.focused(), terminal_tag)
+   --      if t and t ~= g then
+   --         c:toggle_tag(g)
+   --      end
+   --      client_manage_common(c)
+   --   end
+   -- },
 
-   { rule = { class = visual_class },
-     callback = function(c)
-        local t = awful.screen.focused().selected_tag
-        local g = awful.tag.find_by_name(awful.screen.focused(), visual_tag)
-        if t and t ~= g then
-           c:toggle_tag(g)
-        end
-        client_manage_common(c)
-     end
-   }
+   -- { rule = { class = visual_class },
+   --   callback = function(c)
+   --      local t = awful.screen.focused().selected_tag
+   --      local g = awful.tag.find_by_name(awful.screen.focused(), visual_tag)
+   --      if t and t ~= g then
+   --         c:toggle_tag(g)
+   --      end
+   --      client_manage_common(c)
+   --   end
+   -- }
 }
 -- }}}
 

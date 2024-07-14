@@ -64,6 +64,8 @@ nm-applet &
 [ -z "$(pidof nextcloud)" ] && nextcloud &
 xrdb ~/.config/X11/Xresources
 xrdb -merge ~/.config/X11/Xresources-wayland
+gsettings set org.gnome.desktop.interface cursor-size 24
+cp ~/.config/gtk-3.0/settings-archtwo-wayland.ini ~/.config/gtk-3.0/settings.ini
 
 # [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &
