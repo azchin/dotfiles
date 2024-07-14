@@ -24,7 +24,7 @@ SWAPFILE_OFFSET=$(btrfs inspect-internal map-swapfile --resume-offset /swap/swap
 ROOT_SUBVOLID=$(get_subvol_id)
 
 RESUME="resume=UUID=${BLOCK_UUID} resume_offset=${SWAPFILE_OFFSET}"
-RYZEN="rcu_nocbs=0-11 processor.max_cstate=5"
+RYZEN="rcu_nocbs=0-11 processor.max_cstate=1"
 EXTRA="${RYZEN}"
 KERNEL_OPTIONS="root=UUID=${BLOCK_UUID} ${RESUME} rw rootflags=subvolid=${ROOT_SUBVOLID} initrd=\initramfs-linux.img ${EXTRA}"
 
@@ -35,7 +35,7 @@ echo "efibootmgr --create
 	--loader /vmlinuz-linux
 	--unicode ${KERNEL_OPTIONS}"
 
-if [ $(id -u) -eq 0 ] && [ "$#" -gt 0 ]; then
+if [ $(id -u) -eq 0 ]; then
     echo "Writing EFISTUB!"
     efibootmgr --create \
         --disk /dev/sdc --part 1 \

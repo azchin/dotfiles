@@ -109,6 +109,16 @@ alias xin='yay -S'
 alias xrm='yay -Rs'
 alias xse='yay -Ss'
 alias xqr='yay -Qi'
+alias xqs='yay -Qs'
+alias xhist="expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 100"
+# alias xclean='pacman -Qtdq | sudo pacman Rns -; sudo flatpak uninstall --unused'
+xclean() {
+    pacman_unused=$(pacman -Qtdq)
+    if [ -n "$pacman_unused" ]; then
+        echo "$pacman_unused" | sudo pacman Rns -
+    fi
+    sudo flatpak uninstall --unused
+}
 
 # framework laptop
 alias batinfo='acpi -b'
@@ -117,8 +127,8 @@ alias batinfo='acpi -b'
 # alias wgup='sudo systemctl start wg-quick@bambino'
 # alias wgdown='sudo systemctl stop wg-quick@bambino'
 # alias nmrestart='sudo systemctl restart NetworkManager'
-alias wgup='sudo sv up wireguard'
-alias wgdown='sudo sv down wireguard'
+alias wgup='sudo wg-quick up bambino'
+alias wgdown='sudo wg-quick down bambino'
 alias nmrestart='sudo sv restart NetworkManager'
 
 # Stolen
@@ -128,6 +138,6 @@ alias g++17="g++ -std=c++17 -g"
 alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 # Functions
-rmd () {
-    pandoc $1 | lynx -stdin
-}
+# rmd () {
+#     pandoc $1 | lynx -stdin
+# }
