@@ -136,6 +136,7 @@ Plug 'tpope/vim-commentary'   " Goated
 Plug 'tpope/vim-surround'     " Goated
 Plug 'unblevable/quick-scope' " Goated
 Plug 'jasonccox/vim-wayland-clipboard'
+Plug 'chaoren/vim-wordmotion'
 " Plug 'projekt0n/github-nvim-theme'
 " Plug 'sainnhe/edge'
 " Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
