@@ -84,12 +84,12 @@ end
 
 
 -- inherit xresources theme:
-local theme = dofile(themes_path.."zenburn/theme.lua")
+local theme = dofile(themes_path.."default/theme.lua")
 -- load and prepare for use gtk theme:
 theme.gtk = gtk.get_theme_variables()
 if not theme.gtk then
     local gears_debug = require("gears.debug")
-    gears_debug.print_warning("Can't load GTK+3 theme. Using 'zenburn' theme as a fallback.")
+    gears_debug.print_warning("Can't load GTK+3 theme. Using 'default' theme as a fallback.")
     return theme
 end
 theme.gtk.button_border_radius = dpi(theme.gtk.button_border_radius or 0)
@@ -243,7 +243,7 @@ theme.taglist_fg_empty = mix(
     theme.gtk.header_button_fg_color
 )
 
-theme.titlebar_font_normal = theme.gtk.bold_font
+theme.titlebar_font_normal = theme.gtk.font_family .. 'Bold' .. 8
 theme.titlebar_bg_normal = theme.gtk.wm_border_unfocused_color
 theme.titlebar_fg_normal = theme.gtk.wm_title_unfocused_color
 --theme.titlebar_fg_normal = choose_contrast_color(
@@ -252,7 +252,7 @@ theme.titlebar_fg_normal = theme.gtk.wm_title_unfocused_color
     --theme.gtk.menubar_bg_color
 --)
 
-theme.titlebar_font_focus = theme.gtk.bold_font
+theme.titlebar_font_focus = theme.gtk.font_family .. 'Bold' .. 8
 theme.titlebar_bg_focus = theme.gtk.wm_border_focused_color
 theme.titlebar_fg_focus = theme.gtk.wm_title_focused_color
 --theme.titlebar_fg_focus = choose_contrast_color(

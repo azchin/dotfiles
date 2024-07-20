@@ -540,6 +540,16 @@ globalkeys = gears.table.join(
       {description = "Raise volume", group = "system"}),
    awful.key({ }, "XF86AudioMute", function () awful.spawn.with_shell("pamixer -t && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
       {description = "Mute", group = "system"}),
+   awful.key({ }, "XF86AudioPlay", function () awful.spawn.with_shell("playerctl.sh play-pause") end,
+      {description = "Play/Pause", group = "system"}),
+   awful.key({ }, "XF86AudioPrev", function () awful.spawn.with_shell("playerctl.sh previous") end,
+      {description = "Previous", group = "system"}),
+   awful.key({ }, "XF86AudioNext", function () awful.spawn.with_shell("playerctl.sh next") end,
+      {description = "Next", group = "system"}),
+   awful.key({ }, "XF86AudioRewind", function () awful.spawn.with_shell("playerctl.sh rewind") end,
+      {description = "Rewind", group = "system"}),
+   awful.key({ }, "XF86AudioForward", function () awful.spawn.with_shell("playerctl.sh forward") end,
+      {description = "Fast Forward", group = "system"}),
    awful.key({ }, "Print", function () awful.spawn.with_shell("maim | xclip -sel clip -t image/png") end,
       {description = "Screenshot", group = "system"}),
    awful.key({ modkey,             }, "Print", function () awful.spawn.with_shell("maim -s | xclip -sel clip -t image/png") end,
@@ -837,6 +847,12 @@ awful.rules.rules = {
                 }, properties = { titlebars_enabled = true }
    },
 
+   { rule = { class = terminal_class },
+     properties = {
+        titlebars_enabled = false,
+     },
+   },
+
    -- NOTE commented auto-tagging
    -- -- Set Firefox to always map on the tag named "2" on screen 1.
    -- { rule = { class = browser_class },
@@ -900,7 +916,7 @@ client.connect_signal("request::titlebars", function(c)
                             end)
                          )
 
-                         awful.titlebar(c) : setup {
+                         awful.titlebar(c, { size = 32}) : setup {
                             { -- Left
                                awful.titlebar.widget.iconwidget(c),
                                buttons = buttons,
@@ -918,6 +934,7 @@ client.connect_signal("request::titlebars", function(c)
                                awful.titlebar.widget.floatingbutton (c),
                                awful.titlebar.widget.ontopbutton    (c),
                                awful.titlebar.widget.stickybutton   (c),
+                               awful.titlebar.widget.minimizebutton (c),
                                awful.titlebar.widget.maximizedbutton(c),
                                awful.titlebar.widget.closebutton    (c),
                                layout = wibox.layout.fixed.horizontal()

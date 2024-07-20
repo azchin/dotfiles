@@ -149,6 +149,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+" Plug 'NOSDuco/remote-sshfs.nvim'
 Plug 'mbbill/undotree'
 
 call plug#end()
@@ -167,15 +168,25 @@ set notermguicolors
 " colorscheme modus_operandi
 colorscheme vim
 
+" neovide
+if exists("g:neovide")
+    " Put anything you want to happen only in Neovide here
+    let g:neovide_position_animation_length = 0
+    colorscheme modus_operandi
+    let g:neovide_theme = 'auto'
+    let g:neovide_cursor_animation_length = 0.02
+    set guifont=DejaVu\ Sans\ Mono:h14
+endif
+
 set cursorline cursorcolumn
 highlight clear CursorLine
 highlight clear CursorColumn
 highlight clear MatchParen
 highlight clear SignColumn
 highlight clear ModeMsg
-highlight CursorLine cterm=bold gui=bold
+" highlight CursorLine cterm=bold gui=bold
 highlight CursorLineNR ctermbg=black cterm=bold gui=bold
-highlight CursorColumn cterm=bold gui=bold
+" highlight CursorColumn cterm=bold gui=bold
 highlight MatchParen ctermfg=red cterm=bold gui=bold
 highlight SignColumn ctermfg=yellow ctermbg=black
 highlight ModeMsg ctermfg=yellow cterm=bold gui=bold
