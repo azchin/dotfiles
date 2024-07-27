@@ -1,0 +1,80 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+# export XDG_CURRENT_DESKTOP="openbox"
+# export MOZ_GTK_TITLEBAR_DECORATION=client
+# export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+# export QT_QPA_PLATFORMTHEME=qt5ct
+## run this to sync plasma mimeapps `XDG_MENU_PREFIX=arch- kbuildsycoca6`
+# export XDG_MENU_PREFIX=arch-
+
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/.emacs.d/bin:$PATH
+# export PATH=$HOME/.deno/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.nix-profile/bin:$PATH
+
+export DICPATH=$HOME/.local/share/hunspell/en_CA.aff
+export DICTIONARY=en_CA
+
+export TERM=xterm-256color
+export EDITOR="nvim"
+export VISUAL="nvim"
+export LSP_USE_PLISTS=true
+# export LESS="-RFM --mouse --incsearch"
+export LESS="-RFMi --incsearch"
+export MANOPT="-I"
+export OPENER="xdg-open"
+export RANGER_LOAD_DEFAULT_RC=false
+#export MANPAGER="nvim"
+
+#export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
+#export CLICOLORS=1
+#export LSCOLORS=ExFxBxDxCxegedabagacad
+export ZSH="$XDG_CONFIG_HOME/zsh"
+# pfetch config
+export PF_INFO="ascii title os kernel uptime shell editor wm"
+export PF_COL1=2
+export PF_COL2=8
+export PF_COL3=2
+export PF_ALIGN="10"
+# export PF_ASCII="arch"
+#export XDG_CURRENT_DESKTOP="bspwm"
+
+export COWPATH="/usr/share/cows:$XDG_DATA_HOME/cows:$XDG_DATA_HOME/cows/true-color"
+export SXHKD_SHELL="/bin/sh"
+
+# export QT_STYLE_OVERRIDE="kvantum"
+
+# export PATH="/usr/lib/ccache/bin${PATH:+:}$PATH"
+# export CCACHE_DIR="/var/cache/ccache"
+
+# XDG Specifications
+#export VIMINIT='if !has('nvim') | source "$XDG_CONFIG_HOME/vim/vimrc" | endif'
+#export VIMINIT='source "$XDG_CONFIG_HOME/vim/vimrc"'
+#export OCTAVE_HISTFILE="$XDG_CACHE_HOME/octave-hsts"
+#export OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc" 
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export HISTFILE="$XDG_DATA_HOME"/history
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export GOPATH="$XDG_DATA_HOME"/go
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
+# export RXVT_SOCKET="$XDG_CACHE_HOME"/urxvt/urxvtd
+# export ABDUCO_SOCKET_DIR="$XDG_CACHE_HOME"
+
+# export QT_QPA_PLATFORM=wayland
+# export MOZ_ENABLE_WAYLAND=1
+# export MOZ_WEBRENDER=1
+# export XDG_SESSION_TYPE=wayland
+# export XDG_CURRENT_DESKTOP=kwin
+
+export SVDIR=~/service
+export SSLAB_GITOLITE=~/gitolite-admin  # tc@gitolite-admin
+export SSLAB_WEB=~/sslab         # tc@sslab
+export PATH=$PATH:$SSLAB_WEB/bin        # bin for tc@sslab
