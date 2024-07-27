@@ -48,4 +48,4 @@ _comp_options+=(globdots)   # Include hidden files
 zstyle ':completion:*' special-dirs false
 
 ~/bin/termstart.sh
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
