@@ -188,6 +188,16 @@ local function spawn_activate_smart(cmd, class)
    end
 end
 
+local function floating_above_rule(c)
+   if not c.fullscreen then
+      if c.floating then
+         c.ontop = true
+      else
+         c.ontop = false
+      end
+   end
+end
+
 local function client_manage_common(c)
    -- Set the windows at the slave,
    -- i.e. put it at the end of others instead of setting it master.
@@ -202,7 +212,6 @@ local function client_manage_common(c)
       awful.placement.no_offscreen(c)
    end
 
-   -- FIXME setting properties prevents other code from running???
    floating_above_rule(c)
 end
 
@@ -254,16 +263,6 @@ local function move_floating_client(c, x_offset, y_offset)
       geometry.x = geometry.x + x_offset
       geometry.y = geometry.y + y_offset
       c:geometry(geometry)
-   end
-end
-
-local function floating_above_rule(c)
-   if not c.fullscreen then
-      if c.floating then
-         c.ontop = true
-      else
-         c.ontop = false
-      end
    end
 end
 
@@ -531,8 +530,10 @@ globalkeys = gears.table.join(
       {description = "open a terminal", group = "launcher"}),
    awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
       {description = "open the browser", group = "launcher"}),
-   awful.key({ modkey,           }, "v", function () awful.spawn(visual) end,
+   awful.key({ modkey, "Shift"   }, "v", function () awful.spawn(visual) end,
       {description = "open editor", group = "launcher"}),
+   awful.key({ modkey,           }, "v", function () awful.spawn.with_shell("emacsclient -c") end,
+      {description = "open emacs client", group = "launcher"}),
 
    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pamixer -d 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
       {description = "Lower volume", group = "system"}),
@@ -712,7 +713,7 @@ clientkeys = gears.table.join(
       {description = "move client left", group = "client"}),
    awful.key({ modkey, "Mod1"    }, "Right", function (c) move_floating_client(c, 50, 0) end,
       {description = "move client right", group = "client"}),
-   awful.key({ modkey,           }, "q", move_mouse_onto_client,
+   awful.key({ modkey,           }, "a", move_mouse_onto_client,
       {description = "move pointer to focus", group = "client"}),
    -- https://www.reddit.com/r/awesomewm/comments/gehk1g/cursor_follows_focus_possible/ 
    awful.key({ modkey,           }, "r", retag,

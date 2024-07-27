@@ -7,6 +7,7 @@ XSECURELOCK_DISCARD_FIRST_KEYPRESS=0 \
     XSECURELOCK_PASSWORD_PROMPT=time \
     XSECURELOCK_SHOW_DATETIME=1 \
     xsecurelock
+    # XSECURELOCK_FONT='DejaVuSansMono Nerd Font Mono' \
 
 # store=$XDG_CACHE_HOME/lock
 # path=~/images/lockbg2

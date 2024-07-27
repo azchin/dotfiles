@@ -31,7 +31,7 @@ pkill nm-applet
 # setxkbmap -option
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
-# killall -q emacs
+killall -q emacs
 pkill picom
 
 # services
@@ -51,7 +51,7 @@ xset dpms 3600 3600 3600
 # xscreensaver &
 
 dunst &
-# emacs --daemon &
+emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 # [ -z "$(pidof syncthing)" ] && syncthing &
 # setxkbmap -option caps:escape_shifted_capslock
@@ -64,8 +64,8 @@ xss-lock -l ~/bin/lock.sh &
 picom &
 [ -z "$(pidof keepassxc)" ] && keepassxc &
 [ -z "$(pidof nextcloud)" ] && nextcloud &
-xrdb ~/.config/X11/Xresources
-cp ~/.config/gtk-3.0/settings-archtwo.ini ~/.config/gtk-3.0/settings.ini
+# xrdb ~/.config/X11/Xresources
+# cp ~/.config/gtk-3.0/settings-nixone.ini ~/.config/gtk-3.0/settings.ini
 
 # [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &
