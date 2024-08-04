@@ -1,0 +1,2 @@
+. $HOME/.config/profile
+xrdb $HOME/.config/X11/Xresources
