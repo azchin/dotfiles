@@ -534,7 +534,7 @@ globalkeys = gears.table.join(
       {description = "open the browser", group = "launcher"}),
    awful.key({ modkey, "Shift"   }, "v", function () awful.spawn(visual) end,
       {description = "open editor", group = "launcher"}),
-   awful.key({ modkey,           }, "v", function () awful.spawn.with_shell("emacsclient -c || emacs") end,
+   awful.key({ modkey,           }, "v", function () awful.spawn.with_shell("emacsclient -c -a emacs") end,
       {description = "open emacs client", group = "launcher"}),
 
    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pamixer -d 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
@@ -591,7 +591,7 @@ globalkeys = gears.table.join(
    --    {description = "select next", group = "layout"}),
    -- awful.key({ modkey, "Shift"   }, "Tab", function () awful.screen.focused().selected_tag.layout = awful.layout.layouts[1] end,
    --    {description = "select first", group = "layout"}),
-   awful.key({ modkey,           }, "f",  function ()
+   awful.key({ modkey,           }, "m",  function ()
          local current = awful.screen.focused().selected_tag
          if current.layout ~= awful.layout.suit.max then
             current.layout = awful.layout.suit.max
@@ -689,19 +689,19 @@ clientkeys = gears.table.join(
          c.minimized = true
       end ,
       {description = "minimize", group = "client"}),
-   awful.key({ modkey,           }, "m",
+   awful.key({ modkey,           }, "f",
       function (c)
          c.maximized = not c.maximized
          c:raise()
       end ,
       {description = "(un)maximize", group = "client"}),
-   awful.key({ modkey, "Control" }, "m",
+   awful.key({ modkey, "Control" }, "f",
       function (c)
          c.maximized_vertical = not c.maximized_vertical
          c:raise()
       end ,
       {description = "(un)maximize vertically", group = "client"}),
-   awful.key({ modkey, "Shift"   }, "m",
+   awful.key({ modkey, "Shift"   }, "f",
       function (c)
          c.maximized_horizontal = not c.maximized_horizontal
          c:raise()
