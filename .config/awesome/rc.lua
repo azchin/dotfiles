@@ -276,9 +276,9 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
    awful.layout.suit.tile.left,
+   awful.layout.suit.tile.top,
    awful.layout.suit.max,
    awful.layout.suit.fair,
-   awful.layout.suit.tile.top,
    awful.layout.suit.floating,
    -- awful.layout.suit.tile,
    -- awful.layout.suit.hiding,
@@ -460,7 +460,7 @@ globalkeys = gears.table.join(
    --    {description = "view previous", group = "tag"}),
    -- awful.key({ modkey,           }, "Tab",  awful.tag.viewnext,
    --    {description = "view next", group = "tag"}),
-   awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+   awful.key({ modkey,           }, "Tab", awful.tag.history.restore,
       {description = "go back", group = "tag"}),
 
    awful.key({ modkey,           }, "j",
@@ -507,16 +507,16 @@ globalkeys = gears.table.join(
       {description = "focus the next screen", group = "screen"}),
    awful.key({ modkey, "Control" }, "Up", function () awful.screen.focus_relative(-1) end,
       {description = "focus the previous screen", group = "screen"}),
-   -- awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-   --    {description = "jump to urgent client", group = "client"}),
-   awful.key({ modkey,           }, "w",
-      function ()
-         awful.client.focus.history.previous()
-         if client.focus then
-            client.focus:raise()
-         end
-      end,
-      {description = "go back", group = "client"}),
+   awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
+      {description = "jump to urgent client", group = "client"}),
+   -- awful.key({ modkey,           }, "w",
+   --    function ()
+   --       awful.client.focus.history.previous()
+   --       if client.focus then
+   --          client.focus:raise()
+   --       end
+   --    end,
+   --    {description = "go back", group = "client"}),
 
    -- Standard program
    -- awful.key({ modkey,           }, "g", function () spawn_activate_smart(terminal, terminal_class) end,
@@ -526,13 +526,15 @@ globalkeys = gears.table.join(
    -- awful.key({ modkey,           }, "v", function () spawn_activate_smart(visual, visual_class) end,
    --    {description = "focus the editor", group = "launcher"}),
 
+   awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+      {description = "open a terminal", group = "launcher"}),
    awful.key({ modkey,           }, "g", function () awful.spawn(terminal) end,
       {description = "open a terminal", group = "launcher"}),
    awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
       {description = "open the browser", group = "launcher"}),
    awful.key({ modkey, "Shift"   }, "v", function () awful.spawn(visual) end,
       {description = "open editor", group = "launcher"}),
-   awful.key({ modkey,           }, "v", function () awful.spawn.with_shell("emacsclient -c") end,
+   awful.key({ modkey,           }, "v", function () awful.spawn.with_shell("emacsclient -c || emacs") end,
       {description = "open emacs client", group = "launcher"}),
 
    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pamixer -d 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
@@ -585,10 +587,10 @@ globalkeys = gears.table.join(
       {description = "increase the number of columns", group = "layout"}),
    awful.key({ modkey, "Control" }, "Right",     function () awful.tag.incncol(reverse_layout_negate(-1), nil, true)    end,
       {description = "decrease the number of columns", group = "layout"}),
-   awful.key({ modkey,           }, "Tab", function () awful.layout.inc( 1)                end,
-      {description = "select next", group = "layout"}),
-   awful.key({ modkey, "Shift"   }, "Tab", function () awful.screen.focused().selected_tag.layout = awful.layout.layouts[1] end,
-      {description = "select first", group = "layout"}),
+   -- awful.key({ modkey,           }, "Tab", function () awful.layout.inc( 1)                end,
+   --    {description = "select next", group = "layout"}),
+   -- awful.key({ modkey, "Shift"   }, "Tab", function () awful.screen.focused().selected_tag.layout = awful.layout.layouts[1] end,
+   --    {description = "select first", group = "layout"}),
    awful.key({ modkey,           }, "f",  function ()
          local current = awful.screen.focused().selected_tag
          if current.layout ~= awful.layout.suit.max then
@@ -598,7 +600,7 @@ globalkeys = gears.table.join(
          end
    end,
    {description = "toggle monocle", group = "layout"}),
-   awful.key({ modkey, "Shift"   }, "f",  function ()
+   awful.key({ modkey,           }, "a",  function ()
          local current = awful.screen.focused().selected_tag
          if current.layout ~= awful.layout.suit.floating then
             current.layout = awful.layout.suit.floating
@@ -607,6 +609,15 @@ globalkeys = gears.table.join(
          end
    end,
    {description = "toggle floating", group = "layout"}),
+   awful.key({ modkey,           }, "w",  function ()
+         local current = awful.screen.focused().selected_tag
+         if current.layout ~= awful.layout.layouts[1] then
+            current.layout = awful.layout.layouts[1]
+         else
+            current.layout = awful.layout.layouts[2]
+         end
+   end,
+   {description = "switch between top two layouts", group = "layout"}),
    awful.key({ modkey, "Control" }, "n",
       function ()
          local c = awful.client.restore()
@@ -622,8 +633,9 @@ globalkeys = gears.table.join(
    -- Prompt
    awful.key({ modkey },            "c",     function () awful.screen.focused().mypromptbox:run() end,
       {description = "run command", group = "launcher"}),
-   awful.key({ modkey },            "p",     function () awful.spawn.with_shell("~/bin/dmenu_run_history.sh ~/bin/drofi") end,
-      {description = "run dmenu", group = "launcher"}),
+   -- TODO either install dmenu or change this binding
+   -- awful.key({ modkey },            "p",     function () awful.spawn.with_shell("~/bin/dmenu_run_history.sh ~/bin/drofi") end,
+   --    {description = "run dmenu", group = "launcher"}),
 
    -- awful.key({ modkey }, "x",
    --    function ()
@@ -713,7 +725,7 @@ clientkeys = gears.table.join(
       {description = "move client left", group = "client"}),
    awful.key({ modkey, "Mod1"    }, "Right", function (c) move_floating_client(c, 50, 0) end,
       {description = "move client right", group = "client"}),
-   awful.key({ modkey,           }, "a", move_mouse_onto_client,
+   awful.key({ modkey,           }, "e", move_mouse_onto_client,
       {description = "move pointer to focus", group = "client"}),
    -- https://www.reddit.com/r/awesomewm/comments/gehk1g/cursor_follows_focus_possible/ 
    awful.key({ modkey,           }, "r", retag,
