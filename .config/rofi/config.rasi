@@ -1,5 +1,7 @@
 configuration {
-    modi: "window,run,ssh,drun";
+    modes: "window,run,ssh,drun";
+    show-icons: false; // instead pass through command line
+    dpi: 1; // auto-detect based on monitor size
     terminal: "alacritty";
     ssh-client: "ssh";
     disable-history: true;

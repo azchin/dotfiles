@@ -631,11 +631,14 @@ globalkeys = gears.table.join(
       {description = "restore minimized", group = "client"}),
 
    -- Prompt
-   awful.key({ modkey },            "c",     function () awful.screen.focused().mypromptbox:run() end,
-      {description = "run command", group = "launcher"}),
-   -- TODO either install dmenu or change this binding
-   -- awful.key({ modkey },            "p",     function () awful.spawn.with_shell("~/bin/dmenu_run_history.sh ~/bin/drofi") end,
-   --    {description = "run dmenu", group = "launcher"}),
+   -- awful.key({ modkey },            "c",     function () awful.screen.focused().mypromptbox:run() end,
+   --    {description = "run command", group = "launcher"}),
+   awful.key({ modkey },            "p",     function () awful.spawn.with_shell("dmenu_run_history.sh drofi") end,
+      {description = "run dmenu", group = "launcher"}),
+   awful.key({ modkey },            "space",     function () awful.spawn.with_shell("rofi -show drun -show-icons -theme-str '* { font: \"DejaVu Sans 14\"; }'") end,
+      {description = "run rofi dmenu", group = "launcher"}),
+   awful.key({ modkey },            "c",     function () awful.spawn.with_shell("launch.sh drofi") end,
+      {description = "run rofi launcher", group = "launcher"})
 
    -- awful.key({ modkey }, "x",
    --    function ()
@@ -648,15 +651,15 @@ globalkeys = gears.table.join(
    --    end,
    --    {description = "lua execute prompt", group = "awesome"}),
    -- Menubar
-   awful.key({ modkey }, "space", function()
-         local s = awful.screen.focused()
-         menubar.geometry["x"] = s.mywibox.x
-         menubar.geometry["y"] = s.mywibox.y
-         menubar.geometry["width"] = s.mywibox.width
-         menubar.geometry["height"] = s.mywibox.height
-         menubar.show()
-   end,
-      {description = "show the menubar", group = "launcher"})
+   -- awful.key({ modkey }, "space", function()
+   --       local s = awful.screen.focused()
+   --       menubar.geometry["x"] = s.mywibox.x
+   --       menubar.geometry["y"] = s.mywibox.y
+   --       menubar.geometry["width"] = s.mywibox.width
+   --       menubar.geometry["height"] = s.mywibox.height
+   --       menubar.show()
+   -- end,
+   --    {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(

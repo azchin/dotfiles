@@ -30,6 +30,7 @@
 
   font: "DejaVu Sans Mono 12";
   text-color: @text;
+  text-align: center;
 }
 
 window {
@@ -88,6 +89,9 @@ element selected {
 
 element-text {
   text-color: @text-alt;
+  vertical-align: 0.5;
+  horizontal-align: 0.0;
+  padding: 0 0 0 10px;
 }
 
 element-text selected {
@@ -100,6 +104,10 @@ element-text urgent, element selected urgent {
 
 element-text active, element selected active {
   text-color: @purple;
+}
+
+element-icon {
+  size: 48;
 }
 
 message {
