@@ -1,2 +1,5 @@
 . $HOME/.config/profile
-xrdb $HOME/.config/X11/Xresources
+if ! [ $XDG_SESSION_TYPE = "wayland" ]; then
+    xrdb $HOME/.config/X11/Xresources
+    autorandr -l dual
+fi

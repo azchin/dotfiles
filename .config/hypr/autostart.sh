@@ -50,7 +50,7 @@ sudo ~/bin/amdgpu-clock.sh
 dunst &
 waybar &
 hypridle &
-# emacs --daemon &
+emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 # [ -z "$(pidof syncthing)" ] && syncthing &
 # setxkbmap -option caps:escape_shifted_capslock
@@ -65,7 +65,7 @@ nm-applet &
 xrdb ~/.config/X11/Xresources
 xrdb -merge ~/.config/X11/Xresources-wayland
 gsettings set org.gnome.desktop.interface cursor-size 24
-cp ~/.config/gtk-3.0/settings-archtwo-wayland.ini ~/.config/gtk-3.0/settings.ini
+# cp ~/.config/gtk-3.0/settings-archtwo-wayland.ini ~/.config/gtk-3.0/settings.ini
 
 # [ -z "$(pidof xfce4-power-manager)" ] && xfce4-power-manager &
 # sxhkd ~/.config/sxhkd/floating-sxhkdrc &
