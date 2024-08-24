@@ -8,7 +8,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias diff='diff --color=auto'
 alias rg='rg --color ansi'
-alias less='less -R'
+# export LESS=""
+alias les='less -RFMi --incsearch'
 alias c='clear'
 alias yd='pwd > $XDG_DATA_HOME/currentdirectory'
 alias pd='cd $(cat $XDG_DATA_HOME/currentdirectory)'
@@ -19,6 +20,8 @@ alias tx='tmux -c "cd $(pwd)"'
 # alias sudo='doas --'
 # alias doas='doas --'
 # alias de='doasedit'
+alias pdec='printf "%d\n"'
+alias phex='printf "%x\n"'
 
 # Apps
 alias ez='exec zsh'
