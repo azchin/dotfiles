@@ -507,6 +507,8 @@ globalkeys = gears.table.join(
       {description = "focus the next screen", group = "screen"}),
    awful.key({ modkey, "Control" }, "Up", function () awful.screen.focus_relative(-1) end,
       {description = "focus the previous screen", group = "screen"}),
+   awful.key({ modkey,           }, "i", function () awful.screen.focus_relative( 1) end,
+      {description = "focus the next screen", group = "screen"}),
    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
       {description = "jump to urgent client", group = "client"}),
    -- awful.key({ modkey,           }, "w",
@@ -675,9 +677,8 @@ clientkeys = gears.table.join(
       {description = "toggle floating", group = "client"}),
    awful.key({ modkey,         }, "s", push_to_master,
       {description = "move to master", group = "client"}),
-   -- awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-   --    {description = "move to screen", group = "client"}),
-   -- ANDREW what does 'end' do? Can bind this to another key later
+   awful.key({ modkey, "Shift"   }, "i",      function (c) c:move_to_screen()               end,
+      {description = "move to screen", group = "client"}),
    awful.key({ modkey,           }, "t",      function (c) c.sticky = not c.sticky            end,
       {description = "toggle sticky", group = "client"}),
    awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end,
@@ -707,18 +708,18 @@ clientkeys = gears.table.join(
          c:raise()
       end ,
       {description = "(un)maximize horizontally", group = "client"}),
-   awful.key({modkey }, "o",
-      function (c)
-         local t = awful.screen.focused().selected_tag
-         if not_fixed_tag(t) then
-            for _, o in ipairs(t:clients()) do
-               if o ~= c then
-                  o:toggle_tag(t)
-               end
-            end
-         end
-      end,
-      {description = "retag other clients", group = "client"}),
+   -- awful.key({modkey }, "o",
+   --    function (c)
+   --       local t = awful.screen.focused().selected_tag
+   --       if not_fixed_tag(t) then
+   --          for _, o in ipairs(t:clients()) do
+   --             if o ~= c then
+   --                o:toggle_tag(t)
+   --             end
+   --          end
+   --       end
+   --    end,
+   --    {description = "retag other clients", group = "client"}),
    -- TODO awful.placement move floating relative
    awful.key({ modkey, "Mod1"    }, "Up", function (c) move_floating_client(c, 0, -50) end,
       {description = "move client up", group = "client"}),
@@ -729,10 +730,10 @@ clientkeys = gears.table.join(
    awful.key({ modkey, "Mod1"    }, "Right", function (c) move_floating_client(c, 50, 0) end,
       {description = "move client right", group = "client"}),
    awful.key({ modkey,           }, "e", move_mouse_onto_client,
-      {description = "move pointer to focus", group = "client"}),
+      {description = "move pointer to focus", group = "client"})
    -- https://www.reddit.com/r/awesomewm/comments/gehk1g/cursor_follows_focus_possible/ 
-   awful.key({ modkey,           }, "r", retag,
-      {description = "untag or retag", group = "client"})
+   -- awful.key({ modkey,           }, "r", retag,
+   --    {description = "untag or retag", group = "client"})
 )
 
 -- Bind all key numbers to tags.
@@ -932,7 +933,7 @@ client.connect_signal("request::titlebars", function(c)
                             end)
                          )
 
-                         awful.titlebar(c, { size = 32}) : setup {
+                         awful.titlebar(c, { size = 24}) : setup {
                             { -- Left
                                awful.titlebar.widget.iconwidget(c),
                                buttons = buttons,
