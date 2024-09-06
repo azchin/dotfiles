@@ -539,6 +539,10 @@ globalkeys = gears.table.join(
    awful.key({ modkey,           }, "v", function () awful.spawn.with_shell("emacsclient -c -a emacs") end,
       {description = "open emacs client", group = "launcher"}),
 
+   awful.key({ }, "XF86MonBrightnessDown", function () awful.spawn.with_shell("sudo light -U 5 && ~/bin/notify.sh \"Brightness: $(light -G)\" brightnesssettings") end,
+      {description = "Decrease screen brightness", group = "system"}),
+   awful.key({ }, "XF86MonBrightnessUp", function () awful.spawn.with_shell("sudo light -A 5 && ~/bin/notify.sh \"Brightness: $(light -G)\" brightnesssettings") end,
+      {description = "Increase screen brightness", group = "system"}),
    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pamixer -d 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
       {description = "Lower volume", group = "system"}),
    awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("pamixer -i 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
