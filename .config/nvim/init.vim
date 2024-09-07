@@ -90,6 +90,8 @@ nnoremap <silent> <Leader>c :call SignToggle()<CR>
 
 " #################################################################
 " Statusline
+set laststatus=2
+
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
     hi statusline ctermfg=green
