@@ -175,8 +175,10 @@ if exists("g:neovide")
     " Put anything you want to happen only in Neovide here
     let g:neovide_position_animation_length = 0
     colorscheme modus_operandi
+    " colorscheme modus_vivendi
     let g:neovide_theme = 'auto'
-    let g:neovide_cursor_animation_length = 0.02
+    let g:neovide_cursor_animation_length = 0.05
+    let g:neovide_cursor_trail_size = 0.1
     set guifont=DejaVu\ Sans\ Mono:h14
 endif
 

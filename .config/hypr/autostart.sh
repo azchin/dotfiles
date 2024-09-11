@@ -1,6 +1,13 @@
 #!/bin/sh
 
 . ~/.config/profile
+
+# kwallet
+NIX_KWALLET_PAM=/etc/kwallet-pam-path
+if [ -f "$NIX_KWALLET_PAM" ]; then
+    $(cat $NIX_KWALLET_PAM)/libexec/pam_kwallet_init --unset QT_PLUGIN_PATH &> ~/sandbox/pam_kwallet_init.log
+fi
+
 # export GTK_IM_MODULE=fcitx
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=@im=fcitx
