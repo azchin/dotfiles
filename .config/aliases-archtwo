@@ -57,7 +57,7 @@ alias dkpen='sudo docker exec -it pentest bash'
 # alias 9999='sudo smart-live-rebuild -q'
 
 # Desktop specific
-alias open='xdg-open'
+# alias open='xdg-open'
 alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
 alias c='clear && termstart.sh'
 alias cdc='cd && c'

@@ -146,7 +146,7 @@ Plug 'miikanissi/modus-themes.nvim'
 Plug 'neovim/nvim-lspconfig'  " Bloated /s
 Plug 'windwp/nvim-autopairs'  " Why isn't this in vanilla Vim
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'nvim-lua/plenary.nvim'
@@ -202,4 +202,4 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 :lua require('mypairs')
 
 " LSP
-:lua require('mylsp')
+" :lua require('mylsp')

@@ -7,3 +7,5 @@
 #     # exec /usr/bin/labwc 2> ~/.labwc-errors
 # fi
 # # XDG_SESSION_TYPE=wayland dbus-run-session sway
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
