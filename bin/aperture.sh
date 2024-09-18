@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 echo -n "\033[1;36m"
 cat << "EOF"
                .,-:;//;:=,
