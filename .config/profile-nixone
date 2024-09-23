@@ -76,6 +76,6 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 # export XDG_CURRENT_DESKTOP=kwin
 
 export SVDIR=~/service
-export SSLAB_GITOLITE=~/gitolite-admin  # tc@gitolite-admin
+export SSLAB_GITOLITE=~/sslab/gitolite  # tc@gitolite-admin
 export SSLAB_WEB=~/sslab         # tc@sslab
 export PATH=$PATH:$SSLAB_WEB/bin        # bin for tc@sslab
