@@ -8,4 +8,6 @@
 # fi
 # # XDG_SESSION_TYPE=wayland dbus-run-session sway
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $OSTYPE == 'darwin'* ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
