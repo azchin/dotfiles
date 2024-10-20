@@ -10,9 +10,9 @@ If the repo is cloned into your home directory, all scripts and configs should r
 ```
 mkdir projects
 cd projects
-git clone --bare --recurese-submodules $REPO/dotfiles.git
+git clone --bare --recurse-submodules $REPO/dotfiles.git
 alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
-dots reset --hard ~
+dots reset --hard
 dots config --local status.showUntrackedFiles no
 ```
 

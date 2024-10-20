@@ -37,7 +37,7 @@ pkill picom
 # services
 # ~/bin/asound.sh off
 # ~/bin/screens.sh
-sudo ~/bin/amdgpu-clock.sh
+# sudo ~/bin/amdgpu-clock.sh
 
 # ~/bin/wallpaper.sh
 # xrandr --dpi 96

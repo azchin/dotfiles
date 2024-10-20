@@ -43,7 +43,7 @@ pkill nm-applet
 # services
 # ~/bin/asound.sh off
 # ~/bin/screens.sh
-sudo ~/bin/amdgpu-clock.sh
+# sudo ~/bin/amdgpu-clock.sh
 
 # ~/bin/wallpaper.sh
 # xrandr --dpi 96
@@ -57,7 +57,7 @@ sudo ~/bin/amdgpu-clock.sh
 dunst &
 waybar &
 hypridle &
-emacs --daemon &
+# emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 # [ -z "$(pidof syncthing)" ] && syncthing &
 # setxkbmap -option caps:escape_shifted_capslock
