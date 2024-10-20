@@ -29,3 +29,6 @@ nvim -c 'PlugInstall'
 .config/gtk-3.0/settings.ini
 .config/X11/Xresources
 ```
+
+# PAM
+Keyring is `kdewallet`. Look for `libexec/pam_kwallet_init`.
