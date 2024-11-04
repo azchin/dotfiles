@@ -4,6 +4,13 @@ set -eu
 REPO=$(git remote -v | head -n1 | awk '{ print  $2 }')
 PROJ=$HOME/projects
 
+mkdir -p $HOME/clone
+mkdir -p $HOME/sandbox
+mkdir -p $HOME/.cache
+mkdir -p $HOME/.local
+mkdir -p $HOME/.config
+mkdir -p $HOME/.ssh
+chmod 700 $HOME/.ssh
 mkdir -p $PROJ
 cd $PROJ
 
