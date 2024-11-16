@@ -39,7 +39,7 @@ mach_color="yellow"
 if [ -n "$SSH_TTY" ]; then
     mach_color="magenta"
 fi
-mach="%F{green}%n@%F{${mach_color}}%M%f"
+mach="%F{green}%n%F{black}@%F{${mach_color}}%M%f"
 # PROMPT="%B%F{green}[${mach} %F{cyan}${dir}%F{green}] ${err}%F{green}${prm}%f%b"
 # PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
 PROMPT="%B%F{green}${err}${mach} ${cur} ${prm}%f%b"
