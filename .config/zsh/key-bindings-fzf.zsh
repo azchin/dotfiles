@@ -33,7 +33,7 @@ fzf-file-widget() {
   return $ret
 }
 zle     -N   fzf-file-widget
-# bindkey '^F' fzf-file-widget
+bindkey '^T' fzf-file-widget
 
 # Ensure precmds are run after cd
 fzf-redraw-prompt() {
@@ -62,7 +62,7 @@ fzf-cd-widget() {
   return $ret
 }
 zle     -N    fzf-cd-widget
-# bindkey '^G' fzf-cd-widget
+bindkey '^G' fzf-cd-widget
 # bindkey '\ec' fzf-cd-widget
 
 # CTRL-R - Paste the selected command from history into the command line

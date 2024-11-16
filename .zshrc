@@ -41,11 +41,12 @@ source $ZSH/order/git-async.zsh
 
 HISTSIZE=10000
 SAVEHIST=10000
-setopt appendhistory extendedglob notify
-unsetopt autocd beep
+setopt autocd appendhistory extendedhistory extendedglob incappendhistorytime interactivecomments notify
+unsetopt beep
 
 _comp_options+=(globdots)   # Include hidden files
 zstyle ':completion:*' special-dirs false
 
-~/bin/termstart.sh
-# eval "$(direnv hook zsh)"
+[ -x ~/bin/termstart.sh ] && ~/bin/termstart.sh
+command -v direnv && eval "$(direnv hook zsh)"
+:
