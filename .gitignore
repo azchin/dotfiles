@@ -12,6 +12,7 @@ Videos/*
 .local/share/nvim/undo/*
 .local/share/nvim/swap/*
 !projects/.gitkeep
+!projects/dotfiles.git
 !clone/.gitkeep
 !sandbox/.gitkeep
 !vm/README.md
