@@ -597,7 +597,7 @@ globalkeys = gears.table.join(
    --    {description = "select next", group = "layout"}),
    -- awful.key({ modkey, "Shift"   }, "Tab", function () awful.screen.focused().selected_tag.layout = awful.layout.layouts[1] end,
    --    {description = "select first", group = "layout"}),
-   awful.key({ modkey,           }, "m",  function ()
+   awful.key({ modkey,           }, "f",  function ()
          local current = awful.screen.focused().selected_tag
          if current.layout ~= awful.layout.suit.max then
             current.layout = awful.layout.suit.max
@@ -694,19 +694,19 @@ clientkeys = gears.table.join(
          c.minimized = true
       end ,
       {description = "minimize", group = "client"}),
-   awful.key({ modkey,           }, "f",
+   awful.key({ modkey,           }, "m",
       function (c)
          c.maximized = not c.maximized
          c:raise()
       end ,
       {description = "(un)maximize", group = "client"}),
-   awful.key({ modkey, "Control" }, "f",
+   awful.key({ modkey, "Control" }, "m",
       function (c)
          c.maximized_vertical = not c.maximized_vertical
          c:raise()
       end ,
       {description = "(un)maximize vertically", group = "client"}),
-   awful.key({ modkey, "Shift"   }, "f",
+   awful.key({ modkey, "Shift"   }, "m",
       function (c)
          c.maximized_horizontal = not c.maximized_horizontal
          c:raise()

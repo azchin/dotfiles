@@ -1,6 +1,13 @@
 #!/bin/sh
 
 . ~/.config/profile
+
+# kwallet
+NIX_KWALLET_PAM=/etc/kwallet-pam-path
+if [ -f "$NIX_KWALLET_PAM" ]; then
+    $(cat $NIX_KWALLET_PAM)/libexec/pam_kwallet_init --unset QT_PLUGIN_PATH &> ~/sandbox/pam_kwallet_init.log
+fi
+
 # export GTK_IM_MODULE=fcitx
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=@im=fcitx
@@ -21,14 +28,14 @@ killall dunst
 # pkill onedrive
 pkill xss-lock
 # pkill xidlehook
-# pkill cbatticon
+pkill cbatticon
 # pkill pasystray
 # pkill udisksctl
 pkill nm-applet
 # pkill devilspie2
 # tmux kill-server
 # killall -q fcitx
-# setxkbmap -option
+setxkbmap -option
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
 killall -q emacs
@@ -54,7 +61,8 @@ dunst &
 emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 # [ -z "$(pidof syncthing)" ] && syncthing &
-# setxkbmap -option caps:escape_shifted_capslock
+setxkbmap -option caps:escape_shifted_capslock
+xmodmap ~/.config/xmodmap
 # sxhkd &
 # pipewire &
 # pipewire-pulse &
@@ -62,7 +70,7 @@ emacs --daemon &
 nm-applet &
 xss-lock -l ~/bin/lock.sh & 
 picom &
-[ -z "$(pidof keepassxc)" ] && keepassxc &
+# [ -z "$(pidof keepassxc)" ] && keepassxc &
 [ -z "$(pidof nextcloud)" ] && nextcloud &
 # xrdb ~/.config/X11/Xresources
 # cp ~/.config/gtk-3.0/settings-nixone.ini ~/.config/gtk-3.0/settings.ini
@@ -74,7 +82,7 @@ picom &
 # ibus-daemon -drxR
 # fcitx5 -d
 # pasystray &
-# cbatticon -n -u 60 -l 30 -o 'dunstify "Low battery!"' &
+cbatticon -n -u 10 -l 30 -o 'dunstify "Low battery!"' &
 # megasync &
 # devilspie2 &
 
