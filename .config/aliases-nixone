@@ -39,10 +39,10 @@ alias sess='abduco -e ^d -A andrew zsh'
 alias mpvnv='mpv --no-video'
 
 # Systemd
-alias slep='command -v systemctl >/dev/null && systemctl suspend || loginctl suspend'
-alias shut='command -v systemctl >/dev/null && systemctl poweroff || loginctl poweroff'
-alias rez='command -v systemctl >/dev/null && systemctl reboot || loginctl reboot'
-alias hib='command -v systemctl >/dev/null && systemctl hibernate || loginctl hibernate'
+alias slep='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl suspend || loginctl suspend)'
+alias shut='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl poweroff || loginctl poweroff)'
+alias rez='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl reboot || loginctl reboot)'
+alias hib='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl hibernate || loginctl hibernate)'
 
 # Docker
 alias dk='sudo docker'
