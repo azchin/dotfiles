@@ -23,3 +23,16 @@ ssh -p 22220 vm_user@localhost                 # (client) ssh?
 ssh -L 5930:localhost:5930 user@server         # (client) create SSH tunnel
 spicy -h localhost -p 5930                     # (client) spicy client
 ```
+
+We can set up the following in the client's ssh config.
+```conf
+Host vm
+    HostName localhost
+    User myuser
+    Port 22220
+    ProxyJump myserver
+
+Host spice
+    HostName myserver
+    LocalForward 5930 localhost:5930
+```
