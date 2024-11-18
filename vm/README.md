@@ -17,10 +17,10 @@ quickemu --vm ubuntu-24.04.conf \
          --spice-port 5930
 cat ubuntu-24.04/ubuntu-24.04.ports            # (host)   check port
 
-ssh -L 22220:localhost:22220 user@server       # (client) create SSH tunnel
+ssh -L 22220:localhost:22220 -N -f user@server # (client) create SSH tunnel
 ssh -p 22220 vm_user@localhost                 # (client) ssh?
 
-ssh -L 5930:localhost:5930 user@server         # (client) create SSH tunnel
+# (client) can also tunnel port 5930
 spicy -h localhost -p 5930                     # (client) spicy client
 ```
 
