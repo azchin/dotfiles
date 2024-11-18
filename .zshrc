@@ -24,8 +24,11 @@ for config_file ($ZSH/*.zsh) ; do source $config_file ; done
 declare -A ZINIT
 export ZINIT[HOME_DIR]="$XDG_CONFIG_HOME/zsh/zinit"
 source $ZSH/zinit/bin/zinit.zsh
+zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
+zinit ice wait lucid
 zinit light zsh-users/zsh-completions
+zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light mafredri/zsh-async
 source $ZSH/order/git-async.zsh
