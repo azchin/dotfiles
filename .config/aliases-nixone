@@ -140,9 +140,9 @@ alias batinfo='acpi -b'
 # alias wgup='sudo systemctl start wg-quick@bambino'
 # alias wgdown='sudo systemctl stop wg-quick@bambino'
 # alias nmrestart='sudo systemctl restart NetworkManager'
-alias wgup='sudo systemctl start wg-quick-wg0'
-alias wgdown='sudo systemctl stop wg-quick-wg0'
-alias nmrestart='sudo sv restart NetworkManager'
+alias wgup='test -z "$SSH_TTY" && sudo systemctl start wg-quick-wg0'
+alias wgdown='test -z "$SSH_TTY" && sudo systemctl stop wg-quick-wg0'
+# alias nmrestart='sudo sv restart NetworkManager'
 
 # Stolen
 # alias g++14="g++ -std=c++14 -Wall -g"
