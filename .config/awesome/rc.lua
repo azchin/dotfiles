@@ -547,6 +547,16 @@ globalkeys = gears.table.join(
       {description = "Lower volume", group = "system"}),
    awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("pamixer -i 5 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
       {description = "Raise volume", group = "system"}),
+
+   awful.key({ "Shift" }, "XF86MonBrightnessDown", function () awful.spawn.with_shell("sudo light -U 1 && ~/bin/notify.sh \"Brightness: $(light -G)\" brightnesssettings") end,
+      {description = "Decrease screen brightness", group = "system"}),
+   awful.key({ "Shift" }, "XF86MonBrightnessUp", function () awful.spawn.with_shell("sudo light -A 1 && ~/bin/notify.sh \"Brightness: $(light -G)\" brightnesssettings") end,
+      {description = "Increase screen brightness", group = "system"}),
+   awful.key({ "Shift" }, "XF86AudioLowerVolume", function () awful.spawn.with_shell("pamixer -d 1 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
+      {description = "Lower volume", group = "system"}),
+   awful.key({ "Shift" }, "XF86AudioRaiseVolume", function () awful.spawn.with_shell("pamixer -i 1 && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
+
+      {description = "Raise volume", group = "system"}),
    awful.key({ }, "XF86AudioMute", function () awful.spawn.with_shell("pamixer -t && ~/bin/notify.sh \"Volume: $(pamixer --get-volume-human)\" audio-volume-high") end,
       {description = "Mute", group = "system"}),
    awful.key({ }, "XF86AudioPlay", function () awful.spawn.with_shell("playerctl.sh play-pause") end,
