@@ -781,13 +781,8 @@ for i = 1, 9 do
                                        if client.focus then
                                           local tag = client.focus.screen.tags[i]
                                           local ftag = awful.screen.focused().selected_tag
-                                          if tag and not_fixed_tag(tag) then
-                                             if not_fixed_tag(ftag) then
-                                                client.focus:move_to_tag(tag)
-                                             else
-                                                client.focus:toggle_tag(tag)
-                                                tag:view_only()
-                                             end
+                                          if tag then
+                                             client.focus:move_to_tag(tag)
                                           end
                                        end
                                     end,
@@ -797,7 +792,7 @@ for i = 1, 9 do
                                     function ()
                                        if client.focus then
                                           local tag = client.focus.screen.tags[i]
-                                          if tag and not_fixed_tag(tag) then
+                                          if tag then
                                              client.focus:toggle_tag(tag)
                                           end
                                        end
