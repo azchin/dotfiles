@@ -31,19 +31,20 @@ nl='
 
 # dir="%F{cyan}%64<...<%~%<<%f" # 36
 # prm="%F{green}λ %f"
+# date="%F{yellow}%D{%T}%f"
+# mach="%F{green}%n%F{black}@%F{${mach_color}}%M%f" # one with username
+# PROMPT="%B%F{green}[${mach} %F{cyan}${dir}%F{green}] ${err}%F{green}${prm}%f%b"
+# PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
+
 err="%0(?:%F{green}>>:%F{red}%?)"
 prm="%F{green}%#%f"
-cur="%F{cyan}%3~%f"
-# date="%F{yellow}%D{%T}%f"
+cur="%F{cyan}%5~%f"
 mach_color="yellow"
 if [ -n "$SSH_TTY" ]; then
     mach_color="magenta"
 fi
-mach="%F{green}%n%F{black}@%F{${mach_color}}%M%f"
-# PROMPT="%B%F{green}[${mach} %F{cyan}${dir}%F{green}] ${err}%F{green}${prm}%f%b"
-# PROMPT="%B%F{green}${err}${date} ${cur} ${prm}%f%b"
-PROMPT="%B%F{green}${err}%f %T ${mach} ${cur} ${prm} %f%b"
-# RPROMPT="%B${dir}%f%b"
+mach="%F{${mach_color}}%M%f"
+PROMPT="%B%F{green}${err}%f %D{%H:%M %S} ${mach} ${cur} ${prm} %f%b"
 
 RPROMPT='${vcs_info_msg_0_}'
 

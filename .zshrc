@@ -31,6 +31,7 @@ zinit light zsh-users/zsh-completions
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light mafredri/zsh-async
+# zinit light jeffreytse/zsh-vi-mode
 source $ZSH/order/git-async.zsh
 
 # source $ZSH/zinit/plugins/zsh-users---zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -44,8 +45,8 @@ source $ZSH/order/git-async.zsh
 
 HISTSIZE=10000
 SAVEHIST=10000
-setopt autocd appendhistory extendedhistory extendedglob incappendhistorytime interactivecomments notify
-unsetopt beep
+setopt appendhistory extendedhistory extendedglob incappendhistorytime interactivecomments notify
+unsetopt autocd beep
 
 _comp_options+=(globdots)   # Include hidden files
 zstyle ':completion:*' special-dirs false
