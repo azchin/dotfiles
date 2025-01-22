@@ -14,6 +14,8 @@ git clone --bare --recurse-submodules $REPO/dotfiles.git
 alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
 dots reset --hard
 dots config --local status.showUntrackedFiles no
+dots config --local pull.ff false # had bad time with ff only
+dots config --local pull.rebase true
 ```
 
 # Vim plug
