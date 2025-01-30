@@ -98,6 +98,16 @@ action = "IncreaseFontSize"
 key = 13
 mods = "Control|Shift"
 
+[[keyboard.bindings]]
+chars = "\u001b[27;5;9~"
+key = "Tab"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001b[27;5;9~"
+key = "Tab"
+mods = "Control|Shift"
+
 [scrolling]
 history = 10000
 multiplier = 3
