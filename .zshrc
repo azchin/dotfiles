@@ -45,8 +45,8 @@ source $ZSH/order/git-async.zsh
 
 HISTSIZE=10000
 SAVEHIST=10000
-setopt append_history extended_history extended_glob inc_append_history_time interactive_comments notify
-unsetopt auto_cd beep
+setopt auto_cd append_history extended_history extended_glob inc_append_history_time interactive_comments notify
+unsetopt beep
 
 _comp_options+=(globdots)   # Include hidden files
 zstyle ':completion:*' special-dirs false

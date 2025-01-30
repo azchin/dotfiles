@@ -10,9 +10,11 @@ If the repo is cloned into your home directory, all scripts and configs should r
 ```
 mkdir projects
 cd projects
-git clone --bare --recurse-submodules $REPO/dotfiles.git
+git clone --bare git@github.com:$USERNAME/dotfiles.git
 alias dots='git --git-dir=$HOME/projects/dotfiles.git --work-tree=$HOME'
 dots reset --hard
+dots submodule init
+dots submodule update
 dots config --local status.showUntrackedFiles no
 dots config --local pull.ff false # had bad time with ff only
 dots config --local pull.rebase true
@@ -21,7 +23,7 @@ dots config --local pull.rebase true
 # Vim plug
 ```
 sh -c 'curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-nvim -c 'PlugInstall'
+nvim -c 'PlugInstall' # FIXME make a plugins only file to load
 ```
 
 # Alternatives
