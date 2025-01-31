@@ -104,7 +104,7 @@ key = "Tab"
 mods = "Control"
 
 [[keyboard.bindings]]
-chars = "\u001b[27;5;9~"
+chars = "\u001b[27;6;9~"
 key = "Tab"
 mods = "Control|Shift"
 
