@@ -2,6 +2,7 @@
 .config/gtk-3.0/settings.ini
 .config/aliases
 .config/profile
+.config/zsh/zinit
 
 projects/*
 clone/*

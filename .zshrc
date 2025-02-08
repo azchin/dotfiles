@@ -14,12 +14,9 @@ source ~/.config/aliases
 autoload -U compaudit compinit
 compinit -u -C -d "$XDG_CACHE_HOME/zcompdump"
 
-for config_file ($ZSH/*.zsh) ; do source $config_file ; done
+ZSH=${ZSH:-$HOME/.config/zsh}
 
-# source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# export fpath=($ZSH/zsh-completions/src $fpath)
-# source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/bin/insulter.zsh
+for config_file ($ZSH/*.zsh) ; do source $config_file ; done
 
 declare -A ZINIT
 export ZINIT[HOME_DIR]="$XDG_CONFIG_HOME/zsh/zinit"
@@ -31,8 +28,10 @@ zinit light zsh-users/zsh-completions
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light mafredri/zsh-async
+zinit light romkatv/powerlevel10k
 # zinit light jeffreytse/zsh-vi-mode
-source $ZSH/order/git-async.zsh
+
+# source $ZSH/order/git-async.zsh
 
 # source $ZSH/zinit/plugins/zsh-users---zsh-autosuggestions/zsh-autosuggestions.zsh
 # source $ZSH/zinit/plugins/zsh-users---zsh-completions/zsh-completions.plugin.zsh
@@ -54,3 +53,7 @@ zstyle ':completion:*' special-dirs false
 [ -x ~/bin/termstart.sh ] && ~/bin/termstart.sh
 command -v direnv && eval "$(direnv hook zsh)"
 :
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+P10K=$ZSH/order/p10k.zsh
+[[ ! -f $P10K ]] || source $P10K
