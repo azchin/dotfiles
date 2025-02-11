@@ -21,3 +21,4 @@ Videos/*
 !Videos/.gitkeep
 !.local/share/nvim/undo/.gitkeep
 !.local/share/nvim/swap/.gitkeep
+!.config/zsh/zinit/bin

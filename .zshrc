@@ -1,11 +1,18 @@
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ linux ]] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]]; then
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ "$TERM" = alacritty ]] ; then
-#     if [ $(tmux list-sessions | wc -l) -le 0 ]; then
-#         exec tmux
-#     # else
-#     #     exec tmux attach
-#     fi
-# fi
+if [ -n "$SSH_TTY" ] && command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ "$TERM" = xterm-256color ]]; then
+    echo -ne "\nDo you want to connect to tmux? [Y/n] "
+    read yn
+    case $yn in
+        "" | [Yy]es | [Yy]*)
+            if [ $(tmux list-sessions | wc -l) -le 0 ]; then
+                exec tmux
+            else
+                exec tmux attach
+            fi
+            ;;
+        * ) 
+            : ;;
+    esac
+fi
 
 stty -ixon -ixoff
 source ~/.config/profile
@@ -28,11 +35,13 @@ zinit light zsh-users/zsh-completions
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light mafredri/zsh-async
-zinit light romkatv/powerlevel10k
+# zinit light romkatv/powerlevel10k
 # zinit light jeffreytse/zsh-vi-mode
 
-# source $ZSH/order/git-async.zsh
+# NOTE replaced with p10k
+source $ZSH/order/git-async.zsh
 
+# NOTE zinit is fast enough
 # source $ZSH/zinit/plugins/zsh-users---zsh-autosuggestions/zsh-autosuggestions.zsh
 # source $ZSH/zinit/plugins/zsh-users---zsh-completions/zsh-completions.plugin.zsh
 # source $ZSH/zinit/plugins/zsh-users---zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -41,6 +50,8 @@ zinit light romkatv/powerlevel10k
 # export fpath=($ZSH/completions $fpath)
 
 # User configuration
+REPORTTIME=1
+TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S\ncmd\t%J'
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -55,5 +66,5 @@ command -v direnv && eval "$(direnv hook zsh)"
 :
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-P10K=$ZSH/order/p10k.zsh
-[[ ! -f $P10K ]] || source $P10K
+# P10K=$ZSH/order/p10k.zsh
+# [[ ! -f $P10K ]] || source $P10K
