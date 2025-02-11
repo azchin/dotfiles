@@ -9,6 +9,11 @@ set clipboard=unnamedplus
 set autochdir
 nnoremap Y y$
 
+" Theme
+set notermguicolors
+" colorscheme modus_operandi
+colorscheme vim
+
 " More advanced settings
 set foldlevel=99
 set signcolumn=no
@@ -165,10 +170,6 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <silent> <Leader>u :UndotreeToggle<CR>
-
-set notermguicolors
-" colorscheme modus_operandi
-colorscheme vim
 
 " neovide
 if exists("g:neovide")
