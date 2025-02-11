@@ -38,15 +38,15 @@ nl='
 
 err="%0(?:%F{green}>>:%F{red}%?)"
 prm="%F{green}%#%f"
-cur="%F{cyan}%5~%f"
+cur="%F{12}%5~%f"
 mach_color="yellow"
 if [ -n "$SSH_TTY" ]; then
     mach_color="magenta"
 fi
-mach="%F{${mach_color}}%M%f"
-PROMPT="%B%F{green}${err}%f ${mach} ${cur} ${prm} %f%b"
+mach="%B%F{${mach_color}}%M%f%b"
+PROMPT="%F{green}${err}%f ${mach} ${cur} ${prm} %f"
 
-RPROMPT='${vcs_info_msg_0_} %B%D{%H:%M}%b'
+RPROMPT='${vcs_info_msg_0_} %D{%H:%M}'
 
 
 # export ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}✔%F{15}"
