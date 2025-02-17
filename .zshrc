@@ -51,7 +51,7 @@ source $ZSH/order/git-async.zsh
 
 # User configuration
 REPORTTIME=1
-TIMEFMT=$'real\t%E\nuser\t%U\nsys\t%S\ncmd\t%J'
+TIMEFMT=$'real\t%E\t%*E\nuser\t%U\nsys\t%S\ncmd\t%J'
 
 HISTSIZE=10000
 SAVEHIST=10000
