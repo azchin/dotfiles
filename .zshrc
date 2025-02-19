@@ -1,3 +1,4 @@
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 if [ -n "$SSH_TTY" ] && command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ "$TERM" = xterm-256color ]]; then
     echo -ne "\nDo you want to connect to tmux? [Y/n] "
     read yn
