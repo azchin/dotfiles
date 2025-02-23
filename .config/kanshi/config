@@ -1,9 +1,0 @@
-profile asus {
-    output DP-2 enable mode 1920x1080 position 0,0
-#output eDP-1 enable mode 1624x1080 position 1920,0
-    output eDP-1 disable scale 1.5
-}
-
-profile laptop {
-    output eDP-1 enable mode 1624x1080 position 0,0
-}

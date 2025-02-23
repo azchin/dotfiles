@@ -26,6 +26,23 @@ window#waybar.solo {
 }
 */
 
+#tags button {
+    color: #808080;
+    padding: 0px 5px;
+}
+
+#tags button.focused {
+    color: #ffffff;
+}
+
+/* #tags button.occupied { */
+/*     color: #a0a0a0; */
+/* } */
+
+#tags button.urgent {
+    color: #eb4d4b;
+}
+
 window#waybar.termite {
     background-color: #3F3F3F;
 }

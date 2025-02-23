@@ -1,0 +1,80 @@
+#!/bin/sh
+
+. ~/.config/profile
+
+kanshi -c ~/.config/kanshi/config-desktop &
+
+terminal=alacritty
+browser=firefox
+editor="emacsclient -c -a emacs"
+file_manager=pcmanfm
+apps="rofi -show drun -show-icons -theme-str 'element-icon { size: 32; }'"
+menu="~/bin/dmenu_run_history.sh ~/bin/drofi"
+commands="~/bin/launch.sh ~/bin/drofi"
+
+riverctl map normal Super+Shift Q close
+riverctl map normal Super+Shift E exit
+
+riverctl map normal Super J focus-view next
+riverctl map normal Super K focus-view previous
+riverctl map normal Super Down focus-view next
+riverctl map normal Super Up focus-view previous
+riverctl map normal Super+Shift J swap next
+riverctl map normal Super+Shift K swap previous
+riverctl map normal Super+Shift Down swap next
+riverctl map normal Super+Shift Up swap previous
+riverctl map normal Super S zoom
+riverctl map normal Super I focus-output next
+riverctl map normal Super+Shift I send-to-output next
+riverctl map normal Super D toggle-float
+riverctl map normal Super F toggle-fullscreen
+
+riverctl map normal Super G spawn "$terminal"
+riverctl map normal Super Return spawn "$terminal"
+riverctl map normal Super Space spawn "$apps"
+riverctl map normal Super B spawn "$browser"
+riverctl map normal Super V spawn "$editor"
+riverctl map normal Super E spawn "$file_manager"
+
+riverctl map normal None XF86AudioLowerVolume spawn 'pamixer -d 5 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high'
+riverctl map normal None XF86AudioRaiseVolume spawn 'pamixer -i 5 && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high'
+riverctl map normal None XF86AudioMute spawn 'pamixer -t && ~/bin/notify.sh "Volume: $(pamixer --get-volume-human)" audio-volume-high'
+riverctl map normal None XF86AudioPlay spawn "~/bin/playerctl.sh play-pause"
+riverctl map normal None XF86AudioPrev spawn "~/bin/playerctl.sh previous"
+riverctl map normal None XF86AudioNext spawn "~/bin/playerctl.sh next"
+riverctl map normal None XF86AudioRewind spawn "~/bin/playerctl.sh rewind"
+riverctl map normal None XF86AudioForward spawn "~/bin/playerctl.sh forward"
+
+for i in $(seq 1 9); do
+    tags=$((1 << ($i - 1)))
+    riverctl map normal Super $i set-focused-tags $tags
+    riverctl map normal Super+Shift $i set-view-tags $tags
+    riverctl map normal Super+Control $i toggle-focused-tags $tags
+    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+done
+all_tags=$(((1 << 32) - 1))
+riverctl map normal Super 0 set-focused-tags $all_tags
+riverctl map normal Super+Shift 0 set-view-tags $all_tags
+
+mice="pointer-1133-16500-Logitech_G305"
+for m in $mice; do
+    riverctl input $m accel-profile flat
+done
+
+riverctl focus-follows-cursor normal
+riverctl set-cursor-warp on-focus-change
+riverctl set-repeat 32 400
+riverctl xcursor_theme capitaine-cursors-white 24
+
+riverctl rule-add '-app-id' '*' ssd
+
+riverctl default-layout rivertile
+riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+rivertile -view-padding 5 -outer-padding 5 -main-location right -main-ratio 0.5 &
+
+riverctl focus-output DP-2
+riverctl send-layout-cmd rivertile "main-location bottom"
+riverctl focus-output DP-1
+
+waybar &

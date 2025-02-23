@@ -5,10 +5,12 @@
     // "width": 1080, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    // "modules-left": ["sway/workspaces", "wlr/taskbar"],
+    "modules-left": ["river/tags"],
+    "modules-center": ["river/window"],
+    // "modules-left": ["wlr/workspaces", "wlr/taskbar"],
     // "modules-right": ["idle_inhibitor", "pulseaudio", "backlight", "keyboard-state", "battery", "network", "clock", "tray"],
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    // "modules-left": ["hyprland/workspaces"],
+    // "modules-center": ["hyprland/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "clock", "tray"],
     "hyprland/window": {
         "separate-outputs": true
