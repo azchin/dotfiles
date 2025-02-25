@@ -141,8 +141,30 @@ alias batinfo='acpi -b'
 # alias wgup='sudo systemctl start wg-quick@bambino'
 # alias wgdown='sudo systemctl stop wg-quick@bambino'
 # alias nmrestart='sudo systemctl restart NetworkManager'
-alias wgup='test -z "$SSH_TTY" && sudo systemctl start wg-quick-wg0'
-alias wgdown='test -z "$SSH_TTY" && sudo systemctl stop wg-quick-wg0'
+wgdown() {
+    if [ -z "$SSH_TTY" ]; then
+        sudo systemctl stop wg-quick-wg0
+        sudo systemctl stop wg-quick-wg0-everything
+        sudo systemctl stop wg-quick-wg0-dns
+    fi
+}
+wgswitch() {
+    if [ -z "$SSH_TTY" ]; then
+        suffix="${1:-everything}"
+        if [ "$suffix" = "devices" ]; then
+            suffix=""
+        else
+            suffix="-${suffix}"
+        fi
+        wgdown
+        sudo systemctl start "wg-quick-wg0${suffix}"
+    fi
+}
+wgup() {
+    wgswitch devices
+}
+# alias wgup='test -z "$SSH_TTY" && sudo systemctl start wg-quick-wg0'
+# alias wgdown='test -z "$SSH_TTY" && sudo systemctl stop wg-quick-wg0'
 # alias nmrestart='sudo sv restart NetworkManager'
 
 # Stolen
