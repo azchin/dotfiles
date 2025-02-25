@@ -6,7 +6,7 @@ set autoindent cindent
 set ignorecase smartcase
 set mouse=a
 set clipboard=unnamedplus
-set autochdir
+" set autochdir
 nnoremap Y y$
 
 " Theme
