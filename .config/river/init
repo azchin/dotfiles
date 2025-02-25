@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO look at this https://git.sr.ht/~leon_plickat/river-config/tree/master/item/river/init
+
 . ~/.config/profile
 
 kanshi -c ~/.config/kanshi/config-desktop &
@@ -45,8 +47,12 @@ riverctl map normal None XF86AudioNext spawn "~/bin/playerctl.sh next"
 riverctl map normal None XF86AudioRewind spawn "~/bin/playerctl.sh rewind"
 riverctl map normal None XF86AudioForward spawn "~/bin/playerctl.sh forward"
 
+int_to_tag() {
+    echo $((1 << ($1 - 1)))
+}
+
 for i in $(seq 1 9); do
-    tags=$((1 << ($i - 1)))
+    tags=$(int_to_tag $i)
     riverctl map normal Super $i set-focused-tags $tags
     riverctl map normal Super+Shift $i set-view-tags $tags
     riverctl map normal Super+Control $i toggle-focused-tags $tags
@@ -57,7 +63,7 @@ riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
 mice="pointer-1133-16500-Logitech_G305"
-for m in $mice; do
+for m in "$mice"; do
     riverctl input $m accel-profile flat
 done
 
@@ -66,15 +72,36 @@ riverctl set-cursor-warp on-focus-change
 riverctl set-repeat 32 400
 riverctl xcursor_theme capitaine-cursors-white 24
 
+riverctl border-color-focused 0x33ccff
+riverctl border-color-unfocused 0x595959
+riverctl border-width 4
+
 riverctl rule-add '-app-id' '*' ssd
+riverctl rule-add '-app-id' 'org.keepassxc.KeePassXC' tags $(int_to_tag 5)
+
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 riverctl default-layout rivertile
-riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
-riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 rivertile -view-padding 5 -outer-padding 5 -main-location right -main-ratio 0.5 &
+
+NIX_KWALLET_PAM=/etc/kwallet-pam-path
+if [ -f "$NIX_KWALLET_PAM" ]; then
+    $(cat $NIX_KWALLET_PAM)/libexec/pam_kwallet_init --unset QT_PLUGIN_PATH &> ~/sandbox/pam_kwallet_init.log
+fi
+dunst &
+waybar -c ~/.config/waybar/config-river &
+nm-applet &
 
 riverctl focus-output DP-2
 riverctl send-layout-cmd rivertile "main-location bottom"
-riverctl focus-output DP-1
 
-waybar &
+[ -z "$(pidof keepassxc)" ] && keepassxc &
+[ -z "$(pidof nextcloud)" ] && nextcloud &
+xrdb ~/.config/X11/Xresources
+xrdb -merge ~/.config/X11/Xresources-wayland
+swaybg -o DP-1 -m fill -i ~/drive/pictures/wallpapers/zQbYocwXGY.png &
+swaybg -o DP-2 -m fill -i ~/drive/pictures/wallpapers/wp5513064-vertical-anime-wallpapers.jpg &
+swayidle -w &
+
+riverctl focus-output DP-1

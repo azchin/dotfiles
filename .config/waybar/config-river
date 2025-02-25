@@ -5,12 +5,12 @@
     // "width": 1080, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    // "modules-left": ["river/tags"],
-    // "modules-center": ["river/window"],
+    "modules-left": ["river/tags"],
+    "modules-center": ["river/window"],
     // "modules-left": ["wlr/workspaces", "wlr/taskbar"],
     // "modules-right": ["idle_inhibitor", "pulseaudio", "backlight", "keyboard-state", "battery", "network", "clock", "tray"],
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    // "modules-left": ["hyprland/workspaces"],
+    // "modules-center": ["hyprland/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "clock", "tray"],
     "hyprland/window": {
         "separate-outputs": true
@@ -71,7 +71,8 @@
         // "interface": "wlp*", // (Optional) To force the use of this interface
         //"format-wifi": "{essid} ({signalStrength}%) ",
         "format-wifi": "{essid:.20}",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        // "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "online",
         //"tooltip-format": "{ifname} via {gwaddr} ",
         "tooltip": false,
         "format-linked": "{ifname} (No IP) ",
