@@ -93,6 +93,10 @@ alias gr='git rebase'
 alias gri='git rebase -i'
 alias gl='git log'
 
+docker_enter() {
+    docker exec -it $(docker ps | grep "$1"':latest' | cut -f1 -d' ') bash
+}
+
 # Zypper
 # alias zse='zypper --no-refresh se'
 # alias zif='zypper --no-refresh if'
