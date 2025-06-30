@@ -39,6 +39,11 @@ alias torr='transmission-remote'
 alias sess='abduco -e ^d -A andrew zsh'
 alias mpvnv='mpv --no-video'
 
+up() { 
+    local dirs=$(printf '../%.0s' $(seq 1 ${1:-1}))
+    cd "${dirs%/}"  # Remove trailing slash if present
+}
+
 # Systemd
 alias slep='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl suspend || loginctl suspend)'
 alias shut='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl poweroff || loginctl poweroff)'
@@ -46,9 +51,35 @@ alias rez='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl r
 alias hib='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl hibernate || loginctl hibernate)'
 
 # Docker
-alias dk='sudo docker'
-alias dkrun='sudo docker run -d -t --name pentest -h dockone -w "/root" -v "/hard/share:/share" sec'
-alias dkpen='sudo docker exec -it pentest bash'
+docker_enter() {
+    docker exec -it $(docker ps | grep "${1}:" | cut -f1 -d' ') bash
+}
+
+docker_psg() {
+    docker ps | grep "${1}:" | cut -f1 -d' '
+}
+
+docker_logs() {
+    ids=$(docker ps | grep "${1}:" | cut -f1 -d' ')
+    docker logs $ids
+    # for id in $ids; do
+    #     echo $id
+    #     # docker logs $id | head -n80
+    #     # docker logs $id | head -n80
+    #     echo "=========================================\n"
+    # done
+}
+
+docker_logf() {
+    ids=$(docker ps | grep "${1}:" | cut -f1 -d' ')
+    docker logs -f $ids
+}
+
+docker_exec() {
+    name=$1
+    shift 1
+    docker exec -it $(docker ps | grep "${name}:" | cut -f1 -d' ') $@
+}
 
 # Gentoo
 # alias updateall='sudo smart-live-rebuild -q && sudo emerge -auDUqv --keep-going --with-bdeps=y @world'
@@ -167,6 +198,7 @@ wgswitch() {
 wgup() {
     wgswitch devices
 }
+
 # alias wgup='test -z "$SSH_TTY" && sudo systemctl start wg-quick-wg0'
 # alias wgdown='test -z "$SSH_TTY" && sudo systemctl stop wg-quick-wg0'
 # alias nmrestart='sudo sv restart NetworkManager'

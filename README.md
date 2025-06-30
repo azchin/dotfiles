@@ -36,3 +36,8 @@ nvim -c 'PlugInstall' # FIXME make a plugins only file to load
 
 # PAM
 Keyring is `kdewallet`. Look for `libexec/pam_kwallet_init`.
+
+# Zotero
+Install browser connector.
+Install [zotxt](https://github.com/egh/zotxt).
+Sync with account and file sync with WebDAV server.
