@@ -20,7 +20,7 @@ HIDDEN_PROFILE=$HOME/.config/hidden-profile
 export DICPATH=$HOME/.local/share/hunspell/en_CA.aff
 export DICTIONARY=en_CA
 
-# export TERM=xterm-256color
+export TERM=xterm-256color
 export EDITOR="nvim"
 export VISUAL="nvim"
 export LSP_USE_PLISTS=true
