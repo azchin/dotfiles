@@ -9,4 +9,4 @@ killall -q tint2
 # picom --experimental-backends &
 # picom &
 # skippy-xd --start-daemon &
-tint2 &
+polybar &

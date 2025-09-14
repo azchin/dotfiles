@@ -23,12 +23,22 @@ super + a
 alt + grave
     ~/bin/apptab.sh
 
+# super + Return
+#       xdo activate -d -N Alacritty || alacritty
+#       # xdo activate -d -N URxvt || urxvt
+
+super + g
+    alacritty
+
 super + Return
-      xdo activate -d -N Alacritty || alacritty
-      # xdo activate -d -N URxvt || urxvt
+    alacritty
+
+# super + space
+#     ~/bin/dmenu_run_history.sh drofi
 
 super + space
-      ~/bin/dmenu_run_history.sh drofi
+    rofi -show drun -show-icons
+    # rofi -show drun -show-icons -theme-str 'element-icon \{ size: 32; \}'
 
 #super + semicolon
 # super + v
@@ -65,6 +75,9 @@ super + shift + x
 
 # applications
 
+super + b
+	brave
+
 super + x ; super + {Caps_Lock,b,e,f,c,d,t,u} 
 	{ \
 	:, \
@@ -79,12 +92,12 @@ super + x ; super + {Caps_Lock,b,e,f,c,d,t,u}
 
 # screenshot
 {super,_} + Print
-	maim {-s,_} | xclip -sel clip -t image/png
+	maim {_,-s} | xclip -sel clip -t image/png
     # flameshot {gui, full -c}
 	# flameshot {gui,full -c} -p ~/screenshots
 
 {super + shift,shift} + Print
-	maim {-s,_} ~/Pictures/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
+	maim {_,-s} ~/Pictures/screenshots/$(date +%+4Y-%m-%d_%H%M%S).png
 
 # wallpaper
 super + w; super + {s,a}

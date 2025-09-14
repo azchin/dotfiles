@@ -38,11 +38,11 @@ window.handle.width: 2
 # #31363b
 # #78dce8
 window.active.border.color: #fd7980
-window.inactive.border.color: #fd7980
+window.inactive.border.color: #31363b
 window.active.title.separator.color: #fd7980
-window.inactive.title.separator.color: #fd7980
+window.inactive.title.separator.color: #31363b
 window.active.client.color: #fd7980
-window.inactive.client.color: #fd7980
+window.inactive.client.color: #31363b
 
 
 window.active.label.text.color: #e5e5e5
@@ -77,7 +77,7 @@ window.inactive.title.bg.color: #31363b
 window.inactive.label.bg: flat solid
 window.inactive.label.bg.color: #31363b
 window.inactive.handle.bg: flat solid
-window.inactive.handle.bg.color: #fd7980
+window.inactive.handle.bg.color: #31363b
 window.inactive.grip.bg: parentrelative
 
 window.active.button.unpressed.bg: parentrelative

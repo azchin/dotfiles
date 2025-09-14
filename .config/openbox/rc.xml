@@ -84,7 +84,7 @@
     </font>
     <font place="MenuItem">
       <name>DejaVu Sans Mono</name>
-      <size>11</size>
+      <size>14</size>
       <!-- font size in points -->
       <weight>normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -119,13 +119,19 @@ by other applications, or saved in your session
 
 use obconf if you want to change these without having to log out
 and back in -->
-    <number>4</number>
+    <number>10</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>One</name>
-      <name>Two</name>
-      <name>Three</name>
-      <name>Four</name>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+      <name>5</name>
+      <name>6</name>
+      <name>7</name>
+      <name>8</name>
+      <name>9</name>
+      <name>0</name>
     </names>
     <popupTime>500</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -152,7 +158,7 @@ and back in -->
        Many programs reserve space automatically, but you can use this in other
        cases. -->
   <margins>
-    <top>0</top>
+    <top>36</top>
     <bottom>0</bottom>
     <left>0</left>
     <right>0</right>
@@ -207,6 +213,36 @@ and back in -->
         <to>4</to>
       </action>
     </keybind>
+    <keybind key="W-5">
+      <action name="GoToDesktop">
+        <to>5</to>
+      </action>
+    </keybind>
+    <keybind key="W-6">
+      <action name="GoToDesktop">
+        <to>6</to>
+      </action>
+    </keybind>
+    <keybind key="W-7">
+      <action name="GoToDesktop">
+        <to>7</to>
+      </action>
+    </keybind>
+    <keybind key="W-8">
+      <action name="GoToDesktop">
+        <to>8</to>
+      </action>
+    </keybind>
+    <keybind key="W-9">
+      <action name="GoToDesktop">
+        <to>9</to>
+      </action>
+    </keybind>
+    <keybind key="W-0">
+      <action name="GoToDesktop">
+        <to>10</to>
+      </action>
+    </keybind>
     <keybind key="S-W-1">
       <action name="SendToDesktop">
         <to>1</to>
@@ -231,9 +267,45 @@ and back in -->
         <follow>no</follow>
       </action>
     </keybind>
-    <keybind key="W-b">
-      <action name="ToggleDecorations"/>
+    <keybind key="S-W-5">
+      <action name="SendToDesktop">
+        <to>5</to>
+        <follow>no</follow>
+      </action>
     </keybind>
+    <keybind key="S-W-6">
+      <action name="SendToDesktop">
+        <to>6</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="S-W-7">
+      <action name="SendToDesktop">
+        <to>7</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="S-W-8">
+      <action name="SendToDesktop">
+        <to>8</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="S-W-9">
+      <action name="SendToDesktop">
+        <to>9</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="S-W-0">
+      <action name="SendToDesktop">
+        <to>10</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <!-- <keybind key="W-b"> -->
+    <!--   <action name="ToggleDecorations"/> -->
+    <!-- </keybind> -->
     <!-- <keybind key="W-t"> -->
     <!--   <action name="ToggleAlwaysOnTop"/> -->
     <!-- </keybind> -->
@@ -276,25 +348,25 @@ and back in -->
       <!--   <command>xdotool key super+Left</command> -->
       <!-- </action> -->
     </keybind>
-    <keybind key="W-j">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-        <x>center</x>
-        <y>center</y>
-        <width>56%</width>
-        <height>70%</height>
-      </action>
-      <!-- <action name="Unmaximize"/> -->
-      <!-- <action name="Execute"> -->
-      <!--   <command>sssc restore</command> -->
-      <!-- </action> -->
-    </keybind>
-    <keybind key="W-k">
-      <action name="Maximize"/>
-      <!-- <action name="Execute"> -->
-      <!--   <command>sssc maximize</command> -->
-      <!-- </action> -->
-    </keybind>
+    <!-- <keybind key="W-j"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <x>center</x> -->
+    <!--     <y>center</y> -->
+    <!--     <width>56%</width> -->
+    <!--     <height>70%</height> -->
+    <!--   </action> -->
+    <!--   <!-\- <action name="Unmaximize"/> -\-> -->
+    <!--   <!-\- <action name="Execute"> -\-> -->
+    <!--   <!-\-   <command>sssc restore</command> -\-> -->
+    <!--   <!-\- </action> -\-> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-k"> -->
+    <!--   <action name="Maximize"/> -->
+    <!--   <!-\- <action name="Execute"> -\-> -->
+    <!--   <!-\-   <command>sssc maximize</command> -\-> -->
+    <!--   <!-\- </action> -\-> -->
+    <!-- </keybind> -->
     <keybind key="W-l">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
@@ -319,18 +391,18 @@ and back in -->
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="W-Down">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-        <x>center</x>
-        <y>center</y>
-        <width>56%</width>
-        <height>70%</height>
-      </action>
-    </keybind>
-    <keybind key="W-Up">
-      <action name="Maximize"/>
-    </keybind>
+    <!-- <keybind key="W-Down"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <x>center</x> -->
+    <!--     <y>center</y> -->
+    <!--     <width>56%</width> -->
+    <!--     <height>70%</height> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="W-Up"> -->
+    <!--   <action name="Maximize"/> -->
+    <!-- </keybind> -->
     <keybind key="W-Right">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
@@ -345,106 +417,146 @@ and back in -->
       <action name="MoveResizeTo">
         <x>center</x>
         <y>center</y>
-        <width>64%</width>
-        <height>80%</height>
+        <width>40%</width>
+        <height>60%</height>
       </action>
     </keybind>
-    <keybind key="W-A-h">
+    <keybind key="W-S-h">
       <action name="MoveRelative">
-        <x>-10%</x>
+        <x>-5%</x>
         <y>0</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-j">
+      <action name="MoveRelative">
+        <x>0</x>
+        <y>5%</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-k">
+      <action name="MoveRelative">
+        <x>0</x>
+        <y>-5%</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-l">
+      <action name="MoveRelative">
+        <x>5%</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <!-- <keybind key="S-W-h"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <x>0</x> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="S-W-j"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <y>-0</y> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="S-W-k"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <y>0</y> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="S-W-l"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <x>-0</x> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <keybind key="W-A-h">
+      <action name="ResizeRelative">
+        <right>-5%</right>
       </action>
     </keybind>
     <keybind key="W-A-j">
-      <action name="MoveRelative">
-        <x>0</x>
-        <y>10%</y>
+      <action name="ResizeRelative">
+        <bottom>5%</bottom>
       </action>
     </keybind>
     <keybind key="W-A-k">
-      <action name="MoveRelative">
-        <x>0</x>
-        <y>-10%</y>
+      <action name="ResizeRelative">
+        <bottom>-5%</bottom>
       </action>
     </keybind>
     <keybind key="W-A-l">
+      <action name="ResizeRelative">
+        <right>5%</right>
+      </action>
+    </keybind>
+    <keybind key="W-S-Left">
       <action name="MoveRelative">
-        <x>10%</x>
+        <x>-5%</x>
         <y>0</y>
       </action>
     </keybind>
-    <keybind key="S-W-h">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
+    <keybind key="W-S-Down">
+      <action name="MoveRelative">
         <x>0</x>
+        <y>5%</y>
       </action>
     </keybind>
-    <keybind key="S-W-j">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-        <y>-0</y>
+    <keybind key="W-S-Up">
+      <action name="MoveRelative">
+        <x>0</x>
+        <y>-5%</y>
       </action>
     </keybind>
-    <keybind key="S-W-k">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
+    <keybind key="W-S-Right">
+      <action name="MoveRelative">
+        <x>5%</x>
         <y>0</y>
-      </action>
-    </keybind>
-    <keybind key="S-W-l">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-        <x>-0</x>
       </action>
     </keybind>
     <keybind key="W-A-Left">
-      <action name="MoveRelative">
-        <x>-10%</x>
-        <y>0</y>
+      <action name="ResizeRelative">
+        <right>-5%</right>
       </action>
     </keybind>
     <keybind key="W-A-Down">
-      <action name="MoveRelative">
-        <x>0</x>
-        <y>10%</y>
+      <action name="ResizeRelative">
+        <bottom>5%</bottom>
       </action>
     </keybind>
     <keybind key="W-A-Up">
-      <action name="MoveRelative">
-        <x>0</x>
-        <y>-10%</y>
+      <action name="ResizeRelative">
+        <bottom>-5%</bottom>
       </action>
     </keybind>
     <keybind key="W-A-Right">
-      <action name="MoveRelative">
-        <x>10%</x>
-        <y>0</y>
+      <action name="ResizeRelative">
+        <right>5%</right>
       </action>
     </keybind>
-    <keybind key="S-W-Left">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-        <x>0</x>
-      </action>
-    </keybind>
-    <keybind key="S-W-Down">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-        <y>-0</y>
-      </action>
-    </keybind>
-    <keybind key="S-W-Up">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-        <y>0</y>
-      </action>
-    </keybind>
-    <keybind key="S-W-Right">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-        <x>-0</x>
-      </action>
-    </keybind>
+    <!-- <keybind key="S-W-Left"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <x>0</x> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="S-W-Down"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <y>-0</y> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="S-W-Up"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <y>0</y> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="S-W-Right"> -->
+    <!--   <action name="Unmaximize"/> -->
+    <!--   <action name="MoveResizeTo"> -->
+    <!--     <x>-0</x> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="S-W-m">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
@@ -465,11 +577,13 @@ and back in -->
     <keybind key="S-W-r">
       <action name="Reconfigure"/>
     </keybind>
+
     <keybind key="A-Tab">
       <action name="NextWindow">
         <dialog>icons</dialog>
         <bar>no</bar>
         <raise>yes</raise>
+        <allDesktops>yes</allDesktops>
       </action>
     </keybind>
     <keybind key="A-S-Tab">
@@ -477,8 +591,42 @@ and back in -->
         <dialog>icons</dialog>
         <bar>no</bar>
         <raise>yes</raise>
+        <allDesktops>yes</allDesktops>
       </action>
     </keybind>
+    <keybind key="W-j">
+      <action name="NextWindow">
+        <dialog>none</dialog>
+        <bar>no</bar>
+        <raise>yes</raise>
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+    <keybind key="W-k">
+      <action name="PreviousWindow">
+        <dialog>none</dialog>
+        <bar>no</bar>
+        <raise>yes</raise>
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="NextWindow">
+        <dialog>none</dialog>
+        <bar>no</bar>
+        <raise>yes</raise>
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="PreviousWindow">
+        <dialog>none</dialog>
+        <bar>no</bar>
+        <raise>yes</raise>
+        <interactive>no</interactive>
+      </action>
+    </keybind>
+
     <!-- <keybind key="C-A-Tab"> -->
     <!--   <action name="NextWindow"> -->
     <!--     <panels>yes</panels> -->
@@ -486,8 +634,8 @@ and back in -->
     <!--   </action> -->
     <!-- </keybind> -->
     <keybind key="W-Tab">
-      <action name="Execute">
-        <command>~/bin/rofi-window.sh</command>
+      <action name="GoToDesktop">
+        <to>last</to>
       </action>
       <!-- <action name="ShowMenu"> -->
       <!--   <menu>client-list-combined-menu</menu> -->
@@ -822,15 +970,15 @@ and back in -->
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
+    <application class="KeePassXC">
+      <maximized>yes</maximized>
+      <desktop>5</desktop>
+    </application>
+    <application class="Brave-browser">
+      <maximized>yes</maximized>
+    </application>
     <application class="Alacritty">
-      <size>
-        <width>56%</width>
-        <height>70%</height>
-      </size>
-      <position>
-        <x>center</x>
-        <y>center</y>
-      </position>
+      <maximized>yes</maximized>
     </application>
     <application class="URxvt">
       <position>

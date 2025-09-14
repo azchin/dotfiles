@@ -4,15 +4,20 @@
 #betterlockscreen -l dim && betterlockscreen -u ~/images/lockbg1
 # light-locker-command -l 
 
-if [ -n $WAYLAND_DISPLAY ]; then
-    loginctl lock-session
-else
+xslk() {
     XSECURELOCK_DISCARD_FIRST_KEYPRESS=0 \
-        XSECURELOCK_PASSWORD_PROMPT=time \
-        XSECURELOCK_SHOW_DATETIME=1 \
-        xsecurelock
-            # XSECURELOCK_FONT='DejaVuSansMono Nerd Font Mono' \
-fi
+    XSECURELOCK_PASSWORD_PROMPT=time \
+    XSECURELOCK_SHOW_DATETIME=1 \
+    xsecurelock
+    # XSECURELOCK_FONT='DejaVuSansMono Nerd Font Mono' \
+}
+
+xslk
+# if [ -n $WAYLAND_DISPLAY ]; then
+#     loginctl lock-session
+# else
+#     xslk
+# fi
 
 # store=$XDG_CACHE_HOME/lock
 # path=~/images/lockbg2

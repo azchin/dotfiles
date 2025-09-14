@@ -6,7 +6,7 @@ if [ "$1" = "-r" ] || ! [ -f "$store" ]; then
     reset=1
 fi
 
-bgdir=~/Pictures/wallpapers/
+bgdir=~/Pictures
 files=$(ls $bgdir)
 num=$(echo "$files" | wc -w)
 [ $reset -eq 1 ] && echo 1 > $store

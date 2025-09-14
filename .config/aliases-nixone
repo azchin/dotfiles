@@ -23,6 +23,11 @@ alias tx='tmux -c "cd $(pwd)"'
 alias pdec='printf "%d\n"'
 alias phex='printf "%x\n"'
 
+up() {
+    local dirs=$(printf '../%.0s' $(seq 1 ${1:-1}))
+    cd "${dirs%/}"  # Remove trailing slash if present
+}
+
 # Apps
 alias ez='exec zsh'
 alias e="$VISUAL"

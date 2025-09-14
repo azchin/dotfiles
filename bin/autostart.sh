@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# kwallet
+NIX_KWALLET_PAM=/etc/kwallet-pam-path
+if [ -f "$NIX_KWALLET_PAM" ]; then
+    $(cat $NIX_KWALLET_PAM)/libexec/pam_kwallet_init --unset QT_PLUGIN_PATH &> ~/sandbox/pam_kwallet_init.log
+fi
+
 . ~/.config/profile
 # export GTK_IM_MODULE=fcitx
 # export QT_IM_MODULE=fcitx
@@ -28,7 +34,7 @@ pkill nm-applet
 # pkill devilspie2
 # tmux kill-server
 # killall -q fcitx
-# setxkbmap -option
+setxkbmap -option
 # killall -q xscreensaver
 # killall -q sleep_timer.sh
 # killall -q emacs
@@ -51,7 +57,7 @@ dunst &
 # emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 # [ -z "$(pidof syncthing)" ] && syncthing &
-# setxkbmap -option caps:escape_shifted_capslock
+setxkbmap -option caps:escape_shifted_capslock
 sxhkd &
 pipewire &
 pipewire-pulse &
