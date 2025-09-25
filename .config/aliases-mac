@@ -23,11 +23,6 @@ alias tx='tmux -c "cd $(pwd)"'
 alias pdec='printf "%d\n"'
 alias phex='printf "%x\n"'
 
-up() {
-    local dirs=$(printf '../%.0s' $(seq 1 ${1:-1}))
-    cd "${dirs%/}"  # Remove trailing slash if present
-}
-
 # Apps
 alias ez='exec zsh'
 alias e="$VISUAL"
@@ -45,11 +40,6 @@ alias sess='abduco -e ^d -A andrew zsh'
 alias mpvnv='mpv --no-video'
 alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
 
-up() { 
-    local dirs=$(printf '../%.0s' $(seq 1 ${1:-1}))
-    cd "${dirs%/}"  # Remove trailing slash if present
-}
-
 # Systemd
 alias slep='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl suspend || loginctl suspend)'
 alias shut='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl poweroff || loginctl poweroff)'
@@ -57,35 +47,9 @@ alias rez='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl r
 alias hib='test -z "$SSH_TTY" && (command -v systemctl >/dev/null && systemctl hibernate || loginctl hibernate)'
 
 # Docker
-docker_enter() {
-    docker exec -it $(docker ps | grep "${1}:" | cut -f1 -d' ') bash
-}
-
-docker_psg() {
-    docker ps | grep "${1}:" | cut -f1 -d' '
-}
-
-docker_logs() {
-    ids=$(docker ps | grep "${1}:" | cut -f1 -d' ')
-    docker logs $ids
-    # for id in $ids; do
-    #     echo $id
-    #     # docker logs $id | head -n80
-    #     # docker logs $id | head -n80
-    #     echo "=========================================\n"
-    # done
-}
-
-docker_logf() {
-    ids=$(docker ps | grep "${1}:" | cut -f1 -d' ')
-    docker logs -f $ids
-}
-
-docker_exec() {
-    name=$1
-    shift 1
-    docker exec -it $(docker ps | grep "${name}:" | cut -f1 -d' ') $@
-}
+alias dk='sudo docker'
+alias dkrun='sudo docker run -d -t --name pentest -h dockone -w "/root" -v "/hard/share:/share" sec'
+alias dkpen='sudo docker exec -it pentest bash'
 
 # Gentoo
 # alias updateall='sudo smart-live-rebuild -q && sudo emerge -auDUqv --keep-going --with-bdeps=y @world'
@@ -129,10 +93,6 @@ alias gm='git merge'
 alias gr='git rebase'
 alias gri='git rebase -i'
 alias gl='git log'
-
-docker_enter() {
-    docker exec -it $(docker ps | grep "$1"':latest' | cut -f1 -d' ') bash
-}
 
 # Zypper
 # alias zse='zypper --no-refresh se'
@@ -182,31 +142,8 @@ alias batinfo='acpi -b'
 # alias wgup='sudo systemctl start wg-quick@bambino'
 # alias wgdown='sudo systemctl stop wg-quick@bambino'
 # alias nmrestart='sudo systemctl restart NetworkManager'
-wgdown() {
-    if [ -z "$SSH_TTY" ]; then
-        sudo systemctl stop wg-quick-wg0
-        sudo systemctl stop wg-quick-wg0-everything
-        sudo systemctl stop wg-quick-wg0-dns
-    fi
-}
-wgswitch() {
-    if [ -z "$SSH_TTY" ]; then
-        suffix="${1:-everything}"
-        if [ "$suffix" = "devices" ]; then
-            suffix=""
-        else
-            suffix="-${suffix}"
-        fi
-        wgdown
-        sudo systemctl start "wg-quick-wg0${suffix}"
-    fi
-}
-wgup() {
-    wgswitch devices
-}
-
-# alias wgup='test -z "$SSH_TTY" && sudo systemctl start wg-quick-wg0'
-# alias wgdown='test -z "$SSH_TTY" && sudo systemctl stop wg-quick-wg0'
+alias wgup='test -z "$SSH_TTY" && sudo systemctl start wg-quick-wg0'
+alias wgdown='test -z "$SSH_TTY" && sudo systemctl stop wg-quick-wg0'
 # alias nmrestart='sudo sv restart NetworkManager'
 
 # Stolen
