@@ -1,5 +1,5 @@
-#!/bin/sh
-echo -n "\033[1;36m"
+#!/usr/bin/env bash
+echo -ne "\033[1;36m"
 cat << "EOF"
         .
        / \
@@ -11,4 +11,4 @@ cat << "EOF"
  /.^         ^.\
 EOF
 
-echo "\033[0m"
+echo -e "\033[0m"
