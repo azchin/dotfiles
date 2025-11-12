@@ -44,6 +44,7 @@ alias torr='transmission-remote'
 alias sess='abduco -e ^d -A andrew zsh'
 alias mpvnv='mpv --no-video'
 alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+alias tmuxnew='tmux new-session -s'
 
 up() { 
     local dirs=$(printf '../%.0s' $(seq 1 ${1:-1}))

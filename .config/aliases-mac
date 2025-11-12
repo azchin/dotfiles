@@ -1,3 +1,6 @@
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 alias ls='ls --color=auto'
 alias ll='ls -lh --time-style=locale --group-directories-first'
 alias la='ls -A'
@@ -44,6 +47,7 @@ alias torr='transmission-remote'
 alias sess='abduco -e ^d -A andrew zsh'
 alias mpvnv='mpv --no-video'
 alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+alias tmuxnew='tmux new-session -s'
 
 up() { 
     local dirs=$(printf '../%.0s' $(seq 1 ${1:-1}))
