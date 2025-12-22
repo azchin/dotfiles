@@ -47,6 +47,11 @@ alias tc='tmux -c "cd $(pwd)"'
 alias tn='tmux new-session -s'
 alias tl='tmux load-buffer -' # usage: echo "thing" | tload
 alias ts='tmux set-buffer' # usage: tset "thing"
+# yoink path into tmux
+tp() {
+    test -e "$1" && realpath $1 | tmux load-buffer -
+}
+
 
 up() { 
     local dirs=$(printf '../%.0s' $(seq 1 ${1:-1}))
