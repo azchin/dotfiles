@@ -16,7 +16,6 @@ alias pd='cd $(cat $XDG_DATA_HOME/currentdirectory)'
 alias qd='cat $XDG_DATA_HOME/currentdirectory'
 # alias :q='exit'
 alias vir='nvim -R'
-alias tx='tmux -c "cd $(pwd)"'
 # alias sudo='doas --'
 # alias doas='doas --'
 # alias de='doasedit'
@@ -43,8 +42,11 @@ alias ec='emacsclient -nw'
 alias torr='transmission-remote'
 alias sess='abduco -e ^d -A andrew zsh'
 alias mpvnv='mpv --no-video'
-alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
-alias tmuxnew='tmux new-session -s'
+alias fs='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+alias tc='tmux -c "cd $(pwd)"'
+alias tn='tmux new-session -s'
+alias tl='tmux load-buffer -' # usage: echo "thing" | tload
+alias ts='tmux set-buffer' # usage: tset "thing"
 
 up() { 
     local dirs=$(printf '../%.0s' $(seq 1 ${1:-1}))
