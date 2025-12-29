@@ -64,6 +64,7 @@ zstyle ':completion:*' special-dirs false
 
 [ -x ~/bin/termstart.sh ] && ~/bin/termstart.sh
 command -v direnv && eval "$(direnv hook zsh)"
+unalias zi; eval "$(zoxide init zsh)"
 :
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

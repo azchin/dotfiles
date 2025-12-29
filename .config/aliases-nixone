@@ -2,7 +2,15 @@ alias ls='ls --color=auto'
 alias ll='ls -lh --time-style=locale --group-directories-first'
 alias la='ls -A'
 alias lla='ls -lAh --time-style=locale --group-directories-first'
-alias lsg='ls | grep'
+lsg() {
+    if [ $# -lt 2 ]; then
+        ls | grep $@
+    else
+        ls_arg=$1
+        shift 1
+        ls $ls_arg | grep $@
+    fi
+}
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -52,6 +60,7 @@ alias ts='tmux set-buffer' # usage: tset "thing"
 tp() {
     test -e "$1" && realpath $1 | tr -d '\n' | tmux load-buffer -
 }
+
 
 
 up() { 
