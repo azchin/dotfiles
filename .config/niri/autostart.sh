@@ -14,6 +14,14 @@ pkill nm-applet
 sleep 0.5
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user restart xdg-desktop-portal-gtk xdg-desktop-portal
 
+WALLPAPER_DIR=~/drive/pictures/wallpapers
+swaybg -o DP-1 -m fill -i $WALLPAPER_DIR/wp9494969.jpg &
+swaybg -o HDMI-A-1 -m fill -i $WALLPAPER_DIR/wp12199669.jpg &
+
+LOCK_TIMEOUT=600
+swayidle -w \
+         timeout $LOCK_TIMEOUT 'swaylock -f' \
+         before-sleep 'swaylock -f' &
 dunst &
 GIO_EXTRA_MODULES="" waybar & # may race against portal
 [ -z "$(pidof playerctld)" ] && playerctld daemon &

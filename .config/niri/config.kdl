@@ -47,9 +47,13 @@ input {
     mouse {
         // off
         // natural-scroll
-        accel-speed -0.5
+        // accel-speed -0.5
         // accel-profile "flat"
         // scroll-method "no-scroll"
+    }
+
+    trackball {
+        accel-speed -0.5
     }
 
     trackpoint {
@@ -119,11 +123,19 @@ output "HDMI-A-1" {
     transform "90"
     position x=0 y=0
 
-    // layout {
-    //     default-column-width {
-    //         proportion 1.0
-    //     }
-    // }
+    layout {
+        preset-column-widths {
+            proportion 0.5
+            proportion 0.66667
+            proportion 1.0
+        }
+
+        default-column-width {
+            proportion 1.0
+        }
+
+        center-focused-column "never"
+    }
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -139,7 +151,8 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "on-overflow"
+    always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -209,6 +222,7 @@ layout {
         // To do that, set relative-to="workspace-view".
         //
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -228,7 +242,6 @@ layout {
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
         //
         // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
-
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
@@ -280,6 +293,13 @@ layout {
         // top 64
         // bottom 64
     }
+    
+    background-color "transparent"
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
 }
 
 // Add lines like this to spawn processes at startup.
@@ -299,7 +319,7 @@ spawn-at-startup "firefox"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -329,21 +349,15 @@ animations {
 }
 
 workspace "Main"
-workspace "Work"
-workspace "Pwd"
+workspace "Term"
+workspace "Edit"
+workspace "Misc"
+workspace "Pass"
 
 window-rule {
+    match title=r#"^Alacritty Full$"#
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     open-maximized true
-}
-
-
-window-rule {
-    match app-id=r#"^firefox$"#
-    match app-id=r#"^Slack$"#
-    match app-id=r#"^emacs$"#
-    match app-id=r#"^Alacritty$"#
-    exclude title=r#"^Alacritty-Full$"#
-    open-maximized false
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -380,7 +394,7 @@ window-rule {
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
 
-    open-on-workspace "Pwd"
+    open-on-workspace "Pass"
 }
 
 // Example: enable rounded corners for all windows.
@@ -406,23 +420,22 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+G { spawn-sh "alacritty -e tmux"; }
-    Mod+Shift+G { spawn-sh "alacritty -T Alacritty-Full"; }
-    // Mod+T { spawn "alacritty"; }
-    // Mod+Return { spawn "alacritty"; }
+    Mod+G { spawn "alacritty" "-e" "tmux"; }
+    Mod+Shift+G { spawn "alacritty" "-T" "Alacritty Full"; }
     Mod+B { spawn "firefox"; }
-    Mod+V { spawn-sh "emacsclient -c -a emacs"; }
+    Mod+V { spawn "emacsclient" "-c" "-a" "emacs"; }
     Mod+Shift+V { spawn "emacs"; }
     Mod+E { spawn "pcmanfm"; }
     Mod+Space { spawn-sh "rofi -show drun -show-icons -theme-str 'element-icon { size: 32; }'"; }
     Mod+Shift+Space { spawn-sh "~/bin/dmenu_run_history.sh ~/bin/drofi"; }
     Mod+C { spawn-sh "~/bin/launch.sh ~/bin/drofi"; }
-    // Mod+D { spawn-sh "rofi -show drun -show-icons -theme-str 'element-icon { size: 32; }'"; }
+
+    Super+Ctrl+L allow-when-locked=true { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     // Volume keys mappings using pamixer.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -446,7 +459,8 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    // Used to be O
+    Mod+Tab repeat=false { toggle-overview; }
 
     Mod+Shift+Q repeat=false { close-window; }
 
@@ -472,57 +486,60 @@ binds {
     // the first or last window in a column.
     // Mod+J     { focus-window-or-workspace-down; }
     // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
+    // Mod+Alt+J     { move-window-down-or-to-workspace-down; }
+    // Mod+Alt+K     { move-window-up-or-to-workspace-up; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
+    Mod+Alt+Home { move-column-to-first; }
+    Mod+Alt+End  { move-column-to-last; }
 
-    Mod+Ctrl+Left  { focus-monitor-left; }
-    Mod+Ctrl+Down  { focus-monitor-down; }
-    Mod+Ctrl+Up    { focus-monitor-up; }
-    Mod+Ctrl+Right { focus-monitor-right; }
-    Mod+Ctrl+H     { focus-monitor-left; }
-    Mod+Ctrl+J     { focus-monitor-down; }
-    Mod+Ctrl+K     { focus-monitor-up; }
-    Mod+Ctrl+L     { focus-monitor-right; }
+    Mod+Alt+Left  { focus-monitor-left; }
+    Mod+Alt+Down  { focus-monitor-down; }
+    Mod+Alt+Up    { focus-monitor-up; }
+    Mod+Alt+Right { focus-monitor-right; }
+    Mod+Alt+H     { focus-monitor-left; }
+    Mod+Alt+J     { focus-monitor-down; }
+    Mod+Alt+K     { focus-monitor-up; }
+    Mod+Alt+L     { focus-monitor-right; }
+    Mod+I          { focus-monitor-next; }
 
-    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Shift+Alt+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Alt+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Alt+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Alt+Right { move-column-to-monitor-right; }
+    Mod+Shift+Alt+H     { move-column-to-monitor-left; }
+    Mod+Shift+Alt+J     { move-column-to-monitor-down; }
+    Mod+Shift+Alt+K     { move-column-to-monitor-up; }
+    Mod+Shift+Alt+L     { move-column-to-monitor-right; }
+    Mod+Shift+I          { move-column-to-monitor-next; }
 
     // Alternatively, there are commands to move just a single window:
-    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+    // Mod+Shift+Alt+Left  { move-window-to-monitor-left; }
     // ...
 
     // And you can also move a whole workspace to another monitor:
-    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+    // Mod+Shift+Alt+Left  { move-workspace-to-monitor-left; }
     // ...
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    Mod+N              { focus-workspace-down; }
+    Mod+P              { focus-workspace-up; }
     Mod+Shift+Page_Down { move-column-to-workspace-down; }
     Mod+Shift+Page_Up   { move-column-to-workspace-up; }
-    Mod+Shift+U         { move-column-to-workspace-down; }
-    Mod+Shift+I         { move-column-to-workspace-up; }
+    Mod+Shift+N         { move-column-to-workspace-down; }
+    Mod+Shift+P         { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
+    // Mod+Alt+Page_Down { move-window-to-workspace-down; }
     // ...
 
-    Mod+Ctrl+Page_Down { move-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-workspace-up; }
-    Mod+Ctrl+U         { move-workspace-down; }
-    Mod+Ctrl+I         { move-workspace-up; }
+    Mod+Alt+Page_Down { move-workspace-down; }
+    Mod+Alt+Page_Up   { move-workspace-up; }
+    Mod+Alt+N         { move-workspace-down; }
+    Mod+Alt+P         { move-workspace-up; }
+    Mod+Alt+I         { move-workspace-to-monitor-next; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
@@ -532,20 +549,20 @@ binds {
     // You can set a cooldown on any bind, but it's most useful for the wheel.
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
     Mod+WheelScrollRight      { focus-column-right; }
     Mod+WheelScrollLeft       { focus-column-left; }
-    Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+    Mod+Alt+WheelScrollRight { move-column-right; }
+    Mod+Alt+WheelScrollLeft  { move-column-left; }
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
     Mod+Shift+WheelScrollDown      { focus-column-right; }
     Mod+Shift+WheelScrollUp        { focus-column-left; }
-    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+    Mod+Alt+Shift+WheelScrollDown { move-column-right; }
+    Mod+Alt+Shift+WheelScrollUp   { move-column-left; }
 
     // Similarly, you can bind touchpad scroll "ticks".
     // Touchpad scrolling is continuous, so for these binds it is split into
@@ -584,7 +601,7 @@ binds {
     Mod+Shift+9 { move-column-to-workspace 9; }
 
     // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+    // Mod+Alt+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
     // Mod+Tab { focus-workspace-previous; }
@@ -604,19 +621,19 @@ binds {
     // Cycling through the presets in reverse order is also possible.
     // Mod+R { switch-preset-column-width-back; }
     Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    Mod+Alt+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Alt+F { expand-column-to-available-width; }
 
     // NOTE used to be Mod+C
     Mod+Return { center-column; }
 
     // Center all fully visible columns on screen.
-    Mod+Ctrl+Return { center-visible-columns; }
+    Mod+Alt+Return { center-visible-columns; }
 
     // Finer width adjustments.
     // This command can also:
@@ -671,5 +688,5 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+Shift+P { power-off-monitors; }
 }
