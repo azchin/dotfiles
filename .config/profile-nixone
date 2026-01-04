@@ -72,6 +72,10 @@ export URXVT_PERL_LIB="$XDG_CONFIG_HOME"/urxvt/ext
 # export RXVT_SOCKET="$XDG_CACHE_HOME"/urxvt/urxvtd
 # export ABDUCO_SOCKET_DIR="$XDG_CACHE_HOME"
 
+# osu stuff
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+export SDL_VIDEODRIVER=wayland
+
 # export QT_QPA_PLATFORM=wayland
 # export MOZ_ENABLE_WAYLAND=1
 # export MOZ_WEBRENDER=1
