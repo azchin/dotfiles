@@ -54,9 +54,18 @@ pkill nm-applet
 # xcalib -d :0 "/usr/share/color/icc/Lenovo T520.icm" &
 # xscreensaver &
 
+sleep 0.5
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user restart xdg-desktop-portal-gtk xdg-desktop-portal
+sleep 1
+
 dunst &
 waybar &
 hypridle &
+
+WALLPAPER_DIR=~/drive/pictures/wallpapers
+swaybg -o DP-1 -m fill -i $WALLPAPER_DIR/wp9494969.jpg &
+swaybg -o DP-2 -m fill -i $WALLPAPER_DIR/wp12199669.jpg &
+
 # emacs --daemon &
 [ -z "$(pidof playerctld)" ] && playerctld daemon &
 # [ -z "$(pidof syncthing)" ] && syncthing &
