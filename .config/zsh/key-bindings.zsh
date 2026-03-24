@@ -28,6 +28,24 @@ if [[ "${terminfo[kcbt]}" != "" ]]; then
 	bindkey -v "${terminfo[kcbt]}" reverse-menu-complete
 fi
 
+function _yazi_pick() {
+        local tmp="$(mktemp -t "yazi-chooser.XXXXXX")"
+        yazi --chooser-file="$tmp"
+        if [ -s "$tmp" ]; then
+                LBUFFER+="$(cat "$tmp" | tr '\n' ' ')"
+        fi
+        rm -f -- "$tmp"
+        zle reset-prompt
+}
+zle -N _yazi_pick
+bindkey '^y' _yazi_pick
+
+function _insert_parent() {
+	LBUFFER+="../"
+}
+zle -N _insert_parent
+bindkey '^o' _insert_parent
+
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
