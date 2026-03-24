@@ -2,7 +2,7 @@
 	email = achin34@gatech.edu
 	name = Andrew Chin
 [pull]
-	ff = only
+	rebase = true
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -10,3 +10,5 @@
 	process = git-lfs filter-process
 [init]
 	defaultBranch = main
+[rebase]
+	autoStash = true
