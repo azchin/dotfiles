@@ -44,9 +44,10 @@ if [ -n "$SSH_TTY" ]; then
     mach_color="magenta"
 fi
 mach="%B%F{${mach_color}}%M%f%b"
-PROMPT="%F{green}${err}%f ${mach} ${cur} ${prm} %f"
+PROMPT='%F{green}'"${err}"'%f %D{%H:%M} '"${mach}"' '"${cur}"'${${vcs_info_msg_0_:+ ${vcs_info_msg_0_}}:-}
+'"${prm}"' %f'
 
-RPROMPT='${vcs_info_msg_0_} %D{%H:%M}'
+RPROMPT=
 
 
 # export ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}✔%F{15}"
