@@ -1,18 +1,19 @@
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
+is_tmux_session() {
+    local name="$1"
+    names=$(tmux list-sessions)
+    echo "$names" | grep -q "^$name"
+}
+
 if [ -n "$SSH_TTY" ] && command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ "$TERM" = xterm-256color ]]; then
-    echo -ne "\nDo you want to connect to tmux? [Y/n] "
-    read yn
-    case $yn in
-        "" | [Yy]es | [Yy]*)
-            if [ $(tmux list-sessions | wc -l) -le 0 ]; then
-                exec tmux
-            else
-                exec tmux attach
-            fi
-            ;;
-        * ) 
-            : ;;
-    esac
+    echo
+    tmux list-sessions
+    echo -ne "\nWhich session to connect to? "
+    read session
+    if [ -n "$session" ] && is_tmux_session $session; then
+        exec tmux attach -t $session
+    fi
 fi
 
 stty -ixon -ixoff
