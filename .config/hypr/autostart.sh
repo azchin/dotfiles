@@ -32,6 +32,7 @@ killall waybar
 # pkill pasystray
 # pkill udisksctl
 pkill nm-applet
+pkill solaar
 # pkill devilspie2
 # tmux kill-server
 # killall -q fcitx
@@ -76,6 +77,7 @@ swaybg -o DP-2 -m fill -i $WALLPAPER_DIR/wp12199669.jpg &
 # wireplumber &
 sleep 3
 nm-applet &
+solaar -w hide &
 [ -z "$(pidof keepassxc)" ] && keepassxc &
 [ -z "$(pidof nextcloud)" ] && nextcloud &
 xrdb ~/.config/X11/Xresources
