@@ -2,5 +2,6 @@
 cmd=yazi-wrapper.sh
 default_dir=$HOME
 env=TERMCMD=/etc/profiles/per-user/andrew/bin/alacritty --title termfilechooser -e
+env=YAZI_CONFIG_HOME=/home/andrew/.config/yazi-portal
 open_mode=suggested
 save_mode=suggested
