@@ -63,6 +63,7 @@ sleep 1
 dunst &
 waybar &
 hypridle &
+hyprsunset &
 
 WALLPAPER_DIR=~/drive/pictures/wallpapers
 swaybg -o DP-1 -m fill -i $WALLPAPER_DIR/wp9494969.jpg &
